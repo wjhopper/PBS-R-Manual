@@ -1,0 +1,5 @@
+book_filename: "PBS-R-Manual"
+language:
+  ui:
+    chapter_name: "Chapter "
+new_session: true
