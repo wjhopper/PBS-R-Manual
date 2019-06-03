@@ -1,0 +1,108 @@
+# Advice for Instructors
+
+```{r setup, echo=FALSE, warning=FALSE}
+library(fivethirtyeight)
+library(psych)
+```
+
+## Best Practices
+
+
+
+## Common Errors
+
+
+
+## Data Sets
+
+This section includes an overview of useful data sets for in-class demonstrations or assignments. The first section includes data sets that are "built-in" as part of the base R `datasets` package, whereas the remaining sections review data sets from other packages that need to be installed. 
+
+Note that each package has many more data sets than those we have chosen to highlight here. To see all of the data sets available to you at any given time, including those are built-in with base R or part of loaded packages, enter the following command:
+
+```{r data list, eval=FALSE}
+data()
+```
+
+You should see a list of all the available data sets with a brief summary of each, separated by the package they belong to.
+
+### Built-In
+
+There are several small data sets included in base R that are useful for quick demos. Since they are part of base R, it is not necessary to load these packages; just type and enter their name in the console to view them.
+
+The `iris` data set gives the lengths and widths of the sepals and petals of 50 irises from each of three different species:
+
+```{r iris summary, echo=FALSE}
+summary(iris)
+```
+
+The `warpbreaks` data set gives the number of breaks in each of 54 looms of yarn, varied across two types of wool and three levels of tension:
+
+```{r warpbreaks summary, echo=FALSE}
+summary(warpbreaks)
+```
+
+The `mtcars` data set gives a range of numeric and categorical measurements of 32 cars, including MPG, number of cylinders, horsepower, weight, and transmission type:
+
+```{r mtcars summary, echo=FALSE}
+summary(mtcars)
+```
+
+The `ToothGrowth` data set gives the tooth lengths of 60 guinea pigs, varied across three vitamin C dosage levels and two dosage delivery methods:
+
+```{r ToothGrowth summar, echo=FALSE}
+summary(ToothGrowth)
+```
+
+### FiveThirtyEight
+
+The `fivethirtyeight` package includes data sets used for articles written on Nate Silver's website for data geeks, [FiveThirtyEight](https://fivethirtyeight.com/). From an instructional standpoint, these data sets are useful not only for being particularly engaging but because there is a published article associated with each one.
+
+To make the data sets available, install and load the `fivethirtyeight` package:
+
+```{r load fivethirtyeight, eval=FALSE}
+install.packages('fivethirtyeight')
+library(fivethirtyeight)
+```
+
+The `bechdel` data set is a great all-purpose data set with both within- and between-subject continuous and categorical variables. Based on the [Bechdel Test](https://en.wikipedia.org/wiki/Bechdel_test) for female representation in film, this data set includes 1,794 movies from 1970-2013 along with their test outcome, budget, and gross profits:
+
+```{r bechdel summary, echo=FALSE}
+summary(bechdel)
+```
+
+The `fandango` data set shows ratings from 146 movies across the Fandango, IMDB, Rotten Tomatoes, and Metacritic websites. It is particularly useful for demonstrating correlation:
+
+```{r fandango summary, echo=FALSE}
+summary(fandango)
+```
+
+The `comma_survey` data set has Likert ratings as well as demographic information collected from 1,129 respondents to a survey on the Oxford comma:
+
+```{r oxford_comma summary, echo=FALSE}
+summary(oxford_comma)
+```
+
+The `avengers` data set includes the death and revival status for 173 Marvel comic book characters. It largely includes count and categorical data:
+
+```{r avengers summary, echo=FALSE}
+summary(avengers)
+```
+
+The `bob_ross` data set is a great tool for demonstrating count data and tables. For each of 403 episodes, the data set marks the presence or absence of a series of possible elements in Bob's painting. Useful combinations include tables of trees, lakes, and snowy mountains:
+
+```{r bob_ross summar, echo=FALSE}
+summary(bob_ross)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
