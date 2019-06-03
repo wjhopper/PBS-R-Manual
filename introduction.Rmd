@@ -1,0 +1,31 @@
+# Introducing R and RStudio
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(prompt=TRUE, cache = TRUE) 
+```
+
+## The R Language
+
+R is a complete programming language and computing environment designed to enable statistical modeling, data manipulation, and reporting. Despite its focus on statistics, it is still very feature rich - we can use it to perform mathematical calculations, create data visualizations, connect to remote databases, save results as files on your computers hard drive, and more. In fact, this entire manual was created in R!
+
+To get started, download and install the most current version of R for your operating system:
+
+- Windows: https://cran.r-project.org/bin/windows/base/
+- Mac OS X: https://cran.r-project.org/bin/macosx/
+- Linux: https://cran.r-project.org/bin/Linux/ (as always, see instructions for your specific Linux distribution)
+
+## RStudio 
+
+RStudio is a graphical program that simplifies common R related tasks, organizes information about your current R session, and generally makes it easier to use R. This type of program is called an **I**ntegrated **D**evelopment **E**nvironment, or IDE for short.
+
+We **strongly** recommend using R within RStudio. However, it is important to understand that they are seperate and distinct programs, and R can freely be used outside of RStudio. 
+
+To help your students understand their relationship, you could offer the following analogy: RStudio is like a workbench and toolbox, where R is like a hammer. You do not *need* a workbench and toolbox to build something with your hammer - but having a workbench to rest your project on while you work, and a toolbox where all your nails are organized is very convenient, and will probably help you do your work faster and more accurately.
+
+The company which produces the RStudio software has several different products, all with the "RStudio" in the name. You, and your students, will want to install the "RStudio Desktop - Open Source License" version (i.e., the free version):
+
+- RStudio Desktop for Windows: http://rstudio.org/download/latest/stable/desktop/windows/RStudio-latest.exe
+- RStudio Desktop for Mac OS X: http://rstudio.org/download/latest/stable/desktop/mac/RStudio-latest.dmg
+- RStudio Desktop for Linux: [Get .deb and .rpm packages here](https://www.rstudio.com/products/rstudio/download/#download)
+
+

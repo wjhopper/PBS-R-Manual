@@ -11,4 +11,13 @@ github-repo: wjhopper/PBS-R-Manual
 description: "A guide for instructors teaching statistics and research methods with R in the UMass Amherst Psychological & Brain Sciences Department."
 ---
 
-# Introduction
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(prompt=TRUE)
+```
+
+# Preface
+
+```{r reproducibility}
+sessionInfo()
+```
+
