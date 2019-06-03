@@ -93,10 +93,21 @@ Source: CRAN
 Version: 0.6
 Hash: 2ed8f98b8284ad733f3907fc6e2f1334
 
+Package: mnormt
+Source: CRAN
+Version: 1.5-5
+Hash: d0d5efbb1fb26d2dc5f9394c223084b5
+
 Package: packrat
 Source: CRAN
 Version: 0.4.9-3
 Hash: 03fb817297975f1da0d1b774b47620b3
+
+Package: psych
+Source: CRAN
+Version: 1.8.12
+Hash: 6f9a8ce65a5074d07bd0433747155c28
+Requires: mnormt
 
 Package: rmarkdown
 Source: CRAN
