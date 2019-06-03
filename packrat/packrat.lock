@@ -45,6 +45,11 @@ Source: CRAN
 Version: 0.14
 Hash: 18306cc3bc1aec7b7360eea8a0eb0ee1
 
+Package: fivethirtyeight
+Source: CRAN
+Version: 0.4.0
+Hash: e43e14a0c8d371d4f1ed04b55d0fa77a
+
 Package: glue
 Source: CRAN
 Version: 1.3.1
