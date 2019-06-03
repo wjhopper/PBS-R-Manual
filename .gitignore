@@ -3,3 +3,5 @@ packrat/lib*/
 *.Rhistory
 _book/
 *.rds
+libs/
+.DS_Store
