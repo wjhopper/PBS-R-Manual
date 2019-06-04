@@ -134,6 +134,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html"><i class="fa fa-check"></i><b>2</b> Introducing R and RStudio</a><ul>
 <li class="chapter" data-level="2.1" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#pane-1-the-r-console"><i class="fa fa-check"></i><b>2.1</b> Pane #1: The R Console</a></li>
+<li class="chapter" data-level="2.2" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#pane-2-the-editor"><i class="fa fa-check"></i><b>2.2</b> Pane #2: The Editor</a></li>
+<li class="chapter" data-level="2.3" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#pane-3"><i class="fa fa-check"></i><b>2.3</b> Pane #3</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#variables-and-the-environment"><i class="fa fa-check"></i><b>2.3.1</b> Variables and the Environment</a></li>
+<li class="chapter" data-level="2.3.2" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#history"><i class="fa fa-check"></i><b>2.3.2</b> History</a></li>
+</ul></li>
 </ul></li>
 </ul>
 
@@ -175,7 +180,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span class="co">## [1] 2.6</span></code></pre>
 <p>The R console is the best place to start immersing yourself in the language by experimentation. It allows you to “code as you go”; run one command, see what you get, adjust it and test it again. However, the interactive nature of using the R console makes it a poor choice for saving your work to use again later, and for complicated, multi-step operations.</p>
 <p>When you know you need to repeat the same step again in the future (i.e. re-use code), or you have a task that requires intermediate steps, you should organize all your code into an R script. RStudio allows you to easily write and interactively test out your R scripts in the <strong>Editor Pane</strong>, which is introduced below.</p>
+</div>
+<div id="pane-2-the-editor" class="section level2">
+<h2><span class="header-section-number">2.2</span> Pane #2: The Editor</h2>
+<p>The editor pane is where you can create, modify, and save plain text documents, and is designed to help you create and execute R scripts. An R script is just a text file that contains valid R code (the same kind of commands you would enter into the console), and commonly carries the <code>.R</code> file extension. You can think of an R script like a stand-alone computer program, but instead of double-clicking to run it, you run it via the R interpreter.</p>
+<p>You can create a new, blank R script by going to the File Menu ➡ New File ➡ R Script.</p>
+<p>Rstudio provides several methods for executing the code you’ve written. You can:</p>
+<ul>
+<li>Run a single line of code by placing your cursor on that line and pressing <kbd>Ctrl</kbd> + <kbd>Enter</kbd> (<kbd>⌘ Command</kbd> + <kbd>Enter</kbd> on Mac).</li>
+<li>Run multiple lines of code by selecting all the lines your want to run with your cursor and pressing <kbd>Ctrl</kbd> + <kbd>Enter</kbd> (<kbd>⌘ Command</kbd> + <kbd>Enter</kbd> on Mac).</li>
+<li>Run the entire R script by pressing the “Source” button in the top-right corner of the editor pane, or using the <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd> keyboard shortcut (<kbd>⌘ Command</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd> on Mac)</li>
+</ul>
+<p>No matter which method you use, the code you choose to run will be executed in the R console below, and you will see any results printed out there as well.</p>
+<p>Another reason to write your code in an R script is to keep a short explanation of what you are doing (and why!) together with your code. These short explanations are called <em>comments</em> In R, you write a comment by prefixing the comment’s text with the pound sign <code>#</code>. Comments can go on their own line, or at the end of an R expression.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Hi I am a comment. </span>
+<span class="co"># The R interprer ignores me!</span>
+<span class="dv">2</span><span class="op">*</span><span class="dv">10</span> <span class="op">+</span><span class="st"> </span><span class="dv">3</span><span class="op">/</span><span class="dv">10</span> <span class="co"># comments can go here too!</span>
+<span class="co">## [1] 20.3</span></code></pre>
+</div>
+<div id="pane-3" class="section level2">
+<h2><span class="header-section-number">2.3</span> Pane #3</h2>
+<div id="variables-and-the-environment" class="section level3">
+<h3><span class="header-section-number">2.3.1</span> Variables and the Environment</h3>
+<p>As your R scripts grow beyond adding and subtracting a few numbers, you will often want to save the results of your computations (like datasets, or the results of statistical models) to use multiple times, or to increase the clarity of your code. In R, you can save a value for later use by assigning it to a <em>variable</em> name.</p>
+<p>You can create a new variable using the assignment operator <code>&lt;-</code>, using the syntax <code>name &lt;- value</code> where <code>name</code> is a syntactically valid name, and <code>value</code> is the value you wish to assign. To demonstrate creating a variable, consider the code below, where I create a variable named <code>x</code>, assign it a value of 1, and then print out its value by typing <code>x</code> into the console and pressing enter.</p>
+<pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">1</span>
+x
+<span class="co">## [1] 1</span></code></pre>
+<p>If you execute the first command <code>x &lt;- 1</code> in your own console, you should see it appear in the “Environment” pane of the RStudio window. The environment pane is helpful for keeping track of all the variables you’ve created. If you ever want to clear your Environment (i.e., delete all the variables you’ve created), you can press the <img src="images/clear.png" /> button.</p>
+<p>Variable names are mostly arbitrary (we could have used <code>elephant</code> or <code>jumpluff</code> instead of <code>x</code>), but there are some restrictions on variable names, the most important being:</p>
+<ol style="list-style-type: decimal">
+<li>Spaces are not allowed</li>
+<li>The name cannot begin with a number.</li>
+</ol>
+<p>See the “Details” section of the <a href="https://www.rdocumentation.org/packages/base/versions/3.6.0/topics/make.names">make.names</a> help page, and the <a href="https://www.rdocumentation.org/packages/base/versions/3.6.0/topics/Reserved">list of reserved keywords</a> for a complete set of naming rules.</p>
+</div>
+<div id="history" class="section level3">
+<h3><span class="header-section-number">2.3.2</span> History</h3>
 
+</div>
 </div>
 </div>
             </section>
