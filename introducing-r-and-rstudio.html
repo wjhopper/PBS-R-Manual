@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>UMass PBS Instructors R Manual</title>
+  <title>Chapter 2 Introducing R and RStudio | UMass PBS Instructors R Manual</title>
   <meta name="description" content="A guide for instructors teaching statistics and research methods with R in the UMass Amherst Psychological &amp; Brain Sciences Department." />
   <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="UMass PBS Instructors R Manual" />
+  <meta property="og:title" content="Chapter 2 Introducing R and RStudio | UMass PBS Instructors R Manual" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="wjhopper/PBS-R-Manual" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="UMass PBS Instructors R Manual" />
+  <meta name="twitter:title" content="Chapter 2 Introducing R and RStudio | UMass PBS Instructors R Manual" />
   
   <meta name="twitter:description" content="A guide for instructors teaching statistics and research methods with R in the UMass Amherst Psychological &amp; Brain Sciences Department." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="index.html">
 
-<link rel="next" href="introducing-r-and-rstudio.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -150,72 +150,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">UMass PBS Instructors R Manual</h1>
-<p class="author"><em>Will Hopper</em></p>
-<p class="author"><em>Andrea Cataldo</em></p>
-<p class="date"><em>Jun 4, 2019</em></p>
-</div>
-<div id="preface" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> Preface</h1>
-<p>This book serves as a guide for instructors teaching statistics and research methods with R in the UMass Amherst Psychological &amp; Brain Sciences Department. The book is organized into three main sections:</p>
-<ol style="list-style-type: decimal">
-<li>An introduction to the R language and the Rstudio development environment.</li>
-<li>A reference for performing and interpreting common statistical tests in R.</li>
-<li>Recommended Best practices for instructors.</li>
-</ol>
-<p>Section 1 is primarily intended for instructors who are unfamiliar with the R language and it’s ecosystem. However, we recommended even experienced R users read it, as it is useful to remind yourself of the perspective the majority of your students will be approaching R from, and to get “on the same page” as your fellow instructors.</p>
-<div id="getting-started" class="section level2">
-<h2><span class="header-section-number">1.1</span> Getting Started</h2>
-<p>To follow along with the examples in this book, it is recommended that you install the latest version of R and RStudio to your personal computer.</p>
-<div id="the-r-language" class="section level3">
-<h3><span class="header-section-number">1.1.1</span> The R Language</h3>
-<p>R is a complete programming language and computing environment designed to enable statistical modeling, data manipulation, and reporting. Despite its focus on statistics, it is still very feature rich - we can use it to perform mathematical calculations, create data visualizations, connect to remote databases, save results as files on your computers hard drive, and more. In fact, this entire manual was created in R!</p>
-<p>To get started, download and install the most current version of R for your operating system:</p>
-<ul>
-<li>Windows: <a href="https://cran.r-project.org/bin/windows/base/" class="uri">https://cran.r-project.org/bin/windows/base/</a></li>
-<li>Mac OS X: <a href="https://cran.r-project.org/bin/macosx/" class="uri">https://cran.r-project.org/bin/macosx/</a></li>
-<li>Linux: <a href="https://cran.r-project.org/bin/Linux/" class="uri">https://cran.r-project.org/bin/Linux/</a> (as always, see instructions for your specific Linux distribution)</li>
-</ul>
-</div>
-<div id="rstudio" class="section level3">
-<h3><span class="header-section-number">1.1.2</span> RStudio</h3>
-<p>RStudio is a graphical program that simplifies common R related tasks, organizes information about your current R session, and generally makes it easier to use R. This type of program is called an <strong>I</strong>ntegrated <strong>D</strong>evelopment <strong>E</strong>nvironment, or IDE for short.</p>
-<p>We <strong>strongly</strong> recommend using R within RStudio. However, it is important to understand that they are separate and distinct programs, and R can freely be used outside of RStudio.</p>
-<p>To help your students understand their relationship, you could offer the following analogy: RStudio is like a workbench and toolbox, where R is like a hammer. You do not <em>need</em> a workbench and toolbox to build something with your hammer - but having a workbench to rest your project on while you work, and a toolbox where all your nails are organized is very convenient, and will probably help you do your work faster and more accurately.</p>
-<p>The company which produces the RStudio software has several different products with “RStudio” in the name. You and your students will want to install the “RStudio Desktop - Open Source License” version (i.e., the free version):</p>
-<ul>
-<li>RStudio Desktop for Windows: <a href="http://rstudio.org/download/latest/stable/desktop/windows/RStudio-latest.exe" class="uri">http://rstudio.org/download/latest/stable/desktop/windows/RStudio-latest.exe</a></li>
-<li>RStudio Desktop for Mac OS X: <a href="http://rstudio.org/download/latest/stable/desktop/mac/RStudio-latest.dmg" class="uri">http://rstudio.org/download/latest/stable/desktop/mac/RStudio-latest.dmg</a></li>
-<li>RStudio Desktop for Linux: <a href="https://www.rstudio.com/products/rstudio/download/#download">Get .deb and .rpm packages here</a></li>
-</ul>
-</div>
-</div>
-<div id="reproducibility" class="section level2">
-<h2><span class="header-section-number">1.2</span> Reproducibility</h2>
-<p>The R session information when compiling this book is shown below:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="op">&gt;</span><span class="st"> </span><span class="kw">sessionInfo</span>()</code></pre>
-<pre><code>## R version 3.5.1 (2018-07-02)
-## Platform: x86_64-w64-mingw32/x64 (64-bit)
-## Running under: Windows 7 x64 (build 7601) Service Pack 1
-## 
-## Matrix products: default
-## 
-## locale:
-## [1] LC_COLLATE=English_United States.1252 
-## [2] LC_CTYPE=English_United States.1252   
-## [3] LC_MONETARY=English_United States.1252
-## [4] LC_NUMERIC=C                          
-## [5] LC_TIME=English_United States.1252    
-## 
-## attached base packages:
-## [1] stats     graphics  grDevices utils     datasets  methods   base     
-## 
-## loaded via a namespace (and not attached):
-##  [1] compiler_3.5.1  magrittr_1.5    bookdown_0.11   htmltools_0.3.6
-##  [5] tools_3.5.1     yaml_2.2.0      Rcpp_1.0.1      stringi_1.4.3  
-##  [9] rmarkdown_1.13  knitr_1.22      stringr_1.3.1   xfun_0.6       
-## [13] digest_0.6.19   packrat_0.4.9-3 evaluate_0.14</code></pre>
+<div id="introducing-r-and-rstudio" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Introducing R and RStudio</h1>
+<p><img src="images/rstudio.png" /></p>
+<div id="pane-1-the-r-console" class="section level2">
+<h2><span class="header-section-number">2.1</span> Pane #1: The R Console</h2>
+<p>The R console allows you to execute R code and see the results printed out.</p>
 
 </div>
 </div>
@@ -224,8 +164,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
+<a href="index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="introducing-r-and-rstudio.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
