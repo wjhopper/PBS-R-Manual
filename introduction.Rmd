@@ -1,9 +1,10 @@
 # Introducing R and RStudio
 
-![](images/rstudio.png)
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(prompt=TRUE, cache = TRUE) 
+knitr::opts_chunk$set(cache = TRUE, collapse = TRUE)
 ```
+
+![](images/rstudio.png)
 
 ## Pane #1: The R Console
 
