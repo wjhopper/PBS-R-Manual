@@ -46,43 +46,41 @@ Asking students to print the contents of their console will allow you to see all
 
 It has also become increasingly popular for instructors to provide students with prepared R Markdown (.Rmd) files with fill-in-the-blank style prompts for students to enter their code. This produces a nicely formatted document with their code and output, which may be easier for you administratively. However, this can also obscure the coding process for students and limit their independence. For this reason, we recommend against using prepared R Markdown files, and encourage you to teach students how to create and maintain their own scripts instead.
 
-## Errors, Warnings, and other Red Text
+## Error Messages
 
 All messages printed to the console in red text are meant to get your attention, but they differ in urgency. A message with `Error` printed at the beginning means that there was a problem that prevented the command from being evaluated, and you will not be able to run that command until you fix the problem. A message with `Warning` printed at the beginning means that the command *was* evaluated, but it might not have worked the way you intended, or R might have made some decision for you in order to execute the command. All other messages can generally be taken as updates on the status of your command.
 
-### Common Errors
-
 If you receive an error message that is unclear, the best way to determine the cause is to Google it. A list of the most common errors is provided here for convenience.
 
-#### There is no output from a command, and there is a `+` in the console instead of a `>`.
+### There is no output from a command, and there is a `+` in the console instead of a `>`.
 
 The user has not completed the command, most likely by forgetting to close a quotation (or being inconsistent with the use of single vs. double quotations) or a set of parentheses. You can either add the end quotation or parenthesis if it is the final character, or press the escape button and start again.
 
-#### `Error: unexpected ')' in '___'`
+### `Error: unexpected ')' in '___'`
 
 The user has included one too many end parentheses.
 
-#### `Error: Object '___' not found`
+### `Error: Object '___' not found`
 
 The user has tried to call an object that is not in the environment. This may be because there is a typo in the name of the object, or because the object was never assigned to a label with the `<-` operator.
 
-#### `Error in ___ : non-numeric argument to binary operator`
+### `Error in ___ : non-numeric argument to binary operator`
 
 The user is most likely trying to conduct a mathematical operation on data that is of a non-numeric class, such as character or factor. If the data should be numeric, try overwriting it with `as.numeric()`.
 
-#### `Error in ___(x) : could not find function '___'`
+### `Error in ___(x) : could not find function '___'`
 
 The user is attempting to use a function that is not currently available in R, either because there is a typo in the name of the function or because the function's package has not been loaded in this session.
 
-#### `Error in ___ : cannot open the connection`
+### `Error in ___ : cannot open the connection`
 
 The user is attempting to read or write a file at a location on the hard drive that does not exist, likely due to a typo in the file path or file name.
 
-#### `Error in ___ : undefined columns selected** or **Error in ___: subscript out of bounds`
+### `Error in ___ : undefined columns selected** or **Error in ___: subscript out of bounds`
 
 The user is attempting to index an area of an object that does not exist, for instance, the ninth column of a seven-column data frame.
 
-#### `Error: unexpected symbol in '___'`
+### `Error: unexpected symbol in '___'`
 
 R cannot interpret part of the command, likely because the user has forgotten a comma between function arguments.
 
