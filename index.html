@@ -111,6 +111,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<link rel="stylesheet" href="css/custom.css" type="text/css" />
 </head>
 
 <body>
@@ -128,7 +129,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#the-r-language"><i class="fa fa-check"></i><b>1.1.1</b> The R Language</a></li>
 <li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#rstudio"><i class="fa fa-check"></i><b>1.1.2</b> RStudio</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#reproducibility"><i class="fa fa-check"></i><b>1.2</b> Reproducibility</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#formatting-conventions"><i class="fa fa-check"></i><b>1.2</b> Formatting Conventions</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#reproducibility"><i class="fa fa-check"></i><b>1.3</b> Reproducibility</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html"><i class="fa fa-check"></i><b>2</b> Introducing R and RStudio</a><ul>
 <li class="chapter" data-level="2.1" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#pane-1-the-r-console"><i class="fa fa-check"></i><b>2.1</b> Pane #1: The R Console</a></li>
@@ -191,10 +193,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </div>
 </div>
+<div id="formatting-conventions" class="section level2">
+<h2><span class="header-section-number">1.2</span> Formatting Conventions</h2>
+<p>R source code (i.e. code run in the R console or from an R script) and output are presented in monospace font in regions with a light gray background. We <strong>do not</strong> include command line prompts (<code>&gt;</code> and <code>+</code>, like you would see in a real R console) to the R source code. This is to allow you to conveniently copy and run the code without having to delete the leading prompt symbols. All text output from executing R commands is denoted with two preceeding hashes (<code>##</code>). So, any time you see <code>##</code> following a block of R code, you are looking at the output of the preeceeding command.</p>
+</div>
 <div id="reproducibility" class="section level2">
-<h2><span class="header-section-number">1.2</span> Reproducibility</h2>
+<h2><span class="header-section-number">1.3</span> Reproducibility</h2>
 <p>The R session information when compiling this book is shown below:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="op">&gt;</span><span class="st"> </span><span class="kw">sessionInfo</span>()</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sessionInfo</span>()</code></pre>
 <pre><code>## R version 3.5.1 (2018-07-02)
 ## Platform: x86_64-w64-mingw32/x64 (64-bit)
 ## Running under: Windows 7 x64 (build 7601) Service Pack 1

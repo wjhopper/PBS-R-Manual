@@ -111,6 +111,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<link rel="stylesheet" href="css/custom.css" type="text/css" />
 </head>
 
 <body>
@@ -128,7 +129,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#the-r-language"><i class="fa fa-check"></i><b>1.1.1</b> The R Language</a></li>
 <li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#rstudio"><i class="fa fa-check"></i><b>1.1.2</b> RStudio</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#reproducibility"><i class="fa fa-check"></i><b>1.2</b> Reproducibility</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#formatting-conventions"><i class="fa fa-check"></i><b>1.2</b> Formatting Conventions</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#reproducibility"><i class="fa fa-check"></i><b>1.3</b> Reproducibility</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html"><i class="fa fa-check"></i><b>2</b> Introducing R and RStudio</a><ul>
 <li class="chapter" data-level="2.1" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#pane-1-the-r-console"><i class="fa fa-check"></i><b>2.1</b> Pane #1: The R Console</a></li>
@@ -155,7 +157,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="images/rstudio.png" /></p>
 <div id="pane-1-the-r-console" class="section level2">
 <h2><span class="header-section-number">2.1</span> Pane #1: The R Console</h2>
-<p>The R console allows you to execute R code and see the results printed out.</p>
+<p>The R console allows you to execute R code (often called expressions, or commands) and see the results printed out. To execute R commands, place your cursor at the prompt (the <code>&gt;</code> symbol), type in your code, and press <kbd>Enter</kbd>.</p>
+<p>A simple and easy way to demonstrate using R console is to perform some basic arithmetic, just like a calculator. R has 5 basic arithmetic operators:</p>
+<ul>
+<li><code>+</code> for addition</li>
+<li><code>-</code> for subtraction</li>
+<li><code>*</code> for multiplication</li>
+<li><code>/</code> for division</li>
+<li><code>^</code> for exponentiation</li>
+</ul>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span>
+<span class="co">## [1] 4</span></code></pre>
+<p>R respects the order of operations (i.e. PEMDAS) by default, so if you want to for a specific operation to be executed fist, you need to surround it with parenthesis.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span><span class="op">*</span><span class="dv">10</span> <span class="op">+</span><span class="st"> </span><span class="dv">3</span><span class="op">/</span><span class="dv">10</span>
+<span class="co">## [1] 20.3</span>
+<span class="dv">2</span><span class="op">*</span>(<span class="dv">10</span> <span class="op">+</span><span class="st"> </span><span class="dv">3</span>)<span class="op">/</span><span class="dv">10</span>
+<span class="co">## [1] 2.6</span></code></pre>
+<p>The R console is the best place to start immersing yourself in the language by experimentation. It allows you to “code as you go”; run one command, see what you get, adjust it and test it again. However, the interactive nature of using the R console makes it a poor choice for saving your work to use again later, and for complicated, multi-step operations.</p>
+<p>When you know you need to repeat the same step again in the future (i.e. re-use code), or you have a task that requires intermediate steps, you should organize all your code into an R script. RStudio allows you to easily write and interactively test out your R scripts in the <strong>Editor Pane</strong>, which is introduced below.</p>
 
 </div>
 </div>

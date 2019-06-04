@@ -7,6 +7,7 @@ date: "Jun 4, 2019"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
+css: ["css/custom.css"]
 github-repo: wjhopper/PBS-R-Manual
 description: "A guide for instructors teaching statistics and research methods with R in the UMass Amherst Psychological & Brain Sciences Department."
 ---
@@ -50,11 +51,14 @@ The company which produces the RStudio software has several different products w
 - RStudio Desktop for Linux: [Get .deb and .rpm packages here](https://www.rstudio.com/products/rstudio/download/#download)
 
 
+## Formatting Conventions
+R source code (i.e. code run in the R console or from an R script) and output are presented in monospace font in regions with a light gray background. We **do not** include command line prompts (`>` and `+`, like you would see in a real R console) to the R source code. This is to allow you to conveniently copy and run the code without having to delete the leading prompt symbols. All text output from executing R commands is denoted with two preceeding hashes (`##`). So, any time you see `##` following a block of R code, you are looking at the output of the preeceeding command.
+
 ## Reproducibility
 The R session information when compiling this book is shown below:
 
 ```r
-> sessionInfo()
+sessionInfo()
 ```
 
 ```
