@@ -1,9 +1,10 @@
 # Introducing R and RStudio
 
+![](images/rstudio.png)
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(prompt=TRUE, cache = TRUE) 
 ```
 
-## The R Console
+## Pane #1: The R Console
 
-
+The R console allows you to execute R code and see the results printed out.
