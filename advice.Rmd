@@ -1,17 +1,90 @@
-# Advice for Instructors
+# Tools & Advice for Instructors
 
-```{r setup, echo=FALSE, warning=FALSE}
+```{r setup, include=FALSE}
+
+# Load libraries
 library(fivethirtyeight)
 library(psych)
+library(skimr)
+
+# Tailor skimr
+skim_with(numeric=list(complete=NULL, p0=NULL, p25=NULL, p50=NULL, p75=NULL, p100=NULL), 
+          integer=list(complete=NULL, p0=NULL, p25=NULL, p50=NULL, p75=NULL, p100=NULL), 
+          logical=list(complete=NULL), 
+          character=list(complete=NULL), 
+          factor=list(complete=NULL, ordered=NULL))
+
 ```
 
 ## Best Practices
 
+### Commands vs. Buttons
+
+Though we strongly encourage you to use R through R Studio, we also encourage you and your students to rely on commands instead of button presses where possible. For instance, it is possible to save plots by exporting them from the Plots pane in R Studio, but it is also possible to save them with commands such as `pdf()` or `png()`. There are several benefits to prioritizing commands over button presses. First, it has the practical effect of reinforcing a command-line approach to programming your analyses, which may be new for you and is very likely new for your students. Second, and perhaps more importantly, it encourages reproduceability. If your students document all of the actions that they took in completing an assignment by having a command for each one, it will be easier for you to make sure that they did everything on their own, correct their habits where needed, and find the source of an error. It will also help you to reproduce your own work from semester to semester if your assignments are coded in R.
+
+### Naming Objects
+
+There are relatively few constraints to naming objects in R compared to other statistical software packages. We make several recommendations here for good naming practices.
+
+The "naming conventions" of a particular programming language refer to the formatting guidelines for object names. There are no agreed-upon naming conventions in R, but a good overview can be found [here](https://journal.r-project.org/archive/2012-2/RJournal_2012-2_Baaaath.pdf). In general, the best advice is to pick a convention that appeals to you and use it consistently; we recommend the "underscore_separated" scheme.
+
+### Scripting
 
 
-## Common Errors
+
+### Project Management
 
 
+
+### Formatting Requirements for Assignments
+
+
+
+### Writing Functions
+
+
+
+## Errors, Warnings, and other Red Text
+
+### Message Types
+
+All messages printed to the console in red text are meant to get your attention, but they differ in urgency. A message with `Error` printed at the beginning means that there was a problem that prevented the command from being evaluated, and you will not be able to run that command until you fix the problem. A message with `Warning` printed at the beginning means that the command *was* evaluated, but it might not have worked the way you intended, or R might have made some decision for you in order to execute the command. All other messages can generally be taken as updates on the status of your command.
+
+### Common Errors
+
+If you receive an error message that is unclear, the best way to determine the cause is to Google it. A list of the most common errors is provided here for convenience.
+
+#### There is no output from a command, and there is a `+` in the console instead of a `>`.
+
+The user has not completed the command, most likely by forgetting to close a quotation (or being inconsistent with the use of single vs. double quotations) or a set of parentheses. You can either add the end quotation or parenthesis if it is the final character, or press the escape button and start again.
+
+#### `Error: unexpected ')' in '___'`
+
+The user has included one too many end parentheses.
+
+#### `Error: Object '___' not found`
+
+The user has tried to call an object that is not in the environment. This may be because there is a typo in the name of the object, or because the object was never assigned to a label with the `<-` operator.
+
+#### `Error in ___ : non-numeric argument to binary operator`
+
+The user is most likely trying to conduct a mathematical operation on data that is of a non-numeric class, such as character or factor. If the data should be numeric, try overwriting it with `as.numeric()`.
+
+#### `Error in ___(x) : could not find function '___'`
+
+The user is attempting to use a function that is not currently available in R, either because there is a typo in the name of the function or because the function's package has not been loaded in this session.
+
+#### `Error in ___ : cannot open the connection`
+
+The user is attempting to read or write a file at a location on the hard drive that does not exist, likely due to a typo in the file path or file name.
+
+#### `Error in ___ : undefined columns selected** or **Error in ___: subscript out of bounds`
+
+The user is attempting to index an area of an object that does not exist, for instance, the ninth column of a seven-column data frame.
+
+#### `Error: unexpected symbol in '___'`
+
+R cannot interpret part of the command, likely because the user has forgotten a comma between function arguments.
 
 ## Data Sets
 
@@ -29,28 +102,36 @@ You should see a list of all the available data sets with a brief summary of eac
 
 There are several small data sets included in base R that are useful for quick demos. Since they are part of base R, it is not necessary to load these packages; just type and enter their name in the console to view them.
 
+#### iris
+
 The `iris` data set gives the lengths and widths of the sepals and petals of 50 irises from each of three different species:
 
 ```{r iris summary, echo=FALSE}
-summary(iris)
+skim(iris)
 ```
+
+#### warpbreaks
 
 The `warpbreaks` data set gives the number of breaks in each of 54 looms of yarn, varied across two types of wool and three levels of tension:
 
 ```{r warpbreaks summary, echo=FALSE}
-summary(warpbreaks)
+skim(warpbreaks)
 ```
+
+#### mtcars
 
 The `mtcars` data set gives a range of numeric and categorical measurements of 32 cars, including MPG, number of cylinders, horsepower, weight, and transmission type:
 
 ```{r mtcars summary, echo=FALSE}
-summary(mtcars)
+skim(mtcars)
 ```
+
+#### ToothGrowth
 
 The `ToothGrowth` data set gives the tooth lengths of 60 guinea pigs, varied across three vitamin C dosage levels and two dosage delivery methods:
 
 ```{r ToothGrowth summar, echo=FALSE}
-summary(ToothGrowth)
+skim(ToothGrowth)
 ```
 
 ### FiveThirtyEight
@@ -64,45 +145,108 @@ install.packages('fivethirtyeight')
 library(fivethirtyeight)
 ```
 
+#### bechdel
+
 The `bechdel` data set is a great all-purpose data set with both within- and between-subject continuous and categorical variables. Based on the [Bechdel Test](https://en.wikipedia.org/wiki/Bechdel_test) for female representation in film, this data set includes 1,794 movies from 1970-2013 along with their test outcome, budget, and gross profits:
 
 ```{r bechdel summary, echo=FALSE}
-summary(bechdel)
+skim(bechdel)
 ```
+
+#### fandango
 
 The `fandango` data set shows ratings from 146 movies across the Fandango, IMDB, Rotten Tomatoes, and Metacritic websites. It is particularly useful for demonstrating correlation:
 
 ```{r fandango summary, echo=FALSE}
-summary(fandango)
+skim(fandango)
 ```
+
+#### comma_survey
 
 The `comma_survey` data set has Likert ratings as well as demographic information collected from 1,129 respondents to a survey on the Oxford comma:
 
 ```{r oxford_comma summary, echo=FALSE}
-summary(oxford_comma)
+skim(comma_survey)
 ```
+
+#### avengers
 
 The `avengers` data set includes the death and revival status for 173 Marvel comic book characters. It largely includes count and categorical data:
 
 ```{r avengers summary, echo=FALSE}
-summary(avengers)
+skim(avengers)
 ```
+
+#### bob_ross
 
 The `bob_ross` data set is a great tool for demonstrating count data and tables. For each of 403 episodes, the data set marks the presence or absence of a series of possible elements in Bob's painting. Useful combinations include tables of trees, lakes, and snowy mountains:
 
 ```{r bob_ross summar, echo=FALSE}
-summary(bob_ross)
+skim(bob_ross)
 ```
 
+### psych
 
+In addition to a range of new functions, the `psych` package includes data sets intended to demonstrate common statistical analyses for psychological research.
 
+To make the data sets available, install and load the `psych` package:
 
+```{r load psych, eval=FALSE}
+install.packages('psych')
+library(psych)
+```
 
+#### Tal.Or
 
+The `Tal.Or` data set is from Study 2 of Tol-Or, Cohen, Tasfati, & Gunther (2010), which used an experimental manipulation to test the effects of media on the attitudes of 123 respondents, measured with Likert scales:
 
+```{r Tal.Or summary, echo=FALSE}
+skim(Tal.Or)
+```
 
+#### affect
 
+The `affect` data set consists of responses from 330 participants to state and trait mood scales given before and after viewing (1) a Frontline documentary about the liberation of a concentration camp, (2) the horror movie Halloween, (3) a National Geographic nature film about the Serengeti, or (4) the comedy movie Parenthood:
 
+```{r affect summary, echo=FALSE}
+skim(affect)
+```
 
+#### epi
+
+The `epi` data set includes responses to the Eysenck Personality Inventory from 3570 subjects:
+
+```{r epi summary, echo=FALSE}
+skim(epi)
+```
+
+#### sat.act
+
+The `sat.act` data set includes self-reported SAT and ACT scores along with demographic information from 700 respondents, making it useful for within- or between-subject comparisons:
+
+```{r sat.act summary, echo=FALSE}
+skim(sat.act)
+```
+
+### Simulating your own Data Sets
+
+If none of the available data sets satisfy your needs, or if you simply want to get creative, it is possible to simulate your own data set by drawing random samples from a distribution.
+
+To demonstrate how to simulate a numeric variable, the following code simulates income for 1,000 families from a population in which income is normally distributed around $50,000 with a standard deviation of $5,000:
+
+```{r numeric sample demo}
+sim_income <- rnorm(n=1000, mean=50000, sd=5000)
+hist(sim_income)
+```
+
+To demonstrate how to simulate a categorical variable, the following code simulates grades for 50 students in a pass/fail course in which there is a 50% chance of passing in the population:
+
+```{r categorical sample demo}
+sim_grades <- rbinom(n=50, size=1, prob=.5)
+sim_grades <- factor(sim_grades, levels=0:1, labels=c('FAIL', 'PASS'))
+barplot(table(sim_grades))
+```
+
+Other potentially useful "population" distributions include `rbeta()`, `rbinom()`, `rchisq()`, `rexp()`, `rf()`, `rgamma()`, `rlogis()`, `rlnorm()`, `rpois()`, `rt()`, and `runif()`. See the help documentation for each to see which parameter values can be specified.
 
 
