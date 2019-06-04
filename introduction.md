@@ -22,7 +22,7 @@ A simple and easy way to demonstrate using R console is to perform some basic ar
 ## [1] 4
 ```
 
-R respects the order of operations (i.e. PEMDAS) by default, so if you want to for a specific operation to be executed fist, you need to surround it with parenthesis.
+R respects the [order of operations](https://en.wikipedia.org/wiki/Order_of_operations) (i.e. PEMDAS) by default, so if you want to for a specific operation to be executed fist, you need to surround it with parenthesis. To see how grouping with parenthesis affects arithmetic operations, compare the following two examples:
 
 ```r
 2*10 + 3/10
