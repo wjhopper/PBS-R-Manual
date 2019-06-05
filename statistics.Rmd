@@ -1,0 +1,38 @@
+# Statistics
+
+```{r setup, include=FALSE}
+
+# Load libraries
+library(psych)
+
+```
+
+## Data
+
+We rely on the `sat.act` data set from the `psych` package for all demonstrations in this chapter. 
+
+To make the data set available on your own computer, run the following code:
+
+```{r load psych, eval=FALSE}
+install.packages('psych')
+library(psych)
+```
+
+You should now be able to access the `sat.act` data set:
+
+```{r access sat.act}
+summary(sat.act)
+```
+
+As you can see, this data set includes self-reported SAT and ACT scores along with demographic information from 700 respondents. It therefore contains both categorical and continuous variables that are appropriate for both within- and between-subjects analyses. For more information, refer to the help documentation by running the command `?sat.act`.
+
+## Descriptive Statistics
+
+
+
+## Plotting
+
+
+
+## Inferential Statistics
+
