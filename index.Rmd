@@ -5,7 +5,18 @@ author:
   - name: Andrea Cataldo
 date: "`r gsub(' 0', ' ', format(Sys.Date(), '%b %d, %Y'), fixed=TRUE)`"
 site: bookdown::bookdown_site
-output: bookdown::gitbook
+output:
+  bookdown::gitbook:
+    config:
+      toc_depth: 2
+      toc:
+        collapse: none
+      download: ["pdf"]
+      sharing:
+        github: yes
+        facebook: no
+        twitter: no
+        all: no
 documentclass: book
 css: ["css/custom.css"]
 github-repo: wjhopper/PBS-R-Manual
