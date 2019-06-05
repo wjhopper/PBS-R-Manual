@@ -3,9 +3,20 @@ title: "UMass PBS Instructors R Manual"
 author:
   - name: Will Hopper
   - name: Andrea Cataldo
-date: "Jun 4, 2019"
+date: "Jun 5, 2019"
 site: bookdown::bookdown_site
-output: bookdown::gitbook
+output:
+  bookdown::gitbook:
+    config:
+      toc_depth: 2
+      toc:
+        collapse: none
+      download: ["pdf"]
+      sharing:
+        github: yes
+        facebook: no
+        twitter: no
+        all: no
 documentclass: book
 css: ["css/custom.css"]
 github-repo: wjhopper/PBS-R-Manual

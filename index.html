@@ -135,10 +135,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html"><i class="fa fa-check"></i><b>2</b> Introducing R and RStudio</a><ul>
 <li class="chapter" data-level="2.1" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#pane-1-the-r-console"><i class="fa fa-check"></i><b>2.1</b> Pane #1: The R Console</a></li>
 <li class="chapter" data-level="2.2" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#pane-2-the-editor"><i class="fa fa-check"></i><b>2.2</b> Pane #2: The Editor</a></li>
-<li class="chapter" data-level="2.3" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#pane-3"><i class="fa fa-check"></i><b>2.3</b> Pane #3</a><ul>
+<li class="chapter" data-level="2.3" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#pane-3-your-r-session"><i class="fa fa-check"></i><b>2.3</b> Pane #3: Your R Session</a><ul>
 <li class="chapter" data-level="2.3.1" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#variables-and-the-environment"><i class="fa fa-check"></i><b>2.3.1</b> Variables and the Environment</a></li>
-<li class="chapter" data-level="2.3.2" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#history"><i class="fa fa-check"></i><b>2.3.2</b> History</a></li>
 </ul></li>
+<li class="chapter" data-level="2.4" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#pane-4-miscellaneous"><i class="fa fa-check"></i><b>2.4</b> Pane #4: Miscellaneous</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#plots"><i class="fa fa-check"></i><b>2.4.1</b> Plots</a></li>
+<li class="chapter" data-level="2.4.2" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#packages"><i class="fa fa-check"></i><b>2.4.2</b> Packages</a></li>
+<li class="chapter" data-level="2.4.3" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#help"><i class="fa fa-check"></i><b>2.4.3</b> Help</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#conclusion"><i class="fa fa-check"></i><b>2.5</b> Conclusion</a></li>
 </ul></li>
 </ul>
 
@@ -161,7 +166,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1 class="title">UMass PBS Instructors R Manual</h1>
 <p class="author"><em>Will Hopper</em></p>
 <p class="author"><em>Andrea Cataldo</em></p>
-<p class="date"><em>Jun 4, 2019</em></p>
+<p class="date"><em>Jun 5, 2019</em></p>
 </div>
 <div id="preface" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> Preface</h1>
@@ -250,15 +255,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
+"github": true,
+"facebook": false,
+"twitter": false,
 "google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": false
 },
 "fontsettings": {
 "theme": "white",
@@ -273,10 +278,11 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["PBS-R-Manual.pdf"],
 "toc": {
-"collapse": "subsection"
-}
+"collapse": "none"
+},
+"toc_depth": 2
 });
 });
 </script>

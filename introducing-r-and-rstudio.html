@@ -135,10 +135,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html"><i class="fa fa-check"></i><b>2</b> Introducing R and RStudio</a><ul>
 <li class="chapter" data-level="2.1" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#pane-1-the-r-console"><i class="fa fa-check"></i><b>2.1</b> Pane #1: The R Console</a></li>
 <li class="chapter" data-level="2.2" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#pane-2-the-editor"><i class="fa fa-check"></i><b>2.2</b> Pane #2: The Editor</a></li>
-<li class="chapter" data-level="2.3" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#pane-3"><i class="fa fa-check"></i><b>2.3</b> Pane #3</a><ul>
+<li class="chapter" data-level="2.3" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#pane-3-your-r-session"><i class="fa fa-check"></i><b>2.3</b> Pane #3: Your R Session</a><ul>
 <li class="chapter" data-level="2.3.1" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#variables-and-the-environment"><i class="fa fa-check"></i><b>2.3.1</b> Variables and the Environment</a></li>
-<li class="chapter" data-level="2.3.2" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#history"><i class="fa fa-check"></i><b>2.3.2</b> History</a></li>
 </ul></li>
+<li class="chapter" data-level="2.4" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#pane-4-miscellaneous"><i class="fa fa-check"></i><b>2.4</b> Pane #4: Miscellaneous</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#plots"><i class="fa fa-check"></i><b>2.4.1</b> Plots</a></li>
+<li class="chapter" data-level="2.4.2" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#packages"><i class="fa fa-check"></i><b>2.4.2</b> Packages</a></li>
+<li class="chapter" data-level="2.4.3" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#help"><i class="fa fa-check"></i><b>2.4.3</b> Help</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#conclusion"><i class="fa fa-check"></i><b>2.5</b> Conclusion</a></li>
 </ul></li>
 </ul>
 
@@ -191,15 +196,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Run multiple lines of code by selecting all the lines your want to run with your cursor and pressing <kbd>Ctrl</kbd> + <kbd>Enter</kbd> (<kbd>⌘ Command</kbd> + <kbd>Enter</kbd> on Mac).</li>
 <li>Run the entire R script by pressing the “Source” button in the top-right corner of the editor pane, or using the <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd> keyboard shortcut (<kbd>⌘ Command</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd> on Mac)</li>
 </ul>
-<p>No matter which method you use, the code you choose to run will be executed in the R console below, and you will see any results printed out there as well.</p>
+<p>No matter which method you use, the code you choose to run will be executed in the R console below, and you will see any results printed out there as well. Keeping your code in an R Script allows you to quickly and easily run many commands in a row, without having to type each one in every time you need to do it.</p>
 <p>Another reason to write your code in an R script is to keep a short explanation of what you are doing (and why!) together with your code. These short explanations are called <em>comments</em> In R, you write a comment by prefixing the comment’s text with the pound sign <code>#</code>. Comments can go on their own line, or at the end of an R expression.</p>
+<div id="a-word-of-advice" class="section level4 unnumbered">
+<h4>A Word Of Advice</h4>
+<p>When new programmers keen to improve their skills hear the advice “keep your code in an R Script, not the console”, they often take it quite literally. And they take all the over code they have run in the console, copy it to an R script, save it, and run it all again later. Best practices achieved, right?</p>
+<p>However, new programmers frequently over apply this rule - they keep literally <em>everything</em> they’ve run, even commands that are syntactically incorrect and give errors or incorrect results. An R Script should not be a historical record - rather it should be evolve through editing and careful consideration, much the same way an essay does.</p>
+<p>So, when saving your code in an R Script, try keeping the following rule of thumb: Your R script should have all the commands you need, and none of the ones you don’t. This can be challenging for new programmers - the ability to identify what is necessary and what isn’t develops with time and expertise. So, don’t expect to be perfect at this in the beginning, but do expect to edit and re-edit your R scripts, and don’t treat your “Chapter 2 HW.R” file as your diary of working on your Chapter 2 homework.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Hi I am a comment. </span>
 <span class="co"># The R interprer ignores me!</span>
 <span class="dv">2</span><span class="op">*</span><span class="dv">10</span> <span class="op">+</span><span class="st"> </span><span class="dv">3</span><span class="op">/</span><span class="dv">10</span> <span class="co"># comments can go here too!</span>
 <span class="co">## [1] 20.3</span></code></pre>
 </div>
-<div id="pane-3" class="section level2">
-<h2><span class="header-section-number">2.3</span> Pane #3</h2>
+</div>
+<div id="pane-3-your-r-session" class="section level2">
+<h2><span class="header-section-number">2.3</span> Pane #3: Your R Session</h2>
 <div id="variables-and-the-environment" class="section level3">
 <h3><span class="header-section-number">2.3.1</span> Variables and the Environment</h3>
 <p>As your R scripts grow beyond adding and subtracting a few numbers, you will often want to save the results of your computations (like datasets, or the results of statistical models) to use multiple times, or to increase the clarity of your code. In R, you can save a value for later use by assigning it to a <em>variable</em> name.</p>
@@ -214,11 +225,48 @@ x
 <li>The name cannot begin with a number.</li>
 </ol>
 <p>See the “Details” section of the <a href="https://www.rdocumentation.org/packages/base/versions/3.6.0/topics/make.names">make.names</a> help page, and the <a href="https://www.rdocumentation.org/packages/base/versions/3.6.0/topics/Reserved">list of reserved keywords</a> for a complete set of naming rules.</p>
+<div id="a-word-of-advice" class="section level4 unnumbered">
+<h4>A word of advice</h4>
+<p>When you exit RStudio, you will get a pop-up asking you if you want to “Save workspace image…” to some location on your hard drive. Any person’s natural inclination is to answer “Yes” - what fool doesn’t want to save their work? However, saving your “workspace image” and “saving your work” are not the same thing.</p>
+<p>Saving your <strong>workspace</strong> means saving the state of your R session (i.e., all the variables, you’ve created, packages you’ve loaded, etc.) so they everything can be reloaded the next time you start RStudio. Which sounds great. Until you get a month into the semester, and you’ve keep saving and loading an entire month of R sessions each time. You’ve run out of variable names and have resorted to naming things “xxxxxx” to avoid naming collisions. Or you forget to avoid naming collisions and obliterate that one variable you actually <em>do</em> care about. And now RStudio takes 2 minutes to start and shut down because you’ve created a behemoth.</p>
+<p>In short, saving your workspace sounds great, but encourages very bad practices. It encourages letting RStudio keep track of your past work, instead of writing R scripts, and you end up storing 10 pieces of junk for every one thing you do need.</p>
+<p>We <strong>STRONGLY</strong> advise you to disable this feature, and teach your students to disable it as well. To disable this feature, navigate to Tools Menu Global Options Basic. On this tab, set the “Save workspace to .RData on exit” option to “Never” using the drop down menu, as shown below. Your future self thanks you.</p>
+<p><img src="images/dontsavesession.png" />
+### History
+RStudio also keeps track of the R commands that you’ve run in the past. This is useful during experimentation and testing, because it allows you to quickly copy a previous command, modify it, and try it again. It can also be helpful when you discarded code because you thought it wasn’t useful or necessary, but later realize it was, and need to remind yourself what you did.</p>
+<p>The best was to access the history of your most recent commands is place your cursor in the console, and use the up and down arrow keys. Pressing the ⬆ arrow key will take you through older commands, and press the ⬇ arrow key will take you back to more recent commands. So, next time you need to edit the command you just gave, use the arrow keys to retrieve it instead of typing it out again!</p>
+<p>To access commands more than say, 10, commands in the past, you can use the “History” tab in the top-right pane of the RStudio window. This allows you to examine your history like scrolling through a file, or find commands matching key words, like using a search engine. Remember, the <strong>best</strong> way to remember what you’ve done is to record it in an R Script to use again later, but the “History” tab provides a useful backstop for those moments when you “slip up”.</p>
 </div>
-<div id="history" class="section level3">
-<h3><span class="header-section-number">2.3.2</span> History</h3>
+</div>
+</div>
+<div id="pane-4-miscellaneous" class="section level2">
+<h2><span class="header-section-number">2.4</span> Pane #4: Miscellaneous</h2>
+<p>Don’t let the name of this section mislead you - this pane is just as important and useful as the others. IT provides a window into three of the most important things you need when using R: plots, packages, and help!</p>
+<div id="plots" class="section level3">
+<h3><span class="header-section-number">2.4.1</span> Plots</h3>
+<p>This tab might be the killer feature of R Studio. As you might imagine, this is where figures and plots you create are displayed. R has many simple yet powerful visualization tools, but historically, actually getting those plots to show up somewhere has involved annoying, platform-specific boilerplate code. With the R Studio plot tab, you can forget about these details 95% of the time, and your plots just show up automatically.</p>
+</div>
+<div id="packages" class="section level3">
+<h3><span class="header-section-number">2.4.2</span> Packages</h3>
+<p>The so-called “base” installation of R you downloaded from cran.r-project.org has tons of useful tools for statistical modeling, data manipulation, and visualization built in, but it is far from exhaustive, and new things are being invented all the time! Thankfully, R has a fantastic extension mechanism called “packages”. R packages provide sets of additional commands you can easily install, load into R, and then use for yourself.</p>
+<p>Where can you find these packages, and how can you install them yourself? The gold-standard for R packages is the <a href="https://cran.r-project.org/web/packages/index.html">CRAN repository</a>, which stands for the <strong>C</strong>omprehensive <strong>R</strong> <strong>A</strong>rchive <strong>N</strong>etwork. You can install packages from this repository using the <code>install.packages()</code> command. For example, if I wanted to install the <code>dplyr</code> package (a popular packages which provides opinionated tools for data manipulation), I would execute the following command in the console:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</code></pre>
+<p>If this package has any dependencies (i.e., other packages it needs installed in order to function), R will download and install these dependencies automatically. Once the one-time,e installation process finishes, you can load it into your R session with the <code>library</code> command, like so:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;dplyr&quot;</span>)</code></pre>
+<p>Remember, <em>installing</em> a package is a one-time operation, but you do need to <em>load</em> the package with <code>library</code> each time you start R.</p>
+<p>The “Packages” pane provide a way to see what packages you have installed, and which ones are loaded (loaded packages have a check-mark in front of them). You can also use this pane to install new packages (instead of using the <code>install.packages</code> command, bulk-update all your installed packages, and remove an installed package you no longer want to keep.</p>
+</div>
+<div id="help" class="section level3">
+<h3><span class="header-section-number">2.4.3</span> Help</h3>
+<p>The help pane provides a way for you to access documentation explaining how to use different R functions. You can search all the help pages from the search bar on the “Help” pane. If you know the name of the function you want to view help on, you can type in the console preceded by a question mark, and hit Enter. For example, if I wanted to see more information on how to use the <code>install.packages</code> function, I could type:</p>
+<pre class="sourceCode r"><code class="sourceCode r">?install.packages</code></pre>
+<p>press Enter, and the help page would automatically open.</p>
+</div>
+</div>
+<div id="conclusion" class="section level2">
+<h2><span class="header-section-number">2.5</span> Conclusion</h2>
+<p>Here, we have given an introduction to some of the R language’s basic functionality (the interactive console, arithmetic, variables, plots and packages) by using the layout of the RStudio IDE as a guide. In the next sections, we demonstrate the basic tenants of the R language and basic R programming tasks, such as calling functions, creating and manipulating data structures, and importing data from files on your hard drive into R.</p>
 
-</div>
 </div>
 </div>
             </section>
@@ -241,15 +289,15 @@ x
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
+"github": true,
+"facebook": false,
+"twitter": false,
 "google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": false
 },
 "fontsettings": {
 "theme": "white",
@@ -264,10 +312,11 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["PBS-R-Manual.pdf"],
 "toc": {
-"collapse": "subsection"
-}
+"collapse": "none"
+},
+"toc_depth": 2
 });
 });
 </script>
