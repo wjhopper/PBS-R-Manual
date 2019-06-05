@@ -186,7 +186,7 @@ Lastly, you can use `rnorm()` to randomly sample a class of 50 students from the
 rnorm(50, mean=100, sd=15)
 ```
 
-The previous examples all related to the normal distribution, but can easily be extended to a range of other probability distributions. The full list of distributions can be found [here](https://en.wikibooks.org/wiki/R_Programming/Probability_Distributions). The following table lists the distributions that are likely to be relevant to you as an instructor:
+The previous examples all related to the normal distribution, but can easily be extended to a range of other probability distributions. The full list of distributions can be found [here](https://en.wikibooks.org/wiki/R_Programming/Probability_Distributions). The following table provides an overview the distributions that are likely to be relevant to you as an instructor:
 
 Distribution | Example | Parameters
 :-------|:-------|:-------
@@ -197,29 +197,140 @@ F | `pf()` | df~1~, df~2~, non-centrality
 Binomial | `pbinom()` | size (number of observations), probability
 Uniform | `punif()` | minimum, maximum
 
-We encourage you to view the help documentation for default parameter values and additional details for each distribution.
+View the help documentation for default parameter values and additional details.
 
-### T-Tests
+These functions can be used to conduct statistical analyses by hand. Consider a demonstration of a z-test using the functions for the normal distribution. To test whether an IQ score of 135 is significantly different from the mean IQ score, first find the z-score:
+
+```{r z-score}
+IQ135_z <- (135-100)/15
+IQ135_z
+```
+
+You could then compare that z-score to the critical z-scores associated with an alpha of .05, here assuming a two-tailed hypothesis:
+
+```{r z cutoff}
+qnorm(.025)
+qnorm(.975)
+```
+
+The z-score of an IQ of 135 is greater than the critical z-score for the upper tail, so we can reject the null hypothesis. Note that for a one-tailed hypothesis, simply use one call to `qnorm()` with .05 or .95 for the lower or upper tail, respectively.
+
+Alternatively, you could find the probability of getting a z-score that if equal to the test score or more extreme (in this case, more positive), and compare that to the alpha value instead of the critical z-score:
+
+```{r z-score probability}
+IQ135_z_prob <- 1-pnorm(IQ135_z)
+```
+
+The probability of getting an IQ of 135 is less than alpha (either .025 for a two-tailed hypothesis or .05 for a one-tailed hypothesis), so we reject the null hypothesis.
+
+Note that you could also apply this method by finding the probability of an IQ of 135 given a mean of 100 and standard deviation of 15, and compare that to the alpha value instead:
+
+```{r raw score probability}
+IQ135_prob <- 1-pnorm(135, mean=100, sd=15)
+```
+
+This provides the same probability as for the z-score, so we make the same conclusion. However, though it uses one line of code instead of two, you may find that this method is more confusing for some students, particularly if they are used to seeing distributions centered on 0 elsewhere in the course. 
+
+This same process can be extended to a range of statistical tests, including t tests, F tests, Chi-Square tests, and binomial tests. 
+
+### `t.test()`
+
+The `t.test()` function can be used to execute one-sample, paired, or two-sample t-tests. Each case is demonstrated below, but first note three general arguments that can be used to augment the test:
+
+Argument | Values
+:-------|:--------------------------------------------------------------------
+`alternative` | Set to `two.sided` for a two-sided test, `less` for the lower tail, and `greater` for the upper tail; the default is `two.sided`.
+`var.equal` | Set to `TRUE` to assume equal variance and `FALSE` otherwise; the default is `FALSE`.
+`conf.level` | Provide a number between 0 and 1 to specify the range for the confidence interval; the default is .95.
+
+#### One-sample t-tests
+
+To demonstrate a one-sample t-test, imagine that we are curious whether the average verbal SAT score in the `sat.act` data set is different from 0. We could test that question with the following call:
+
+```{r one-sample t-test}
+t.test(sat.act$SATV)
+```
+
+The output of `t.test()` gives us a nice summary of the results, including the t-statistic, degrees of freedom, p-value, and 95% confidence interval. The p-value is essentially 0, so we can reject the null hypothesis that the average verbal SAT score is 0. 
+
+If we wanted to instead see if the average verbal SAT score was different from 650, we could change the null comparison value by setting the `mu` parameter:
+
+```{r one-sample t-test mu}
+t.test(sat.act$SATV, mu=600)
+```
+
+The p-value is 0.004, so we can reject the null hypothesis that the average verbal SAT score is 600. Instead, it appears to be significantly higher.
+
+#### Paired t-tests
+
+To demonstrate a paired t-test, imagine that we are curious as to whether verbal SAT scores are different from quantitative SAT scores. We can conduct this in one of two ways. 
+
+First, we could calculate the difference score for each pair, then run a one-sample t-test comparing the average difference score to 0:
+
+```{r paired t-test diff}
+
+# Calculate difference scores
+sat.act$SAT_diff <- sat.act$SATV-sat.act$SATQ
+
+# Run a one-sample t-test
+t.test(sat.act$SAT_diff)
+
+```
+
+The p-value is .566, so we fail to reject the null hypothesis that the difference between verbal and quantitative SAT scores are approximately zero.
+
+In the second method, we could have `t.test()` compute the difference scores for us by specifying both samples and setting the `paired` argument to `TRUE`:
+
+```{r paired t-test}
+t.test(sat.act$SATV, sat.act$SATQ, paired=TRUE)
+```
+
+We get exactly the same result. However, note that though this method uses fewer lines of code it risks obscuring the role of difference scores for the student.
+
+#### Two-sample t-tests
+
+To demonstrate a two-sample t-test, imagine that we are curious as to whether male and female students reported different quantitative SAT scores.
+
+The function call is very similar to the second method for conducting a paired t-test, but we set the `paired` argument to `FALSE` instead:
+
+```{r two-sample t-test}
+t.test(sat.act$SATQ[sat.act$gender==1], sat.act$SATQ[sat.act$gender==2], paired=FALSE)
+```
+
+The p-value is approximately .00002, so we can reject the null hypothesis that male and female students report essentially the same quantitative SAT scores. Instead, the mean score for males appears to be significantly higher.
+
+Note that the default value for the `paired` argument is `FALSE`, so running the above call with the `paired` argument omitted would produce the same result. However, you might want to encourage students to always specify the argument for a t-test with two samples so that they can be sure they are running the intended test.
+
+Further, note that the above example indexes the male and female groups within the call to `t.test()`, but you could also ask students to do this separately beforehand:
+
+```{r two-sample t-test index}
+
+# Subset the groups
+male_SATQ <- sat.act$SATQ[sat.act$gender==1]
+female_SATQ <- sat.act$SATQ[sat.act$gender==2]
+
+# Run a two-sample t-test
+t.test(male_SATQ, female_SATQ, paired=FALSE)
+
+```
+
+### `aov()`
 
 
 
-### ANOVA
+### `cor.test()`
 
 
 
-### Correlation
+### `binom.test()`
 
 
 
-### Binomial Tests
+### `chisq.test()`
 
 
 
-### Chi-Square
-
-
-
-### Linear Models
+### `lm()`
 
 
 
