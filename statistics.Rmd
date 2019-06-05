@@ -7,7 +7,7 @@ library(psych)
 
 ```
 
-## Data
+## The Data
 
 We rely on the `sat.act` data set from the `psych` package for all demonstrations in this chapter. 
 
@@ -26,13 +26,207 @@ summary(sat.act)
 
 As you can see, this data set includes self-reported SAT and ACT scores along with demographic information from 700 respondents. It therefore contains both categorical and continuous variables that are appropriate for both within- and between-subjects analyses. For more information, refer to the help documentation by running the command `?sat.act`.
 
+## Formula Objects
+
+Formulas are special objects in R that are used in a range of functions discussed in this chapter, notably `plot()`, `aov()`, and `lm()`. The use of formulas in these specific functions will be discussed in more detail below, but we first introduce their general properties here. 
+
+The basic structure is as follows:
+
+```y ~ x```
+
+The `y` variable is the dependent variable, the `x` variable is the independent variable, and the `~` operator can be taken to mean "as a function of". Thus, the above example is a formula for "y as a function fo x".
+
+For a more concrete example, consider the effect of the independent variable age on the dependent variable ACT scores:
+
+```sat.act$ACT ~ sat.act$age```
+
+We can have multiple independent variables in the formula. For instance, if we wanted to define ACT scores as a function of age and education, we would do so as follows:
+
+```sat.act$ACT ~ sat.act$age + sat.act$education```
+
+The above formula is an example of an "additive" model, in which ACT scores are a function of the additive effects of age and education. To define the interactive model, we would separate age and education by an asterisk instead of a plus sign:
+
+```sat.act$ACT ~ sat.act$age*sat.act$education```
+
+Note that the above formula defines the *full* interactive model, so ACT scores are defined as a function of (1) the main effect of age, (2) the main effect of education, and (3) the interaction of age and education. This same model can be implemented by definind each components separately in the formula object, like this:
+
+```sat.act$ACT ~ sat.act$age + sat.act$education + sat.act$age:sat.act$education```
+
+By defining the components separately, you can pick and choose which to keep. For instance, you could specify only the main effect of age and the interaction of age and education, as follows:
+
+```sat.act$ACT ~ sat.act$age + sat.act$age:sat.act$education```
+
+Formulas can get much more complex than the examples here, which only extend as far necessary for the functions and tests that you are likely to use as an instructor in undergraduate psychology program. A comprehensive tutorial can be found [here](https://www.datacamp.com/community/tutorials/r-formula-tutorial). 
+
 ## Descriptive Statistics
+
+### Mean
+
+
+
+### Median
+
+
+
+### Variance
+
+
+
+### Standard Deviation
+
+
+
+### Standard Error
+
+
+
+### Correlation
+
+
+
+### Summary Functions
 
 
 
 ## Plotting
 
+### Scatter & Line Plots
+
+
+
+### Barplots
+
+
+
+### Histograms
+
+
+
+### Boxplots
+
+
+
+### Configuring Plots
+
+
+
+### What about ggplot?
+
 
 
 ## Inferential Statistics
+
+### Distribution Functions
+
+The sections below introduce functions for executing common statistical tests. However, R's family of distribution functions also make it possible to explore the underlying probability distributions for each test, and to carry out each test by hand. We therefore begin our demonstration of inferential statistics by giving an overview of these powerful intructional tools. 
+
+Each distribution can be accessed by a set of four functions, each labelled with the name of the distribution and a prefix:
+
+Prefix | Task | Example
+:-------|:------------------------------------------------------|:-------
+d | Get the probability density associated with a point on the x-axis. | `dnorm()`
+p | Get the probability of a value above or below a point on the x-axis. | `pnorm()`
+q | Get the x-axis value marking a cumulative probability. | `qnorm()`
+r | Get a random sample from the distribution. | `rnorm()`
+
+
+To demonstrate the use of these functions, consider that IQ scores are meant to be normally distributed with a mean of 100 and a standard deviation of 15:
+
+```{r IQ histogram with curve, echo=FALSE}
+hist(rnorm(10000, mean=100, sd=15), freq=FALSE, ylim=c(0, .03), xlab='', main='IQ Scores')
+points(x=seq(40, 160, .001), y=dnorm(seq(40, 160, .001), mean=100, sd=15), type='l', col='red')
+```
+
+The functions for getting the probability density associated with a point on the x-axis, such as `dnorm()` in the case of the normal distribution, are unlikely to come up in class. However, they may be useful for generating figures such as the one above, which was created with the following code:
+
+```{r IQ code for histogram with curve, eval=FALSE}
+hist(rnorm(10000, mean=100, sd=15), freq=FALSE, ylim=c(0, .03), xlab='', main='IQ Scores')
+points(x=seq(40, 160, .001), y=dnorm(seq(40, 160, .001), mean=100, sd=15), type='l', col='red')
+```
+
+Note that the input to `dnorm()` was a sequence of values from 40 to 160, by steps of .001. The output was the probability density for each value in the sequence. These values were then used to create a continuous curve that was added to the histogram of the data, in which the argument `freq=FALSE` ensured that the y-axis denoted probability densities instead of counts. 
+
+You can use `pnorm()` to demonstrate that there is a 9.12% chance of getting an IQ score that is less than or equal to 80:
+
+```{r pnorm example}
+pnorm(80, mean=100, sd=15)
+```
+
+To find the probability of getting a value *greater than* or equal to a cutoff, such as 80, you can either add the argument `lower.tail=FALSE`:
+
+```{r pnorm lower tail example}
+pnorm(80, mean=100, sd=15, lower.tail=FALSE)
+```
+
+...or, since the area under the curve sums to 1, you can subtract the output of the previous command from 1:
+
+```{r pnorm subtract example}
+1-pnorm(80, mean=100, sd=15)
+```
+
+The latter method may be better for instructional purposes.
+
+You can use `qnorm()` to demonstrate that an IQ score of 124.67 marks the 95th percentile of scores:
+
+```{r qnorm example}
+qnorm(.95, mean=100, sd=15)
+```
+
+Similarly, you can add the argument `lower.tail=FALSE` to see the point on the x-axis that marks the *top* 95% of scores:
+
+```{r qnorm lower tail example}
+qnorm(.95, mean=100, sd=15, lower.tail=FALSE)
+```
+
+Note that subtracting from 1 does not work here as it did with `pnorm()` because the output of `qnorm()` is a quantile, which does not need to sum to 1 as probabilities do.
+
+Lastly, you can use `rnorm()` to randomly sample a class of 50 students from the population of IQ scores:
+
+```{r rnorm example}
+rnorm(50, mean=100, sd=15)
+```
+
+The previous examples all related to the normal distribution, but can easily be extended to a range of other probability distributions. The full list of distributions can be found [here](https://en.wikibooks.org/wiki/R_Programming/Probability_Distributions). The following table lists the distributions that are likely to be relevant to you as an instructor:
+
+Distribution | Example | Parameters
+:-------|:-------|:-------
+Normal | `pnorm()` | mean, SD
+Student's T | `pt()` | df, non-centrality
+Chi-Square | `pchisq()` | df, non-centrality (non-negative)
+F | `pf()` | df~1~, df~2~, non-centrality
+Binomial | `pbinom()` | size (number of observations), probability
+Uniform | `punif()` | minimum, maximum
+
+We encourage you to view the help documentation for default parameter values and additional details for each distribution.
+
+### T-Tests
+
+
+
+### ANOVA
+
+
+
+### Correlation
+
+
+
+### Binomial Tests
+
+
+
+### Chi-Square
+
+
+
+### Linear Models
+
+
+
+
+
+
+
+
+
 
