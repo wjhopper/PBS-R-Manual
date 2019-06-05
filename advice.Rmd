@@ -245,6 +245,6 @@ sim_grades <- factor(sim_grades, levels=0:1, labels=c('FAIL', 'PASS'))
 barplot(table(sim_grades))
 ```
 
-Other potentially useful "population" distributions include `rbeta()`, `rbinom()`, `rchisq()`, `rexp()`, `rf()`, `rgamma()`, `rlogis()`, `rlnorm()`, `rpois()`, `rt()`, and `runif()`. See the help documentation for each to see which parameter values can be specified.
+Other potentially useful "population" distributions include `rbeta()`, `rbinom()`, `rchisq()`, `rexp()`, `rf()`, `rgamma()`, `rlogis()`, `rlnorm()`, `rpois()`, `rt()`, and `runif()`. A full list can be found [here](https://en.wikibooks.org/wiki/R_Programming/Probability_Distributions). See the help documentation for each to see which parameter values can be specified.
 
 
