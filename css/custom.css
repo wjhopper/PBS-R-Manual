@@ -11,3 +11,18 @@ kbd {
     white-space: nowrap;
     line-height: 1.25;
 }
+
+.Rerrormsg > code{
+    color: red !important;
+    font-weight: bold;
+}
+
+.Rerrormsg {
+    margin-top: -2.5em !important;
+}
+
+.r-help-page {
+    border: 1px solid #adb3b9;
+    border-radius: 3px;
+    padding: 1em 1em;
+}

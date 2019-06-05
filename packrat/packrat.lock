@@ -98,6 +98,12 @@ Source: CRAN
 Version: 0.4.9-3
 Hash: 03fb817297975f1da0d1b774b47620b3
 
+Package: printr
+Source: CRAN
+Version: 0.1
+Hash: 85ccb7e088b4752b6baf71d63b393d65
+Requires: knitr
+
 Package: rmarkdown
 Source: CRAN
 Version: 1.13

@@ -1,0 +1,350 @@
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(cache = TRUE, collapse = TRUE)
+```
+
+# R Programming Fundamentals
+
+In this section, we outline the basic concepts of the R language (data classes, data structures, operators and functions), and demonstrate how to perform some common tasks.
+
+## Classes of Data
+The data you work with in R belong to one of several possible classes. The distinction between classes of data is crucial, because the class you instantiate your data with determines the set of possible operations you can perform on that data.
+
+R has 6 "atomic" classes of data, but you will only encounter 4 of these in Psych 240 and 241. These classes are: Numeric, Integer, Logical, and Character. They are dubbed "atomic" classes because they are the fundamental units of the language (i.e., you cannot access a more basic type of object than these 6 classes) and they provide the building blocks for more complex classes and data structures. The 4 frequently used classes are described in more detail below.
+
+### The Numeric Class
+The numeric class is used to represent real numbers (i.e., numbers with a fractional component), for example, 6.23. The numeric class is also known as the "double" class, because internally it utilizes [double floating point precision](https://en.wikipedia.org/wiki/Double-precision_floating-point_format). The numeric class is the default class used to represent numbers in R. So, if you were to execute the command `2 + 2` in the R console, R would represent those 2's using the numeric class.
+
+#### Special Values {-#special-values}
+R has several special numeric values. `Inf` and `-Inf` are used to represent positive and negative Infinity, respectively. `NaN` is used when the results of a numeric computation produce[ "Not A Number".](https://en.wikipedia.org/wiki/NaN), such as when multiplying a number produces a value too small for the computer to represent. `NaN` is often abused to represent missing values, but the special value [NA](#missing) should be preferred.
+
+### The Integer Class
+Just as in mathematics, the integer class can only represent whole numbers, e.g. 6. However, if you type `6` into the R console, R will not use the integer class to represent the 6. As mentioned just above, R will use the numeric data type to represent the 6. If you want to *force* R to use the integer class, you must terminate the number with an upper-case L, e.g. `2L`. In practice, it usually makes little difference whether you use the integer class or the numeric class to represent whole numbers, so sticking with the default class of numeric is safe to do.
+
+### The Logical Class {#logicals}
+Logical data can only take on 2 possible values: TRUE (1) or FALSE (0). This type of datum is used to represent whether some state exists (is true) or does not exist (is false). TRUE and FALSE **must be uppercase**. They *can* can be abbreviated as T and F, but it is not recommended (The names `T` and `F` can be over-written with non-logical values, But `TRUE` and `FALSE` are reserved names that can never be overwritten. Such a restrictive class of data may not seem useful, but play an important role in data manipulation, as they can be used to indicate the presence (or absence) of other data values you are interested in.
+
+You can change a `TRUE` to a `FALSE` (or a `FALSE` to a `TRUE`) by prefixing them with the `!` negation operator.
+
+```{r negate}
+TRUE
+!TRUE
+!FALSE
+```
+
+The `!` operator isn't useful when you are typing out literal `TRUE` and `FALSES`, but is useful in situations where you have a function which produces one type of logical, and but you're interested in the opposite. We will look at such a case later in the [logical indexing](#indexing) section.
+
+#### Special Values {-#missing}
+R uses the special value `NA` to denote when a value is missing. `NA` is *technically* a logical value, but can used alongside other atomic classes of data without issue.
+
+### The Character Class
+The character data type (sometimes referred to as the "string" data type) is used for representing textual data.
+To encode a string of text as character data in R, it must be wrapped in quotes (`" "` or `' '` are both acceptable). 
+```{r textdata_good}
+a <- "foobar"
+a
+```
+
+Without the quotes, R will interpret the text as the name of an R variable, and attempt to locate that variable. As demonstrated below, missing quotes is a common source of "object not found" errors.
+
+```{r textdatabad, error=TRUE, class.error="Rerrormsg"}
+a <- foobar 
+```
+
+Sometimes, a value can be represented using *either* a Character or Numeric class. For example, 4.2 could be represented as a numeric by typing `4.2` or a character by typing `"4.2"`. While these look similar, and print similarly, they behave *very* differently. Consider the following two operations.
+
+```{r goodtyping, error=TRUE, class.error="Rerrormsg"}
+4.2 + 1
+"4.2" + 1
+```
+
+This illustrates the earlier point that different classes of data support different operations. Here, we can see that you cannot perform mathematical operations on Character data, even if the data **could** be interpreted numerically.
+
+### Factors
+Factors are not an atomic data class, but it is nearly impossible to use the R language and avoid encountering data with the Factor class. Factors are a hybrid class of data, in which values are printed out with character labels, but are represented internally with integers. Importantly, when a Factor variable is created, the range of possible new values it can take on is restricted - only values that belong to the set of initial values can be inserted or appended. Factors exists in order to have a data class that can represent categorical variables in statistical models such as ANOVA.
+
+The reason Factors are unavoidable is because many functions in R *automatically* convert Character data into Factors. Two notorious culprits are the `data.frame` function, and the `read.csv` function (both of which we will encounter later). New programmers often use these functions, unaware of the implicit conversations they carry out behind the scenes, and are surprised later on when they find that cannot perform some operation (like appending new Character values to ones they already have). Luckily, the conversion-happy behavior of these functions can be stopped by changing one of R's global options, `stringsAsFactors`. To turn off this conversion, execute the command `options(stringsAsFactors = FALSE)` in your R Script or console. We **STRONGLY** recommend disabling this conversion.
+
+### Class detection and conversion
+Speaking of conversion, programmers commonly face the need to convert data of one class into data of another class. To determine which class of data you have, you can use the `class` function. For each atomic class, R provide a class detection function (starting with the prefix `is.`) which provides a `TRUE` or `FALSE` response, and a class conversion function (starting with the prefix `as.`). Consider the following examples:
+
+```{r}
+x <- 1
+class(x) 
+is.numeric(x)
+is.integer(x)
+x <- as.integer(x)
+class(x)
+is.integer(x)
+x <- as.logical(x) # 1 converts to TRUE
+x
+x <- as.character(x) # TRUE converts to "TRUE"
+x
+is.character(x) 
+```
+
+Class conversion is not always possible (e.g., `"Z"` cannot be converted into a number) or without loss of information (e.g., a numeric like `6.23` cannot be converted to an integer without losing the `.23`.).
+
+## Data Structures
+In order to introduce variables and classes, we have restricted our examples to using single, scalar values, like `6` and `"foobar"`. Of course, when analyzing data, it is necessary to group multiple values together. R provides several different types of **data structures** for this purpose, Think of data structures in R as big containers used for grouping together many values. After storing your data in these containers, you can reuse it multiple places (e.g. create an R object to store it) or access different subsets of it by position or name.
+
+Each type of data structure focuses on representing different classes of data, and different relationships between the values in the data structure. In Psych 240 and 241, you will encountered 4 types of data structures: Vectors, Matrices, Data Frames, and Lists.
+
+### Vectors
+Vectors are 1 dimensional data structures which can hold values of a single atomic class. Classes of data *cannot* be mixed within a vector. In other words, a vector can hold either Integer, Numeric, Character, or Logical values, but not any combination of those values.
+
+
+Vectors, no matter what type of data they hold, can be created by using the `c()` function in R, short for concatenate. Just place each value you want to be included in the vector inside the parenthesis, separated with a comma.
+
+The individual values held in the vector are referred to as elements, and vectors have a length equal to the number of elements it contains. You can check how many elements there are in a vector using the `length()` function
+
+
+```{r vector_creation}
+new_vector <- c(1, 10, 45, -1)
+length(new_vector)
+char_vector <- c("foo", "bar", "herp", "derp")
+length(char_vector)
+```
+
+`c()` can also combine existing vectors into a single, larger vector
+```{r concatenate}
+big_vec <- c(new_vector, c(1, 2, 3, 4, 5))
+big_vec
+```
+
+If you need to create a vector that contains a long one-by-one numeric sequence, there is a shortcut for typing out all the values you need - the `:` operator. Put the first number in the sequence before the colon and the final number in the sequence after the colon:
+
+```{r sequence}
+5:50
+```
+
+After you create a vector, you can give each elements a name, using the `names()` function and a character vector.
+
+```{r named_Vec}
+names(new_vector) <- c("A", "B", "C", "D")
+new_vector
+```
+
+Names can be useful when you want to select a subset of the values in a vector, which will come up in Section \@ref(sub-setting).
+
+### Matrices
+Matrices in R are analogous to matrices from linear algebra, with the notable difference of being able to hold non-numeric types of data. They are a rectangular 2-D data structure, meaning that the number of elements in the matrix is be equal to the product of the number of rows and the number of columns.
+
+- rows = dimension 1
+- columns = dimension 2
+
+Like vectors, data types may *not* be mixed in a matrix (e.g. you cannot have some elements be characters and other be numeric, etc.)
+
+A matrix is created by feeding a vector into the `matrix()` function, and specifying either the number of rows *or* number of columns, *or* both.
+
+```{r makeMatrix, render=knitr:::knit_print.default}
+wide <- matrix(c(1:3, 99:101), ncol = 3)
+wide
+long <- matrix(c(1:3, 99:101), nrow = 3)
+long
+```
+
+If you want a large matrix but with only a few unique values, take advantage of R's ability to **recycle** input.
+```{r recycle, render=knitr:::knit_print.default}
+matrix(c(4), nrow = 3, ncol = 10)
+```
+
+Note the matrix is filled up by column (i.e. first element goes to row 1 column 1, second element goes to row 2, column 1, etc.)
+```{r fill_pattern, render=knitr:::knit_print.default}
+matrix(c(4,0), nrow = 2, ncol = 10)
+```
+
+### Data Frames
+Like matrices, Data Frames are are 2D, rectangular data structures, but are more flexible because they allow for different data types to be stored in each column. A Data Frame is usually the best way to store and work with a dataset that mixes qualitative and quantitative variables. 
+
+Data frames can be created by passing `name = value` pairs to the `data.frame()` function. The values should be vectors (of any type) and the names should be unquoted strings of text, which will be used to label each column. Importantly, all the vectors stored in the data frame must be of *identical length*.
+
+Essentially, a data frame is a container that imposes a relational structure on a set of vectors. 
+```{r dataframeexample, render=knitr:::knit_print.default}
+df <- data.frame(x = c(1,4,4,2),
+                 y = c(3,3,1,4),
+                 month = c("Sep","Oct","Nov","Jan"),
+                 stringsAsFactors = FALSE)
+df
+```
+
+This example also shows an extra argument, `stringsAsFactors = FALSE`, that was **not** a variable to store in the data frame. This argument is another way to controls how R interprets character vectors (a.k.a. strings) when forming the data frame. Here, using `stringsAsFactors = TRUE` forces R to leave your character vectors as they are when creating the data frame.
+
+### Lists
+Lists are the most abstract and flexible data structure in R. Lists can hold any type of R object, but doesn't impose any relationship between them. You can have a list holding matrices, data frames, vectors, and even lists holding other lists!
+
+Think of lists like a folder on your hard drive. You can stuff any kind of file you like in there and give it a name, but there is no relationship between them inside that folder, other than the order they are sorted in. Use a list when you need to group data structures of different sizes and types together. But carefully consider if there is another way, because the lack of structured relationships between the data in different list elements can make them tricky to work with
+
+As you might have guessed, you can create lists of your own with the `list()` function. Like the `data.frame()` function, you pass in `name=value` pairs. But now, the values can be any R object, of any size, not just vectors with the same lengths.
+
+```{r createlist}
+biglist <- list(first = -10:-15, second = data.frame(x=c("A","B"), y = 1:2))
+biglist
+```
+
+## Operators
+Creating data structures is great, but creating them is rarely ever the goal we have in mind - we always want to manipulate and perform computations using our data. Nearly every analysis you perform will make use of R's inline **operators**. We've seen these operators already when we did [arithmetic in the R console](#console). As a reminder, R has 5 basic arithmetic operators:
+
+- `+` for addition
+- `-` for subtraction
+- `*` for multiplication
+- `/` for division
+- `^` for exponentiation
+
+R also has two other types of operators: **Relational** operators and **Logical** operators. 
+
+### Relational Operators
+As the name implies, relational operators are used to examining the realtionship between values. R has 6 relationsal operators:
+
+- `<`: The "less than" operator
+- `<=`: The "less than or equal to" operator
+- `>`: The "greater than" operator
+- `>=`: The "greater than or equal to" operator
+- `==` The "equal to" operator
+- `!=` The "not equal to" operator
+
+All 6 of these operators can be used sensibly on Integer and Numeric data, while only the last two can be used sensibly on Logical and Character data.
+
+Each of these operators returns it's answer in the form of a Logical value. Consider the following examples that demonstrate each operator:
+
+```{r relations}
+1 < 2
+1 > 2
+2 > 2
+2 >= 2
+2 == 2
+2 != 2
+1 != 2
+
+"hi" == "hello"
+"bye" == "bye"
+"bye" != "bye"
+```
+
+These relational operators can be applied to matrices and vectors as well. When applied to matrices and vectors, they operate **elementwise**, meaning they operate on each element of the vector or matrix one at a time, and give you an answer for each indivdual element. So, if you apply the `==` operator to a vector with 10 values, you will get 10 `TRUE`/`FALSE` answers.
+
+```{r}
+c(10, 5, -10) > 0
+c(10, 5, -10) == 0
+c("foo", "bar", "herp", "derp") == "bar"
+```
+
+When you have a vector or matrix on *both* sides of the operator, it still operates elementwise. In this situation, it will match up the elements on each data structure by position (first with first, second with second, etc.).
+
+```{r}
+c(10, 5, -10) > c(20, -5, 0)
+c(10, 5, -10) == c(20, -5, 0)
+```
+
+When using relational operators with two vectors/matrices, make sure they both have the same number of elements. If not, R will recycle values from the beggining of the shorter vector in order to "pad" it's length. This is probably not what you want to happen, but R will **only** warn you if the length of the longer vector is not a multiple of the shorter vector. If it is a multiple, then R will recycle silently. Be vigilant! 
+
+```{r dontrecycle1}
+c(10, 5) == c(20, -5, 0, 50) # No warning, 4 is a multiple of 2 !!!
+```
+
+```{r dontrecycle2, class.warning="Rerrormsg"}
+c(10, 5) == c(20, -5, 0) # Recycling warning, 3 is not a multiple of 2
+```
+
+### Logical Operators
+R's logical operators are used for combining together multiple Logical values into a single Logical value. The 5 main logical operators are:
+
+- `!`: The "negation" operator (mentioned in the [Logical Data](#logicals) section)
+- `&`: The "elementwise and" operator
+- `&&`: The "scalar and" operator
+- `||`: The "elementwise and" operator
+- `|`: The "scalar and" operator
+
+We will not cover the use of these operators in the guide, as they go beyond the programming scope expected of Psych 240 and 241 students. Interested instructors are advised to look at examples here: 
+
+- [Manipualting Data](https://wjhopper.github.io/psych640-labs/labs/ManipulatingData.html)
+- [Logical Operators in R](https://www.youtube.com/watch?v=6PpQS-YLWDQ)
+
+## Functions
+We have used functions in several previous examples, without providing explanation of what an R function is, or how they are used generally. So, what is an R function?
+
+A function is fixed piece of code that accepts input values, performs some operations or calculations on these values, and returns some results. The purpose of having functions in a programming language is to allow you to repeat an operation in multiple places without have to repeat all of the code that defines the operation. A good way to start thinking about functions is think about algebraic equations. For instance, if we have the algebraic equation $y=\sqrt{x}$:
+
+- $x$ is the input
+- $\sqrt\\$ is the operation performed on the input
+- $y$ is the output, in this case the result of taking the square root of $x$
+
+When you use a function, you are performing a 'function call' (in computer science-ish terms). 
+This leads to colloquialisms like "Call `mean` on that matrix" or "This code calls `diag` to extract the diagonal elements". 'Call' does not mean anything special to us. All using the word 'call' means in this context is 'use a function'.
+
+The inputs to functions go by several names, but most often they are called "**arguments**" or "**parameters**". Calling a function with some specific input is often called "passing an argument". Don't confuse function parameters with population parameters from the statistics side of class
+
+Perhaps the best way to understand the properties of R functions, and how they can be used, is to look the documantion of an R function. Here, we'll examine the documentation for a function we've used previously, the `matrix` function. We'll access it by executing the command `?matrix` in the console.
+
+```{r matrix, eval=FALSE}
+?matrix
+```
+
+We'll focus on the Description, Usage, and Arguments section, shown below:
+```{r matrix2, printr.help.sections=c("description","usage","arguments")}
+invisible(loadNamespace('printr'))
+?matrix
+unloadNamespace('printr')
+```
+
+### Description
+As you might expect, the Description section describes what the function is used for, and lists the functions that are documented in this page. Here, the `matrix`, `as.matrix` and `is.matrix` functions are documented.
+
+### Usage
+The usage section tells you:
+
+  - The syntax for invoking the function
+  - The names of the accepted arguments
+  - The order of the arguments
+  -  Which arguments are **required** and which are **optional**
+      + Arguments with an `=` are optional
+      + All others are required
+
+We can see that the `matrix ` function has 5 arguments, `data`, `nrow`, `ncol`, `byrow` and `dimnames`, each with a default argument. Because all the arguments have defaults, we know that we can call the `matrix` function with no arguments and still get a result!
+
+
+Lines saying "S3 Method for class ..." tell you about the functions' behavior when called on objects of a specific class. For example, this help page tells us that when the the `as.matrix` fucntion is called on a data.frame, there is an optional argument called `rownames.force` that isn't used when the input is some other data structure (like a vector). We can safely ignore the cryptic term "S3 Method". 
+
+But, we will focus on other cryptic parts of the "Usage" section. But the usage section is also cryptic! What is `x`? What is `trim`? What do they do? For clarification, we must go the the arguments sections.
+
+### Arguments
+The detailed descriptions in the arguments section tell us what types of values each argument is permitted to take on. It also tells us what aspect of the function's behavior each argument controls. For example, the `byrow` argument must be a logical value (i.e., `TRUE` or `FALSE`) and it controls whether the matrix is row-by-row, or column-by-column.
+
+### Named vs. Unnamed Arguments
+As we see in the "Usage" and "Arguments" sections, every function argument has a name (e.g., `x`, `na.rm`, `trim`). When you call a function, those names can be used in a `keyname = value` style of syntax, or they may be omitted in favor of just specifying the value. 
+
+If you wish to omit the names of the arguments when calling a function **you must order your inputs in the exact same order as they appear in the `Usage` section!!!** If you specify arguments as `keyname=value` pairs, they may be passed in any order. If you mix and match named and unnamed, unnamed inputs that R encounters will be paired up with the unmatched arguments following their order in the Usage section.
+
+```{r named_examples, render=knitr:::knit_print.default}
+x <- c(4,10,3,33,2,NA,43,22,31,95)
+matrix(data=x, byrow=TRUE, nrow=2, ncol=5) # named key/value style
+matrix(x, 2, 5, TRUE)  # unnamed style, byrow goes last
+```
+
+```{r unnamed_examples, render=knitr:::knit_print.default}
+matrix(x, TRUE, 2, 5) #5 gets matched up with byrow, not ncol!
+```
+
+### A word of advice
+So, which style should you prefer when writing code in an R script: named or unnamed arguments? We recommend using named arguments for all arguments past the first. This strikes a balance between verbosity and clarity - it is often easy to remember what the first argument to a function does and what kind of values it should take on, but it is often difficult to remember the role and order of arguments beyond that. 
+
+For example, you have just read the documentation for the `matrix` function - can you remember whether the `nrow` or `ncol` argument goes first? Are you confident enough to just write some code without looking it up. And are you confident that you'll still remember whether you're making a 10 by 50 or a 50 by 10 matrix when you re-read your code tommorow?
+
+We would venture to guess the answer to these questions is "No", which makes a strong case for naming your arguments when you write your code. Trust us, if you ever venture into a programming language without support for named arguments (I'm looking at you, MATLAB), you'll yearn for named arguments. 
+
+In summary: When in doubt, name your arguments.
+![warning](http://dev.mensfeld.pl/wp-content/uploads/2014/08/you-have-been-warned.jpg)
+
+#### Special Arguments
+You may have noticed that in the "Usage" section, the `as.matrix` and the `is.matrix` functions have an argument called  `...`. In fact, many R functions have such an argument. A full discussion of the `...` construct is beyind the scope of this guide (or the elipsis, if you're trying to Google it) is beyond the scope of this guide. For our purposes, we can understand it as a special "catch all" device for any parameters inputs that aren't otherwise explicitly declared. The `...` is used to enable arugment passing between functions: it allows one function to capture arguments intended for another function, and send them directly to the other function, without ever know what the names of the arguments for the other function. Neat!
+
+
+#### Examples
+The last section of the `matrix` help page we will look at  is "Examples" sections
+```{r matrix3, echo=FALSE, printr.help.sections=c("examples")}
+invisible(loadNamespace('printr'))
+?matrix
+unloadNamespace('printr')
+```
+
+#### The Return Value
+The `matrix` function lacks one field in the help file that most R function have - the "Value" field. This section describes what the function outputs, i.e., what it "returns" to the caller. The `matrix` function can get away from ommitting it, because it's return value is fairly obvious - a matrix! But more complicated functions with more complicated outputs need to describe what they return in more detail, so the user can understand how to process the output in their own code.

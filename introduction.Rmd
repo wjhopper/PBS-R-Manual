@@ -6,7 +6,7 @@ knitr::opts_chunk$set(cache = TRUE, collapse = TRUE)
 
 ![](images/rstudio.png)
 
-## Pane #1: The R Console
+## Pane #1: The R Console {#console}
 
 The R console allows you to execute R code (often called expressions, or commands) and see the results printed out. To execute R commands, place your cursor at the prompt (the `>` symbol), type in your code, and press <kbd>Enter</kbd>.
 
