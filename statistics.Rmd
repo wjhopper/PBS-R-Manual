@@ -326,7 +326,7 @@ t.test(male_SATQ, female_SATQ, paired=FALSE)
 
 ### `aov()`
 
-The `aov()` command can be used to execute an ANOVA. The basic call includes one argument, which is a formula object. Whether `aov()` is used to run a one-way, two-way, or multi-way ANOVA, with or without interaction terms, is based entirely on the formula.
+The `aov()` function can be used to execute an ANOVA. The basic call includes one argument, which is a formula object. Whether `aov()` is used to run a one-way, two-way, or multi-way ANOVA, with or without interaction terms, is based entirely on the formula.
 
 #### One-way ANOVA
 
@@ -374,15 +374,111 @@ The p-value for the interaction term is .610, so we fail to reject the null hypo
 
 ### `cor.test()`
 
+The `cor.test()` function can be used to test the significance of a correlation. The correlation is measured by Pearsons's r by default, but note that it can also be set to Kendall's $$\tau$$ or Spearman's $$\rho$$ with the `method` argument.
 
+To demonstrate, imagine that we are curious as to whether verbal and quantitative SAT scores are linearly related:
+
+```{r cor test}
+cor.test(sat.act$SATV, sat.act$SATQ)
+```
+
+The p-value is essentially zero, so we can reject the null hypothesis that the correlation between verbal and quantitative SAT scores is zero. The estimate instead is .644, indicating a positive linear relationship.
+
+This test was run with default parameter values for the alternative hypothesis and confidence level, which can be modified as follows:
+
+Argument | Values
+:-------|:--------------------------------------------------------------------
+`alternative` | Set to `two.sided` for a two-sided test, `less` for the lower tail, and `greater` for the upper tail; the default is `two.sided`.
+`conf.level` | Provide a number between 0 and 1 to specify the range for the confidence interval; the default is .95.
 
 ### `binom.test()`
 
+The `binom.test()` function can be used to test the significance of a proportion calculated from a binary variable. The test assumes a null proportion of .5, but this can be modified with the `p` argument.
 
+To demonstrate, imagine that we are curious as to whether there are more males than females reporting their test scores. 
+
+We first need to find the number of males and females in the data set, which we can do by creating a table of the `gender` variable:
+
+```{r table gender}
+gender_table <- table(sat.act$gender)
+```
+
+We can then call `binom.test()` on the table we created to test whether the proportion of males (the first category in the table) is significantly different from .5:
+
+```{r binom example}
+binom.test(gender_table)
+```
+
+The p-value is essentially zero, so we can reject the null hypothesis that the proportion of males is .5; instead, it seems there are more females than males.
+
+Note that the same test can be run by specifying only the number of males in the first argument, then specifying the total number of observations (i.e., the number of rows in `sat.act`) using the `n` argument:
+
+```{r binom n}
+
+# Find the number of males
+n_males <- length(sat.act$gender[sat.act$gender==1])
+
+# Run the binomial test
+binom.test(n_males, n=nrow(sat.act))
+
+```
+
+The first method is likely simpler if you are sticking to examples or assignments with real data, but the second method is more amenable to hypothetical scenarios, such as asking students to test whether a coin is fair if it produced 60 heads out of 100 flips.
+
+This test was run with default parameter values for the alternative hypothesis and confidence level, which can be modified as follows:
+
+Argument | Values
+:-------|:--------------------------------------------------------------------
+`alternative` | Set to `two.sided` for a two-sided test, `less` for the lower tail, and `greater` for the upper tail; the default is `two.sided`.
+`conf.level` | Provide a number between 0 and 1 to specify the range for the confidence interval; the default is .95.
 
 ### `chisq.test()`
 
+The `chisq.test()` function can be used to execute either a Chi-Square test for goodness-of-fit or a Chi-Square test of independence, determined by whether a table with one or two groups is supplied, respectively.
 
+#### Chi-Square test of Goodness-of-Fit
+
+To demonstrate the Chi-Square goodness-of-fit test, imagine that we are curious as to whether there are equal numbers of people in each education level measured in the `sat.act` data set. 
+
+We first need to find the number of respondents in each education level, which we can do by creating a table of the `education` variable:
+
+```{r table education}
+educ_table <- table(sat.act$education)
+```
+
+We can then call `chisq.test()` on the table we created to test whether there are equal proportions of respondents in each education level:
+
+```{r chi square goodness-of-fit}
+chisq.test(educ_table)
+```
+
+The p-value is approximately zero, so we can reject the null hypothesis that the proportions are equal. From the table, we can see that respondent are more likely than not to have recieved at least some higher education.
+
+By default, the Chi-Square test of independence tests the null hypothesis that the proportions are equal across groups, but this can be changed by providing a vector of proportions to the `p` argument. For instance, imagine that we wanted to test whether the proportions were equal to those from respondents in a neighboring state, which were much less likely to have been educated past high school:
+
+```{r chi square goodness-of-fit p}
+chisq.test(educ_table, p=c(.25, .25, .125, .125, .125, .125))
+```
+
+The p-value is approximately zero, so we can reject the null hypothesis that the proportions are the same as for the neighboring state.
+
+#### Chi-Square test of Independence
+
+To demonstrate the Chi-Square test of independence, imagine that we are curious as to whether the proportions of males and females reporting their test scores are equal across levels of education. 
+
+We first need to find the number of males and females in each level of education, which we can do by creating a table of the `gender` and `education` variables:
+
+```{r table education gender}
+educ_gender_table <- table(sat.act$education, sat.act$gender)
+```
+
+We can then call `chisq.test()` on the table we created to test whether there are equal proportions of males and females in each education level:
+
+```{r chi square independence}
+chisq.test(educ_gender_table)
+```
+
+The p-value is .007, so we can reject the null hypothesis that level of education is independent of gender. Instead, gender seems to be more balanced in the lower education levels, whereas there are more females than males in the higher education levels.
 
 ### `lm()`
 
