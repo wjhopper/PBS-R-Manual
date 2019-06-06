@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Tools &amp; Advice for Instructors | UMass PBS Instructors R Manual</title>
+  <meta name="description" content="A guide for instructors teaching statistics and research methods with R in the UMass Amherst Psychological &amp; Brain Sciences Department." />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Tools &amp; Advice for Instructors | UMass PBS Instructors R Manual" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A guide for instructors teaching statistics and research methods with R in the UMass Amherst Psychological &amp; Brain Sciences Department." />
+  <meta name="github-repo" content="wjhopper/PBS-R-Manual" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Tools &amp; Advice for Instructors | UMass PBS Instructors R Manual" />
+  
+  <meta name="twitter:description" content="A guide for instructors teaching statistics and research methods with R in the UMass Amherst Psychological &amp; Brain Sciences Department." />
+  
+
+<meta name="author" content="Andrea Cataldo &amp; Will Hopper" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="statistics.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="css/custom.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="index.html">UMass PBS Instructors R Manual</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#getting-started"><i class="fa fa-check"></i>Getting Started</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#the-r-language"><i class="fa fa-check"></i>The R Language</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#rstudio"><i class="fa fa-check"></i>RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#formatting-conventions"><i class="fa fa-check"></i>Formatting Conventions</a></li>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#additional-materials"><i class="fa fa-check"></i><b>0.1</b> Additional Materials</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html"><i class="fa fa-check"></i><b>1</b> Introducing R and RStudio</a><ul>
+<li class="chapter" data-level="1.1" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#console"><i class="fa fa-check"></i><b>1.1</b> Pane #1: The R Console</a></li>
+<li class="chapter" data-level="1.2" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#pane-2-the-editor"><i class="fa fa-check"></i><b>1.2</b> Pane #2: The Editor</a></li>
+<li class="chapter" data-level="1.3" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#pane-3-your-r-session"><i class="fa fa-check"></i><b>1.3</b> Pane #3: Your R Session</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#variables-and-the-environment"><i class="fa fa-check"></i><b>1.3.1</b> Variables and the Environment</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#pane-4-miscellaneous"><i class="fa fa-check"></i><b>1.4</b> Pane #4: Miscellaneous</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#plots"><i class="fa fa-check"></i><b>1.4.1</b> Plots</a></li>
+<li class="chapter" data-level="1.4.2" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#packages"><i class="fa fa-check"></i><b>1.4.2</b> Packages</a></li>
+<li class="chapter" data-level="1.4.3" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#help"><i class="fa fa-check"></i><b>1.4.3</b> Help</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#conclusion"><i class="fa fa-check"></i><b>1.5</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html"><i class="fa fa-check"></i><b>2</b> R Programming Fundamentals</a><ul>
+<li class="chapter" data-level="2.1" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#classes-of-data"><i class="fa fa-check"></i><b>2.1</b> Classes of Data</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#the-numeric-class"><i class="fa fa-check"></i><b>2.1.1</b> The Numeric Class</a></li>
+<li class="chapter" data-level="2.1.2" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#the-integer-class"><i class="fa fa-check"></i><b>2.1.2</b> The Integer Class</a></li>
+<li class="chapter" data-level="2.1.3" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#logicals"><i class="fa fa-check"></i><b>2.1.3</b> The Logical Class</a></li>
+<li class="chapter" data-level="2.1.4" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#the-character-class"><i class="fa fa-check"></i><b>2.1.4</b> The Character Class</a></li>
+<li class="chapter" data-level="2.1.5" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#factors"><i class="fa fa-check"></i><b>2.1.5</b> Factors</a></li>
+<li class="chapter" data-level="2.1.6" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#class-detection-and-conversion"><i class="fa fa-check"></i><b>2.1.6</b> Class detection and conversion</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#data-structures"><i class="fa fa-check"></i><b>2.2</b> Data Structures</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#vectors"><i class="fa fa-check"></i><b>2.2.1</b> Vectors</a></li>
+<li class="chapter" data-level="2.2.2" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#matrices"><i class="fa fa-check"></i><b>2.2.2</b> Matrices</a></li>
+<li class="chapter" data-level="2.2.3" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#data-frames"><i class="fa fa-check"></i><b>2.2.3</b> Data Frames</a></li>
+<li class="chapter" data-level="2.2.4" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#lists"><i class="fa fa-check"></i><b>2.2.4</b> Lists</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#operators"><i class="fa fa-check"></i><b>2.3</b> Operators</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#relational-operators"><i class="fa fa-check"></i><b>2.3.1</b> Relational Operators</a></li>
+<li class="chapter" data-level="2.3.2" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#logical-operators"><i class="fa fa-check"></i><b>2.3.2</b> Logical Operators</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#functions"><i class="fa fa-check"></i><b>2.4</b> Functions</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#description"><i class="fa fa-check"></i><b>2.4.1</b> Description</a></li>
+<li class="chapter" data-level="2.4.2" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#usage"><i class="fa fa-check"></i><b>2.4.2</b> Usage</a></li>
+<li class="chapter" data-level="2.4.3" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#arguments"><i class="fa fa-check"></i><b>2.4.3</b> Arguments</a></li>
+<li class="chapter" data-level="2.4.4" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#named-vs.-unnamed-arguments"><i class="fa fa-check"></i><b>2.4.4</b> Named vs. Unnamed Arguments</a></li>
+<li class="chapter" data-level="2.4.5" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#a-word-of-advice-2"><i class="fa fa-check"></i><b>2.4.5</b> A word of advice</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#data-manipulation"><i class="fa fa-check"></i><b>2.5</b> Data Manipulation</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#tidy-data"><i class="fa fa-check"></i><b>2.5.1</b> Tidy Data</a></li>
+<li class="chapter" data-level="2.5.2" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#importing-data"><i class="fa fa-check"></i><b>2.5.2</b> Importing Data</a></li>
+<li class="chapter" data-level="2.5.3" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#subsetting"><i class="fa fa-check"></i><b>2.5.3</b> Subsetting</a></li>
+<li class="chapter" data-level="2.5.4" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#indexing"><i class="fa fa-check"></i><b>2.5.4</b> Indexing</a></li>
+<li class="chapter" data-level="2.5.5" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#replacement"><i class="fa fa-check"></i><b>2.5.5</b> Replacement</a></li>
+<li class="chapter" data-level="2.5.6" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#matrices-data-frames"><i class="fa fa-check"></i><b>2.5.6</b> Matrices &amp; Data Frames</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="statistics.html"><a href="statistics.html"><i class="fa fa-check"></i><b>3</b> Statistics</a><ul>
+<li class="chapter" data-level="3.1" data-path="statistics.html"><a href="statistics.html#the-data"><i class="fa fa-check"></i><b>3.1</b> The Data</a></li>
+<li class="chapter" data-level="3.2" data-path="statistics.html"><a href="statistics.html#formula-objects"><i class="fa fa-check"></i><b>3.2</b> Formula Objects</a></li>
+<li class="chapter" data-level="3.3" data-path="statistics.html"><a href="statistics.html#descriptive-statistics"><i class="fa fa-check"></i><b>3.3</b> Descriptive Statistics</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="statistics.html"><a href="statistics.html#mean"><i class="fa fa-check"></i><b>3.3.1</b> Mean</a></li>
+<li class="chapter" data-level="3.3.2" data-path="statistics.html"><a href="statistics.html#median"><i class="fa fa-check"></i><b>3.3.2</b> Median</a></li>
+<li class="chapter" data-level="3.3.3" data-path="statistics.html"><a href="statistics.html#variance"><i class="fa fa-check"></i><b>3.3.3</b> Variance</a></li>
+<li class="chapter" data-level="3.3.4" data-path="statistics.html"><a href="statistics.html#standard-deviation"><i class="fa fa-check"></i><b>3.3.4</b> Standard Deviation</a></li>
+<li class="chapter" data-level="3.3.5" data-path="statistics.html"><a href="statistics.html#standard-error"><i class="fa fa-check"></i><b>3.3.5</b> Standard Error</a></li>
+<li class="chapter" data-level="3.3.6" data-path="statistics.html"><a href="statistics.html#correlation"><i class="fa fa-check"></i><b>3.3.6</b> Correlation</a></li>
+<li class="chapter" data-level="3.3.7" data-path="statistics.html"><a href="statistics.html#summary-functions"><i class="fa fa-check"></i><b>3.3.7</b> Summary Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="statistics.html"><a href="statistics.html#plotting"><i class="fa fa-check"></i><b>3.4</b> Plotting</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="statistics.html"><a href="statistics.html#scatter-line-plots"><i class="fa fa-check"></i><b>3.4.1</b> Scatter &amp; Line Plots</a></li>
+<li class="chapter" data-level="3.4.2" data-path="statistics.html"><a href="statistics.html#barplots"><i class="fa fa-check"></i><b>3.4.2</b> Barplots</a></li>
+<li class="chapter" data-level="3.4.3" data-path="statistics.html"><a href="statistics.html#histograms"><i class="fa fa-check"></i><b>3.4.3</b> Histograms</a></li>
+<li class="chapter" data-level="3.4.4" data-path="statistics.html"><a href="statistics.html#boxplots"><i class="fa fa-check"></i><b>3.4.4</b> Boxplots</a></li>
+<li class="chapter" data-level="3.4.5" data-path="statistics.html"><a href="statistics.html#configuring-plots"><i class="fa fa-check"></i><b>3.4.5</b> Configuring Plots</a></li>
+<li class="chapter" data-level="3.4.6" data-path="statistics.html"><a href="statistics.html#what-about-ggplot"><i class="fa fa-check"></i><b>3.4.6</b> What about ggplot?</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="statistics.html"><a href="statistics.html#inferential-statistics"><i class="fa fa-check"></i><b>3.5</b> Inferential Statistics</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="statistics.html"><a href="statistics.html#distribution-functions"><i class="fa fa-check"></i><b>3.5.1</b> Distribution Functions</a></li>
+<li class="chapter" data-level="3.5.2" data-path="statistics.html"><a href="statistics.html#t.test"><i class="fa fa-check"></i><b>3.5.2</b> <code>t.test()</code></a></li>
+<li class="chapter" data-level="3.5.3" data-path="statistics.html"><a href="statistics.html#aov"><i class="fa fa-check"></i><b>3.5.3</b> <code>aov()</code></a></li>
+<li class="chapter" data-level="3.5.4" data-path="statistics.html"><a href="statistics.html#cor.test"><i class="fa fa-check"></i><b>3.5.4</b> <code>cor.test()</code></a></li>
+<li class="chapter" data-level="3.5.5" data-path="statistics.html"><a href="statistics.html#binom.test"><i class="fa fa-check"></i><b>3.5.5</b> <code>binom.test()</code></a></li>
+<li class="chapter" data-level="3.5.6" data-path="statistics.html"><a href="statistics.html#chisq.test"><i class="fa fa-check"></i><b>3.5.6</b> <code>chisq.test()</code></a></li>
+<li class="chapter" data-level="3.5.7" data-path="statistics.html"><a href="statistics.html#lm"><i class="fa fa-check"></i><b>3.5.7</b> <code>lm()</code></a></li>
+<li class="chapter" data-level="3.5.8" data-path="statistics.html"><a href="statistics.html#confidence-intervals"><i class="fa fa-check"></i><b>3.5.8</b> Confidence Intervals</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="tools-advice-for-instructors.html"><a href="tools-advice-for-instructors.html"><i class="fa fa-check"></i><b>4</b> Tools &amp; Advice for Instructors</a><ul>
+<li class="chapter" data-level="4.1" data-path="tools-advice-for-instructors.html"><a href="tools-advice-for-instructors.html#best-practices"><i class="fa fa-check"></i><b>4.1</b> Best Practices</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="tools-advice-for-instructors.html"><a href="tools-advice-for-instructors.html#commands-vs.-buttons"><i class="fa fa-check"></i><b>4.1.1</b> Commands vs. Buttons</a></li>
+<li class="chapter" data-level="4.1.2" data-path="tools-advice-for-instructors.html"><a href="tools-advice-for-instructors.html#naming-objects"><i class="fa fa-check"></i><b>4.1.2</b> Naming Objects</a></li>
+<li class="chapter" data-level="4.1.3" data-path="tools-advice-for-instructors.html"><a href="tools-advice-for-instructors.html#scripting"><i class="fa fa-check"></i><b>4.1.3</b> Scripting</a></li>
+<li class="chapter" data-level="4.1.4" data-path="tools-advice-for-instructors.html"><a href="tools-advice-for-instructors.html#formatting-requirements-for-assignments"><i class="fa fa-check"></i><b>4.1.4</b> Formatting Requirements for Assignments</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="tools-advice-for-instructors.html"><a href="tools-advice-for-instructors.html#error-messages"><i class="fa fa-check"></i><b>4.2</b> Error Messages</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="tools-advice-for-instructors.html"><a href="tools-advice-for-instructors.html#there-is-no-output-from-a-command-and-there-is-a-in-the-console-instead-of-a-."><i class="fa fa-check"></i><b>4.2.1</b> There is no output from a command, and there is a <code>+</code> in the console instead of a <code>&gt;</code>.</a></li>
+<li class="chapter" data-level="4.2.2" data-path="tools-advice-for-instructors.html"><a href="tools-advice-for-instructors.html#error-unexpected-in-___"><i class="fa fa-check"></i><b>4.2.2</b> <code>Error: unexpected ')' in '___'</code></a></li>
+<li class="chapter" data-level="4.2.3" data-path="tools-advice-for-instructors.html"><a href="tools-advice-for-instructors.html#error-object-___-not-found"><i class="fa fa-check"></i><b>4.2.3</b> <code>Error: Object '___' not found</code></a></li>
+<li class="chapter" data-level="4.2.4" data-path="tools-advice-for-instructors.html"><a href="tools-advice-for-instructors.html#error-in-___-non-numeric-argument-to-binary-operator"><i class="fa fa-check"></i><b>4.2.4</b> <code>Error in ___ : non-numeric argument to binary operator</code></a></li>
+<li class="chapter" data-level="4.2.5" data-path="tools-advice-for-instructors.html"><a href="tools-advice-for-instructors.html#error-in-___x-could-not-find-function-___"><i class="fa fa-check"></i><b>4.2.5</b> <code>Error in ___(x) : could not find function '___'</code></a></li>
+<li class="chapter" data-level="4.2.6" data-path="tools-advice-for-instructors.html"><a href="tools-advice-for-instructors.html#error-in-___-cannot-open-the-connection"><i class="fa fa-check"></i><b>4.2.6</b> <code>Error in ___ : cannot open the connection</code></a></li>
+<li class="chapter" data-level="4.2.7" data-path="tools-advice-for-instructors.html"><a href="tools-advice-for-instructors.html#error-in-___-undefined-columns-selected-or-error-in-___-subscript-out-of-bounds"><i class="fa fa-check"></i><b>4.2.7</b> <code>Error in ___ : undefined columns selected** or **Error in ___: subscript out of bounds</code></a></li>
+<li class="chapter" data-level="4.2.8" data-path="tools-advice-for-instructors.html"><a href="tools-advice-for-instructors.html#error-unexpected-symbol-in-___"><i class="fa fa-check"></i><b>4.2.8</b> <code>Error: unexpected symbol in '___'</code></a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="tools-advice-for-instructors.html"><a href="tools-advice-for-instructors.html#data-sets"><i class="fa fa-check"></i><b>4.3</b> Data Sets</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="tools-advice-for-instructors.html"><a href="tools-advice-for-instructors.html#built-in"><i class="fa fa-check"></i><b>4.3.1</b> Built-In</a></li>
+<li class="chapter" data-level="4.3.2" data-path="tools-advice-for-instructors.html"><a href="tools-advice-for-instructors.html#fivethirtyeight"><i class="fa fa-check"></i><b>4.3.2</b> FiveThirtyEight</a></li>
+<li class="chapter" data-level="4.3.3" data-path="tools-advice-for-instructors.html"><a href="tools-advice-for-instructors.html#psych"><i class="fa fa-check"></i><b>4.3.3</b> psych</a></li>
+<li class="chapter" data-level="4.3.4" data-path="tools-advice-for-instructors.html"><a href="tools-advice-for-instructors.html#simulating-your-own-data-sets"><i class="fa fa-check"></i><b>4.3.4</b> Simulating your own Data Sets</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">UMass PBS Instructors R Manual</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="tools-advice-for-instructors" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Tools &amp; Advice for Instructors</h1>
+<div id="best-practices" class="section level2">
+<h2><span class="header-section-number">4.1</span> Best Practices</h2>
+<div id="commands-vs.-buttons" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> Commands vs. Buttons</h3>
+<p>Though we strongly encourage you to use R through R Studio, we also encourage you and your students to rely on commands instead of button presses where possible. For instance, it is possible to save plots by exporting them from the Plots pane in R Studio, but it is also possible to save them with commands such as <code>pdf()</code> or <code>png()</code>. There are several benefits to prioritizing commands over button presses. First, it has the practical effect of reinforcing a command-line approach to programming your analyses, which may be new for you and is very likely new for your students. Second, and perhaps more importantly, it encourages reproduceability. If your students document all of the actions that they took in completing an assignment by having a command for each one, it will be easier for you to make sure that they did everything on their own, correct their habits where needed, and find the source of an error. It will also help you to reproduce your own work from semester to semester if your assignments are coded in R.</p>
+</div>
+<div id="naming-objects" class="section level3">
+<h3><span class="header-section-number">4.1.2</span> Naming Objects</h3>
+<p>There are relatively few constraints to naming objects in R compared to other statistical software packages. We make several recommendations here for good naming practices.</p>
+<p>The “naming conventions” of a particular programming language refer to the formatting guidelines for object names. There are no agreed-upon naming conventions in R, but a good overview can be found <a href="https://journal.r-project.org/archive/2012-2/RJournal_2012-2_Baaaath.pdf">here</a>. In general, the best advice is to pick a convention that appeals to you and use it consistently. We recommend the “underscore_separated” scheme. Because period separation can sometimes refer to a different process in R, we do not recommend using the “period.separated” scheme.</p>
+<p>Regardless of the convention, it is also important to choose object names that are informative. That is, someone with little knowledge of the script, including some future version of yourself, should be able to get a general idea of what data an object contains based on the name. For instance, simply naming all versions of a data frame <code>data</code>, <code>data_2</code>, <code>data_3</code>, etc., is not informative because it is unclear what changes have been made between versions.</p>
+</div>
+<div id="scripting" class="section level3">
+<h3><span class="header-section-number">4.1.3</span> Scripting</h3>
+<p>More than just a collection of commands, the script is an excellent tool for both both reproduceability and documentation of an analysis. It is therefore worthwhile to teach students good habits for writing scripts.</p>
+<p>First and foremost, scripts should include <em>all of the commands that you need to conduct an analysis, and none of the commands that you don’t</em>. That is, you should be able to run all of the lines in a script in order and get the same result each time (with the obvious exception of things like drawing random samples). To that end, all the commands necessary for an analysis should be in the proper sequence, and dny commands that are not necessary for the analysis but kept for posterity should be “commented out” by adding the <code>#</code> symbol at the start of the line.</p>
+<p>Second, scripts should be well-documented. Recall that you can add comments to any line by preceding the comment with the <code>#</code> symbol. Comments are an efficient way to explain to someone unfamiliar with the script what the intention is for each section of code. Ample documentation is not only a good programming habit to teach your students, it will also likely be very useful in helping you decipher their code.</p>
+</div>
+<div id="formatting-requirements-for-assignments" class="section level3">
+<h3><span class="header-section-number">4.1.4</span> Formatting Requirements for Assignments</h3>
+<p>We encourage you to give your students clear formatting guidelines for assignments that require a significant amount of R programming to complete. The specific requirements that you decide on should be based on (1) the extent to which you want them to leave the class with generalizeable programming skills, and (2) the amount of detail that you would like from your students in terms of their code.</p>
+<p>Asking students to print the contents of their console will allow you to see all of the commands that they ran, the order in which they ran them, as well as the output and any error messages, but it will be quite a lot of information for you to sort through yourself. At the other extreme, asking for only the formatted results in a Word document makes it difficult to judge the quality of their code, which may be a primary goal of the assignment. A nice compromise is to ask for an electronic version of their script with all the necessary commands so that you can reproduce their results. This can either act as the main document or as a supplement to a formatted report.</p>
+<p>It has also become increasingly popular for instructors to provide students with prepared R Markdown (.Rmd) files with fill-in-the-blank style prompts for students to enter their code. This produces a nicely formatted document with their code and output, which may be easier for you administratively. However, this can also obscure the coding process for students and limit their independence. For this reason, we recommend against using prepared R Markdown files, and encourage you to teach students how to create and maintain their own scripts instead.</p>
+</div>
+</div>
+<div id="error-messages" class="section level2">
+<h2><span class="header-section-number">4.2</span> Error Messages</h2>
+<p>All messages printed to the console in red text are meant to get your attention, but they differ in urgency. A message with <code>Error</code> printed at the beginning means that there was a problem that prevented the command from being evaluated, and you will not be able to run that command until you fix the problem. A message with <code>Warning</code> printed at the beginning means that the command <em>was</em> evaluated, but it might not have worked the way you intended, or R might have made some decision for you in order to execute the command. All other messages can generally be taken as updates on the status of your command.</p>
+<p>If you receive an error message that is unclear, the best way to determine the cause is to Google it. A list of the most common errors is provided here for convenience.</p>
+<div id="there-is-no-output-from-a-command-and-there-is-a-in-the-console-instead-of-a-." class="section level3">
+<h3><span class="header-section-number">4.2.1</span> There is no output from a command, and there is a <code>+</code> in the console instead of a <code>&gt;</code>.</h3>
+<p>The user has not completed the command, most likely by forgetting to close a quotation (or being inconsistent with the use of single vs. double quotations) or a set of parentheses. You can either add the end quotation or parenthesis if it is the final character, or press the escape button and start again.</p>
+</div>
+<div id="error-unexpected-in-___" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> <code>Error: unexpected ')' in '___'</code></h3>
+<p>The user has included one too many end parentheses.</p>
+</div>
+<div id="error-object-___-not-found" class="section level3">
+<h3><span class="header-section-number">4.2.3</span> <code>Error: Object '___' not found</code></h3>
+<p>The user has tried to call an object that is not in the environment. This may be because there is a typo in the name of the object, or because the object was never assigned to a label with the <code>&lt;-</code> operator.</p>
+</div>
+<div id="error-in-___-non-numeric-argument-to-binary-operator" class="section level3">
+<h3><span class="header-section-number">4.2.4</span> <code>Error in ___ : non-numeric argument to binary operator</code></h3>
+<p>The user is most likely trying to conduct a mathematical operation on data that is of a non-numeric class, such as character or factor. If the data should be numeric, try overwriting it with <code>as.numeric()</code>.</p>
+</div>
+<div id="error-in-___x-could-not-find-function-___" class="section level3">
+<h3><span class="header-section-number">4.2.5</span> <code>Error in ___(x) : could not find function '___'</code></h3>
+<p>The user is attempting to use a function that is not currently available in R, either because there is a typo in the name of the function or because the function’s package has not been loaded in this session.</p>
+</div>
+<div id="error-in-___-cannot-open-the-connection" class="section level3">
+<h3><span class="header-section-number">4.2.6</span> <code>Error in ___ : cannot open the connection</code></h3>
+<p>The user is attempting to read or write a file at a location on the hard drive that does not exist, likely due to a typo in the file path or file name.</p>
+</div>
+<div id="error-in-___-undefined-columns-selected-or-error-in-___-subscript-out-of-bounds" class="section level3">
+<h3><span class="header-section-number">4.2.7</span> <code>Error in ___ : undefined columns selected** or **Error in ___: subscript out of bounds</code></h3>
+<p>The user is attempting to index an area of an object that does not exist, for instance, the ninth column of a seven-column data frame.</p>
+</div>
+<div id="error-unexpected-symbol-in-___" class="section level3">
+<h3><span class="header-section-number">4.2.8</span> <code>Error: unexpected symbol in '___'</code></h3>
+<p>R cannot interpret part of the command, likely because the user has forgotten a comma between function arguments.</p>
+</div>
+</div>
+<div id="data-sets" class="section level2">
+<h2><span class="header-section-number">4.3</span> Data Sets</h2>
+<p>This section includes an overview of useful data sets for in-class demonstrations or assignments. The first section includes data sets that are “built-in” as part of the base R <code>datasets</code> package, whereas the remaining sections review data sets from other packages that need to be installed.</p>
+<p>Note that each package has many more data sets than those we have chosen to highlight here. To see all of the data sets available to you at any given time, including those are built-in with base R or part of loaded packages, enter the following command:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>()</code></pre>
+<p>You should see a list of all the available data sets with a brief summary of each, separated by the package they belong to.</p>
+<div id="built-in" class="section level3">
+<h3><span class="header-section-number">4.3.1</span> Built-In</h3>
+<p>There are several small data sets included in base R that are useful for quick demos. Since they are part of base R, it is not necessary to load these packages; just type and enter their name in the console to view them.</p>
+<div id="iris" class="section level4">
+<h4><span class="header-section-number">4.3.1.1</span> iris</h4>
+<p>The <code>iris</code> data set gives the lengths and widths of the sepals and petals of 50 irises from each of three different species:</p>
+<pre><code>## Skim summary statistics
+##  n obs: 150 
+##  n variables: 5 
+## 
+## -- Variable type:factor --------------------------
+##  variable missing   n n_unique                       top_counts
+##   Species       0 150        3 set: 50, ver: 50, vir: 50, NA: 0
+## 
+## -- Variable type:numeric -------------------------
+##      variable missing   n mean   sd     hist
+##  Petal.Length       0 150 3.76 1.77 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;&lt;U+2585&gt;&lt;U+2585&gt;&lt;U+2583&gt;&lt;U+2581&gt;
+##   Petal.Width       0 150 1.2  0.76 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2585&gt;&lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2582&gt;&lt;U+2582&gt;
+##  Sepal.Length       0 150 5.84 0.83 &lt;U+2582&gt;&lt;U+2587&gt;&lt;U+2585&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2585&gt;&lt;U+2582&gt;&lt;U+2582&gt;
+##   Sepal.Width       0 150 3.06 0.44 &lt;U+2581&gt;&lt;U+2582&gt;&lt;U+2585&gt;&lt;U+2587&gt;&lt;U+2583&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;</code></pre>
+</div>
+<div id="warpbreaks" class="section level4">
+<h4><span class="header-section-number">4.3.1.2</span> warpbreaks</h4>
+<p>The <code>warpbreaks</code> data set gives the number of breaks in each of 54 looms of yarn, varied across two types of wool and three levels of tension:</p>
+<pre><code>## Skim summary statistics
+##  n obs: 54 
+##  n variables: 3 
+## 
+## -- Variable type:factor --------------------------
+##  variable missing  n n_unique                 top_counts
+##   tension       0 54        3 L: 18, M: 18, H: 18, NA: 0
+##      wool       0 54        2        A: 27, B: 27, NA: 0
+## 
+## -- Variable type:numeric -------------------------
+##  variable missing  n  mean   sd     hist
+##    breaks       0 54 28.15 13.2 &lt;U+2586&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2582&gt;&lt;U+2582&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;</code></pre>
+</div>
+<div id="mtcars" class="section level4">
+<h4><span class="header-section-number">4.3.1.3</span> mtcars</h4>
+<p>The <code>mtcars</code> data set gives a range of numeric and categorical measurements of 32 cars, including MPG, number of cylinders, horsepower, weight, and transmission type:</p>
+<pre><code>## Skim summary statistics
+##  n obs: 32 
+##  n variables: 11 
+## 
+## -- Variable type:numeric -------------------------
+##  variable missing  n   mean     sd     hist
+##        am       0 32   0.41   0.5  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2586&gt;
+##      carb       0 32   2.81   1.62 &lt;U+2586&gt;&lt;U+2587&gt;&lt;U+2582&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##       cyl       0 32   6.19   1.79 &lt;U+2586&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2583&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+##      disp       0 32 230.72 123.94 &lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2581&gt;&lt;U+2582&gt;&lt;U+2585&gt;&lt;U+2583&gt;&lt;U+2581&gt;&lt;U+2582&gt;
+##      drat       0 32   3.6    0.53 &lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2585&gt;&lt;U+2587&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##      gear       0 32   3.69   0.74 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2586&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
+##        hp       0 32 146.69  68.56 &lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2583&gt;&lt;U+2585&gt;&lt;U+2582&gt;&lt;U+2583&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##       mpg       0 32  20.09   6.03 &lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2583&gt;&lt;U+2582&gt;&lt;U+2582&gt;&lt;U+2582&gt;
+##      qsec       0 32  17.85   1.79 &lt;U+2583&gt;&lt;U+2582&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##        vs       0 32   0.44   0.5  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2586&gt;
+##        wt       0 32   3.22   0.98 &lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;</code></pre>
+</div>
+<div id="toothgrowth" class="section level4">
+<h4><span class="header-section-number">4.3.1.4</span> ToothGrowth</h4>
+<p>The <code>ToothGrowth</code> data set gives the tooth lengths of 60 guinea pigs, varied across three vitamin C dosage levels and two dosage delivery methods:</p>
+<pre><code>## Skim summary statistics
+##  n obs: 60 
+##  n variables: 3 
+## 
+## -- Variable type:factor --------------------------
+##  variable missing  n n_unique            top_counts
+##      supp       0 60        2 OJ: 30, VC: 30, NA: 0
+## 
+## -- Variable type:numeric -------------------------
+##  variable missing  n  mean   sd     hist
+##      dose       0 60  1.17 0.63 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+##       len       0 60 18.81 7.65 &lt;U+2583&gt;&lt;U+2585&gt;&lt;U+2583&gt;&lt;U+2585&gt;&lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2582&gt;&lt;U+2582&gt;</code></pre>
+</div>
+</div>
+<div id="fivethirtyeight" class="section level3">
+<h3><span class="header-section-number">4.3.2</span> FiveThirtyEight</h3>
+<p>The <code>fivethirtyeight</code> package includes data sets used for articles written on Nate Silver’s website for data geeks, <a href="https://fivethirtyeight.com/">FiveThirtyEight</a>. From an instructional standpoint, these data sets are useful not only for being particularly engaging but because there is a published article associated with each one.</p>
+<p>To make the data sets available, install and load the <code>fivethirtyeight</code> package:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&#39;fivethirtyeight&#39;</span>)
+<span class="kw">library</span>(fivethirtyeight)</code></pre>
+<div id="bechdel" class="section level4">
+<h4><span class="header-section-number">4.3.2.1</span> bechdel</h4>
+<p>The <code>bechdel</code> data set is a great all-purpose data set with both within- and between-subject continuous and categorical variables. Based on the <a href="https://en.wikipedia.org/wiki/Bechdel_test">Bechdel Test</a> for female representation in film, this data set includes 1,794 movies from 1970-2013 along with their test outcome, budget, and gross profits:</p>
+<pre><code>## Skim summary statistics
+##  n obs: 1794 
+##  n variables: 15 
+## 
+## -- Variable type:character -----------------------
+##  variable missing    n min max empty n_unique
+##    binary       0 1794   4   4     0        2
+##      code       0 1794   8   8     0       85
+##      imdb       0 1794   8  10     0     1794
+##      test       0 1794   2  16     0       10
+##     title       0 1794   1  83     0     1768
+## 
+## -- Variable type:factor --------------------------
+##    variable missing    n n_unique                            top_counts
+##  clean_test       0 1794        5 ok: 803, not: 514, men: 194, dub: 142
+## 
+## -- Variable type:integer -------------------------
+##     variable missing    n       mean      sd     hist
+##       budget       0 1794    4.5e+07 4.8e+07 &lt;U+2587&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##  budget_2013       0 1794    5.5e+07 5.5e+07 &lt;U+2587&gt;&lt;U+2583&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##  decade_code     179 1794    1.94    0.69    &lt;U+2585&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2583&gt;
+##  period_code     179 1794    2.42    1.19    &lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2586&gt;&lt;U+2581&gt;&lt;U+2585&gt;&lt;U+2581&gt;&lt;U+2582&gt;
+##         year       0 1794 2002.55    8.98    &lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;&lt;U+2585&gt;&lt;U+2585&gt;&lt;U+2587&gt;
+## 
+## -- Variable type:numeric -------------------------
+##       variable missing    n        mean          sd     hist
+##       domgross      17 1794     6.9e+07 8e+07       &lt;U+2587&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##  domgross_2013      18 1794     9.5e+07     1.3e+08 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##       intgross      11 1794     1.5e+08     2.1e+08 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##  intgross_2013      11 1794 2e+08           2.8e+08 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;</code></pre>
+</div>
+<div id="fandango" class="section level4">
+<h4><span class="header-section-number">4.3.2.2</span> fandango</h4>
+<p>The <code>fandango</code> data set shows ratings from 146 movies across the Fandango, IMDB, Rotten Tomatoes, and Metacritic websites. It is particularly useful for demonstrating correlation:</p>
+<pre><code>## Skim summary statistics
+##  n obs: 146 
+##  n variables: 23 
+## 
+## -- Variable type:character -----------------------
+##  variable missing   n min max empty n_unique
+##      film       0 146   3  63     0      146
+## 
+## -- Variable type:integer -------------------------
+##                    variable missing   n     mean       sd     hist
+##              fandango_votes       0 146  3848.79  6357.78 &lt;U+2587&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##        imdb_user_vote_count       0 146 42846.21 67406.51 &lt;U+2587&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##                  metacritic       0 146    58.81    19.52 &lt;U+2581&gt;&lt;U+2586&gt;&lt;U+2585&gt;&lt;U+2586&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2587&gt;&lt;U+2585&gt;
+##  metacritic_user_vote_count       0 146   185.71   316.61 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##              rottentomatoes       0 146    60.85    30.17 &lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2582&gt;&lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2582&gt;&lt;U+2585&gt;&lt;U+2587&gt;
+##         rottentomatoes_user       0 146    63.88    20.02 &lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2586&gt;&lt;U+2585&gt;&lt;U+2585&gt;&lt;U+2587&gt;&lt;U+2587&gt;
+## 
+## -- Variable type:numeric -------------------------
+##                    variable missing   n    mean   sd     hist
+##         fandango_difference       0 146    0.24 0.15 &lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2586&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2587&gt;&lt;U+2583&gt;
+##        fandango_ratingvalue       0 146    3.85 0.5  &lt;U+2582&gt;&lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2582&gt;
+##              fandango_stars       0 146    4.09 0.54 &lt;U+2582&gt;&lt;U+2583&gt;&lt;U+2581&gt;&lt;U+2586&gt;&lt;U+2581&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2582&gt;
+##                        imdb       0 146    6.74 0.96 &lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2585&gt;&lt;U+2587&gt;&lt;U+2585&gt;&lt;U+2582&gt;
+##                   imdb_norm       0 146    3.37 0.48 &lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2585&gt;&lt;U+2587&gt;&lt;U+2585&gt;&lt;U+2582&gt;
+##             imdb_norm_round       0 146    3.38 0.5  &lt;U+2581&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2585&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2585&gt;&lt;U+2581&gt;
+##             metacritic_norm       0 146    2.94 0.98 &lt;U+2581&gt;&lt;U+2586&gt;&lt;U+2585&gt;&lt;U+2586&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2587&gt;&lt;U+2585&gt;
+##       metacritic_norm_round       0 146    2.97 0.99 &lt;U+2581&gt;&lt;U+2586&gt;&lt;U+2585&gt;&lt;U+2586&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2587&gt;&lt;U+2585&gt;
+##             metacritic_user       0 146    6.52 1.51 &lt;U+2582&gt;&lt;U+2582&gt;&lt;U+2582&gt;&lt;U+2585&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2582&gt;
+##         metacritic_user_nom       0 146    3.26 0.76 &lt;U+2582&gt;&lt;U+2582&gt;&lt;U+2582&gt;&lt;U+2585&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2582&gt;
+##  metacritic_user_norm_round       0 146    3.27 0.79 &lt;U+2582&gt;&lt;U+2582&gt;&lt;U+2583&gt;&lt;U+2585&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2582&gt;&lt;U+2581&gt;
+##                     rt_norm       0 146    3.04 1.51 &lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2582&gt;&lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2582&gt;&lt;U+2585&gt;&lt;U+2587&gt;
+##               rt_norm_round       0 146    3.07 1.51 &lt;U+2585&gt;&lt;U+2583&gt;&lt;U+2581&gt;&lt;U+2583&gt;&lt;U+2582&gt;&lt;U+2582&gt;&lt;U+2582&gt;&lt;U+2587&gt;
+##                rt_user_norm       0 146    3.19 1    &lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2586&gt;&lt;U+2585&gt;&lt;U+2585&gt;&lt;U+2587&gt;&lt;U+2587&gt;
+##          rt_user_norm_round       0 146    3.23 1.01 &lt;U+2581&gt;&lt;U+2583&gt;&lt;U+2582&gt;&lt;U+2586&gt;&lt;U+2585&gt;&lt;U+2585&gt;&lt;U+2587&gt;&lt;U+2587&gt;
+##                        year       0 146 2014.88 0.32 &lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;</code></pre>
+</div>
+<div id="comma_survey" class="section level4">
+<h4><span class="header-section-number">4.3.2.3</span> comma_survey</h4>
+<p>The <code>comma_survey</code> data set has Likert ratings as well as demographic information collected from 1,129 respondents to a survey on the Oxford comma:</p>
+<pre><code>## Skim summary statistics
+##  n obs: 1129 
+##  n variables: 13 
+## 
+## -- Variable type:character -----------------------
+##              variable missing    n min max empty n_unique
+##                gender      92 1129   4   6     0        2
+##              location     102 1129   7  18     0        9
+##  more_grammar_correct       0 1129  57  58     0        2
+##       write_following      36 1129  76  77     0        2
+## 
+## -- Variable type:factor --------------------------
+##             variable missing    n n_unique
+##                  age      92 1129        4
+##            care_data      38 1129        4
+##    care_oxford_comma      30 1129        4
+##  care_proper_grammar      70 1129        5
+##            education     103 1129        5
+##     household_income     293 1129        5
+##                              top_counts
+##  45-: 290, &gt; 6: 272, 30-: 254, 18-: 221
+##  Not: 403, Som: 352, Not: 203, A l: 133
+##  Som: 414, A l: 291, Not: 268, Not: 126
+##     Ver: 688, Som: 333, NA: 70, Nei: 26
+##   Bac: 344, Som: 295, Gra: 276, NA: 103
+##   NA: 293, $50: 290, $10: 164, $25: 158
+## 
+## -- Variable type:logical -------------------------
+##              variable missing    n mean                      count
+##  data_singular_plural      38 1129  0.5 FAL: 547, TRU: 544, NA: 38
+##    heard_oxford_comma      30 1129  0.6 TRU: 655, FAL: 444, NA: 30
+## 
+## -- Variable type:numeric -------------------------
+##       variable missing    n    mean         sd     hist
+##  respondent_id       0 1129 3.3e+09 1072966.47 &lt;U+2587&gt;&lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2582&gt;</code></pre>
+</div>
+<div id="avengers" class="section level4">
+<h4><span class="header-section-number">4.3.2.4</span> avengers</h4>
+<p>The <code>avengers</code> data set includes the death and revival status for 173 Marvel comic book characters. It largely includes count and categorical data:</p>
+<pre><code>## Skim summary statistics
+##  n obs: 173 
+##  n variables: 21 
+## 
+## -- Variable type:character -----------------------
+##                     variable missing   n min max empty n_unique
+##  full_reserve_avengers_intro      14 173   5   6     0       93
+##                       gender       0 173   4   6     0        2
+##                     honorary       0 173   4  12     0        4
+##                   name_alias      10 173   4  35     0      162
+##                        notes      98 173  21 255     0       71
+##           probationary_intro     158 173   6   6     0       12
+##                          url       0 173  36  67     0      173
+## 
+## -- Variable type:integer -------------------------
+##             variable missing   n    mean     sd     hist
+##          appearances       0 173  414.05 677.99 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##                 year       0 173 1988.45  30.37 &lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;&lt;U+2582&gt;&lt;U+2583&gt;&lt;U+2587&gt;
+##  years_since_joining       0 173   26.55  30.37 &lt;U+2587&gt;&lt;U+2583&gt;&lt;U+2582&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
+## 
+## -- Variable type:logical -------------------------
+##  variable missing   n mean                     count
+##   current       0 173 0.47   FAL: 91, TRU: 82, NA: 0
+##    death1       0 173 0.4   FAL: 104, TRU: 69, NA: 0
+##    death2     156 173 0.94  NA: 156, TRU: 16, FAL: 1
+##    death3     171 173 1              NA: 171, TRU: 2
+##    death4     172 173 1              NA: 172, TRU: 1
+##    death5     172 173 1              NA: 172, TRU: 1
+##   return1     104 173 0.67 NA: 104, TRU: 46, FAL: 23
+##   return2     157 173 0.5    NA: 157, FAL: 8, TRU: 8
+##   return3     171 173 0.5    NA: 171, FAL: 1, TRU: 1
+##   return4     172 173 1              NA: 172, TRU: 1
+##   return5     172 173 1              NA: 172, TRU: 1</code></pre>
+</div>
+<div id="bob_ross" class="section level4">
+<h4><span class="header-section-number">4.3.2.5</span> bob_ross</h4>
+<p>The <code>bob_ross</code> data set is a great tool for demonstrating count data and tables. For each of 403 episodes, the data set marks the presence or absence of a series of possible elements in Bob’s painting. Useful combinations include tables of trees, lakes, and snowy mountains:</p>
+<pre><code>## Skim summary statistics
+##  n obs: 403 
+##  n variables: 71 
+## 
+## -- Variable type:character -----------------------
+##  variable missing   n min max empty n_unique
+##   episode       0 403   6   6     0      403
+##     title       0 403   8  27     0      401
+## 
+## -- Variable type:integer -------------------------
+##            variable missing   n   mean    sd     hist
+##         apple_frame       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##     aurora_borealis       0 403 0.005  0.07  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##                barn       0 403 0.042  0.2   &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##               beach       0 403 0.067  0.25  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##                boat       0 403 0.005  0.07  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##              bridge       0 403 0.017  0.13  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##            building       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##              bushes       0 403 0.3    0.46  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2583&gt;
+##               cabin       0 403 0.17   0.38  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
+##              cactus       0 403 0.0099 0.099 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##        circle_frame       0 403 0.005  0.07  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##              cirrus       0 403 0.069  0.25  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##               cliff       0 403 0.02   0.14  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##              clouds       0 403 0.44   0.5   &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2586&gt;
+##             conifer       0 403 0.53   0.5   &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+##             cumulus       0 403 0.21   0.41  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
+##           deciduous       0 403 0.56   0.5   &lt;U+2586&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+##         diane_andre       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##                dock       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##   double_oval_frame       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##                farm       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##               fence       0 403 0.06   0.24  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##                fire       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##       florida_frame       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##             flowers       0 403 0.03   0.17  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##                 fog       0 403 0.057  0.23  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##              framed       0 403 0.13   0.34  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##               grass       0 403 0.35   0.48  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2585&gt;
+##               guest       0 403 0.055  0.23  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##   half_circle_frame       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##     half_oval_frame       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##               hills       0 403 0.045  0.21  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##                lake       0 403 0.35   0.48  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2585&gt;
+##               lakes       0 403 0      0     &lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##          lighthouse       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##                mill       0 403 0.005  0.07  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##                moon       0 403 0.0074 0.086 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##            mountain       0 403 0.4    0.49  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2585&gt;
+##           mountains       0 403 0.25   0.43  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
+##               night       0 403 0.027  0.16  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##               ocean       0 403 0.089  0.29  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##          oval_frame       0 403 0.094  0.29  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##          palm_trees       0 403 0.022  0.15  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##                path       0 403 0.12   0.33  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##              person       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##            portrait       0 403 0.0074 0.086 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##  rectangle_3d_frame       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##   rectangular_frame       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##               river       0 403 0.31   0.46  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2583&gt;
+##               rocks       0 403 0.19   0.39  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
+##      seashell_frame       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##                snow       0 403 0.19   0.39  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
+##      snowy_mountain       0 403 0.27   0.44  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2583&gt;
+##         split_frame       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##          steve_ross       0 403 0.027  0.16  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##           structure       0 403 0.21   0.41  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
+##                 sun       0 403 0.099  0.3   &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##          tomb_frame       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##                tree       0 403 0.9    0.31  &lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+##               trees       0 403 0.84   0.37  &lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+##        triple_frame       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##           waterfall       0 403 0.097  0.3   &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##               waves       0 403 0.084  0.28  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##            windmill       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##        window_frame       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##              winter       0 403 0.17   0.38  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
+##         wood_framed       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+## 
+## -- Variable type:numeric -------------------------
+##     variable missing   n mean   sd     hist
+##  episode_num       0 403    7 3.75 &lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2583&gt;&lt;U+2587&gt;
+##       season       0 403   16 8.96 &lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;</code></pre>
+</div>
+</div>
+<div id="psych" class="section level3">
+<h3><span class="header-section-number">4.3.3</span> psych</h3>
+<p>In addition to a range of new functions, the <code>psych</code> package includes data sets intended to demonstrate common statistical analyses for psychological research.</p>
+<p>To make the data sets available, install and load the <code>psych</code> package:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&#39;psych&#39;</span>)
+<span class="kw">library</span>(psych)</code></pre>
+<div id="tal.or" class="section level4">
+<h4><span class="header-section-number">4.3.3.1</span> Tal.Or</h4>
+<p>The <code>Tal.Or</code> data set is from Study 2 of Tol-Or, Cohen, Tasfati, &amp; Gunther (2010), which used an experimental manipulation to test the effects of media on the attitudes of 123 respondents, measured with Likert scales:</p>
+<pre><code>## Skim summary statistics
+##  n obs: 123 
+##  n variables: 6 
+## 
+## -- Variable type:numeric -------------------------
+##  variable missing   n  mean   sd     hist
+##       age       0 123 24.63 5.8  &lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##      cond       0 123  0.47 0.5  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+##    gender       0 123  1.65 0.48 &lt;U+2585&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+##    import       0 123  4.2  1.74 &lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2585&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2583&gt;
+##       pmi       0 123  5.6  1.32 &lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;&lt;U+2582&gt;&lt;U+2586&gt;&lt;U+2586&gt;&lt;U+2587&gt;
+##  reaction       0 123  3.48 1.55 &lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2585&gt;&lt;U+2586&gt;&lt;U+2583&gt;&lt;U+2582&gt;</code></pre>
+</div>
+<div id="affect" class="section level4">
+<h4><span class="header-section-number">4.3.3.2</span> affect</h4>
+<p>The <code>affect</code> data set consists of responses from 330 participants to state and trait mood scales given before and after viewing (1) a Frontline documentary about the liberation of a concentration camp, (2) the horror movie Halloween, (3) a National Geographic nature film about the Serengeti, or (4) the comedy movie Parenthood:</p>
+<pre><code>## Skim summary statistics
+##  n obs: 330 
+##  n variables: 20 
+## 
+## -- Variable type:factor --------------------------
+##  variable missing   n n_unique                top_counts
+##     Study       0 330        2 fla: 170, map: 160, NA: 0
+## 
+## -- Variable type:integer -------------------------
+##  variable missing   n  mean    sd     hist
+##      Film       0 330  2.52  1.13 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+##       MEQ     160 330 39.36 10.28 &lt;U+2582&gt;&lt;U+2583&gt;&lt;U+2586&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2582&gt;&lt;U+2581&gt;
+## 
+## -- Variable type:numeric -------------------------
+##  variable missing   n  mean    sd     hist
+##       BDI     170 330  0.31  0.28 &lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2585&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##       EA1       0 330  9.19  7.11 &lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2583&gt;&lt;U+2585&gt;&lt;U+2583&gt;&lt;U+2582&gt;&lt;U+2582&gt;&lt;U+2581&gt;
+##       EA2       0 330 11.01  6.85 &lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2585&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2583&gt;&lt;U+2582&gt;&lt;U+2581&gt;
+##       ext       0 330 13.16  4.47 &lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2583&gt;&lt;U+2586&gt;&lt;U+2586&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2582&gt;
+##       imp       0 330  4.29  1.97 &lt;U+2583&gt;&lt;U+2585&gt;&lt;U+2586&gt;&lt;U+2586&gt;&lt;U+2587&gt;&lt;U+2583&gt;&lt;U+2585&gt;&lt;U+2582&gt;
+##       lie       0 330  2.3   1.48 &lt;U+2582&gt;&lt;U+2585&gt;&lt;U+2587&gt;&lt;U+2585&gt;&lt;U+2582&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##       NA1       0 330  3.69  4.31 &lt;U+2587&gt;&lt;U+2583&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##       NA2       0 330  4.65  5.19 &lt;U+2587&gt;&lt;U+2583&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##      neur       0 330 10.22  5.04 &lt;U+2582&gt;&lt;U+2585&gt;&lt;U+2586&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2583&gt;&lt;U+2582&gt;&lt;U+2581&gt;
+##       PA1       0 330  8.89  6.79 &lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2585&gt;&lt;U+2583&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##       PA2       0 330  8.98  6.43 &lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2585&gt;&lt;U+2586&gt;&lt;U+2585&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##       soc       0 330  7.51  2.86 &lt;U+2581&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2585&gt;&lt;U+2587&gt;&lt;U+2585&gt;&lt;U+2586&gt;&lt;U+2581&gt;
+##    state1       0 330 40.83 10.76 &lt;U+2583&gt;&lt;U+2586&gt;&lt;U+2587&gt;&lt;U+2585&gt;&lt;U+2583&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##    state2     160 330 42.45 10.76 &lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2587&gt;&lt;U+2585&gt;&lt;U+2582&gt;&lt;U+2581&gt;
+##       TA1       0 330 12.91  4.42 &lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;&lt;U+2587&gt;&lt;U+2585&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##       TA2       0 330 15.65  4.88 &lt;U+2581&gt;&lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##  traitanx       0 330 39.52  9.77 &lt;U+2583&gt;&lt;U+2585&gt;&lt;U+2587&gt;&lt;U+2585&gt;&lt;U+2582&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;</code></pre>
+</div>
+<div id="epi" class="section level4">
+<h4><span class="header-section-number">4.3.3.3</span> epi</h4>
+<p>The <code>epi</code> data set includes responses to the Eysenck Personality Inventory from 3570 subjects:</p>
+<pre><code>## Skim summary statistics
+##  n obs: 3570 
+##  n variables: 57 
+## 
+## -- Variable type:integer -------------------------
+##  variable missing    n mean   sd     hist
+##        V1     296 3570 1.28 0.45 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2583&gt;
+##       V10      64 3570 1.86 0.35 &lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+##       V11      77 3570 1.3  0.46 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2583&gt;
+##       V12      66 3570 1.2  0.4  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
+##       V13      75 3570 1.44 0.5  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2586&gt;
+##       V14      72 3570 1.25 0.43 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
+##       V15      75 3570 1.79 0.41 &lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+##       V16      80 3570 1.51 0.5  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+##       V17      75 3570 1.22 0.42 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
+##       V18      71 3570 1.17 0.37 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
+##       V19      70 3570 1.21 0.41 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
+##        V2      85 3570 1.47 0.5  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+##       V20      90 3570 1.23 0.42 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
+##       V21      80 3570 1.35 0.48 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2585&gt;
+##       V22     100 3570 1.43 0.49 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2586&gt;
+##       V23      75 3570 1.62 0.49 &lt;U+2585&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+##       V24      78 3570 1.74 0.44 &lt;U+2583&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+##       V25      72 3570 1.31 0.46 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2583&gt;
+##       V26      89 3570 1.7  0.46 &lt;U+2583&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+##       V27     108 3570 1.38 0.49 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2585&gt;
+##       V28      74 3570 1.35 0.48 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2585&gt;
+##       V29      87 3570 1.67 0.47 &lt;U+2585&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+##        V3      73 3570 1.45 0.5  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+##       V30      71 3570 1.18 0.39 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
+##       V31      98 3570 1.35 0.48 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2585&gt;
+##       V32      99 3570 1.72 0.45 &lt;U+2583&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+##       V33      78 3570 1.63 0.48 &lt;U+2585&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+##       V34      96 3570 1.4  0.49 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2586&gt;
+##       V35      69 3570 1.86 0.35 &lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+##       V36     109 3570 1.72 0.45 &lt;U+2583&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+##       V37      86 3570 1.63 0.48 &lt;U+2585&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+##       V38      83 3570 1.76 0.43 &lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+##       V39      89 3570 1.46 0.5  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+##        V4      65 3570 1.57 0.5  &lt;U+2586&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+##       V40      82 3570 1.47 0.5  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+##       V41      79 3570 1.71 0.45 &lt;U+2583&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+##       V42      68 3570 1.2  0.4  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
+##       V43      70 3570 1.81 0.39 &lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+##       V44      76 3570 1.9  0.3  &lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+##       V45      85 3570 1.79 0.41 &lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+##       V46      81 3570 1.54 0.5  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+##       V47      78 3570 1.76 0.43 &lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+##       V48      75 3570 1.18 0.38 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
+##       V49      80 3570 1.17 0.38 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
+##        V5      73 3570 1.2  0.4  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
+##       V50      80 3570 1.46 0.5  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+##       V51      78 3570 1.76 0.43 &lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+##       V52      89 3570 1.65 0.48 &lt;U+2585&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+##       V53      94 3570 1.58 0.49 &lt;U+2586&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+##       V54      79 3570 1.42 0.49 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2586&gt;
+##       V55      74 3570 1.52 0.5  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+##       V56      76 3570 1.57 0.49 &lt;U+2586&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+##       V57      77 3570 1.8  0.4  &lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+##        V6      68 3570 1.43 0.5  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2586&gt;
+##        V7      68 3570 1.41 0.49 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2586&gt;
+##        V8      70 3570 1.65 0.48 &lt;U+2585&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+##        V9      71 3570 1.46 0.5  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;</code></pre>
+</div>
+<div id="sat.act" class="section level4">
+<h4><span class="header-section-number">4.3.3.4</span> sat.act</h4>
+<p>The <code>sat.act</code> data set includes self-reported SAT and ACT scores along with demographic information from 700 respondents, making it useful for within- or between-subject comparisons:</p>
+<pre><code>## Skim summary statistics
+##  n obs: 700 
+##  n variables: 6 
+## 
+## -- Variable type:integer -------------------------
+##   variable missing   n   mean     sd     hist
+##        ACT       0 700  28.55   4.82 &lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2583&gt;&lt;U+2585&gt;&lt;U+2587&gt;&lt;U+2587&gt;
+##        age       0 700  25.59   9.5  &lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2582&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##  education       0 700   3.16   1.43 &lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2585&gt;&lt;U+2585&gt;
+##     gender       0 700   1.65   0.48 &lt;U+2585&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
+##       SATQ      13 700 610.22 115.64 &lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2585&gt;&lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2585&gt;
+##       SATV       0 700 612.23 112.9  &lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2585&gt;&lt;U+2583&gt;</code></pre>
+</div>
+</div>
+<div id="simulating-your-own-data-sets" class="section level3">
+<h3><span class="header-section-number">4.3.4</span> Simulating your own Data Sets</h3>
+<p>If none of the available data sets satisfy your needs, or if you simply want to get creative, it is possible to simulate your own data set by drawing random samples from a distribution.</p>
+<p>To demonstrate how to simulate a numeric variable, the following code simulates income for 1,000 families from a population in which income is normally distributed around $50,000 with a standard deviation of $5,000:</p>
+<pre class="sourceCode r"><code class="sourceCode r">sim_income &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n=</span><span class="dv">1000</span>, <span class="dt">mean=</span><span class="dv">50000</span>, <span class="dt">sd=</span><span class="dv">5000</span>)
+<span class="kw">hist</span>(sim_income)</code></pre>
+<p><img src="advice_files/figure-html/numeric%20sample%20demo-1.png" width="672" /></p>
+<p>To demonstrate how to simulate a categorical variable, the following code simulates grades for 50 students in a pass/fail course in which there is a 50% chance of passing in the population:</p>
+<pre class="sourceCode r"><code class="sourceCode r">sim_grades &lt;-<span class="st"> </span><span class="kw">rbinom</span>(<span class="dt">n=</span><span class="dv">50</span>, <span class="dt">size=</span><span class="dv">1</span>, <span class="dt">prob=</span>.<span class="dv">5</span>)
+sim_grades &lt;-<span class="st"> </span><span class="kw">factor</span>(sim_grades, <span class="dt">levels=</span><span class="dv">0</span><span class="op">:</span><span class="dv">1</span>, <span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&#39;FAIL&#39;</span>, <span class="st">&#39;PASS&#39;</span>))
+<span class="kw">barplot</span>(<span class="kw">table</span>(sim_grades))</code></pre>
+<p><img src="advice_files/figure-html/categorical%20sample%20demo-1.png" width="672" /></p>
+<p>Other potentially useful “population” distributions include <code>rbeta()</code>, <code>rbinom()</code>, <code>rchisq()</code>, <code>rexp()</code>, <code>rf()</code>, <code>rgamma()</code>, <code>rlogis()</code>, <code>rlnorm()</code>, <code>rpois()</code>, <code>rt()</code>, and <code>runif()</code>. A full list can be found <a href="https://en.wikibooks.org/wiki/R_Programming/Probability_Distributions">here</a>. See the help documentation for each to see which parameter values can be specified.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="statistics.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["PBS-R-Manual.pdf"],
+"toc": {
+"collapse": "none"
+},
+"toc_depth": 2
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
