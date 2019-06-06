@@ -265,7 +265,7 @@ We have used functions in several previous examples, without providing explanati
 So, what is a function? A function is fixed piece of code that accepts input values, performs some operations or calculations on these values, and returns some results. The purpose of having functions in a programming language is to allow you to repeat an operation *without* have to repeat all of the code that defines the operation - the code is "bundled" into a function, and can be re-used infinitely without copying and pasting the code each time. A good way to start thinking about functions by analogy to equations. For instance, if we have the equation $y=\sqrt{x}$:
 
 - $x$ is the input
-- $\sqrt\\$ is the operation performed on the input
+- $\sqrt{}$ is the operation performed on the input
 - $y$ is the output, in this case the result of taking the square root of $x$
 
 When you use a function, you are performing a 'function call' (in computer science-ish terms). 
@@ -331,9 +331,7 @@ For example, you have just read the documentation for the `matrix` function - ca
 
 We would venture to guess the answer to these questions is "No", which makes a strong case for naming your arguments when you write your code. Trust us, if you ever venture into a programming language without support for named arguments (I'm looking at you, MATLAB), you'll yearn for named arguments. 
 
-In summary: When in doubt, name your arguments.
-
-![](http://dev.mensfeld.pl/wp-content/uploads/2014/08/you-have-been-warned.jpg)
+In summary, name your arguments.
 
 #### Special Arguments {-}
 You may have noticed that in the "Usage" section, the `as.matrix` and the `is.matrix` functions have an argument called  `...`. In fact, many R functions have such an argument. A full discussion of the `...` construct is beyond the scope of this guide (or the ellipsis, if you're trying to Google it) is beyond the scope of this guide. For our purposes, we can understand it as a special "catch all" device for any parameters inputs that aren't otherwise explicitly declared. The `...` is used to enable argument passing between functions: it allows one function to capture arguments intended for another function, and send them directly to the other function, without ever know what the names of the arguments for the other function. Neat!

@@ -1,8 +1,6 @@
 --- 
 title: "UMass PBS Instructors R Manual"
-author:
-  - name: Will Hopper
-  - name: Andrea Cataldo
+author: Andrea Cataldo & Will Hopper
 date: "`r gsub(' 0', ' ', format(Sys.Date(), '%b %d, %Y'), fixed=TRUE)`"
 site: bookdown::bookdown_site
 output:
@@ -11,12 +9,17 @@ output:
       toc_depth: 2
       toc:
         collapse: none
+        before: |
+          <li><a href="index.html">UMass PBS Instructors R Manual</a></li>
       download: ["pdf"]
       sharing:
         github: yes
         facebook: no
         twitter: no
         all: no
+  bookdown::pdf_book:
+    latex_engine: xelatex
+    
 documentclass: book
 css: ["css/custom.css"]
 github-repo: wjhopper/PBS-R-Manual
@@ -27,7 +30,12 @@ description: "A guide for instructors teaching statistics and research methods w
 knitr::opts_chunk$set(cache = TRUE)
 ```
 
-# Preface
+# Preface {-}
+
+```{r fig.align='center', echo=FALSE, include=identical(knitr:::pandoc_to(), 'html')}
+knitr::include_graphics('images/cover.png', dpi = NA)
+```
+
 This book serves as a guide for instructors teaching statistics and research methods with R in the UMass Amherst Psychological & Brain Sciences Department. The book is organized into three main sections:
 
 1. An introduction to the R language and the Rstudio development environment.
