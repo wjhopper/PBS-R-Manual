@@ -36,6 +36,13 @@ This book serves as a guide for instructors teaching statistics and research met
 
 Section 1 is primarily intended for instructors who are unfamiliar with the R language and it's ecosystem. However, we recommended even experienced R users read it, as it is useful to remind yourself of the perspective the majority of your students will be approaching R from, and to get "on the same page" as your fellow instructors.
 
+Much of the information in this guide can be found in any "Introduction to R" book or resource. So, why write another one? There are two main reasons:
+
+1. To provide you with the information you need specifically for Psych 240 and 241, and none of the information you don't.
+2. To provide opinionated guidance and reference material for the instructor specifically, not just the "average" R user.
+
+We hope that you find this guide useful as you embark on teaching a new class!
+
 ## Getting Started
 To follow along with the examples in this book, it is recommended that you install the latest version of R and RStudio to your personal computer.
 
@@ -67,7 +74,20 @@ The company which produces the RStudio software has several different products w
 ## Formatting Conventions
 R source code (i.e. code run in the R console or from an R script) and output are presented in monospace font in regions with a light gray background. We **do not** include command line prompts (`>` and `+`, like you would see in a real R console) to the R source code. This is to allow you to conveniently copy and run the code without having to delete the leading prompt symbols. All text output from executing R commands is denoted with two preceeding hashes (`##`). So, any time you see `##` following a block of R code, you are looking at the output of the preeceeding command.
 
-## Reproducibility
+## Additional Materials
+As alluded to earlier, this is far from the only "Intro to R" material in existence, though this guide has been developed with Psych 240 and 241 specifically in mind. But we do encourage you to supplement your knowlege with outside sources. We recommend the following resources to learning about R programming:
+
+- [R in a Nutshell](http://silk.library.umass.edu/login?url=https://search.ebscohost.com/login.aspx?direct=true&db=cat06087a&AN=umass.016355822&site=eds-live&scope=site) by Joseph Adler
+- [The Art of R Programming](http://silk.library.umass.edu/login?url=https://search.ebscohost.com/login.aspx?direct=true&db=cat06087a&AN=umass.016669840&site=eds-live&scope=site) by Norman Matloff
+- [R for Data Science](https://r4ds.had.co.nz/) by Garrett Grolemund & Hadley Wickham
+- [Advanced R](https://adv-r.hadley.nz/) by Hadley Wickham
+
+On campus, there are two great consulting resources for getting help with statistical analysis in R:
+
+- [The Institute for Social Science Research](https://www.umass.edu/issr/what-we-do/consultation)
+- [The Center for Research on Famlies](https://www.umass.edu/family/methodology-department)
+
+#### Reproducibility {-}
 The R session information when compiling this book is shown below:
 ```{r reproducibility}
 sessionInfo()
