@@ -47,7 +47,7 @@ No matter which method you use, the code you choose to run will be executed in t
 
 Another reason to write your code in an R script is to keep a short explanation of what you are doing (and why!) together with your code. These short explanations are called *comments* In R, you write a comment by prefixing the comment's text with the pound sign `#`. Comments can go on their own line, or at the end of an R expression.
 
-#### A Word Of Advice {-#a-word-of-advice}
+#### A Word Of Advice {-}
 When new programmers keen to improve their skills hear the advice "keep your code in an R Script, not the console", they often take it quite literally. And they take all the over code they have run in the console, copy it to an R script, save it, and run it all again later. Best practices achieved, right?
 
 However, new programmers frequently over apply this rule - they keep literally *everything* they've run, even commands that are syntactically incorrect and give errors or incorrect results. An R Script should not be a historical record - rather it should be evolve through editing and careful consideration, much the same way an essay does.
@@ -80,7 +80,7 @@ Variable names are mostly arbitrary (we could have used `elephant` or `jumpluff`
 
 See the "Details" section of the [make.names](https://www.rdocumentation.org/packages/base/versions/3.6.0/topics/make.names) help page, and the [list of reserved keywords](https://www.rdocumentation.org/packages/base/versions/3.6.0/topics/Reserved) for a complete set of naming rules.
 
-#### A word of advice {-#a-word-of-advice}
+#### A word of advice {-}
 When you exit RStudio, you will get a pop-up asking you if you want to "Save workspace image..." to some location on your hard drive. Any person's natural inclination is to answer "Yes" - what fool doesn't want to save their work? However, saving your "workspace image" and "saving your work" are not the same thing.
 
 Saving your **workspace** means saving the state of your R session (i.e., all the variables, you've created, packages you've loaded, etc.) so they everything can be reloaded the next time you start RStudio. Which sounds great. Until you get a month into the semester, and you've keep saving and loading an entire month of R sessions each time. You've run out of variable names and have resorted to naming things "xxxxxx" to avoid naming collisions. Or you forget to avoid naming collisions and obliterate that one variable you actually *do* care about. And now RStudio takes 2 minutes to start and shut down because you've created a behemoth.
