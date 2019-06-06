@@ -120,7 +120,20 @@ Formulas can get much more complex than the examples here, which only extend as 
 
 The sections below introduce functions for executing common statistical tests. However, R's family of distribution functions also make it possible to explore the underlying probability distributions for each test, and to carry out each test by hand. We therefore begin our demonstration of inferential statistics by giving an overview of these powerful intructional tools. 
 
-Each distribution can be accessed by a set of four functions, each labelled with the name of the distribution and a prefix:
+The full list of available distributions can be found [here](https://en.wikibooks.org/wiki/R_Programming/Probability_Distributions). The following table provides an overview the distributions that are likely to be relevant to you as an instructor, including the suffix that each distribution is identified by in the functions below:
+
+Distribution | Suffix | Parameters
+:-------|:-------|:-------
+Normal | `norm` | mean, SD
+Student's T | `t` | df, non-centrality
+Chi-Square | `chisq` | df, non-centrality (non-negative)
+F | `f` | df~1~, df~2~, non-centrality
+Binomial | `binom` | size (number of observations), probability
+Uniform | `unif` | minimum, maximum
+
+View the help documentation for default parameter values and additional details.
+
+Each distribution can be accessed by a set of four functions, each labelled with the distribution's suffix and a task-specific prefix:
 
 Prefix | Task | Example
 :-------|:------------------------------------------------------|:-------
@@ -130,12 +143,14 @@ q | Get the x-axis value marking a cumulative probability. | `qnorm()`
 r | Get a random sample from the distribution. | `rnorm()`
 
 
-To demonstrate the use of these functions, consider that IQ scores are meant to be normally distributed with a mean of 100 and a standard deviation of 15:
+These functions are each demonstrated in the following sub-sections using the normal distribution. In these examples, consider that IQ scores are meant to be normally distributed with a mean of 100 and a standard deviation of 15:
 
 ```{r IQ histogram with curve, echo=FALSE}
 hist(rnorm(10000, mean=100, sd=15), freq=FALSE, ylim=c(0, .03), xlab='', main='IQ Scores')
 points(x=seq(40, 160, .001), y=dnorm(seq(40, 160, .001), mean=100, sd=15), type='l', col='red')
 ```
+
+#### Getting Densities
 
 The functions for getting the probability density associated with a point on the x-axis, such as `dnorm()` in the case of the normal distribution, are unlikely to come up in class. However, they may be useful for generating figures such as the one above, which was created with the following code:
 
@@ -144,7 +159,9 @@ hist(rnorm(10000, mean=100, sd=15), freq=FALSE, ylim=c(0, .03), xlab='', main='I
 points(x=seq(40, 160, .001), y=dnorm(seq(40, 160, .001), mean=100, sd=15), type='l', col='red')
 ```
 
-Note that the input to `dnorm()` was a sequence of values from 40 to 160, by steps of .001. The output was the probability density for each value in the sequence. These values were then used to create a continuous curve that was added to the histogram of the data, in which the argument `freq=FALSE` ensured that the y-axis denoted probability densities instead of counts. 
+Note that the input to `dnorm()` was a sequence of values from 40 to 160, by steps of .001. The output was the probability density for each value in the sequence. These values were then used to create a continuous curve that was added to the histogram of the data, in which the argument `freq=FALSE` ensured that the y-axis denoted probability densities instead of counts. A more detailed tutorial is provided [here](https://homepage.divms.uiowa.edu/~luke/classes/STAT4580/histdens.html).
+
+#### Getting Probabilities
 
 You can use `pnorm()` to demonstrate that there is a 9.12% chance of getting an IQ score that is less than or equal to 80:
 
@@ -166,6 +183,8 @@ pnorm(80, mean=100, sd=15, lower.tail=FALSE)
 
 The latter method may be better for instructional purposes.
 
+#### Getting Quantiles
+
 You can use `qnorm()` to demonstrate that an IQ score of 124.67 marks the 95th percentile of scores:
 
 ```{r qnorm example}
@@ -180,24 +199,15 @@ qnorm(.95, mean=100, sd=15, lower.tail=FALSE)
 
 Note that subtracting from 1 does not work here as it did with `pnorm()` because the output of `qnorm()` is a quantile, which does not need to sum to 1 as probabilities do.
 
-Lastly, you can use `rnorm()` to randomly sample a class of 50 students from the population of IQ scores:
+#### Getting Random Samples
+
+You can use `rnorm()` to randomly sample a class of 50 students from the population of IQ scores:
 
 ```{r rnorm example}
 rnorm(50, mean=100, sd=15)
 ```
 
-The previous examples all related to the normal distribution, but can easily be extended to a range of other probability distributions. The full list of distributions can be found [here](https://en.wikibooks.org/wiki/R_Programming/Probability_Distributions). The following table provides an overview the distributions that are likely to be relevant to you as an instructor:
-
-Distribution | Example | Parameters
-:-------|:-------|:-------
-Normal | `pnorm()` | mean, SD
-Student's T | `pt()` | df, non-centrality
-Chi-Square | `pchisq()` | df, non-centrality (non-negative)
-F | `pf()` | df~1~, df~2~, non-centrality
-Binomial | `pbinom()` | size (number of observations), probability
-Uniform | `punif()` | minimum, maximum
-
-View the help documentation for default parameter values and additional details.
+#### Running Statistical Tests by Hand
 
 These functions can be used to conduct statistical analyses by hand. Consider a demonstration of a z-test using the functions for the normal distribution. To test whether an IQ score of 135 is significantly different from the mean IQ score, first find the z-score:
 
@@ -316,7 +326,51 @@ t.test(male_SATQ, female_SATQ, paired=FALSE)
 
 ### `aov()`
 
+The `aov()` command can be used to execute an ANOVA. The basic call includes one argument, which is a formula object. Whether `aov()` is used to run a one-way, two-way, or multi-way ANOVA, with or without interaction terms, is based entirely on the formula.
 
+#### One-way ANOVA
+
+To demonstrate a one-way ANOVA, imagine that we are curious as to whether verbal SAT scores vary across education level:
+
+```{r one-way ANOVA}
+aov(sat.act$SATV ~ sat.act$education)
+```
+
+The standard output of aov does not contain readily interpretable results. To get the ANOVA table, it is better to save the output of `aov()`, then call `summary()` on that saved object:
+
+```{r one-way ANOVA summary}
+educ_aov <- aov(sat.act$SATV ~ sat.act$education)
+summary(educ_aov)
+```
+
+Now we can see that the p-value is greater than an alpha of .05, so we fail to reject the null hypothesis that verbal SAT scores are equal across levels of education.
+
+We might neaten up our code a bit by using the `data` argument to specify the data frame that our variables belong to. This allows us to just use the column names in the formula object:
+
+```{r one-way ANOVA data arg}
+educ_aov <- aov(SATV ~ education, data=sat.act)
+summary(educ_aov)
+```
+
+#### Two-way ANOVA
+
+To demonstrate a two-way ANOVA, imagine that we are curious as to whether quantitative SAT scores vary across levels of education and gender:
+
+```{r two-way ANOVA}
+educ_gender_aov <- aov(SATQ ~ education + gender, data=sat.act)
+summary(educ_gender_aov)
+```
+
+The p-value for education is .358, so we fail to reject the null hypothesis that quantitative SAT scores are equal across levels of education. The p-value for gender, however, is approximately zero, so we can reject the null hypothesis that quantitative SAT scores are equal across genders. To determine which gender has the highest scores, you might have your students find the means or create a barplot.
+
+The two-way ANOVA that we just ran assumed an additive model, but perhaps we think that the effect of gender on quantitative SAT scores is different across different levels of education. To test this hypothesis with the interactive model, change the `+` symbol between the independent variables to an `*`:
+
+```{r two-way ANOVA interaction}
+educ_gender_aov_int <- aov(SATQ ~ education * gender, data=sat.act)
+summary(educ_gender_aov_int)
+```
+
+The p-value for the interaction term is .610, so we fail to reject the null hypothesis that the effect of gender on quantitative SAT scores is the same across levels of education.
 
 ### `cor.test()`
 
@@ -334,6 +388,7 @@ t.test(male_SATQ, female_SATQ, paired=FALSE)
 
 
 
+### Confidence Intervals
 
 
 
