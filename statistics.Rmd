@@ -1,10 +1,10 @@
 # Statistics
 
 ```{r setup, include=FALSE}
-
+knitr::opts_chunk$set(fig.align = "center")
 # Load libraries
 library(psych)
-
+defaults <- par(mar = c(4,4,1,1), no.readonly = TRUE)
 ```
 
 ## The Data
@@ -90,9 +90,66 @@ Formulas can get much more complex than the examples here, which only extend as 
 
 ## Plotting
 
+One of the most compelling reason to learn and use is because it includes highly flexible and powerful tools for visualizing many kinds of data. After all, if a single tool can perform your analyses and create your figures, why not use the "one ring to rule them all"?
+
+Many visualizations can be created using the `plot()` function, so we'll begin our introduction using that function. As you'll soon see, the `plot()` function accepts many arguments, as there are many ways to customize a plot. Many of the other visualiation tools in R accept similar arguments. So, if `plot()` accepts an argument, there is a fair chance another function will accept it as well.
+
 ### Scatter & Line Plots
+If you have two vectors representing pairs of observations, you can plot them against one another in a scatter plot using the `plot()` function. Let's demonstrate this by plotting the SAT Verbal and SAT Quantitative scores from the `sat.act` dataset against one another.
 
+```{r basicplot}
+plot(sat.act$SATV, sat.act$SATQ) # Access the columns as vectors using $ syntax
+```
 
+The points in the plot above represent pairs SAT Verbal and SAT Quantitative scores. The scores in each vector are paired up by position within each vector - the first value in `SATV` is paired with the first value in `SATQ`, the second value in `SATV` is paired with the second value in `SATQ`, etc. The vector given as the first argument determines the X axis position, and the vector given as the second argument determines the Y axis position.
+
+The axis titles are determined by the variable names of the vectors supplied to the `plot` function. However, variable names aren't always the most informative names for other humans to read. We can customize the axes and plot with infomative titles using the `xlab`, `ylab` and `main` arguments for the `plot` function:
+
+```{r axeslabels}
+plot(sat.act$SATV, sat.act$SATQ,
+     xlab = "SAT Verbal", ylab = "SAT Quantitative",
+     main = "Relationship between SAT Scores")
+```
+
+#### Linetypes, Symbols, and Colors
+You can customize the scatterplot to draw lines between the points, or just draw lines without the point symbols with the `type` argument. This is not a  sensible thing to for these data, but we demonstrate it anyway for completeness.
+
+```{r lines, fig.cap=c("Points and lines with type='o'", "Just using lines with type='l'")}
+# Lines and points
+plot(sat.act$SATV, sat.act$SATQ,
+     xlab = "SAT Verbal", ylab = "SAT Quantitative",
+     main = "Relationship between SAT Scores",
+     type = "o")
+
+# Just lines
+plot(sat.act$SATV, sat.act$SATQ,
+     xlab = "SAT Verbal", ylab = "SAT Quantitative",
+     main = "Relationship between SAT Scores",
+     type = "l")
+```
+
+You can also customise the types of symbols that are used for each point using the `pch`, the style of lines connecting these points using the `lty` argument, and the `col` argument to adjust the color of lines and symbol borders
+
+With the `pch` argument, you specify the symbol used for each point using a numeric code. For example, the value `0` is the code for an unfilled square, while the value `15` is the value for a filled square with no border. Unfortunately, it has been scientifically proven that rememebering the code for all the possible symbols is impossible. Luckily, a helpful mnemonic device called a "chart" has been invented to help R programmers customize their plots. This chart is shown below:
+
+![](images/pch.png)
+
+Note that if you supply a character instead of a numeric values between 0 and 25, R will use that character as the plotting symbol. So, you could make a plot full of pound signs if you are so inclined!
+
+The `lty` argument has a bit more flexibility. Line types can either be specified as an integer (0=blank, 1=solid (default), 2=dashed, 3=dotted, 4=dotdash, 5=longdash, 6=twodash) or as one of the character strings "blank", "solid", "dashed", "dotted", "dotdash", "longdash", or "twodash".
+
+The `col` argument accepts character string describing either a "built in" color name (see `?colors` for a list) or an RGB triplet encoded in hexadecimal notation. Unless you are intimately familiar with RGB color space, it's a good idea to use a tool like the [W3 Organizations Online Color Picker](https://www.w3schools.com/colors/colors_picker.asp) to help you figure out the RGB hex code for the color you want.
+
+To demonstrate, lets take our original plot (with no lines) and customize it to use unfilled, magenta triangles:
+```{r pch_and_col}
+# Lines and points
+plot(sat.act$SATV, sat.act$SATQ,
+     xlab = "SAT Verbal", ylab = "SAT Quantitative",
+     main = "Relationship between SAT Scores",
+     col="magenta", pch=2)
+```
+
+#### Adding to an existing plot
 
 ### Barplots
 
