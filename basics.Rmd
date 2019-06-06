@@ -1,5 +1,5 @@
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(cache = TRUE, collapse = TRUE)
+knitr::opts_chunk$set(cache = TRUE, collapse = TRUE, render=knitr:::knit_print.default)
 ```
 
 # R Programming Fundamentals
@@ -124,7 +124,7 @@ names(new_vector) <- c("A", "B", "C", "D")
 new_vector
 ```
 
-Names can be useful when you want to select a subset of the values in a vector, which will come up in Section \@ref(sub-setting).
+Names can be useful when you want to select a subset of the values in a vector, which will come up in Section \@ref(subsetting).
 
 ### Matrices
 Matrices in R are analogous to matrices from linear algebra, with the notable difference of being able to hold non-numeric types of data. They are a rectangular 2-D data structure, meaning that the number of elements in the matrix is be equal to the product of the number of rows and the number of columns.
@@ -136,7 +136,7 @@ Like vectors, data types may *not* be mixed in a matrix (e.g. you cannot have so
 
 A matrix is created by feeding a vector into the `matrix()` function, and specifying either the number of rows *or* number of columns, *or* both.
 
-```{r makeMatrix, render=knitr:::knit_print.default}
+```{r makeMatrix}
 wide <- matrix(c(1:3, 99:101), ncol = 3)
 wide
 long <- matrix(c(1:3, 99:101), nrow = 3)
@@ -144,12 +144,12 @@ long
 ```
 
 If you want a large matrix but with only a few unique values, take advantage of R's ability to **recycle** input.
-```{r recycle, render=knitr:::knit_print.default}
+```{r recycle}
 matrix(c(4), nrow = 3, ncol = 10)
 ```
 
 Note the matrix is filled up by column (i.e. first element goes to row 1 column 1, second element goes to row 2, column 1, etc.)
-```{r fill_pattern, render=knitr:::knit_print.default}
+```{r fill_pattern}
 matrix(c(4,0), nrow = 2, ncol = 10)
 ```
 
@@ -159,7 +159,7 @@ Like matrices, Data Frames are are 2D, rectangular data structures, but are more
 Data frames can be created by passing `name = value` pairs to the `data.frame()` function. The values should be vectors (of any type) and the names should be unquoted strings of text, which will be used to label each column. Importantly, all the vectors stored in the data frame must be of *identical length*.
 
 Essentially, a data frame is a container that imposes a relational structure on a set of vectors. 
-```{r dataframeexample, render=knitr:::knit_print.default}
+```{r dataframeexample}
 df <- data.frame(x = c(1,4,4,2),
                  y = c(3,3,1,4),
                  month = c("Sep","Oct","Nov","Jan"),
@@ -193,7 +193,7 @@ Creating data structures is great, but creating them is rarely ever the goal we 
 R also has two other types of operators: **Relational** operators and **Logical** operators. 
 
 ### Relational Operators
-As the name implies, relational operators are used to examining the realtionship between values. R has 6 relationsal operators:
+As the name implies, relational operators are used to examining the relationship between values. R has 6 relational operators:
 
 - `<`: The "less than" operator
 - `<=`: The "less than or equal to" operator
@@ -220,7 +220,7 @@ Each of these operators returns it's answer in the form of a Logical value. Cons
 "bye" != "bye"
 ```
 
-These relational operators can be applied to matrices and vectors as well. When applied to matrices and vectors, they operate **elementwise**, meaning they operate on each element of the vector or matrix one at a time, and give you an answer for each indivdual element. So, if you apply the `==` operator to a vector with 10 values, you will get 10 `TRUE`/`FALSE` answers.
+These relational operators can be applied to matrices and vectors as well. When applied to matrices and vectors, they operate **element-wise**, meaning they operate on each element of the vector or matrix one at a time, and give you an answer for each individual element. So, if you apply the `==` operator to a vector with 10 values, you will get 10 `TRUE`/`FALSE` answers.
 
 ```{r}
 c(10, 5, -10) > 0
@@ -228,14 +228,14 @@ c(10, 5, -10) == 0
 c("foo", "bar", "herp", "derp") == "bar"
 ```
 
-When you have a vector or matrix on *both* sides of the operator, it still operates elementwise. In this situation, it will match up the elements on each data structure by position (first with first, second with second, etc.).
+When you have a vector or matrix on *both* sides of the operator, it still operates element-wise. In this situation, it will match up the elements on each data structure by position (first with first, second with second, etc.).
 
 ```{r}
 c(10, 5, -10) > c(20, -5, 0)
 c(10, 5, -10) == c(20, -5, 0)
 ```
 
-When using relational operators with two vectors/matrices, make sure they both have the same number of elements. If not, R will recycle values from the beggining of the shorter vector in order to "pad" it's length. This is probably not what you want to happen, but R will **only** warn you if the length of the longer vector is not a multiple of the shorter vector. If it is a multiple, then R will recycle silently. Be vigilant! 
+When using relational operators with two vectors/matrices, make sure they both have the same number of elements. If not, R will recycle values from the beginning of the shorter vector in order to "pad" it's length. This is probably not what you want to happen, but R will **only** warn you if the length of the longer vector is not a multiple of the shorter vector. If it is a multiple, then R will recycle silently. Be vigilant! 
 
 ```{r dontrecycle1}
 c(10, 5) == c(20, -5, 0, 50) # No warning, 4 is a multiple of 2 !!!
@@ -249,20 +249,20 @@ c(10, 5) == c(20, -5, 0) # Recycling warning, 3 is not a multiple of 2
 R's logical operators are used for combining together multiple Logical values into a single Logical value. The 5 main logical operators are:
 
 - `!`: The "negation" operator (mentioned in the [Logical Data](#logicals) section)
-- `&`: The "elementwise and" operator
+- `&`: The "element-wise and" operator
 - `&&`: The "scalar and" operator
-- `||`: The "elementwise and" operator
+- `||`: The "element-wise and" operator
 - `|`: The "scalar and" operator
 
 We will not cover the use of these operators in the guide, as they go beyond the programming scope expected of Psych 240 and 241 students. Interested instructors are advised to look at examples here: 
 
-- [Manipualting Data](https://wjhopper.github.io/psych640-labs/labs/ManipulatingData.html)
+- [Manipulating Data](https://wjhopper.github.io/psych640-labs/labs/ManipulatingData.html)
 - [Logical Operators in R](https://www.youtube.com/watch?v=6PpQS-YLWDQ)
 
 ## Functions
-We have used functions in several previous examples, without providing explanation of what an R function is, or how they are used generally. So, what is an R function?
+We have used functions in several previous examples, without providing explanation of what an R function is, or how they are used generally. But understanding the basics of functions in R is important, because all of R's analysis and modeling tools are accessed by using function. In this section, we will describe what a function is generally, and explain how to learn what a function  does by reading documentation.
 
-A function is fixed piece of code that accepts input values, performs some operations or calculations on these values, and returns some results. The purpose of having functions in a programming language is to allow you to repeat an operation in multiple places without have to repeat all of the code that defines the operation. A good way to start thinking about functions is think about algebraic equations. For instance, if we have the algebraic equation $y=\sqrt{x}$:
+So, what is a function? A function is fixed piece of code that accepts input values, performs some operations or calculations on these values, and returns some results. The purpose of having functions in a programming language is to allow you to repeat an operation *without* have to repeat all of the code that defines the operation - the code is "bundled" into a function, and can be re-used infinitely without copying and pasting the code each time. A good way to start thinking about functions by analogy to equations. For instance, if we have the equation $y=\sqrt{x}$:
 
 - $x$ is the input
 - $\sqrt\\$ is the operation performed on the input
@@ -273,14 +273,14 @@ This leads to colloquialisms like "Call `mean` on that matrix" or "This code cal
 
 The inputs to functions go by several names, but most often they are called "**arguments**" or "**parameters**". Calling a function with some specific input is often called "passing an argument". Don't confuse function parameters with population parameters from the statistics side of class
 
-Perhaps the best way to understand the properties of R functions, and how they can be used, is to look the documantion of an R function. Here, we'll examine the documentation for a function we've used previously, the `matrix` function. We'll access it by executing the command `?matrix` in the console.
+Perhaps the best way to understand the properties of R functions, and how they can be used, is to look the documentation of an R function. Here, we'll examine the documentation for a function we've used previously, the `matrix` function. We'll access it by executing the command `?matrix` in the console.
 
 ```{r matrix, eval=FALSE}
 ?matrix
 ```
 
 We'll focus on the Description, Usage, and Arguments section, shown below:
-```{r matrix2, printr.help.sections=c("description","usage","arguments")}
+```{r matrix2, echo=FALSE, printr.help.sections=c("description","usage","arguments"), render=knitr::knit_print}
 invisible(loadNamespace('printr'))
 ?matrix
 unloadNamespace('printr')
@@ -302,9 +302,9 @@ The usage section tells you:
 We can see that the `matrix ` function has 5 arguments, `data`, `nrow`, `ncol`, `byrow` and `dimnames`, each with a default argument. Because all the arguments have defaults, we know that we can call the `matrix` function with no arguments and still get a result!
 
 
-Lines saying "S3 Method for class ..." tell you about the functions' behavior when called on objects of a specific class. For example, this help page tells us that when the the `as.matrix` fucntion is called on a data.frame, there is an optional argument called `rownames.force` that isn't used when the input is some other data structure (like a vector). We can safely ignore the cryptic term "S3 Method". 
+Lines saying "S3 Method for class ..." tell you about the functions' behavior when called on objects of a specific class. For example, this help page tells us that when the `as.matrix` function is called on a data.frame, there is an optional argument called `rownames.force` that isn't used when the input is some other data structure (like a vector). We can safely ignore the cryptic term "S3 Method". 
 
-But, we will focus on other cryptic parts of the "Usage" section. But the usage section is also cryptic! What is `x`? What is `trim`? What do they do? For clarification, we must go the the arguments sections.
+But, we will focus on other cryptic parts of the "Usage" section. But the usage section is also cryptic! What is `x`? What is `trim`? What do they do? For clarification, we must go the arguments sections.
 
 ### Arguments
 The detailed descriptions in the arguments section tell us what types of values each argument is permitted to take on. It also tells us what aspect of the function's behavior each argument controls. For example, the `byrow` argument must be a logical value (i.e., `TRUE` or `FALSE`) and it controls whether the matrix is row-by-row, or column-by-column.
@@ -314,37 +314,332 @@ As we see in the "Usage" and "Arguments" sections, every function argument has a
 
 If you wish to omit the names of the arguments when calling a function **you must order your inputs in the exact same order as they appear in the `Usage` section!!!** If you specify arguments as `keyname=value` pairs, they may be passed in any order. If you mix and match named and unnamed, unnamed inputs that R encounters will be paired up with the unmatched arguments following their order in the Usage section.
 
-```{r named_examples, render=knitr:::knit_print.default}
+```{r named_examples}
 x <- c(4,10,3,33,2,NA,43,22,31,95)
 matrix(data=x, byrow=TRUE, nrow=2, ncol=5) # named key/value style
 matrix(x, 2, 5, TRUE)  # unnamed style, byrow goes last
 ```
 
-```{r unnamed_examples, render=knitr:::knit_print.default}
+```{r unnamed_examples}
 matrix(x, TRUE, 2, 5) #5 gets matched up with byrow, not ncol!
 ```
 
 ### A word of advice
 So, which style should you prefer when writing code in an R script: named or unnamed arguments? We recommend using named arguments for all arguments past the first. This strikes a balance between verbosity and clarity - it is often easy to remember what the first argument to a function does and what kind of values it should take on, but it is often difficult to remember the role and order of arguments beyond that. 
 
-For example, you have just read the documentation for the `matrix` function - can you remember whether the `nrow` or `ncol` argument goes first? Are you confident enough to just write some code without looking it up. And are you confident that you'll still remember whether you're making a 10 by 50 or a 50 by 10 matrix when you re-read your code tommorow?
+For example, you have just read the documentation for the `matrix` function - can you remember whether the `nrow` or `ncol` argument goes first? Are you confident enough to just write some code without looking it up. And are you confident that you'll still remember whether you're making a 10 by 50 or a 50 by 10 matrix when you re-read your code tomorrow?
 
 We would venture to guess the answer to these questions is "No", which makes a strong case for naming your arguments when you write your code. Trust us, if you ever venture into a programming language without support for named arguments (I'm looking at you, MATLAB), you'll yearn for named arguments. 
 
 In summary: When in doubt, name your arguments.
-![warning](http://dev.mensfeld.pl/wp-content/uploads/2014/08/you-have-been-warned.jpg)
 
-#### Special Arguments
-You may have noticed that in the "Usage" section, the `as.matrix` and the `is.matrix` functions have an argument called  `...`. In fact, many R functions have such an argument. A full discussion of the `...` construct is beyind the scope of this guide (or the elipsis, if you're trying to Google it) is beyond the scope of this guide. For our purposes, we can understand it as a special "catch all" device for any parameters inputs that aren't otherwise explicitly declared. The `...` is used to enable arugment passing between functions: it allows one function to capture arguments intended for another function, and send them directly to the other function, without ever know what the names of the arguments for the other function. Neat!
+![](http://dev.mensfeld.pl/wp-content/uploads/2014/08/you-have-been-warned.jpg)
 
+#### Special Arguments {-}
+You may have noticed that in the "Usage" section, the `as.matrix` and the `is.matrix` functions have an argument called  `...`. In fact, many R functions have such an argument. A full discussion of the `...` construct is beyond the scope of this guide (or the ellipsis, if you're trying to Google it) is beyond the scope of this guide. For our purposes, we can understand it as a special "catch all" device for any parameters inputs that aren't otherwise explicitly declared. The `...` is used to enable argument passing between functions: it allows one function to capture arguments intended for another function, and send them directly to the other function, without ever know what the names of the arguments for the other function. Neat!
 
-#### Examples
+#### Examples {-}
 The last section of the `matrix` help page we will look at  is "Examples" sections
-```{r matrix3, echo=FALSE, printr.help.sections=c("examples")}
+```{r matrix3, echo=FALSE, printr.help.sections=c("examples"), render=knitr::knit_print}
 invisible(loadNamespace('printr'))
 ?matrix
 unloadNamespace('printr')
 ```
 
-#### The Return Value
-The `matrix` function lacks one field in the help file that most R function have - the "Value" field. This section describes what the function outputs, i.e., what it "returns" to the caller. The `matrix` function can get away from ommitting it, because it's return value is fairly obvious - a matrix! But more complicated functions with more complicated outputs need to describe what they return in more detail, so the user can understand how to process the output in their own code.
+The examples sections demonstrate a simple application of the function. When using a function for the first time, or you find yourself confused by a part of the documentation, running and tweaking the examples you find here is a great way to get a concrete understanding of how the function behaves.
+
+#### The Return Value {-}
+The `matrix` function lacks one field in the help file that most R function have - the "Value" field. This section describes what the function outputs, i.e., what it "returns" to the caller. The `matrix` function can get away with omitting this section, because it's return value is fairly obvious - a matrix! But functions with more complicated outputs need to describe what they return in more detail, so the user can understand how to process the output in their own code.
+
+## Data Manipulation
+Data manipulations describes the processes of editing and re-organizing a set of observations in order to facilitate a subsequent analysis. In this guide, we will cover three main data manipulation processes: indexing, subsetting, and replacement. Since data manipulations typically begins by importing data from a file on your hard drive into R, we will begin this section describing how to import or "read in" 
+
+### Tidy Data
+It's worth beginning with an outline of a well-formatted data set. 
+
+- The data is represented in a rectangular structure (table with rows and columns)
+- Each column represents a specific variable, with a header signifying the name of this variable
+- Each row is represents an observation
+- Avoids names or values with blank spaces
+- Avoids using names that contain symbols such as :, ;, ?, $, %, ^, &, *, (, ), -, #, ?, < , >, /, |, [, ], { and } 
+ - Any missing values in your data set are indicated with `NA`
+ 
+Adhering to these principles when you save new data, or manipulate data you have, will greatly simplify analysis performed in R.
+
+### Importing Data
+
+#### CSV files {-}
+A CSV file is a type of plain-text document, and is indicated by the .csv file extension. Plain text files consist only of sequences of characters codes, including spaces, tabs, new lines and delimiters. They have no styling associated with them (e.g. no italics or bolding, no images). Files with extensions such as .txt, .R  and .html are plain-text files, while files such as .doc, .docx (Word documents) and .xlsx (Excel documents) are **not** plain text files. We recommend you use plain-text formats for sharing data, because they have the greatest deal of interoperability between computer operating systems and analysis programs.
+
+In a CSV file, the content is arranged in a tabular format. Each new line in the file represents a row, and distinct values within each row are separated by commas to form the different columns. Below is an example of what a CSV file looks like before it is imported into R:
+
+```{r csv}
+commas <- read.csv("data/commas.csv")
+write.csv(commas, file="", quote=FALSE, row.names=FALSE)
+```
+
+We can see that the file has 3 columns, a header row, and 3 observation rows. Before we can import this file into R, we must know how to instruct R where to find the file on our computer, and . To do this, we must understand about file paths on our hard drive, and how R looks for files.
+
+#### File Paths and Working Directories {-}
+All the files stored on your computer's hard drive are associated with a named location in the file system's hierarchy. For example, Windows users are likely familiar storing files inside the "My Documents" folder (also known as a "directory").
+
+Much like a file, the R session you have open is also associated with a directory on your hard drive. But, unlike a file, your R session can easily change it's current location without copying the session. The directory your R session currently inhabits is called the "Current Working Directory". You can see what this directory is by issuing the command `getwd()`.
+
+```{r getwd}
+getwd()
+```
+
+As you can see, the current working directory of my R session is the `r rev(strsplit(getwd(),split = "/", fixed=TRUE,)[[1]])[1]` folder. I can change this location using the `setwd()` command, and providing the name of another directory to move the R session to. The new directory I move to needs to be specified as a Character value (i.e., surrounded with quotation marks). However, I have to be very clear and explicit when describing the location of this directory. Specifically, I have describe this directories location using either a **relative** or an **absolute** path.
+
+An absolute file path describes the location in relationship to the beginning of the entire file system, while a relative path describes the location in relationship to R's current working directory. This is important, because not every location on your hard drive is visible from R's current directory - R can only see files *below* it's current working directory in the file system hierarchy. 
+
+If you need to access a file that *is not* below your current working directory, the best way to do this is with an absolute file path. On Windows, the start of each file system is given a letter prefix; the prefix of the file system holding the Window's installation is `C:\`. Directories are separated  with **backward** slashes (e.g. `C:\Users\will` is an absolute path). On Mac OSX and Linux, the start of the file system is `/` (read as "root"). Here, directories are separated  with **forward** slashes (e.g., `/Users/will` is an absolute path). But in R, you don't have to worry about forward slashes vs. backward slashes. **You can use forward slashes in your code, and it will work on either Mac or Windows**
+
+If you need to access a file that *is* not below your current working directory, the best way to do this is with a relative file path. A relative file path doesn't need to begin with `C:\` or `"/"`, it can just begin with the name of the file or directory. Let's do this now with the CSV file we saw in the previous section.
+
+#### read.csv {-}
+The R function used for importing CSV files is called `read.csv`. It has one required argument, the file path describing the name and location of the CSV file to import. In this case, the CSV file is named `commas.csv` and it is stored in a directory named `data` that is in my current working directory. Let's import it now:
+
+```{r readcommas}
+commas <- read.csv("data/commas.csv")
+class(commas)
+commas
+```
+
+Note that I assigned the output of the `read.csv` function to variable named `commas`, and that the function imported the CSV file as a `data.frame` object. Also note that the values in the first row of the CSV file were used as names for each columns, rather than a row of data.
+
+#### Importing Excel Files {-}
+Excel files are ubiquitous, but because of their history as a proprietary format, R does not have native support for importing them. However, all is not lost: you can install the `readxl` package and use it's `read_excel` function to import .xls and .xlsx files into R as data frames.
+
+### Subsetting
+Subsetting describes the processes of "extracting" or "slicing out" a subset of the values from one data structure into another. In R, the processes of subsetting **does not** remove the values you subset from the original data structure. Rather, it creates a copy of the subset you ask for, and puts that copy into your new data structure. So, subsetting is a safe operation that will not result in any data loss.
+
+Subsetting a data structure is performed in R using the `[]` operator, which are called square brackets. All R data structures can be subsetted using the `[]` operators. To subset a data structure, the `[]` operator immediately after the data structure. Between the two square brackets, you place what is known as an **index vector**. An index vector is a vector that describes which values in the data structure you want included in the subset. There are 3 types of index vectors:
+
+- Numeric Index Vectors, which describe the *position* (e.g. first, third, or 19th) of the elements you want included in the subset.
+- Character Index Vectors, which describe the *names* of the elements you want included in the subset (only useful when the elements have names).
+- Logical Index Vectors, which specify for each element in the data structure whether it should be included, or excluded, from the subset.
+ 
+We'll start with subsetting vectors with a numeric index vectors to get a feel for the general procedure.
+
+#### Subsetting with a Numeric Index {-}
+
+```{r large_and_smaller}
+alphabet <- c("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o",
+              "p","q","r","s","t","u","v","w","x","y","z") 
+alphabet[c(1,26)] # Extract First and 26th element
+alphabet[10:20] # Extract tenth through 20th
+```
+
+One of the most common mistake is including a value in your indexing vector which is greater than the length of the vector you are subsetting
+```{r outofbounds, error=TRUE, class.error="Rerrormsg"}
+alphabet[100] # there are not 100 letters in the alphabet
+```
+The `NA` means the value is missing. This is commonly referred to as an "index out of bounds" error, although R does not explicitly give you an error.
+
+Another common mistake is forgetting to concatenate the values you want to use for the indexing vector (i.e. forgetting the `c()` function).
+```{r no-c, error=TRUE, class.error="Rerrormsg"}
+alphabet[1,5]
+```
+This time, R does give us an error, letting us know that we've attempted to index a vector like a matrix. 
+
+##### "Negative" Subsetting {-}
+Instead of creating a vector of values you *do* want to pick out, it may be easier to come up with a vector of ones you *don't* want. We can use negative number's to specify which vector elements we don't want. 
+
+```{r negatives}
+alphabet[c(-1,-26)] # Same as alphabet[2:24]
+alphabet[-1:-10]
+```
+Indexing with positive vectors is usually preferred, as the intent of the code is more clear, but sometimes this form can be clearer when constructing the "anti-set" is easier (e.g. when dropping the first value).
+
+#### Subsetting with a Character Index {-}
+If the elements of our vector have names, we can use those names instead of their positions. 
+```{r named}
+x <- 1:5
+names(x) <- c("A","B","C","D","F")
+x
+x[c("B","F")]
+```
+
+#### Subsetting with a Logical Index {-}
+When subsetting with a logical index vector, you supply a vector specifying whether to extract a specific element (with a `TRUE`) or to *not* extract a specific element (with a `FALSE`).
+
+Let's revisit the example of selecting the first and last elements of the alphabet vector: We make a vector of logicals and stick it in the square brackets after your vector.
+
+```{r bad_logical_indexing}
+alphabet[c(1,26)]
+alphabet[c(TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE,
+           FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE,
+           FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, TRUE)]
+```
+
+
+But this specific example is not a good use case for logical vectors. Why?
+
+1. Longer Code: length of the logical vector must match the length of the object its subsetting.
+2. Duplicating work: If you already know the position of the elements you want, just put them into a vector and you're done!
+
+The logical vector's utility comes into play when you *don't* know the numeric positions of the elements you are interested in. But, how can you determine which values you want to keep without knowing their position or their name? In these cases, we must *search* for values meeting a specific criteria. Searching for values within a data structure is a processes called **Indexing**.
+
+### Indexing
+Indexing a data structure in a search for specific values is a job for R's [relational operators](#relational-operators). Remember, relational operator are applied to all the elements of a data structure individually (i.e., "element-wise"). Thus, we can apply them to search for specific values, and use the Logical `TRUE`/`FALSE` values that result from this search as an index vector.
+
+```{r sometest}
+x <- 2:11
+print(x)
+x <= 5 # Apply the less than or equals test
+```
+
+As you can see, values that meet the criteria (<= 5) return as `TRUE`. 
+```{r sometest_pt2}
+x[x <= 5] # Index vector x with the results of the test. 
+```
+When this logical vector is used to index the vector `x`, only the elements where the logical vector has value `TRUE` are returned.
+
+We index character vectors using the `==` and `!=` operators, but not the greater/less than operators. Quantity makes no sense for characters!
+```{r charTesting}
+months <- c("January", "February", "March", "April", "May", "June", "July",
+            "August", "September", "October", "November", "December")
+months == "June" # The sixth element is TRUE
+months[months == "June"]
+months[months != "July"]
+```
+
+#### Other Useful Tests: `is.na()` {-}
+Unfortunately, we often have to deal with missing observations in real world data sets. R codes missing data as `NA` (or sometimes `NaN`). We can use the `is.na()` function to find any missing values in a vector. 
+```{r isna}
+missingno <- c(10,NA,1,4,2,NA,NA,99,NaN, NA)
+is.na(missingno)
+missingno[!is.na(missingno)] # Select things that are the opposite of missing
+```
+
+#### Converting a Logical to a Positional Index {-}
+A useful function to know is `which()`. When used on a logical vector, it will return to your the position indices of the vector's `TRUE` element. It is useful when you want to know **where** in the vector your matches occur. 
+```{r which}
+is.na(missingno)
+which(is.na(missingno))
+```
+
+### Replacement
+To replace the values in a vector (e.g., to replace empty characters with `NA` values), move the indexing and subsetting operation to the right-hand side of the assignment operator, and put the replacement value(s) on the left-hand side.
+```{r replace}
+song <- c("Happy", "Birthday", "", "You") 
+song[song == ""] <- NA
+song
+```
+
+#### A word of advice {-#replacement-advice .advice}
+Unlike subsetting, replacement *does* present the risk of data loss, because once a value is replaced, it can't be undone. So, when you are experimenting, we recommend you make a "backup" copy of your data structure before editing it. In the previous example, with the "Happy Birthday" lyrics, you might do the following.
+
+```{r safe_replace}
+song <- c("Happy", "Birthday", "", "You")
+song_original <- song
+song[song == ""] <- NA
+song
+song_original
+```
+
+This way, you have a copy of the original data, in case there was a bug in your code, or you need the raw data later on for another operation.
+
+### Matrices & Data Frames
+Now we'll learn how to index data structures with more than one dimension, like matrices and data frames. Recall that matrices and data frames have both rows **and** columns,meaning that when we subset or index them, we must specify which rows and/or columns we would like out subset or search to apply to.
+
+#### Matrices {-}
+To index a matrix, all that is required is to have two vectors inside our square brackets, separated from each other by a comma. The template is: `OurBigMatrix[rowIndex, columnIndex]`
+
+Like with vectors, the index vectors can be either:
+
+- Numeric vectors specifying the position of the rows/columns we want to access
+- Character vectors specifying the names of the rows/columns we want to access (if they have names)
+- Logical vectors specifying for each column and row whether we want to access it (`TRUE`)  or ignore it (`FALSE`)
+
+```{r mat_examples}
+dummy <- matrix(6:1, nrow = 2)
+dummy
+dummy[1,2:3] # Row 1, Column 2 and 3. Output is a vector! 
+dummy[1:2,2:3] # Row 1 and 2, Column 2 and 3. Output is a matrix.
+```
+
+If you want to select **all** of one dimension, (e.g., keep all rows or all columns) but  index the other dimension, provide the separating comma as usual, but don't give any indexing vector for the dimension you want to stay 100% intact.
+```{r mat_examples3}
+dummy[1,] # First Row, all columns
+dummy[1,1:3] # Same as previous
+dummy[,2] # All rows, second columns
+dummy[1:2,2] # Same as previous
+```
+
+We can apply our relational operators to entire matrices in the same manner as vectors. The resulting logical matrix has the same dimensions as the one we apply the test to.
+```{r vectorized_logical}
+dummy < 4 # 2 x 3
+```
+
+We can also apply logical testing and logical indexing to specific dimensions of a matrix. This example here keeps all the columns of the matrix with a sum less than 8.
+```{r mat_examples4}
+colSums(dummy) # colSums() adds up each column
+colSums(dummy) < 8 # Does each column sum to less than 8?
+dummy[,colSums(dummy) < 8] # Select columns with a sum less than 8
+```
+
+#### Data Frames {-}
+To learn about data frames, we're going to use several data frames that come built-in with R as part of the `datasets` package. Try typing `InsectSprays`, `iris`, `airquality` and `mtcars` into the console to be sure they are loaded and available to you. Since they are included as part of a package, you will *not* see them listed in your environment pane. 
+
+The `[row, column]` indexing style used with matrices also applies to data frames. However, data frames also support a different subsetting technique based on a special syntax that applies to it's column names. Subsetting or indexing a data frame using column names should be preferred to using column numbers, because that name is unlikely to change, while the row or column number is **very** likely to get changed throughout the course of an analysis. It's also much easier to remember the name of something than remember its position in a data frame!
+
+##### Subsetting with $ syntax {-}
+
+To subset a single column from a data frame, we can use that columns name, and the `$` operator. In this case, quotes around the column's name are not required. To demonstrate, we will subset the `mpg` column from the `mtcars` dataset.
+```{r dollar, R.options=list(max.print=100)}
+mtcars
+mtcars$mpg
+```
+This `$` syntax *can not* be applied to rows.
+
+##### Subsetting with [] syntax {-}
+To subset *multiple* columns, or to subset specific rows, we need to use `[row,column]` style indexing (not the `$`).
+
+But we're not forced to use numeric vectors just because we're using the `[` operator. We can select multiple columns by their names using a character vector that has the names of our desired columns as its elements.
+
+```{r multiple_cols,R.options=list(max.print=15)}
+mtcars[,c("mpg","disp","gear")] # need  as well as the quotes here
+```
+
+One of the most common subsetting tasks with a data frame (or matrix) is the need to select values in one column **where the values in another column meet a certain criteria**. For example, you might want to select all the values in the column holding reaction times where participants were incorrect. There are 2 syntactic approaches to this, both of which use relational operators and logical indexing.
+
+##### Method 1: Index the data frame itself {-}
+We will use the `[row,column]` method to pick out the values of the `count` column in `InsectSprays` where spray A was used. First, we will build up a logical vector to index the correct rows by testing where the spray column has value 'A'
+```{r method1_part1,R.options=list(max.print=30)}
+InsectSprays$spray
+InsectSprays$spray=="A"
+```
+
+Next, we combine this with a character vector of the column names we're interested in, and put it inside our `[]` brackets
+```{r method1_part2}
+InsectSprays[InsectSprays$spray=="A",'count']
+```
+If we leave the column vector out, this statement will return a data frame. Can you guess how many unique values will be in the spray column in this case?
+
+#### Method 2: Index a vector *from* the data frame {-}
+
+Here, we will use the `$` operator to subset the `count` column from the `InsectSprays` data frame. Then, index this vector with the logical vector resulting from a relational test
+
+```{r method2}
+InsectSprays$count[InsectSprays$spray=="A"] # Same result as before
+```
+
+##### Errors when indexing by name {-}
+If you try to subset a column of a data frame using the `$` operator, but the name of the column doesn't exist, `R` will return `NULL`
+```{r NULLYNULLNULLNESS}
+InsectSprays$neeeeeeighhhhh
+```
+
+But, if you use the `[row,column]` style of indexing and ask for a column that doesn't exist, you get a formal error. 
+
+```{r DOESNOTCOMPUTE, error=TRUE, class.error="Rerrormsg"}
+InsectSprays[, 'neeeeeeighhhhh']
+```
+
+Its also a common mistake to forget the quotes around names inside the `[]` brackets, which will throw an "object not found" error (unless the an object with the same name just happens to exist by coincidence, in which case you will probably get another type of error).
+
+```{r quoteless, error=TRUE, class.error="Rerrormsg"}
+InsectSprays[, spray]
+```
