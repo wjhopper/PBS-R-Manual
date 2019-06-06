@@ -51,10 +51,10 @@ Much of the information in this guide can be found in any "Introduction to R" bo
 
 We hope that you find this guide useful as you embark on teaching a new class!
 
-## Getting Started
+## Getting Started {-}
 To follow along with the examples in this book, it is recommended that you install the latest version of R and RStudio to your personal computer.
 
-### The R Language
+### The R Language {-}
 
 R is a complete programming language and computing environment designed to enable statistical modeling, data manipulation, and reporting. Despite its focus on statistics, it is still very feature rich - we can use it to perform mathematical calculations, create data visualizations, connect to remote databases, save results as files on your computers hard drive, and more. In fact, this entire manual was created in R!
 
@@ -64,7 +64,7 @@ To get started, download and install the most current version of R for your oper
 - Mac OS X: https://cran.r-project.org/bin/macosx/
 - Linux: https://cran.r-project.org/bin/Linux/ (as always, see instructions for your specific Linux distribution)
 
-### RStudio
+### RStudio {-}
 
 RStudio is a graphical program that simplifies common R related tasks, organizes information about your current R session, and generally makes it easier to use R. This type of program is called an **I**ntegrated **D**evelopment **E**nvironment, or IDE for short.
 
@@ -79,10 +79,10 @@ The company which produces the RStudio software has several different products w
 - RStudio Desktop for Linux: [Get .deb and .rpm packages here](https://www.rstudio.com/products/rstudio/download/#download)
 
 
-## Formatting Conventions
+## Formatting Conventions {-}
 R source code (i.e. code run in the R console or from an R script) and output are presented in monospace font in regions with a light gray background. We **do not** include command line prompts (`>` and `+`, like you would see in a real R console) to the R source code. This is to allow you to conveniently copy and run the code without having to delete the leading prompt symbols. All text output from executing R commands is denoted with two preceeding hashes (`##`). So, any time you see `##` following a block of R code, you are looking at the output of the preeceeding command.
 
-## Additional Materials
+## Additional Materials {-}
 As alluded to earlier, this is far from the only "Intro to R" material in existence, though this guide has been developed with Psych 240 and 241 specifically in mind. But we do encourage you to supplement your knowlege with outside sources. We recommend the following resources to learning about R programming:
 
 - [R in a Nutshell](http://silk.library.umass.edu/login?url=https://search.ebscohost.com/login.aspx?direct=true&db=cat06087a&AN=umass.016355822&site=eds-live&scope=site) by Joseph Adler
