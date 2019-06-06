@@ -243,6 +243,58 @@ This provides the same probability as for the z-score, so we make the same concl
 
 This same process can be extended to a range of statistical tests, including t tests, F tests, Chi-Square tests, and binomial tests. 
 
+### Confidence Intervals
+
+Confidence intervals can be calculated by hand in R using the distribution functions. Recall that the formula for a confidence interval is:
+
+$$CI=\bar{x} \pm (critical \: statistic) \frac{s}{\sqrt{n}}$$
+
+The following demonstration will be conducted using the normal distribution, but the same process can be generalized to other statistics. We will continue with the theoretical distribution of IQ scores used above in which the mean is 100 and the standard deviation is 15. 
+
+Imagine that we tested the IQ of 100 students, simulated here with a call to `rnorm()`:
+
+```{r IQ simulations, echo=FALSE}
+
+# Sample 100 IQ scores
+sample_IQ <- rnorm(100, mean=100, sd=15)
+
+```
+
+We know that the sample size, n, is 100. To find the 95% confidence interval, we would need to also find the sample mean, the sample standard deviation, and the critical z score that marks the .975 percentile:
+
+```{r CI ingredients}
+
+# Find the mean
+mean_IQ <- mean(sample_IQ)
+
+# Find the standard deviation
+sd_IQ <- sd(sample_IQ)
+
+# Find the critical z-score (upper tail)
+z_crit <- qnorm(.975)
+
+```
+
+Note that we only need to find the z-score that marks the .975 percentile because the normal distribution is symmetric, so the critical z-score for the .025 percentile is simply the negative of this value. You can, however, choose to ask your students to find both separately if you think it would help from an instructional standpoint.
+
+Then, we combine all of these ingredients to find the upper and lower limits of the confidence interval:
+
+```{r CI combine}
+
+# Find the lower limit
+CI_lower <- mean_IQ - z_crit*(sd_IQ/sqrt(100))
+CI_lower
+
+# Find the upper limit
+CI_upper <- mean_IQ + z_crit*(sd_IQ/sqrt(100))
+CI_upper
+
+```
+
+The confidence interval ranges from 98.41 to 104.88, suggesting that if this experiment had been repeated over and over an infinite number of times, the true population mean would be within that range 95% of the time.
+
+Note that while calculating confidence intervals by hand is a useful instructional tool, some functions for statistical tests do give the confidence interval "for free", such as `t.test()` and `binom.test()`. Make sure to be clear with students when it is acceptable to get confidence intervals from these functions to complete assignments.
+
 ### `t.test()`
 
 The `t.test()` function can be used to execute one-sample, paired, or two-sample t-tests. Each case is demonstrated below, but first note three general arguments that can be used to augment the test:
@@ -374,7 +426,7 @@ The p-value for the interaction term is .610, so we fail to reject the null hypo
 
 ### `cor.test()`
 
-The `cor.test()` function can be used to test the significance of a correlation. The correlation is measured by Pearsons's r by default, but note that it can also be set to Kendall's $$\tau$$ or Spearman's $$\rho$$ with the `method` argument.
+The `cor.test()` function can be used to test the significance of a correlation. The correlation is measured by Pearsons's r by default, but note that it can also be set to Kendall's $\tau$ or Spearman's $\rho$ with the `method` argument.
 
 To demonstrate, imagine that we are curious as to whether verbal and quantitative SAT scores are linearly related:
 
@@ -479,16 +531,4 @@ chisq.test(educ_gender_table)
 ```
 
 The p-value is .007, so we can reject the null hypothesis that level of education is independent of gender. Instead, gender seems to be more balanced in the lower education levels, whereas there are more females than males in the higher education levels.
-
-### `lm()`
-
-
-
-### Confidence Intervals
-
-
-
-
-
-
 
