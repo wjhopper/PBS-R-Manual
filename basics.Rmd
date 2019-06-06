@@ -603,7 +603,7 @@ But we're not forced to use numeric vectors just because we're using the `[` ope
 mtcars[,c("mpg","disp","gear")] # need  as well as the quotes here
 ```
 
-One of the most common subsetting tasks with a data frame (or matrix) is the need to select values in one column **where the values in another column meet a certain criteria**. For example, you might want to select all the values in the column holding reaction times where participants were incorrect. There are 2 syntactic approaches to this, both of which use relational operators and logical indexing.
+One of the most common subsetting tasks with a data frame (or matrix) is the need to select values in one column where the values in another column meet a certain criteria. For example, you might want to select all the values in the column holding reaction times where participants were incorrect. There are 2 syntactic approaches to this, both of which use relational operators and logical indexing.
 
 ##### Method 1: Index the data frame itself {-}
 We will use the `[row,column]` method to pick out the values of the `count` column in `InsectSprays` where spray A was used. First, we will build up a logical vector to index the correct rows by testing where the spray column has value 'A'
