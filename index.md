@@ -1,8 +1,6 @@
 --- 
 title: "UMass PBS Instructors R Manual"
-author:
-  - name: Will Hopper
-  - name: Andrea Cataldo
+author: Andrea Cataldo & Will Hopper
 date: "Jun 6, 2019"
 site: bookdown::bookdown_site
 output:
@@ -11,12 +9,17 @@ output:
       toc_depth: 2
       toc:
         collapse: none
+        before: |
+          <li><a href="index.html">UMass PBS Instructors R Manual</a></li>
       download: ["pdf"]
       sharing:
         github: yes
         facebook: no
         twitter: no
         all: no
+  bookdown::pdf_book:
+    latex_engine: xelatex
+    
 documentclass: book
 css: ["css/custom.css"]
 github-repo: wjhopper/PBS-R-Manual
@@ -25,7 +28,10 @@ description: "A guide for instructors teaching statistics and research methods w
 
 
 
-# Preface
+# Preface {-}
+
+
+
 This book serves as a guide for instructors teaching statistics and research methods with R in the UMass Amherst Psychological & Brain Sciences Department. The book is organized into three main sections:
 
 1. An introduction to the R language and the Rstudio development environment.
@@ -110,9 +116,9 @@ sessionInfo()
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] compiler_3.5.1  magrittr_1.5    bookdown_0.11   htmltools_0.3.6
-##  [5] tools_3.5.1     yaml_2.2.0      Rcpp_1.0.1      stringi_1.4.3  
-##  [9] rmarkdown_1.13  knitr_1.22      stringr_1.3.1   xfun_0.6       
-## [13] digest_0.6.19   packrat_0.4.9-3 evaluate_0.14
+##  [1] compiler_3.5.1   magrittr_1.5     bookdown_0.11    htmltools_0.3.6 
+##  [5] tools_3.5.1      yaml_2.2.0       Rcpp_1.0.1       codetools_0.2-15
+##  [9] stringi_1.4.3    rmarkdown_1.13   knitr_1.22       stringr_1.3.1   
+## [13] xfun_0.6         digest_0.6.19    packrat_0.4.9-3  evaluate_0.14
 ```
 

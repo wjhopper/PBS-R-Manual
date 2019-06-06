@@ -165,12 +165,9 @@ sessionInfo()
 ## attached base packages:
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
-## other attached packages:
-## [1] printr_0.1
-## 
 ## loaded via a namespace (and not attached):
-##  [1] compiler_3.5.1  magrittr_1.5    bookdown_0.11   htmltools_0.3.6
-##  [5] tools_3.5.1     Rcpp_1.0.1      stringi_1.4.3   rmarkdown_1.13 
-##  [9] knitr_1.22      stringr_1.3.1   xfun_0.6        digest_0.6.19  
-## [13] packrat_0.4.9-3 evaluate_0.14
+##  [1] compiler_3.5.1   magrittr_1.5     bookdown_0.11    htmltools_0.3.6 
+##  [5] tools_3.5.1      Rcpp_1.0.1       codetools_0.2-15 stringi_1.4.3   
+##  [9] rmarkdown_1.13   knitr_1.22       stringr_1.3.1    xfun_0.6        
+## [13] digest_0.6.19    packrat_0.4.9-3  evaluate_0.14
 ```

@@ -30,3 +30,11 @@ kbd {
 .page-inner {
     max-width: 80% !important;
 }
+
+.title {
+    margin-bottom: .25em !important;
+}
+
+.author, .date {
+    margin-bottom: 0 !important;
+}
