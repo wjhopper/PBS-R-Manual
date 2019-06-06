@@ -4,7 +4,7 @@
 
 ![](images/rstudio.png)
 
-## Pane #1: The R Console
+## Pane #1: The R Console {#console}
 
 The R console allows you to execute R code (often called expressions, or commands) and see the results printed out. To execute R commands, place your cursor at the prompt (the `>` symbol), type in your code, and press <kbd>Enter</kbd>.
 
@@ -143,3 +143,34 @@ press Enter, and the help page would automatically open.
 
 ## Conclusion
 Here, we have given an introduction to some of the R language's basic functionality (the interactive console, arithmetic, variables, plots and packages) by using the layout of the RStudio IDE as a guide. In the next sections, we demonstrate the basic tenants of the R language and basic R programming tasks, such as calling functions, creating and manipulating data structures, and importing data from files on your hard drive into R.
+
+#### Reproducibility {-}
+The R session information when compiling this book is shown below:
+
+```r
+sessionInfo()
+## R version 3.5.1 (2018-07-02)
+## Platform: x86_64-w64-mingw32/x64 (64-bit)
+## Running under: Windows 7 x64 (build 7601) Service Pack 1
+## 
+## Matrix products: default
+## 
+## locale:
+## [1] LC_COLLATE=English_United States.1252 
+## [2] LC_CTYPE=English_United States.1252   
+## [3] LC_MONETARY=English_United States.1252
+## [4] LC_NUMERIC=C                          
+## [5] LC_TIME=English_United States.1252    
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+## [1] printr_0.1
+## 
+## loaded via a namespace (and not attached):
+##  [1] compiler_3.5.1  magrittr_1.5    bookdown_0.11   htmltools_0.3.6
+##  [5] tools_3.5.1     Rcpp_1.0.1      stringi_1.4.3   rmarkdown_1.13 
+##  [9] knitr_1.22      stringr_1.3.1   xfun_0.6        digest_0.6.19  
+## [13] packrat_0.4.9-3 evaluate_0.14
+```

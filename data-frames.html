@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Data Frames | UMass PBS Instructors R Manual</title>
+  <meta name="description" content="A guide for instructors teaching statistics and research methods with R in the UMass Amherst Psychological &amp; Brain Sciences Department." />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Data Frames | UMass PBS Instructors R Manual" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A guide for instructors teaching statistics and research methods with R in the UMass Amherst Psychological &amp; Brain Sciences Department." />
+  <meta name="github-repo" content="wjhopper/PBS-R-Manual" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Data Frames | UMass PBS Instructors R Manual" />
+  
+  <meta name="twitter:description" content="A guide for instructors teaching statistics and research methods with R in the UMass Amherst Psychological &amp; Brain Sciences Department." />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="r-programming-fundamentals.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="css/custom.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#getting-started"><i class="fa fa-check"></i><b>1.1</b> Getting Started</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#the-r-language"><i class="fa fa-check"></i><b>1.1.1</b> The R Language</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#rstudio"><i class="fa fa-check"></i><b>1.1.2</b> RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#formatting-conventions"><i class="fa fa-check"></i><b>1.2</b> Formatting Conventions</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#reproducibility"><i class="fa fa-check"></i><b>1.3</b> Reproducibility</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html"><i class="fa fa-check"></i><b>2</b> Introducing R and RStudio</a><ul>
+<li class="chapter" data-level="2.1" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#pane-1-the-r-console"><i class="fa fa-check"></i><b>2.1</b> Pane #1: The R Console</a></li>
+<li class="chapter" data-level="2.2" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#pane-2-the-editor"><i class="fa fa-check"></i><b>2.2</b> Pane #2: The Editor</a></li>
+<li class="chapter" data-level="2.3" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#pane-3-your-r-session"><i class="fa fa-check"></i><b>2.3</b> Pane #3: Your R Session</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#variables-and-the-environment"><i class="fa fa-check"></i><b>2.3.1</b> Variables and the Environment</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#pane-4-miscellaneous"><i class="fa fa-check"></i><b>2.4</b> Pane #4: Miscellaneous</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#plots"><i class="fa fa-check"></i><b>2.4.1</b> Plots</a></li>
+<li class="chapter" data-level="2.4.2" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#packages"><i class="fa fa-check"></i><b>2.4.2</b> Packages</a></li>
+<li class="chapter" data-level="2.4.3" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#help"><i class="fa fa-check"></i><b>2.4.3</b> Help</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#conclusion"><i class="fa fa-check"></i><b>2.5</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html"><i class="fa fa-check"></i><b>3</b> R Programming Fundamentals</a><ul>
+<li class="chapter" data-level="3.1" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#classes-of-data"><i class="fa fa-check"></i><b>3.1</b> Classes of Data</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#the-numeric-class"><i class="fa fa-check"></i><b>3.1.1</b> The Numeric Class</a></li>
+<li class="chapter" data-level="3.1.2" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#the-integer-class"><i class="fa fa-check"></i><b>3.1.2</b> The Integer Class</a></li>
+<li class="chapter" data-level="3.1.3" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#the-logical-class"><i class="fa fa-check"></i><b>3.1.3</b> The Logical Class</a></li>
+<li class="chapter" data-level="3.1.4" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#the-character-class"><i class="fa fa-check"></i><b>3.1.4</b> The Character Class</a></li>
+<li class="chapter" data-level="3.1.5" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#factors"><i class="fa fa-check"></i><b>3.1.5</b> Factors</a></li>
+<li class="chapter" data-level="3.1.6" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#class-detection-and-conversion"><i class="fa fa-check"></i><b>3.1.6</b> Class detection and conversion</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#data-structures"><i class="fa fa-check"></i><b>3.2</b> Data Structures</a></li>
+<li class="chapter" data-level="3.3" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#vectors"><i class="fa fa-check"></i><b>3.3</b> Vectors</a></li>
+<li class="chapter" data-level="3.4" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#matrices"><i class="fa fa-check"></i><b>3.4</b> Matrices</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-frames.html"><a href="data-frames.html"><i class="fa fa-check"></i><b>4</b> Data Frames</a><ul>
+<li class="chapter" data-level="4.1" data-path="data-frames.html"><a href="data-frames.html#lists"><i class="fa fa-check"></i><b>4.1</b> Lists</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">UMass PBS Instructors R Manual</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-frames" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Data Frames</h1>
+<p>Like matrices, Data Frames are are 2D, rectangular data structures, but are more flexible because they allow for different data types to be stored in each column. A Data Frame is usually the best way to store and work with a dataset that mixes qualitative and quantitative variables.</p>
+<p>Data frames can be created by passing <code>name = value</code> pairs to the <code>data.frame()</code> function. The values should be vectors (of any type) and the names should be unquoted strings of text, which will be used to label each column. Importantly, all the vectors stored in the data frame must be of <em>identical length</em>.</p>
+<p>Essentially, a data frame is a container that imposes a relational structure on a set of vectors.</p>
+<pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">2</span>), <span class="dt">y=</span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">4</span>),
+                 <span class="dt">month=</span><span class="kw">c</span>(<span class="st">&quot;Sep&quot;</span>,<span class="st">&quot;Oct&quot;</span>,<span class="st">&quot;Nov&quot;</span>,<span class="st">&quot;Jan&quot;</span>),
+                 <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
+df
+<span class="co">##   x y month</span>
+<span class="co">## 1 1 3   Sep</span>
+<span class="co">## 2 4 3   Oct</span>
+<span class="co">## 3 4 1   Nov</span>
+<span class="co">## 4 2 4   Jan</span></code></pre>
+<p>This example also shows an extra argument, <code>stringsAsFactors = FALSE</code>, that was <strong>not</strong> a variable to store in the data frame. This argument is another way to controls how R interprets character vectors (a.k.a. strings) when forming the data frame. Here, using <code>stringsAsFactors = TRUE</code> forces R to leave your character vectors as they are when creating the data frame.</p>
+<div id="lists" class="section level2">
+<h2><span class="header-section-number">4.1</span> Lists</h2>
+<p>Lists are the most abstract and flexible data structure in R. Lists can hold any type of R object, but doesn’t impose any relationship between them. You can have a list holding matrices, data frames, vectors, and even lists holding other lists!</p>
+<p>Think of lists like a folder on your hard drive. You can stuff any kind of file you like in there and give it a name, but there is no relationship between them inside that folder, other than the order they are sorted in. Use a list when you need to group data structures of different sizes and types together. But carefully consider if there is another way, because the lack of structured relationships between the data in different list elements can make them tricky to work with</p>
+<p>As you might have guessed, you can create lists of your own with the <code>list()</code> function. Like the <code>data.frame()</code> function, you pass in <code>name=value</code> pairs. But now, the values can be any R object, of any size, not just vectors with the same lengths.</p>
+<pre class="sourceCode r"><code class="sourceCode r">biglist &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">first =</span> <span class="dv">-10</span><span class="op">:-</span><span class="dv">15</span>, <span class="dt">second =</span> <span class="kw">data.frame</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>), <span class="dt">y =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>))
+biglist
+<span class="co">## $first</span>
+<span class="co">## [1] -10 -11 -12 -13 -14 -15</span>
+<span class="co">## </span>
+<span class="co">## $second</span>
+<span class="co">##   x y</span>
+<span class="co">## 1 A 1</span>
+<span class="co">## 2 B 2</span></code></pre>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="r-programming-fundamentals.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["PBS-R-Manual.pdf"],
+"toc": {
+"collapse": "none"
+},
+"toc_depth": 2
+});
+});
+</script>
+
+</body>
+
+</html>
