@@ -26,3 +26,7 @@ kbd {
     border-radius: 3px;
     padding: 1em 1em;
 }
+
+.page-inner {
+    max-width: 80% !important;
+}
