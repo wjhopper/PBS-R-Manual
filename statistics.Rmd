@@ -138,23 +138,168 @@ The `NA` values are automatically removed when calculating the median by hand us
 
 ### Variance
 
+Calculating the variance by hand requires more distinct sequencing than for the mean and the median. To demonstrate, imagine that we want to find the variance of the verbal SAT scores reported in the `sat.act` data set.
 
+Recall from your knowledge of statistics that the formula for the variance of a sample is:
+
+$$s^2=\frac{\sum (x_i-\bar{x})^2}{n-1}$$
+
+You might first have students find the squared difference between each value and the mean:
+
+```{r var squared diff}
+SATV_sq_diff <- (sat.act$SATV-mean(sat.act$SATV))^2
+```
+
+You can then have students sum up these squared deviations and divide by the total number, minus one:
+
+```{r var sum & divide}
+sum(SATV_sq_diff)/(length(SATV_sq_diff)-1)
+```
+
+We can also get the same answer by using the `var()` function:
+
+```{r var fun}
+var(sat.act$SATV)
+```
+
+Note that `NA` values can be removed from the vector when using the `var()` function by setting the `na.rm` argument to `TRUE`. For instance, when we try to take the variance of the quantitative SAT scores without removing `NA` values, we get `NA` as the output:
+
+```{r var NA}
+var(sat.act$SATQ)
+```
+
+But by setting `na.rm=TRUE`, we get a sensible answer:
+
+```{r var NA remove}
+var(sat.act$SATQ, na.rm=TRUE)
+```
+
+The `NA` values cannot be removed this easily when calculating the variance by hand because while the `sum()` function will take the `na.rm` argument, the `length()` function will not. Thus, if you plan to ask students to calculate the variance by hand in R, be sure to choose a method of removing NA values manually. You can either remove the values yourself beforehand, give the students code to do it, or teach them to look out for and handle `NA` values themselves.
 
 ### Standard Deviation
 
+To calculate the standard deviation by hand, simply extend the previous commands for calculating the variance one step further by calling `sqrt()` on the previous result:
 
+```{r sd hand}
 
-### Standard Error
+# Find the squared deviations
+SATV_sq_diff <- (sat.act$SATV-mean(sat.act$SATV))^2
 
-Because there are different methods for calculating the standard error depending on the nature of the sample statistic, there is no central function for calculating the standard error in R. 
+# Sum squared deviations and divide by n-1
+SATV_var <- sum(SATV_sq_diff)/(length(SATV_sq_diff)-1)
 
-### Correlation
+# Take the square root
+sqrt(SATV_var)
 
+```
 
+More simply, students could take the square root of the output of `var()`:
+
+```{r sd hand var}
+sqrt(var(sat.act$SATV))
+```
+
+Note that the square root of a value can also be found by raising it to .5:
+
+```{r sd hand exp}
+var(sat.act$SATV)^.5
+```
+
+We can also get the same answer by using the `sd()` function:
+
+```{r sd fun}
+sd(sat.act$SATV)
+```
+
+Note that `NA` values can be removed from the vector when using the `sd()` function by setting the `na.rm` argument to `TRUE`. For instance, when we try to take the standard deviation of the quantitative SAT scores without removing `NA` values, we get `NA` as the output:
+
+```{r sd NA}
+sd(sat.act$SATQ)
+```
+
+But by setting `na.rm=TRUE`, we get a sensible answer:
+
+```{r sd NA remove}
+sd(sat.act$SATQ, na.rm=TRUE)
+```
+
+The `NA` values cannot be removed this easily when calculating the standard deviation entirely by hand (that is, without using the `var()` function) because while the `sum()` function will take the `na.rm` argument, the `length()` function will not. Thus, if you plan to ask students to calculate the standard deviation by hand in R, be sure to choose a method of removing NA values manually. You can either remove the values yourself beforehand, give the students code to do it, or teach them to look out for and handle `NA` values themselves.
+
+### Standard Error of the Mean
+
+To calculate the standard error of the mean, simply extend the previous commands for calculating the standard deviation one step further by dividing the previous result by the number of observations minus one:
+
+```{r sem hand}
+
+# Find the squared deviations
+SATV_sq_diff <- (sat.act$SATV-mean(sat.act$SATV))^2
+
+# Sum squared deviations and divide by n-1
+SATV_var <- sum(SATV_sq_diff)/(length(SATV_sq_diff)-1)
+
+# Take the square root
+SATV_sd <- sqrt(SATV_var)
+
+# Divide by n-1
+SATV_sd/(length(SATV_sq_diff)-1)
+
+```
+
+More simply, students could take divide the output of `sd()` by the number of observations minus one:
+
+```{r sem hand sd}
+sd(sat.act$SATV)/(length(sat.act$SATV)-1)
+```
+
+In either case, because `length()` is used in the final step, the `NA` values cannot be easily removed when calculating the standard error of the mean by hand. You should therefore be sure to choose a method of removing NA values manually. You can either remove the values yourself beforehand, give the students code to do it, or teach them to look out for and handle `NA` values themselves.
+
+Because there are different methods for calculating the standard error depending on the nature of the sample statistic, there is no central function for calculating the standard error in R. The `std.error()` function is available in the package `plotrix` and handily includes the `na.rm` argument. However, if `NA` values aren't an issue, you may find that calculating the standard error is a simple enough extension of the standard deviation to have students do it by hand.
+
+### Correlation & Proportion of Variance Explained
+
+We do not recommend having students calculate Pearson's $r$ by hand. Instead, the correlation coefficient can be found using the `cor()` function. 
+
+To demonstrate, imagine that we are curious as to whether there is a linear relationship between respondents' verbal and quantitative SAT scores:
+
+```{r cor example}
+cor(sat.act$SATV, sat.act$SATQ)
+```
+
+We immediately note that the output is `NA` because there are missing values in the quantitative SAT scores. To remedy this, set the `use` argument to  `complete.obs`:
+
+```{r cor complete}
+cor(sat.act$SATV, sat.act$SATQ, use='complete.obs')
+```
+
+With this method, `cor()` will remove any pairs containing at least one missing value before calculating the correlation coefficient.
+
+To calculate the proportion of variance explained, $R^2$, simply square the correlation coefficient:
+
+```{r r-squared}
+cor(sat.act$SATV, sat.act$SATQ, use='complete.obs')^2
+```
+
+This is a handy way of demonstrating that $R^2$ is very simply $r$, squared.
 
 ### Summary Functions
 
+The standard method for summarizing data with multiple descriptive statistics at once is to use the `summary()` function. This function can be used to simultaneously summarize each variable in a data set, such as those in the `iris` data frame:
 
+```{r summarize example}
+summary(iris)
+```
+
+Numeric variables are summarized with the minimum and maximum values, the .25, .5, and .75 quantile cutoff values, and the mean value. Factors are summarized with a table of counts for each factor level. Character strings are summarized in terms of their total length. 
+
+A related function that is sometimes helpful is the `str()` function, which summarizes an object in terms of its class and the class of each of its elements:
+
+```{r str example}
+str(iris)
+```
+
+While it can be inferred from the output of `summary()` that `Species` is a factor and the remaining variables are numeric, `str()` makes this explicit.
+
+Note that additional techniques exist for summarizing data with multiple descriptive statistics. The `describe()` function in the `psych` package provides a range of useful statistics for numeric variables. Tools provided in the `dplyr` package, particularly the combination of `group_by()` and `summarize()`, allow the user to specify their own descriptive statistics. 
 
 ## Plotting
 
@@ -496,7 +641,7 @@ The p-value for the interaction term is .610, so we fail to reject the null hypo
 
 ### `cor.test()`
 
-The `cor.test()` function can be used to test the significance of a correlation. The correlation is measured by Pearsons's r by default, but note that it can also be set to Kendall's $\tau$ or Spearman's $\rho$ with the `method` argument.
+The `cor.test()` function can be used to test the significance of a correlation. The correlation is measured by Pearsons's $r$ by default, but note that it can also be set to Kendall's $\tau$ or Spearman's $\rho$ with the `method` argument.
 
 To demonstrate, imagine that we are curious as to whether verbal and quantitative SAT scores are linearly related:
 
