@@ -96,6 +96,59 @@ data()
 
 You should see a list of all the available data sets with a brief summary of each, separated by the package they belong to.
 
+### How to Handle `NA` Values
+
+Most of the data sets below include at least some missing data, marked as `NA`, in at least one variable. Because, as you know, missing data is a problem that is sure to appear in the wild for students who continue on a research path, you may choose to teach students how to handle `NA` values themselves. Alternatively, you may choose to remove `NA` values on your own for simplicity, either by removing them from the data set beforehand (in which case the data would need to be saved as a .CSV file for the students to read in later), or providing students with code to run before beginning the assignment. Regardless, this section reviews how to handle `NA` values.
+
+As mentioned previously, `NA` values can be identified with the `is.na()` function. For instance, imagine that we want to identify the missing quantitative SAT scores in the `sat.act` data set. We can first call `is.na()` on the variable to create a logical vector marking each `NA` as `TRUE`:
+
+```{r is.na identify}
+is.na(sat.act$SATQ)
+```
+
+This logical vector can then be used to index the variable in question:
+
+```{r is.na index}
+sat.act[is.na(sat.act$SATQ), 'SATQ']
+```
+
+The previous command returns the `NA` values because we have asked R to show us all of the values in `sat.act$SATQ` variable that are coded as `NA`. However, we are often more interested in the values that are NOT missing than those that are. To find the *non*-missing values, we can reverse the logical vector by adding the negation operator, `!`, to the beginning of the call to `is.na()`:
+
+```{r is.na index negate}
+sat.act[!is.na(sat.act$SATQ), 'SATQ']
+```
+
+Now we've asked R to show us all of the values in the `sat.act$SATQ` variable that are NOT coded as `NA`.
+
+To index the entire `sat.act` data frame so that *all* columns are returned, not just the quantitative SAT scores, use bracket notation without specifying any columns:
+
+```{r is.na index negate full call, eval=FALSE}
+sat.act[!is.na(sat.act$SATQ), ]
+```
+```{r is.na index negate full output, echo=FALSE}
+head(sat.act[!is.na(sat.act$SATQ), ])
+```
+
+Now we have the full `sat.act` data set, but only those rows where the quantitative SAT score is not `NA`. To be complete, we recommend saving this subset as a new object:
+
+```{r is.na subset}
+sat.act_noNA <- sat.act[!is.na(sat.act$SATQ), ]
+```
+
+Note that you can also overwrite `NA` values, in cases where it is methodologically appropriate. For instance, perhaps you know that the students with missing quantitative SAT scores are treated as having a score of 0. You could replace the `NA` values with 0 as follows:
+
+```{r replace na}
+
+# First save a new version of the data
+sat.act_NA0 <- sat.act
+
+# Recode NA values as 0 in new version
+sat.act_NA0[is.na(sat.act$SATQ), 'SATQ'] <- 0
+
+```
+
+Now all missing quantitative SAT scores will be treated as a 0 in future mathematical operations, using this new version of the data. Importantly, the original data frame is also preserved.
+
 ### Built-In
 
 There are several small data sets included in base R that are useful for quick demos. Since they are part of base R, it is not necessary to load these packages; just type and enter their name in the console to view them.
@@ -228,7 +281,7 @@ skim(sat.act)
 
 ### Simulating your own Data Sets
 
-If none of the available data sets satisfy your needs, or if you simply want to get creative, it is possible to simulate your own data set by drawing random samples from a distribution.
+If none of the available data sets satisfy your needs, or if you simply want to get creative, it is possible to simulate your own data set by drawing random samples from a distribution. This can be a great method of designing engaging data sets. It also ensures that you will have a nice "clean" data set, with no unwanted `NA` values, balanced or unbalanced designs as needed, and null and significant effects as desired.
 
 To demonstrate how to simulate a numeric variable, the following code simulates income for 1,000 families from a population in which income is normally distributed around $50,000 with a standard deviation of $5,000:
 
