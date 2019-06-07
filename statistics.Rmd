@@ -149,6 +149,20 @@ plot(sat.act$SATV, sat.act$SATQ,
      col="magenta", pch=2)
 ```
 
+#### Axis limits
+R usually does a good job of determining good values for the range of each axis, but if you wish to override the defaults, you can do do using the `xlim` and `ylim` arguments. These arguments accepts 2-element numeric vectors specifying the minimum and maximum values along each axis (in that order). For example, if we wanted to include 0 in the range of SAT scores shown on the plot, we could use `c(0, 800)` for both our axis limits:
+
+```{r limits}
+# Lines and points
+plot(sat.act$SATV, sat.act$SATQ,
+     xlab = "SAT Verbal", ylab = "SAT Quantitative",
+     main = "Relationship between SAT Scores",
+     xlim = c(0, 800),
+     ylim=c(0, 800))
+```
+
+This isn't particularly sensible, because 0 is not a possible score on the SAT, so consider this just a demonstration of R's capabilities.
+
 #### Adding to an existing plot
 In many cases, it is useful to have *different* symbols, colors, and linetypes on the same plot - for example, to denote observations from different groups. There is more than one way to achieve this effect, but when you want different symbols, colors, and linetypes on the same plot, often the easiest way to do it is plot each group one at a time.
 
@@ -262,6 +276,13 @@ hist(sat.act$ACT, breaks = 100, main = "100 breaks")
 par(mfrow = c(1,1)) # Reset back to default
 ```
 Always make sure to set your `mfrow` or `mfcol` values back to `c(1,1)` afterwards, or *all* subsequent plots will use the same layout!
+
+### Saving Plots
+Usually the purpose of creating a visualization in R is to include it in some kind of homework, report, or paper. It is easy to save a plot made in R to an image file on your hard drive using the "Export" option in the R Studio plot pane. Simply click the "Export" drop down menu, and select either the "Save to Image", "Save to PDF" or "Copy to Clipboard" options.
+
+![](images/export.png)
+
+If you choose the "Save as Image" option, you'll get to choose which image format you want to save it as, and what the width and height (in pixels) the image should be saved as.
 
 ### What about ggplot?
 The [ggplot2 package](https://www.rdocumentation.org/packages/ggplot2/versions/3.1.1) is an extremely popular visualization tool, which provides an alternative to the so-called "base graphics" functions described here. The popularity ggplot has achieved is well deserved - it's visualizations are attractive, and it's data-driven, modular coding style is very powerful. The programming style of ggplot is *very* different from the base graphics style. Perhaps the best way to summarize the ggplot approach is that it is builds on top of the organization of the observations inside a data frame and allows you to "map" the variables in your data frame to the "aesthetics" in a plot (shape, position, color, size, etc.).
