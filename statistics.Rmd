@@ -930,3 +930,8 @@ chisq.test(educ_gender_table)
 
 The p-value is .007, so we can reject the null hypothesis that level of education is independent of gender. Instead, gender seems to be more balanced in the lower education levels, whereas there are more females than males in the higher education levels.
 
+#### Reproducibility {-}
+The R session information when compiling this book is shown below:
+```{r reproducibility}
+sessionInfo()
+```

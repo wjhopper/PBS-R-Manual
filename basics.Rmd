@@ -7,9 +7,9 @@ knitr::opts_chunk$set(cache = TRUE, collapse = TRUE, render=knitr:::knit_print.d
 In this section, we outline the basic concepts of the R language (data classes, data structures, operators and functions), and demonstrate how to perform some common tasks.
 
 ## Classes of Data
-The data you work with in R belong to one of several possible classes. The distinction between classes of data is crucial, because the class you instantiate your data with determines the set of possible operations you can perform on that data.
+The data you work with in R belong to one of several possible classes. The distinction between classes of data is crucial, because the class you instantiate your data with determines the set of possible operations that you can perform on that data.
 
-R has 6 "atomic" classes of data, but you will only encounter 4 of these in Psych 240 and 241. These classes are: Numeric, Integer, Logical, and Character. They are dubbed "atomic" classes because they are the fundamental units of the language (i.e., you cannot access a more basic type of object than these 6 classes) and they provide the building blocks for more complex classes and data structures. The 4 frequently used classes are described in more detail below.
+R has 6 "atomic" classes of data, but you will only encounter 4 of these in PSYCH 240 and 241. These classes are: Numeric, Integer, Logical, and Character. They are dubbed "atomic" classes because they are the fundamental units of the language (i.e., you cannot access a more basic type of object than these 6 classes) and they provide the building blocks for more complex classes and data structures. The 4 frequently used classes are described in more detail below.
 
 ### The Numeric Class
 The numeric class is used to represent real numbers (i.e., numbers with a fractional component), for example, 6.23. The numeric class is also known as the "double" class, because internally it utilizes [double floating point precision](https://en.wikipedia.org/wiki/Double-precision_floating-point_format). The numeric class is the default class used to represent numbers in R. So, if you were to execute the command `2 + 2` in the R console, R would represent those 2's using the numeric class.

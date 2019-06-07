@@ -52,35 +52,35 @@ All messages printed to the console in red text are meant to get your attention,
 
 If you receive an error message that is unclear, the best way to determine the cause is to Google it. A list of the most common errors is provided here for convenience.
 
-### There is no output from a command, and there is a `+` in the console instead of a `>`.
+### There is no output from a command, and there is a `+` in the console instead of a `>`. {-}
 
 The user has not completed the command, most likely by forgetting to close a quotation (or being inconsistent with the use of single vs. double quotations) or a set of parentheses. You can either add the end quotation or parenthesis if it is the final character, or press the escape button and start again.
 
-### `Error: unexpected ')' in '___'`
+### `Error: unexpected ')' in '___'` {-}
 
 The user has included one too many end parentheses.
 
-### `Error: Object '___' not found`
+### `Error: Object '___' not found` {-}
 
 The user has tried to call an object that is not in the environment. This may be because there is a typo in the name of the object, or because the object was never assigned to a label with the `<-` operator.
 
-### `Error in ___ : non-numeric argument to binary operator`
+### `Error in ___ : non-numeric argument to binary operator` {-}
 
 The user is most likely trying to conduct a mathematical operation on data that is of a non-numeric class, such as character or factor. If the data should be numeric, try overwriting it with `as.numeric()`.
 
-### `Error in ___(x) : could not find function '___'`
+### `Error in ___(x) : could not find function '___'` {-}
 
 The user is attempting to use a function that is not currently available in R, either because there is a typo in the name of the function or because the function's package has not been loaded in this session.
 
-### `Error in ___ : cannot open the connection`
+### `Error in ___ : cannot open the connection` {-}
 
 The user is attempting to read or write a file at a location on the hard drive that does not exist, likely due to a typo in the file path or file name.
 
-### `Error in ___ : undefined columns selected** or **Error in ___: subscript out of bounds`
+### `Error in ___ : undefined columns selected** or **Error in ___: subscript out of bounds` {-}
 
 The user is attempting to index an area of an object that does not exist, for instance, the ninth column of a seven-column data frame.
 
-### `Error: unexpected symbol in '___'`
+### `Error: unexpected symbol in '___'` {-}
 
 R cannot interpret part of the command, likely because the user has forgotten a comma between function arguments.
 
@@ -300,4 +300,8 @@ barplot(table(sim_grades))
 
 Other potentially useful "population" distributions include `rbeta()`, `rbinom()`, `rchisq()`, `rexp()`, `rf()`, `rgamma()`, `rlogis()`, `rlnorm()`, `rpois()`, `rt()`, and `runif()`. A full list can be found [here](https://en.wikibooks.org/wiki/R_Programming/Probability_Distributions). See the help documentation for each to see which parameter values can be specified.
 
-
+#### Reproducibility {-}
+The R session information when compiling this book is shown below:
+```{r reproducibility}
+sessionInfo()
+```

@@ -43,16 +43,16 @@ RStudio provides several methods for executing the code you've written. You can:
 - Run multiple lines of code by selecting all the lines you want to run with your cursor and pressing  <kbd>Ctrl</kbd> + <kbd>Enter</kbd> (<kbd>⌘ Command</kbd> + <kbd>Enter</kbd> on Mac). 
 - Run the entire R script by pressing the "Source" button in the top-right corner of the editor pane, or using the <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd> keyboard shortcut (<kbd>⌘ Command</kbd>  + <kbd>Shift</kbd> + <kbd>S</kbd> on Mac)
 
-No matter which method you use, the code you choose to run will be executed in the R console below, and you will see any results printed out there as well. Keeping your code in an R Script allows you to quickly and easily run many commands in a row, without having to type each one in every time you need to do it.
+No matter which method you use, the code you choose to run will be executed in the R console below, and you will see any results printed out there as well. Keeping your code in an R script allows you to quickly and easily run many commands in a row, without having to type each one in every time you need to do it.
 
 Another reason to write your code in an R script is to keep a short explanation of what you are doing (and why!) together with your code. These short explanations are called *comments*. In R, you write a comment by prefixing the comment's text with the pound sign `#`. Comments can go on their own line, or at the end of an R expression.
 
 #### A Word Of Advice {-}
-When new programmers keen to improve their skills hear the advice "keep your code in an R Script, not the console", they often take it quite literally. They proceed to take all the R code they have run in the console, copy it to an R script, save it, and run it all again later. Best practices achieved, right?
+When new programmers keen to improve their skills hear the advice "keep your code in an R script, not the console", they often take it quite literally. They proceed to take all the R code they have run in the console, copy it to an R script, save it, and run it all again later. Best practices achieved, right?
 
-However, this scenario is often a dicey over-extension of the suggested rule. New programmers can be prone to keep *literally everything* they've run, even commands that are syntactically incorrect and give errors or incorrect results. An R Script should not be a historical record - rather, it should evolve through editing and careful consideration, much the same way an essay does.
+However, this scenario is often a dicey over-extension of the suggested rule. New programmers can be prone to keep *literally everything* they've run, even commands that are syntactically incorrect and give errors or incorrect results. An R script should not be a historical record - rather, it should evolve through editing and careful consideration, much the same way an essay does.
 
-So, when saving your code in an R Script, try keeping the following rule of thumb: Your R script should have all the commands you need, and none of the ones you don't. This can be challenging for new programmers - the ability to identify what is necessary and what isn't develops with time and expertise. So, don't expect to be perfect at this in the beginning, but do expect to edit and re-edit your R scripts, and don't treat your "Chapter 2 HW.R" file as your diary of working on your Chapter 2 homework.
+So, when saving your code in an R script, try keeping the following rule of thumb: Your R script should have all the commands you need, and none of the ones you don't. This can be challenging for new programmers - the ability to identify what is necessary and what isn't develops with time and expertise. So, don't expect to be perfect at this in the beginning, but do expect to edit and re-edit your R scripts, and don't treat your "Chapter 2 HW.R" file as your diary of working on your Chapter 2 homework.
 
 ```{r comments}
 # Hi I am a comment. 
