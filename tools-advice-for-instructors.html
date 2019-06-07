@@ -49,67 +49,41 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 <link rel="stylesheet" href="css/custom.css" type="text/css" />
@@ -172,7 +146,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.4.1" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#description"><i class="fa fa-check"></i><b>2.4.1</b> Description</a></li>
 <li class="chapter" data-level="2.4.2" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#usage"><i class="fa fa-check"></i><b>2.4.2</b> Usage</a></li>
 <li class="chapter" data-level="2.4.3" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#arguments"><i class="fa fa-check"></i><b>2.4.3</b> Arguments</a></li>
-<li class="chapter" data-level="2.4.4" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#named-vs.-unnamed-arguments"><i class="fa fa-check"></i><b>2.4.4</b> Named vs. Unnamed Arguments</a></li>
+<li class="chapter" data-level="2.4.4" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#named-vs.unnamed-arguments"><i class="fa fa-check"></i><b>2.4.4</b> Named vs. Unnamed Arguments</a></li>
 <li class="chapter" data-level="2.4.5" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#a-word-of-advice-2"><i class="fa fa-check"></i><b>2.4.5</b> A word of advice</a></li>
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html#data-manipulation"><i class="fa fa-check"></i><b>2.5</b> Data Manipulation</a><ul>
@@ -207,18 +181,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3.5" data-path="statistics.html"><a href="statistics.html#inferential-statistics"><i class="fa fa-check"></i><b>3.5</b> Inferential Statistics</a><ul>
 <li class="chapter" data-level="3.5.1" data-path="statistics.html"><a href="statistics.html#distribution-functions"><i class="fa fa-check"></i><b>3.5.1</b> Distribution Functions</a></li>
-<li class="chapter" data-level="3.5.2" data-path="statistics.html"><a href="statistics.html#t.test"><i class="fa fa-check"></i><b>3.5.2</b> <code>t.test()</code></a></li>
-<li class="chapter" data-level="3.5.3" data-path="statistics.html"><a href="statistics.html#aov"><i class="fa fa-check"></i><b>3.5.3</b> <code>aov()</code></a></li>
-<li class="chapter" data-level="3.5.4" data-path="statistics.html"><a href="statistics.html#cor.test"><i class="fa fa-check"></i><b>3.5.4</b> <code>cor.test()</code></a></li>
-<li class="chapter" data-level="3.5.5" data-path="statistics.html"><a href="statistics.html#binom.test"><i class="fa fa-check"></i><b>3.5.5</b> <code>binom.test()</code></a></li>
-<li class="chapter" data-level="3.5.6" data-path="statistics.html"><a href="statistics.html#chisq.test"><i class="fa fa-check"></i><b>3.5.6</b> <code>chisq.test()</code></a></li>
-<li class="chapter" data-level="3.5.7" data-path="statistics.html"><a href="statistics.html#lm"><i class="fa fa-check"></i><b>3.5.7</b> <code>lm()</code></a></li>
-<li class="chapter" data-level="3.5.8" data-path="statistics.html"><a href="statistics.html#confidence-intervals"><i class="fa fa-check"></i><b>3.5.8</b> Confidence Intervals</a></li>
+<li class="chapter" data-level="3.5.2" data-path="statistics.html"><a href="statistics.html#confidence-intervals"><i class="fa fa-check"></i><b>3.5.2</b> Confidence Intervals</a></li>
+<li class="chapter" data-level="3.5.3" data-path="statistics.html"><a href="statistics.html#t.test"><i class="fa fa-check"></i><b>3.5.3</b> <code>t.test()</code></a></li>
+<li class="chapter" data-level="3.5.4" data-path="statistics.html"><a href="statistics.html#aov"><i class="fa fa-check"></i><b>3.5.4</b> <code>aov()</code></a></li>
+<li class="chapter" data-level="3.5.5" data-path="statistics.html"><a href="statistics.html#cor.test"><i class="fa fa-check"></i><b>3.5.5</b> <code>cor.test()</code></a></li>
+<li class="chapter" data-level="3.5.6" data-path="statistics.html"><a href="statistics.html#binom.test"><i class="fa fa-check"></i><b>3.5.6</b> <code>binom.test()</code></a></li>
+<li class="chapter" data-level="3.5.7" data-path="statistics.html"><a href="statistics.html#chisq.test"><i class="fa fa-check"></i><b>3.5.7</b> <code>chisq.test()</code></a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="tools-advice-for-instructors.html"><a href="tools-advice-for-instructors.html"><i class="fa fa-check"></i><b>4</b> Tools &amp; Advice for Instructors</a><ul>
 <li class="chapter" data-level="4.1" data-path="tools-advice-for-instructors.html"><a href="tools-advice-for-instructors.html#best-practices"><i class="fa fa-check"></i><b>4.1</b> Best Practices</a><ul>
-<li class="chapter" data-level="4.1.1" data-path="tools-advice-for-instructors.html"><a href="tools-advice-for-instructors.html#commands-vs.-buttons"><i class="fa fa-check"></i><b>4.1.1</b> Commands vs. Buttons</a></li>
+<li class="chapter" data-level="4.1.1" data-path="tools-advice-for-instructors.html"><a href="tools-advice-for-instructors.html#commands-vs.buttons"><i class="fa fa-check"></i><b>4.1.1</b> Commands vs. Buttons</a></li>
 <li class="chapter" data-level="4.1.2" data-path="tools-advice-for-instructors.html"><a href="tools-advice-for-instructors.html#naming-objects"><i class="fa fa-check"></i><b>4.1.2</b> Naming Objects</a></li>
 <li class="chapter" data-level="4.1.3" data-path="tools-advice-for-instructors.html"><a href="tools-advice-for-instructors.html#scripting"><i class="fa fa-check"></i><b>4.1.3</b> Scripting</a></li>
 <li class="chapter" data-level="4.1.4" data-path="tools-advice-for-instructors.html"><a href="tools-advice-for-instructors.html#formatting-requirements-for-assignments"><i class="fa fa-check"></i><b>4.1.4</b> Formatting Requirements for Assignments</a></li>
@@ -261,7 +234,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 4</span> Tools &amp; Advice for Instructors</h1>
 <div id="best-practices" class="section level2">
 <h2><span class="header-section-number">4.1</span> Best Practices</h2>
-<div id="commands-vs.-buttons" class="section level3">
+<div id="commands-vs.buttons" class="section level3">
 <h3><span class="header-section-number">4.1.1</span> Commands vs. Buttons</h3>
 <p>Though we strongly encourage you to use R through R Studio, we also encourage you and your students to rely on commands instead of button presses where possible. For instance, it is possible to save plots by exporting them from the Plots pane in R Studio, but it is also possible to save them with commands such as <code>pdf()</code> or <code>png()</code>. There are several benefits to prioritizing commands over button presses. First, it has the practical effect of reinforcing a command-line approach to programming your analyses, which may be new for you and is very likely new for your students. Second, and perhaps more importantly, it encourages reproduceability. If your students document all of the actions that they took in completing an assignment by having a command for each one, it will be easier for you to make sure that they did everything on their own, correct their habits where needed, and find the source of an error. It will also help you to reproduce your own work from semester to semester if your assignments are coded in R.</p>
 </div>
@@ -325,7 +298,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">4.3</span> Data Sets</h2>
 <p>This section includes an overview of useful data sets for in-class demonstrations or assignments. The first section includes data sets that are “built-in” as part of the base R <code>datasets</code> package, whereas the remaining sections review data sets from other packages that need to be installed.</p>
 <p>Note that each package has many more data sets than those we have chosen to highlight here. To see all of the data sets available to you at any given time, including those are built-in with base R or part of loaded packages, enter the following command:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>()</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>()</code></pre></div>
 <p>You should see a list of all the available data sets with a brief summary of each, separated by the package they belong to.</p>
 <div id="built-in" class="section level3">
 <h3><span class="header-section-number">4.3.1</span> Built-In</h3>
@@ -337,16 +310,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  n obs: 150 
 ##  n variables: 5 
 ## 
-## -- Variable type:factor -------------------------------
+## ── Variable type:factor ──────────────────────────────────────────────────────────────
 ##  variable missing   n n_unique                       top_counts
 ##   Species       0 150        3 set: 50, ver: 50, vir: 50, NA: 0
 ## 
-## -- Variable type:numeric ------------------------------
+## ── Variable type:numeric ─────────────────────────────────────────────────────────────
 ##      variable missing   n mean   sd     hist
-##  Petal.Length       0 150 3.76 1.77 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;&lt;U+2585&gt;&lt;U+2585&gt;&lt;U+2583&gt;&lt;U+2581&gt;
-##   Petal.Width       0 150 1.2  0.76 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2585&gt;&lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2582&gt;&lt;U+2582&gt;
-##  Sepal.Length       0 150 5.84 0.83 &lt;U+2582&gt;&lt;U+2587&gt;&lt;U+2585&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2585&gt;&lt;U+2582&gt;&lt;U+2582&gt;
-##   Sepal.Width       0 150 3.06 0.44 &lt;U+2581&gt;&lt;U+2582&gt;&lt;U+2585&gt;&lt;U+2587&gt;&lt;U+2583&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;</code></pre>
+##  Petal.Length       0 150 3.76 1.77 ▇▁▁▂▅▅▃▁
+##   Petal.Width       0 150 1.2  0.76 ▇▁▁▅▃▃▂▂
+##  Sepal.Length       0 150 5.84 0.83 ▂▇▅▇▆▅▂▂
+##   Sepal.Width       0 150 3.06 0.44 ▁▂▅▇▃▂▁▁</code></pre>
 </div>
 <div id="warpbreaks" class="section level4">
 <h4><span class="header-section-number">4.3.1.2</span> warpbreaks</h4>
@@ -355,14 +328,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  n obs: 54 
 ##  n variables: 3 
 ## 
-## -- Variable type:factor -------------------------------
+## ── Variable type:factor ──────────────────────────────────────────────────────────────
 ##  variable missing  n n_unique                 top_counts
 ##   tension       0 54        3 L: 18, M: 18, H: 18, NA: 0
 ##      wool       0 54        2        A: 27, B: 27, NA: 0
 ## 
-## -- Variable type:numeric ------------------------------
+## ── Variable type:numeric ─────────────────────────────────────────────────────────────
 ##  variable missing  n  mean   sd     hist
-##    breaks       0 54 28.15 13.2 &lt;U+2586&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2582&gt;&lt;U+2582&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;</code></pre>
+##    breaks       0 54 28.15 13.2 ▆▇▇▂▂▂▁▁</code></pre>
 </div>
 <div id="mtcars" class="section level4">
 <h4><span class="header-section-number">4.3.1.3</span> mtcars</h4>
@@ -371,19 +344,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  n obs: 32 
 ##  n variables: 11 
 ## 
-## -- Variable type:numeric ------------------------------
+## ── Variable type:numeric ─────────────────────────────────────────────────────────────
 ##  variable missing  n   mean     sd     hist
-##        am       0 32   0.41   0.5  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2586&gt;
-##      carb       0 32   2.81   1.62 &lt;U+2586&gt;&lt;U+2587&gt;&lt;U+2582&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##       cyl       0 32   6.19   1.79 &lt;U+2586&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2583&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
-##      disp       0 32 230.72 123.94 &lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2581&gt;&lt;U+2582&gt;&lt;U+2585&gt;&lt;U+2583&gt;&lt;U+2581&gt;&lt;U+2582&gt;
-##      drat       0 32   3.6    0.53 &lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2585&gt;&lt;U+2587&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##      gear       0 32   3.69   0.74 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2586&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
-##        hp       0 32 146.69  68.56 &lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2583&gt;&lt;U+2585&gt;&lt;U+2582&gt;&lt;U+2583&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##       mpg       0 32  20.09   6.03 &lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2583&gt;&lt;U+2582&gt;&lt;U+2582&gt;&lt;U+2582&gt;
-##      qsec       0 32  17.85   1.79 &lt;U+2583&gt;&lt;U+2582&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##        vs       0 32   0.44   0.5  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2586&gt;
-##        wt       0 32   3.22   0.98 &lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;</code></pre>
+##        am       0 32   0.41   0.5  ▇▁▁▁▁▁▁▆
+##      carb       0 32   2.81   1.62 ▆▇▂▇▁▁▁▁
+##       cyl       0 32   6.19   1.79 ▆▁▁▃▁▁▁▇
+##      disp       0 32 230.72 123.94 ▇▆▁▂▅▃▁▂
+##      drat       0 32   3.6    0.53 ▃▇▁▅▇▂▁▁
+##      gear       0 32   3.69   0.74 ▇▁▁▆▁▁▁▂
+##        hp       0 32 146.69  68.56 ▃▇▃▅▂▃▁▁
+##       mpg       0 32  20.09   6.03 ▃▇▇▇▃▂▂▂
+##      qsec       0 32  17.85   1.79 ▃▂▇▆▃▃▁▁
+##        vs       0 32   0.44   0.5  ▇▁▁▁▁▁▁▆
+##        wt       0 32   3.22   0.98 ▃▃▃▇▆▁▁▂</code></pre>
 </div>
 <div id="toothgrowth" class="section level4">
 <h4><span class="header-section-number">4.3.1.4</span> ToothGrowth</h4>
@@ -392,22 +365,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  n obs: 60 
 ##  n variables: 3 
 ## 
-## -- Variable type:factor -------------------------------
+## ── Variable type:factor ──────────────────────────────────────────────────────────────
 ##  variable missing  n n_unique            top_counts
 ##      supp       0 60        2 OJ: 30, VC: 30, NA: 0
 ## 
-## -- Variable type:numeric ------------------------------
+## ── Variable type:numeric ─────────────────────────────────────────────────────────────
 ##  variable missing  n  mean   sd     hist
-##      dose       0 60  1.17 0.63 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
-##       len       0 60 18.81 7.65 &lt;U+2583&gt;&lt;U+2585&gt;&lt;U+2583&gt;&lt;U+2585&gt;&lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2582&gt;&lt;U+2582&gt;</code></pre>
+##      dose       0 60  1.17 0.63 ▇▁▇▁▁▁▁▇
+##       len       0 60 18.81 7.65 ▃▅▃▅▃▇▂▂</code></pre>
 </div>
 </div>
 <div id="fivethirtyeight" class="section level3">
 <h3><span class="header-section-number">4.3.2</span> FiveThirtyEight</h3>
 <p>The <code>fivethirtyeight</code> package includes data sets used for articles written on Nate Silver’s website for data geeks, <a href="https://fivethirtyeight.com/">FiveThirtyEight</a>. From an instructional standpoint, these data sets are useful not only for being particularly engaging but because there is a published article associated with each one.</p>
 <p>To make the data sets available, install and load the <code>fivethirtyeight</code> package:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&#39;fivethirtyeight&#39;</span>)
-<span class="kw">library</span>(fivethirtyeight)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&#39;fivethirtyeight&#39;</span>)
+<span class="kw">library</span>(fivethirtyeight)</code></pre></div>
 <div id="bechdel" class="section level4">
 <h4><span class="header-section-number">4.3.2.1</span> bechdel</h4>
 <p>The <code>bechdel</code> data set is a great all-purpose data set with both within- and between-subject continuous and categorical variables. Based on the <a href="https://en.wikipedia.org/wiki/Bechdel_test">Bechdel Test</a> for female representation in film, this data set includes 1,794 movies from 1970-2013 along with their test outcome, budget, and gross profits:</p>
@@ -415,7 +388,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  n obs: 1794 
 ##  n variables: 15 
 ## 
-## -- Variable type:character ----------------------------
+## ── Variable type:character ───────────────────────────────────────────────────────────
 ##  variable missing    n min max empty n_unique
 ##    binary       0 1794   4   4     0        2
 ##      code       0 1794   8   8     0       85
@@ -423,24 +396,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##      test       0 1794   2  16     0       10
 ##     title       0 1794   1  83     0     1768
 ## 
-## -- Variable type:factor -------------------------------
+## ── Variable type:factor ──────────────────────────────────────────────────────────────
 ##    variable missing    n n_unique                            top_counts
 ##  clean_test       0 1794        5 ok: 803, not: 514, men: 194, dub: 142
 ## 
-## -- Variable type:integer ------------------------------
+## ── Variable type:integer ─────────────────────────────────────────────────────────────
 ##     variable missing    n       mean      sd     hist
-##       budget       0 1794    4.5e+07 4.8e+07 &lt;U+2587&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##  budget_2013       0 1794    5.5e+07 5.5e+07 &lt;U+2587&gt;&lt;U+2583&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##  decade_code     179 1794    1.94    0.69    &lt;U+2585&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2583&gt;
-##  period_code     179 1794    2.42    1.19    &lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2586&gt;&lt;U+2581&gt;&lt;U+2585&gt;&lt;U+2581&gt;&lt;U+2582&gt;
-##         year       0 1794 2002.55    8.98    &lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;&lt;U+2585&gt;&lt;U+2585&gt;&lt;U+2587&gt;
+##       budget       0 1794    4.5e+07 4.8e+07 ▇▂▁▁▁▁▁▁
+##  budget_2013       0 1794    5.5e+07 5.5e+07 ▇▃▁▁▁▁▁▁
+##  decade_code     179 1794    1.94    0.69    ▅▁▁▇▁▁▁▃
+##  period_code     179 1794    2.42    1.19    ▇▇▁▆▁▅▁▂
+##         year       0 1794 2002.55    8.98    ▁▁▁▁▂▅▅▇
 ## 
-## -- Variable type:numeric ------------------------------
+## ── Variable type:numeric ─────────────────────────────────────────────────────────────
 ##       variable missing    n        mean          sd     hist
-##       domgross      17 1794     6.9e+07 8e+07       &lt;U+2587&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##  domgross_2013      18 1794     9.5e+07     1.3e+08 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##       intgross      11 1794     1.5e+08     2.1e+08 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##  intgross_2013      11 1794 2e+08           2.8e+08 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;</code></pre>
+##       domgross      17 1794     6.9e+07 8e+07       ▇▂▁▁▁▁▁▁
+##  domgross_2013      18 1794     9.5e+07     1.3e+08 ▇▁▁▁▁▁▁▁
+##       intgross      11 1794     1.5e+08     2.1e+08 ▇▁▁▁▁▁▁▁
+##  intgross_2013      11 1794 2e+08           2.8e+08 ▇▁▁▁▁▁▁▁</code></pre>
 </div>
 <div id="fandango" class="section level4">
 <h4><span class="header-section-number">4.3.2.2</span> fandango</h4>
@@ -449,37 +422,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  n obs: 146 
 ##  n variables: 23 
 ## 
-## -- Variable type:character ----------------------------
+## ── Variable type:character ───────────────────────────────────────────────────────────
 ##  variable missing   n min max empty n_unique
 ##      film       0 146   3  63     0      146
 ## 
-## -- Variable type:integer ------------------------------
+## ── Variable type:integer ─────────────────────────────────────────────────────────────
 ##                    variable missing   n     mean       sd     hist
-##              fandango_votes       0 146  3848.79  6357.78 &lt;U+2587&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##        imdb_user_vote_count       0 146 42846.21 67406.51 &lt;U+2587&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##                  metacritic       0 146    58.81    19.52 &lt;U+2581&gt;&lt;U+2586&gt;&lt;U+2585&gt;&lt;U+2586&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2587&gt;&lt;U+2585&gt;
-##  metacritic_user_vote_count       0 146   185.71   316.61 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##              rottentomatoes       0 146    60.85    30.17 &lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2582&gt;&lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2582&gt;&lt;U+2585&gt;&lt;U+2587&gt;
-##         rottentomatoes_user       0 146    63.88    20.02 &lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2586&gt;&lt;U+2585&gt;&lt;U+2585&gt;&lt;U+2587&gt;&lt;U+2587&gt;
+##              fandango_votes       0 146  3848.79  6357.78 ▇▂▁▁▁▁▁▁
+##        imdb_user_vote_count       0 146 42846.21 67406.51 ▇▂▁▁▁▁▁▁
+##                  metacritic       0 146    58.81    19.52 ▁▆▅▆▇▆▇▅
+##  metacritic_user_vote_count       0 146   185.71   316.61 ▇▁▁▁▁▁▁▁
+##              rottentomatoes       0 146    60.85    30.17 ▃▃▂▃▃▂▅▇
+##         rottentomatoes_user       0 146    63.88    20.02 ▃▃▃▆▅▅▇▇
 ## 
-## -- Variable type:numeric ------------------------------
+## ── Variable type:numeric ─────────────────────────────────────────────────────────────
 ##                    variable missing   n    mean   sd     hist
-##         fandango_difference       0 146    0.24 0.15 &lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2586&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2587&gt;&lt;U+2583&gt;
-##        fandango_ratingvalue       0 146    3.85 0.5  &lt;U+2582&gt;&lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2582&gt;
-##              fandango_stars       0 146    4.09 0.54 &lt;U+2582&gt;&lt;U+2583&gt;&lt;U+2581&gt;&lt;U+2586&gt;&lt;U+2581&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2582&gt;
-##                        imdb       0 146    6.74 0.96 &lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2585&gt;&lt;U+2587&gt;&lt;U+2585&gt;&lt;U+2582&gt;
-##                   imdb_norm       0 146    3.37 0.48 &lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2585&gt;&lt;U+2587&gt;&lt;U+2585&gt;&lt;U+2582&gt;
-##             imdb_norm_round       0 146    3.38 0.5  &lt;U+2581&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2585&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2585&gt;&lt;U+2581&gt;
-##             metacritic_norm       0 146    2.94 0.98 &lt;U+2581&gt;&lt;U+2586&gt;&lt;U+2585&gt;&lt;U+2586&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2587&gt;&lt;U+2585&gt;
-##       metacritic_norm_round       0 146    2.97 0.99 &lt;U+2581&gt;&lt;U+2586&gt;&lt;U+2585&gt;&lt;U+2586&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2587&gt;&lt;U+2585&gt;
-##             metacritic_user       0 146    6.52 1.51 &lt;U+2582&gt;&lt;U+2582&gt;&lt;U+2582&gt;&lt;U+2585&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2582&gt;
-##         metacritic_user_nom       0 146    3.26 0.76 &lt;U+2582&gt;&lt;U+2582&gt;&lt;U+2582&gt;&lt;U+2585&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2582&gt;
-##  metacritic_user_norm_round       0 146    3.27 0.79 &lt;U+2582&gt;&lt;U+2582&gt;&lt;U+2583&gt;&lt;U+2585&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2582&gt;&lt;U+2581&gt;
-##                     rt_norm       0 146    3.04 1.51 &lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2582&gt;&lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2582&gt;&lt;U+2585&gt;&lt;U+2587&gt;
-##               rt_norm_round       0 146    3.07 1.51 &lt;U+2585&gt;&lt;U+2583&gt;&lt;U+2581&gt;&lt;U+2583&gt;&lt;U+2582&gt;&lt;U+2582&gt;&lt;U+2582&gt;&lt;U+2587&gt;
-##                rt_user_norm       0 146    3.19 1    &lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2586&gt;&lt;U+2585&gt;&lt;U+2585&gt;&lt;U+2587&gt;&lt;U+2587&gt;
-##          rt_user_norm_round       0 146    3.23 1.01 &lt;U+2581&gt;&lt;U+2583&gt;&lt;U+2582&gt;&lt;U+2586&gt;&lt;U+2585&gt;&lt;U+2585&gt;&lt;U+2587&gt;&lt;U+2587&gt;
-##                        year       0 146 2014.88 0.32 &lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;</code></pre>
+##         fandango_difference       0 146    0.24 0.15 ▃▇▁▆▇▁▇▃
+##        fandango_ratingvalue       0 146    3.85 0.5  ▂▃▃▇▇▇▇▂
+##              fandango_stars       0 146    4.09 0.54 ▂▃▁▆▁▇▁▂
+##                        imdb       0 146    6.74 0.96 ▁▁▃▃▅▇▅▂
+##                   imdb_norm       0 146    3.37 0.48 ▁▁▃▃▅▇▅▂
+##             imdb_norm_round       0 146    3.38 0.5  ▁▂▁▅▇▁▅▁
+##             metacritic_norm       0 146    2.94 0.98 ▁▆▅▆▇▆▇▅
+##       metacritic_norm_round       0 146    2.97 0.99 ▁▆▅▆▇▆▇▅
+##             metacritic_user       0 146    6.52 1.51 ▂▂▂▅▇▇▆▂
+##         metacritic_user_nom       0 146    3.26 0.76 ▂▂▂▅▇▇▆▂
+##  metacritic_user_norm_round       0 146    3.27 0.79 ▂▂▃▅▇▆▂▁
+##                     rt_norm       0 146    3.04 1.51 ▃▃▂▃▃▂▅▇
+##               rt_norm_round       0 146    3.07 1.51 ▅▃▁▃▂▂▂▇
+##                rt_user_norm       0 146    3.19 1    ▃▃▃▆▅▅▇▇
+##          rt_user_norm_round       0 146    3.23 1.01 ▁▃▂▆▅▅▇▇
+##                        year       0 146 2014.88 0.32 ▁▁▁▁▁▁▁▇</code></pre>
 </div>
 <div id="comma_survey" class="section level4">
 <h4><span class="header-section-number">4.3.2.3</span> comma_survey</h4>
@@ -488,14 +461,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  n obs: 1129 
 ##  n variables: 13 
 ## 
-## -- Variable type:character ----------------------------
+## ── Variable type:character ───────────────────────────────────────────────────────────
 ##              variable missing    n min max empty n_unique
 ##                gender      92 1129   4   6     0        2
 ##              location     102 1129   7  18     0        9
 ##  more_grammar_correct       0 1129  57  58     0        2
 ##       write_following      36 1129  76  77     0        2
 ## 
-## -- Variable type:factor -------------------------------
+## ── Variable type:factor ──────────────────────────────────────────────────────────────
 ##             variable missing    n n_unique
 ##                  age      92 1129        4
 ##            care_data      38 1129        4
@@ -511,14 +484,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   Bac: 344, Som: 295, Gra: 276, NA: 103
 ##   NA: 293, $50: 290, $10: 164, $25: 158
 ## 
-## -- Variable type:logical ------------------------------
+## ── Variable type:logical ─────────────────────────────────────────────────────────────
 ##              variable missing    n mean                      count
 ##  data_singular_plural      38 1129  0.5 FAL: 547, TRU: 544, NA: 38
 ##    heard_oxford_comma      30 1129  0.6 TRU: 655, FAL: 444, NA: 30
 ## 
-## -- Variable type:numeric ------------------------------
+## ── Variable type:numeric ─────────────────────────────────────────────────────────────
 ##       variable missing    n    mean         sd     hist
-##  respondent_id       0 1129 3.3e+09 1072966.47 &lt;U+2587&gt;&lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2582&gt;</code></pre>
+##  respondent_id       0 1129 3.3e+09 1072966.47 ▇▃▇▇▆▂▁▂</code></pre>
 </div>
 <div id="avengers" class="section level4">
 <h4><span class="header-section-number">4.3.2.4</span> avengers</h4>
@@ -527,7 +500,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  n obs: 173 
 ##  n variables: 21 
 ## 
-## -- Variable type:character ----------------------------
+## ── Variable type:character ───────────────────────────────────────────────────────────
 ##                     variable missing   n min max empty n_unique
 ##  full_reserve_avengers_intro      14 173   5   6     0       93
 ##                       gender       0 173   4   6     0        2
@@ -537,13 +510,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##           probationary_intro     158 173   6   6     0       12
 ##                          url       0 173  36  67     0      173
 ## 
-## -- Variable type:integer ------------------------------
+## ── Variable type:integer ─────────────────────────────────────────────────────────────
 ##             variable missing   n    mean     sd     hist
-##          appearances       0 173  414.05 677.99 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##                 year       0 173 1988.45  30.37 &lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;&lt;U+2582&gt;&lt;U+2583&gt;&lt;U+2587&gt;
-##  years_since_joining       0 173   26.55  30.37 &lt;U+2587&gt;&lt;U+2583&gt;&lt;U+2582&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
+##          appearances       0 173  414.05 677.99 ▇▁▁▁▁▁▁▁
+##                 year       0 173 1988.45  30.37 ▂▁▁▁▂▂▃▇
+##  years_since_joining       0 173   26.55  30.37 ▇▃▂▂▁▁▁▂
 ## 
-## -- Variable type:logical ------------------------------
+## ── Variable type:logical ─────────────────────────────────────────────────────────────
 ##  variable missing   n mean                     count
 ##   current       0 173 0.47   FAL: 91, TRU: 82, NA: 0
 ##    death1       0 173 0.4   FAL: 104, TRU: 69, NA: 0
@@ -564,93 +537,93 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  n obs: 403 
 ##  n variables: 71 
 ## 
-## -- Variable type:character ----------------------------
+## ── Variable type:character ───────────────────────────────────────────────────────────
 ##  variable missing   n min max empty n_unique
 ##   episode       0 403   6   6     0      403
 ##     title       0 403   8  27     0      401
 ## 
-## -- Variable type:integer ------------------------------
+## ── Variable type:integer ─────────────────────────────────────────────────────────────
 ##            variable missing   n   mean    sd     hist
-##         apple_frame       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##     aurora_borealis       0 403 0.005  0.07  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##                barn       0 403 0.042  0.2   &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##               beach       0 403 0.067  0.25  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##                boat       0 403 0.005  0.07  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##              bridge       0 403 0.017  0.13  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##            building       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##              bushes       0 403 0.3    0.46  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2583&gt;
-##               cabin       0 403 0.17   0.38  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
-##              cactus       0 403 0.0099 0.099 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##        circle_frame       0 403 0.005  0.07  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##              cirrus       0 403 0.069  0.25  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##               cliff       0 403 0.02   0.14  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##              clouds       0 403 0.44   0.5   &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2586&gt;
-##             conifer       0 403 0.53   0.5   &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
-##             cumulus       0 403 0.21   0.41  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
-##           deciduous       0 403 0.56   0.5   &lt;U+2586&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
-##         diane_andre       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##                dock       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##   double_oval_frame       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##                farm       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##               fence       0 403 0.06   0.24  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##                fire       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##       florida_frame       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##             flowers       0 403 0.03   0.17  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##                 fog       0 403 0.057  0.23  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##              framed       0 403 0.13   0.34  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##               grass       0 403 0.35   0.48  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2585&gt;
-##               guest       0 403 0.055  0.23  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##   half_circle_frame       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##     half_oval_frame       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##               hills       0 403 0.045  0.21  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##                lake       0 403 0.35   0.48  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2585&gt;
-##               lakes       0 403 0      0     &lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##          lighthouse       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##                mill       0 403 0.005  0.07  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##                moon       0 403 0.0074 0.086 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##            mountain       0 403 0.4    0.49  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2585&gt;
-##           mountains       0 403 0.25   0.43  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
-##               night       0 403 0.027  0.16  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##               ocean       0 403 0.089  0.29  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##          oval_frame       0 403 0.094  0.29  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##          palm_trees       0 403 0.022  0.15  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##                path       0 403 0.12   0.33  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##              person       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##            portrait       0 403 0.0074 0.086 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##  rectangle_3d_frame       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##   rectangular_frame       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##               river       0 403 0.31   0.46  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2583&gt;
-##               rocks       0 403 0.19   0.39  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
-##      seashell_frame       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##                snow       0 403 0.19   0.39  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
-##      snowy_mountain       0 403 0.27   0.44  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2583&gt;
-##         split_frame       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##          steve_ross       0 403 0.027  0.16  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##           structure       0 403 0.21   0.41  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
-##                 sun       0 403 0.099  0.3   &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##          tomb_frame       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##                tree       0 403 0.9    0.31  &lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
-##               trees       0 403 0.84   0.37  &lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
-##        triple_frame       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##           waterfall       0 403 0.097  0.3   &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##               waves       0 403 0.084  0.28  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##            windmill       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##        window_frame       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##              winter       0 403 0.17   0.38  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
-##         wood_framed       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
+##         apple_frame       0 403 0.0025 0.05  ▇▁▁▁▁▁▁▁
+##     aurora_borealis       0 403 0.005  0.07  ▇▁▁▁▁▁▁▁
+##                barn       0 403 0.042  0.2   ▇▁▁▁▁▁▁▁
+##               beach       0 403 0.067  0.25  ▇▁▁▁▁▁▁▁
+##                boat       0 403 0.005  0.07  ▇▁▁▁▁▁▁▁
+##              bridge       0 403 0.017  0.13  ▇▁▁▁▁▁▁▁
+##            building       0 403 0.0025 0.05  ▇▁▁▁▁▁▁▁
+##              bushes       0 403 0.3    0.46  ▇▁▁▁▁▁▁▃
+##               cabin       0 403 0.17   0.38  ▇▁▁▁▁▁▁▂
+##              cactus       0 403 0.0099 0.099 ▇▁▁▁▁▁▁▁
+##        circle_frame       0 403 0.005  0.07  ▇▁▁▁▁▁▁▁
+##              cirrus       0 403 0.069  0.25  ▇▁▁▁▁▁▁▁
+##               cliff       0 403 0.02   0.14  ▇▁▁▁▁▁▁▁
+##              clouds       0 403 0.44   0.5   ▇▁▁▁▁▁▁▆
+##             conifer       0 403 0.53   0.5   ▇▁▁▁▁▁▁▇
+##             cumulus       0 403 0.21   0.41  ▇▁▁▁▁▁▁▂
+##           deciduous       0 403 0.56   0.5   ▆▁▁▁▁▁▁▇
+##         diane_andre       0 403 0.0025 0.05  ▇▁▁▁▁▁▁▁
+##                dock       0 403 0.0025 0.05  ▇▁▁▁▁▁▁▁
+##   double_oval_frame       0 403 0.0025 0.05  ▇▁▁▁▁▁▁▁
+##                farm       0 403 0.0025 0.05  ▇▁▁▁▁▁▁▁
+##               fence       0 403 0.06   0.24  ▇▁▁▁▁▁▁▁
+##                fire       0 403 0.0025 0.05  ▇▁▁▁▁▁▁▁
+##       florida_frame       0 403 0.0025 0.05  ▇▁▁▁▁▁▁▁
+##             flowers       0 403 0.03   0.17  ▇▁▁▁▁▁▁▁
+##                 fog       0 403 0.057  0.23  ▇▁▁▁▁▁▁▁
+##              framed       0 403 0.13   0.34  ▇▁▁▁▁▁▁▁
+##               grass       0 403 0.35   0.48  ▇▁▁▁▁▁▁▅
+##               guest       0 403 0.055  0.23  ▇▁▁▁▁▁▁▁
+##   half_circle_frame       0 403 0.0025 0.05  ▇▁▁▁▁▁▁▁
+##     half_oval_frame       0 403 0.0025 0.05  ▇▁▁▁▁▁▁▁
+##               hills       0 403 0.045  0.21  ▇▁▁▁▁▁▁▁
+##                lake       0 403 0.35   0.48  ▇▁▁▁▁▁▁▅
+##               lakes       0 403 0      0     ▁▁▁▇▁▁▁▁
+##          lighthouse       0 403 0.0025 0.05  ▇▁▁▁▁▁▁▁
+##                mill       0 403 0.005  0.07  ▇▁▁▁▁▁▁▁
+##                moon       0 403 0.0074 0.086 ▇▁▁▁▁▁▁▁
+##            mountain       0 403 0.4    0.49  ▇▁▁▁▁▁▁▅
+##           mountains       0 403 0.25   0.43  ▇▁▁▁▁▁▁▂
+##               night       0 403 0.027  0.16  ▇▁▁▁▁▁▁▁
+##               ocean       0 403 0.089  0.29  ▇▁▁▁▁▁▁▁
+##          oval_frame       0 403 0.094  0.29  ▇▁▁▁▁▁▁▁
+##          palm_trees       0 403 0.022  0.15  ▇▁▁▁▁▁▁▁
+##                path       0 403 0.12   0.33  ▇▁▁▁▁▁▁▁
+##              person       0 403 0.0025 0.05  ▇▁▁▁▁▁▁▁
+##            portrait       0 403 0.0074 0.086 ▇▁▁▁▁▁▁▁
+##  rectangle_3d_frame       0 403 0.0025 0.05  ▇▁▁▁▁▁▁▁
+##   rectangular_frame       0 403 0.0025 0.05  ▇▁▁▁▁▁▁▁
+##               river       0 403 0.31   0.46  ▇▁▁▁▁▁▁▃
+##               rocks       0 403 0.19   0.39  ▇▁▁▁▁▁▁▂
+##      seashell_frame       0 403 0.0025 0.05  ▇▁▁▁▁▁▁▁
+##                snow       0 403 0.19   0.39  ▇▁▁▁▁▁▁▂
+##      snowy_mountain       0 403 0.27   0.44  ▇▁▁▁▁▁▁▃
+##         split_frame       0 403 0.0025 0.05  ▇▁▁▁▁▁▁▁
+##          steve_ross       0 403 0.027  0.16  ▇▁▁▁▁▁▁▁
+##           structure       0 403 0.21   0.41  ▇▁▁▁▁▁▁▂
+##                 sun       0 403 0.099  0.3   ▇▁▁▁▁▁▁▁
+##          tomb_frame       0 403 0.0025 0.05  ▇▁▁▁▁▁▁▁
+##                tree       0 403 0.9    0.31  ▁▁▁▁▁▁▁▇
+##               trees       0 403 0.84   0.37  ▂▁▁▁▁▁▁▇
+##        triple_frame       0 403 0.0025 0.05  ▇▁▁▁▁▁▁▁
+##           waterfall       0 403 0.097  0.3   ▇▁▁▁▁▁▁▁
+##               waves       0 403 0.084  0.28  ▇▁▁▁▁▁▁▁
+##            windmill       0 403 0.0025 0.05  ▇▁▁▁▁▁▁▁
+##        window_frame       0 403 0.0025 0.05  ▇▁▁▁▁▁▁▁
+##              winter       0 403 0.17   0.38  ▇▁▁▁▁▁▁▂
+##         wood_framed       0 403 0.0025 0.05  ▇▁▁▁▁▁▁▁
 ## 
-## -- Variable type:numeric ------------------------------
+## ── Variable type:numeric ─────────────────────────────────────────────────────────────
 ##     variable missing   n mean   sd     hist
-##  episode_num       0 403    7 3.75 &lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2583&gt;&lt;U+2587&gt;
-##       season       0 403   16 8.96 &lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;</code></pre>
+##  episode_num       0 403    7 3.75 ▇▇▃▇▃▇▃▇
+##       season       0 403   16 8.96 ▇▇▇▇▆▇▇▇</code></pre>
 </div>
 </div>
 <div id="psych" class="section level3">
 <h3><span class="header-section-number">4.3.3</span> psych</h3>
 <p>In addition to a range of new functions, the <code>psych</code> package includes data sets intended to demonstrate common statistical analyses for psychological research.</p>
 <p>To make the data sets available, install and load the <code>psych</code> package:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&#39;psych&#39;</span>)
-<span class="kw">library</span>(psych)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&#39;psych&#39;</span>)
+<span class="kw">library</span>(psych)</code></pre></div>
 <div id="tal.or" class="section level4">
 <h4><span class="header-section-number">4.3.3.1</span> Tal.Or</h4>
 <p>The <code>Tal.Or</code> data set is from Study 2 of Tol-Or, Cohen, Tasfati, &amp; Gunther (2010), which used an experimental manipulation to test the effects of media on the attitudes of 123 respondents, measured with Likert scales:</p>
@@ -658,14 +631,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  n obs: 123 
 ##  n variables: 6 
 ## 
-## -- Variable type:numeric ------------------------------
+## ── Variable type:numeric ─────────────────────────────────────────────────────────────
 ##  variable missing   n  mean   sd     hist
-##       age       0 123 24.63 5.8  &lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##      cond       0 123  0.47 0.5  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
-##    gender       0 123  1.65 0.48 &lt;U+2585&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
-##    import       0 123  4.2  1.74 &lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2585&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2583&gt;
-##       pmi       0 123  5.6  1.32 &lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;&lt;U+2582&gt;&lt;U+2586&gt;&lt;U+2586&gt;&lt;U+2587&gt;
-##  reaction       0 123  3.48 1.55 &lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2585&gt;&lt;U+2586&gt;&lt;U+2583&gt;&lt;U+2582&gt;</code></pre>
+##       age       0 123 24.63 5.8  ▇▇▁▁▁▁▁▁
+##      cond       0 123  0.47 0.5  ▇▁▁▁▁▁▁▇
+##    gender       0 123  1.65 0.48 ▅▁▁▁▁▁▁▇
+##    import       0 123  4.2  1.74 ▃▃▅▇▁▇▇▃
+##       pmi       0 123  5.6  1.32 ▁▁▁▂▂▆▆▇
+##  reaction       0 123  3.48 1.55 ▇▆▇▆▅▆▃▂</code></pre>
 </div>
 <div id="affect" class="section level4">
 <h4><span class="header-section-number">4.3.3.2</span> affect</h4>
@@ -674,34 +647,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  n obs: 330 
 ##  n variables: 20 
 ## 
-## -- Variable type:factor -------------------------------
+## ── Variable type:factor ──────────────────────────────────────────────────────────────
 ##  variable missing   n n_unique                top_counts
 ##     Study       0 330        2 fla: 170, map: 160, NA: 0
 ## 
-## -- Variable type:integer ------------------------------
+## ── Variable type:integer ─────────────────────────────────────────────────────────────
 ##  variable missing   n  mean    sd     hist
-##      Film       0 330  2.52  1.13 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2587&gt;
-##       MEQ     160 330 39.36 10.28 &lt;U+2582&gt;&lt;U+2583&gt;&lt;U+2586&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2582&gt;&lt;U+2581&gt;
+##      Film       0 330  2.52  1.13 ▇▁▇▁▁▇▁▇
+##       MEQ     160 330 39.36 10.28 ▂▃▆▇▇▆▂▁
 ## 
-## -- Variable type:numeric ------------------------------
+## ── Variable type:numeric ─────────────────────────────────────────────────────────────
 ##  variable missing   n  mean    sd     hist
-##       BDI     170 330  0.31  0.28 &lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2585&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##       EA1       0 330  9.19  7.11 &lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2583&gt;&lt;U+2585&gt;&lt;U+2583&gt;&lt;U+2582&gt;&lt;U+2582&gt;&lt;U+2581&gt;
-##       EA2       0 330 11.01  6.85 &lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2585&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2583&gt;&lt;U+2582&gt;&lt;U+2581&gt;
-##       ext       0 330 13.16  4.47 &lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2583&gt;&lt;U+2586&gt;&lt;U+2586&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2582&gt;
-##       imp       0 330  4.29  1.97 &lt;U+2583&gt;&lt;U+2585&gt;&lt;U+2586&gt;&lt;U+2586&gt;&lt;U+2587&gt;&lt;U+2583&gt;&lt;U+2585&gt;&lt;U+2582&gt;
-##       lie       0 330  2.3   1.48 &lt;U+2582&gt;&lt;U+2585&gt;&lt;U+2587&gt;&lt;U+2585&gt;&lt;U+2582&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##       NA1       0 330  3.69  4.31 &lt;U+2587&gt;&lt;U+2583&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##       NA2       0 330  4.65  5.19 &lt;U+2587&gt;&lt;U+2583&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##      neur       0 330 10.22  5.04 &lt;U+2582&gt;&lt;U+2585&gt;&lt;U+2586&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2583&gt;&lt;U+2582&gt;&lt;U+2581&gt;
-##       PA1       0 330  8.89  6.79 &lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2585&gt;&lt;U+2583&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##       PA2       0 330  8.98  6.43 &lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2585&gt;&lt;U+2586&gt;&lt;U+2585&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##       soc       0 330  7.51  2.86 &lt;U+2581&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2585&gt;&lt;U+2587&gt;&lt;U+2585&gt;&lt;U+2586&gt;&lt;U+2581&gt;
-##    state1       0 330 40.83 10.76 &lt;U+2583&gt;&lt;U+2586&gt;&lt;U+2587&gt;&lt;U+2585&gt;&lt;U+2583&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##    state2     160 330 42.45 10.76 &lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2587&gt;&lt;U+2585&gt;&lt;U+2582&gt;&lt;U+2581&gt;
-##       TA1       0 330 12.91  4.42 &lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;&lt;U+2587&gt;&lt;U+2585&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##       TA2       0 330 15.65  4.88 &lt;U+2581&gt;&lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##  traitanx       0 330 39.52  9.77 &lt;U+2583&gt;&lt;U+2585&gt;&lt;U+2587&gt;&lt;U+2585&gt;&lt;U+2582&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;</code></pre>
+##       BDI     170 330  0.31  0.28 ▇▆▅▁▁▁▁▁
+##       EA1       0 330  9.19  7.11 ▇▆▃▅▃▂▂▁
+##       EA2       0 330 11.01  6.85 ▇▇▅▇▆▃▂▁
+##       ext       0 330 13.16  4.47 ▁▁▃▆▆▇▆▂
+##       imp       0 330  4.29  1.97 ▃▅▆▆▇▃▅▂
+##       lie       0 330  2.3   1.48 ▂▅▇▅▂▂▁▁
+##       NA1       0 330  3.69  4.31 ▇▃▁▁▁▁▁▁
+##       NA2       0 330  4.65  5.19 ▇▃▂▁▁▁▁▁
+##      neur       0 330 10.22  5.04 ▂▅▆▇▇▃▂▁
+##       PA1       0 330  8.89  6.79 ▇▇▆▅▃▂▁▁
+##       PA2       0 330  8.98  6.43 ▇▆▅▆▅▁▁▁
+##       soc       0 330  7.51  2.86 ▁▂▁▅▇▅▆▁
+##    state1       0 330 40.83 10.76 ▃▆▇▅▃▁▁▁
+##    state2     160 330 42.45 10.76 ▃▃▇▆▇▅▂▁
+##       TA1       0 330 12.91  4.42 ▁▁▂▇▅▂▁▁
+##       TA2       0 330 15.65  4.88 ▁▃▃▇▃▃▁▁
+##  traitanx       0 330 39.52  9.77 ▃▅▇▅▂▂▁▁</code></pre>
 </div>
 <div id="epi" class="section level4">
 <h4><span class="header-section-number">4.3.3.3</span> epi</h4>
@@ -710,65 +683,65 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  n obs: 3570 
 ##  n variables: 57 
 ## 
-## -- Variable type:integer ------------------------------
+## ── Variable type:integer ─────────────────────────────────────────────────────────────
 ##  variable missing    n mean   sd     hist
-##        V1     296 3570 1.28 0.45 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2583&gt;
-##       V10      64 3570 1.86 0.35 &lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
-##       V11      77 3570 1.3  0.46 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2583&gt;
-##       V12      66 3570 1.2  0.4  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
-##       V13      75 3570 1.44 0.5  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2586&gt;
-##       V14      72 3570 1.25 0.43 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
-##       V15      75 3570 1.79 0.41 &lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
-##       V16      80 3570 1.51 0.5  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
-##       V17      75 3570 1.22 0.42 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
-##       V18      71 3570 1.17 0.37 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
-##       V19      70 3570 1.21 0.41 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
-##        V2      85 3570 1.47 0.5  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
-##       V20      90 3570 1.23 0.42 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
-##       V21      80 3570 1.35 0.48 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2585&gt;
-##       V22     100 3570 1.43 0.49 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2586&gt;
-##       V23      75 3570 1.62 0.49 &lt;U+2585&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
-##       V24      78 3570 1.74 0.44 &lt;U+2583&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
-##       V25      72 3570 1.31 0.46 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2583&gt;
-##       V26      89 3570 1.7  0.46 &lt;U+2583&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
-##       V27     108 3570 1.38 0.49 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2585&gt;
-##       V28      74 3570 1.35 0.48 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2585&gt;
-##       V29      87 3570 1.67 0.47 &lt;U+2585&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
-##        V3      73 3570 1.45 0.5  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
-##       V30      71 3570 1.18 0.39 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
-##       V31      98 3570 1.35 0.48 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2585&gt;
-##       V32      99 3570 1.72 0.45 &lt;U+2583&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
-##       V33      78 3570 1.63 0.48 &lt;U+2585&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
-##       V34      96 3570 1.4  0.49 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2586&gt;
-##       V35      69 3570 1.86 0.35 &lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
-##       V36     109 3570 1.72 0.45 &lt;U+2583&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
-##       V37      86 3570 1.63 0.48 &lt;U+2585&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
-##       V38      83 3570 1.76 0.43 &lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
-##       V39      89 3570 1.46 0.5  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
-##        V4      65 3570 1.57 0.5  &lt;U+2586&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
-##       V40      82 3570 1.47 0.5  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
-##       V41      79 3570 1.71 0.45 &lt;U+2583&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
-##       V42      68 3570 1.2  0.4  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
-##       V43      70 3570 1.81 0.39 &lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
-##       V44      76 3570 1.9  0.3  &lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
-##       V45      85 3570 1.79 0.41 &lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
-##       V46      81 3570 1.54 0.5  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
-##       V47      78 3570 1.76 0.43 &lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
-##       V48      75 3570 1.18 0.38 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
-##       V49      80 3570 1.17 0.38 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
-##        V5      73 3570 1.2  0.4  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
-##       V50      80 3570 1.46 0.5  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
-##       V51      78 3570 1.76 0.43 &lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
-##       V52      89 3570 1.65 0.48 &lt;U+2585&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
-##       V53      94 3570 1.58 0.49 &lt;U+2586&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
-##       V54      79 3570 1.42 0.49 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2586&gt;
-##       V55      74 3570 1.52 0.5  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
-##       V56      76 3570 1.57 0.49 &lt;U+2586&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
-##       V57      77 3570 1.8  0.4  &lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
-##        V6      68 3570 1.43 0.5  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2586&gt;
-##        V7      68 3570 1.41 0.49 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2586&gt;
-##        V8      70 3570 1.65 0.48 &lt;U+2585&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
-##        V9      71 3570 1.46 0.5  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;</code></pre>
+##        V1     296 3570 1.28 0.45 ▇▁▁▁▁▁▁▃
+##       V10      64 3570 1.86 0.35 ▁▁▁▁▁▁▁▇
+##       V11      77 3570 1.3  0.46 ▇▁▁▁▁▁▁▃
+##       V12      66 3570 1.2  0.4  ▇▁▁▁▁▁▁▂
+##       V13      75 3570 1.44 0.5  ▇▁▁▁▁▁▁▆
+##       V14      72 3570 1.25 0.43 ▇▁▁▁▁▁▁▂
+##       V15      75 3570 1.79 0.41 ▂▁▁▁▁▁▁▇
+##       V16      80 3570 1.51 0.5  ▇▁▁▁▁▁▁▇
+##       V17      75 3570 1.22 0.42 ▇▁▁▁▁▁▁▂
+##       V18      71 3570 1.17 0.37 ▇▁▁▁▁▁▁▂
+##       V19      70 3570 1.21 0.41 ▇▁▁▁▁▁▁▂
+##        V2      85 3570 1.47 0.5  ▇▁▁▁▁▁▁▇
+##       V20      90 3570 1.23 0.42 ▇▁▁▁▁▁▁▂
+##       V21      80 3570 1.35 0.48 ▇▁▁▁▁▁▁▅
+##       V22     100 3570 1.43 0.49 ▇▁▁▁▁▁▁▆
+##       V23      75 3570 1.62 0.49 ▅▁▁▁▁▁▁▇
+##       V24      78 3570 1.74 0.44 ▃▁▁▁▁▁▁▇
+##       V25      72 3570 1.31 0.46 ▇▁▁▁▁▁▁▃
+##       V26      89 3570 1.7  0.46 ▃▁▁▁▁▁▁▇
+##       V27     108 3570 1.38 0.49 ▇▁▁▁▁▁▁▅
+##       V28      74 3570 1.35 0.48 ▇▁▁▁▁▁▁▅
+##       V29      87 3570 1.67 0.47 ▅▁▁▁▁▁▁▇
+##        V3      73 3570 1.45 0.5  ▇▁▁▁▁▁▁▇
+##       V30      71 3570 1.18 0.39 ▇▁▁▁▁▁▁▂
+##       V31      98 3570 1.35 0.48 ▇▁▁▁▁▁▁▅
+##       V32      99 3570 1.72 0.45 ▃▁▁▁▁▁▁▇
+##       V33      78 3570 1.63 0.48 ▅▁▁▁▁▁▁▇
+##       V34      96 3570 1.4  0.49 ▇▁▁▁▁▁▁▆
+##       V35      69 3570 1.86 0.35 ▂▁▁▁▁▁▁▇
+##       V36     109 3570 1.72 0.45 ▃▁▁▁▁▁▁▇
+##       V37      86 3570 1.63 0.48 ▅▁▁▁▁▁▁▇
+##       V38      83 3570 1.76 0.43 ▂▁▁▁▁▁▁▇
+##       V39      89 3570 1.46 0.5  ▇▁▁▁▁▁▁▇
+##        V4      65 3570 1.57 0.5  ▆▁▁▁▁▁▁▇
+##       V40      82 3570 1.47 0.5  ▇▁▁▁▁▁▁▇
+##       V41      79 3570 1.71 0.45 ▃▁▁▁▁▁▁▇
+##       V42      68 3570 1.2  0.4  ▇▁▁▁▁▁▁▂
+##       V43      70 3570 1.81 0.39 ▂▁▁▁▁▁▁▇
+##       V44      76 3570 1.9  0.3  ▁▁▁▁▁▁▁▇
+##       V45      85 3570 1.79 0.41 ▂▁▁▁▁▁▁▇
+##       V46      81 3570 1.54 0.5  ▇▁▁▁▁▁▁▇
+##       V47      78 3570 1.76 0.43 ▂▁▁▁▁▁▁▇
+##       V48      75 3570 1.18 0.38 ▇▁▁▁▁▁▁▂
+##       V49      80 3570 1.17 0.38 ▇▁▁▁▁▁▁▂
+##        V5      73 3570 1.2  0.4  ▇▁▁▁▁▁▁▂
+##       V50      80 3570 1.46 0.5  ▇▁▁▁▁▁▁▇
+##       V51      78 3570 1.76 0.43 ▂▁▁▁▁▁▁▇
+##       V52      89 3570 1.65 0.48 ▅▁▁▁▁▁▁▇
+##       V53      94 3570 1.58 0.49 ▆▁▁▁▁▁▁▇
+##       V54      79 3570 1.42 0.49 ▇▁▁▁▁▁▁▆
+##       V55      74 3570 1.52 0.5  ▇▁▁▁▁▁▁▇
+##       V56      76 3570 1.57 0.49 ▆▁▁▁▁▁▁▇
+##       V57      77 3570 1.8  0.4  ▂▁▁▁▁▁▁▇
+##        V6      68 3570 1.43 0.5  ▇▁▁▁▁▁▁▆
+##        V7      68 3570 1.41 0.49 ▇▁▁▁▁▁▁▆
+##        V8      70 3570 1.65 0.48 ▅▁▁▁▁▁▁▇
+##        V9      71 3570 1.46 0.5  ▇▁▁▁▁▁▁▇</code></pre>
 </div>
 <div id="sat.act" class="section level4">
 <h4><span class="header-section-number">4.3.3.4</span> sat.act</h4>
@@ -777,27 +750,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  n obs: 700 
 ##  n variables: 6 
 ## 
-## -- Variable type:integer ------------------------------
+## ── Variable type:integer ─────────────────────────────────────────────────────────────
 ##   variable missing   n   mean     sd     hist
-##        ACT       0 700  28.55   4.82 &lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2583&gt;&lt;U+2585&gt;&lt;U+2587&gt;&lt;U+2587&gt;
-##        age       0 700  25.59   9.5  &lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2582&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
-##  education       0 700   3.16   1.43 &lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2585&gt;&lt;U+2585&gt;
-##     gender       0 700   1.65   0.48 &lt;U+2585&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
-##       SATQ      13 700 610.22 115.64 &lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2585&gt;&lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2585&gt;
-##       SATV       0 700 612.23 112.9  &lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2585&gt;&lt;U+2583&gt;</code></pre>
+##        ACT       0 700  28.55   4.82 ▁▁▁▁▃▅▇▇
+##        age       0 700  25.59   9.5  ▇▇▂▂▁▁▁▁
+##  education       0 700   3.16   1.43 ▂▁▁▁▇▁▅▅
+##     gender       0 700   1.65   0.48 ▅▁▁▁▁▁▁▇
+##       SATQ      13 700 610.22 115.64 ▁▁▁▅▃▇▇▅
+##       SATV       0 700 612.23 112.9  ▁▁▁▃▃▇▅▃</code></pre>
 </div>
 </div>
 <div id="simulating-your-own-data-sets" class="section level3">
 <h3><span class="header-section-number">4.3.4</span> Simulating your own Data Sets</h3>
 <p>If none of the available data sets satisfy your needs, or if you simply want to get creative, it is possible to simulate your own data set by drawing random samples from a distribution.</p>
 <p>To demonstrate how to simulate a numeric variable, the following code simulates income for 1,000 families from a population in which income is normally distributed around $50,000 with a standard deviation of $5,000:</p>
-<pre class="sourceCode r"><code class="sourceCode r">sim_income &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n=</span><span class="dv">1000</span>, <span class="dt">mean=</span><span class="dv">50000</span>, <span class="dt">sd=</span><span class="dv">5000</span>)
-<span class="kw">hist</span>(sim_income)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sim_income &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n=</span><span class="dv">1000</span>, <span class="dt">mean=</span><span class="dv">50000</span>, <span class="dt">sd=</span><span class="dv">5000</span>)
+<span class="kw">hist</span>(sim_income)</code></pre></div>
 <p><img src="advice_files/figure-html/numeric%20sample%20demo-1.png" width="672" /></p>
 <p>To demonstrate how to simulate a categorical variable, the following code simulates grades for 50 students in a pass/fail course in which there is a 50% chance of passing in the population:</p>
-<pre class="sourceCode r"><code class="sourceCode r">sim_grades &lt;-<span class="st"> </span><span class="kw">rbinom</span>(<span class="dt">n=</span><span class="dv">50</span>, <span class="dt">size=</span><span class="dv">1</span>, <span class="dt">prob=</span>.<span class="dv">5</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sim_grades &lt;-<span class="st"> </span><span class="kw">rbinom</span>(<span class="dt">n=</span><span class="dv">50</span>, <span class="dt">size=</span><span class="dv">1</span>, <span class="dt">prob=</span>.<span class="dv">5</span>)
 sim_grades &lt;-<span class="st"> </span><span class="kw">factor</span>(sim_grades, <span class="dt">levels=</span><span class="dv">0</span><span class="op">:</span><span class="dv">1</span>, <span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&#39;FAIL&#39;</span>, <span class="st">&#39;PASS&#39;</span>))
-<span class="kw">barplot</span>(<span class="kw">table</span>(sim_grades))</code></pre>
+<span class="kw">barplot</span>(<span class="kw">table</span>(sim_grades))</code></pre></div>
 <p><img src="advice_files/figure-html/categorical%20sample%20demo-1.png" width="672" /></p>
 <p>Other potentially useful “population” distributions include <code>rbeta()</code>, <code>rbinom()</code>, <code>rchisq()</code>, <code>rexp()</code>, <code>rf()</code>, <code>rgamma()</code>, <code>rlogis()</code>, <code>rlnorm()</code>, <code>rpois()</code>, <code>rt()</code>, and <code>runif()</code>. A full list can be found <a href="https://en.wikibooks.org/wiki/R_Programming/Probability_Distributions">here</a>. See the help documentation for each to see which parameter values can be specified.</p>
 
@@ -861,7 +834,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

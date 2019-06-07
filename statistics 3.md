@@ -118,9 +118,7 @@ If you have two vectors representing pairs of observations, you can plot them ag
 plot(sat.act$SATV, sat.act$SATQ) # Access the columns as vectors using $ syntax
 ```
 
-
-
-\begin{center}\includegraphics{statistics_files/figure-latex/basicplot-1} \end{center}
+<img src="statistics_files/figure-html/basicplot-1.png" width="672" style="display: block; margin: auto;" />
 
 The points in the plot above represent pairs SAT Verbal and SAT Quantitative scores. The scores in each vector are paired up by position within each vector - the first value in `SATV` is paired with the first value in `SATQ`, the second value in `SATV` is paired with the second value in `SATQ`, etc. The vector given as the first argument determines the X axis position, and the vector given as the second argument determines the Y axis position.
 
@@ -133,9 +131,7 @@ plot(sat.act$SATV, sat.act$SATQ,
      main = "Relationship between SAT Scores")
 ```
 
-
-
-\begin{center}\includegraphics{statistics_files/figure-latex/axeslabels-1} \end{center}
+<img src="statistics_files/figure-html/axeslabels-1.png" width="672" style="display: block; margin: auto;" />
 
 #### Linetypes, Symbols, and Colors
 You can customize the scatterplot to draw lines between the points, or just draw lines without the point symbols with the `type` argument. This is not a sensible thing to do for these data, but we demonstrate it anyway for completeness.
@@ -149,14 +145,10 @@ plot(sat.act$SATV, sat.act$SATQ,
      type = "o")
 ```
 
-\begin{figure}
-
-{\centering \includegraphics{statistics_files/figure-latex/lines-1} 
-
-}
-
-\caption{Points and lines with type='o'}(\#fig:lines1)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="statistics_files/figure-html/lines-1.png" alt="Points and lines with type='o'" width="672" />
+<p class="caption">(\#fig:lines1)Points and lines with type='o'</p>
+</div>
 
 ```r
 # Just lines
@@ -166,14 +158,10 @@ plot(sat.act$SATV, sat.act$SATQ,
      type = "l")
 ```
 
-\begin{figure}
-
-{\centering \includegraphics{statistics_files/figure-latex/lines-2} 
-
-}
-
-\caption{Just using lines with type='l'}(\#fig:lines2)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="statistics_files/figure-html/lines-2.png" alt="Just using lines with type='l'" width="672" />
+<p class="caption">(\#fig:lines2)Just using lines with type='l'</p>
+</div>
 
 You can also customize the types of symbols that are used for each point using the `pch`, the style of lines connecting these points using the `lty` argument, and the `col` argument to adjust the color of lines and symbol borders
 
@@ -197,9 +185,7 @@ plot(sat.act$SATV, sat.act$SATQ,
      col="magenta", pch=2)
 ```
 
-
-
-\begin{center}\includegraphics{statistics_files/figure-latex/pch_and_col-1} \end{center}
+<img src="statistics_files/figure-html/pch_and_col-1.png" width="672" style="display: block; margin: auto;" />
 
 #### Axis limits
 R usually does a good job of determining good values for the range of each axis, but if you wish to override the defaults, you can do do using the `xlim` and `ylim` arguments. These arguments accepts 2-element numeric vectors specifying the minimum and maximum values along each axis (in that order). For example, if we wanted to include 0 in the range of SAT scores shown on the plot, we could use `c(0, 800)` for both our axis limits:
@@ -214,9 +200,7 @@ plot(sat.act$SATV, sat.act$SATQ,
      ylim=c(0, 800))
 ```
 
-
-
-\begin{center}\includegraphics{statistics_files/figure-latex/limits-1} \end{center}
+<img src="statistics_files/figure-html/limits-1.png" width="672" style="display: block; margin: auto;" />
 
 This isn't particularly sensible, because 0 is not a possible score on the SAT, so consider this just a demonstration of R's capabilities.
 
@@ -236,9 +220,7 @@ plot(males$SATV, males$SATQ,
 points(females$SATV, females$SATQ, col="blue")
 ```
 
-
-
-\begin{center}\includegraphics{statistics_files/figure-latex/unnamed-chunk-1-1} \end{center}
+<img src="statistics_files/figure-html/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;" />
 
 #### Adding a legend
 If you use multiple symbols, colors, and linetypes on the same plot, you'll also need a legend telling the viewer how to interpret the different symbols, colors, and linetypes. You can add legends to an existing plot using the `legend` function. Unfortunately, the `legend` function doesn't know what symbols, colors, and linetypes you've used, or what the different groups in your data are. So, you'll have to re-capitulate this information to the legend function. Make *absolutely* sure that you specify the labels, colors, symbol codes, and linetypes in the exact same order you added them to the plot! You also must specify a `pch` or `linetype` value, even if you used the default value in your plot!
@@ -257,9 +239,7 @@ legend(x=200, y=800,
        pch=1)
 ```
 
-
-
-\begin{center}\includegraphics{statistics_files/figure-latex/unnamed-chunk-2-1} \end{center}
+<img src="statistics_files/figure-html/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;" />
 
 #### Adding a regression line
 It is often useful to summarize the linear relationship between variables shown in a scatterplot. It is easy to add the "line of best fit" from a linear regression to your scatter plot using the `lm` function (short for "linear model) and the `abline` function (used for drawing straight lines).
@@ -280,9 +260,7 @@ plot(SATQ ~ SATV, data=sat.act,
 abline(regression_results, lwd=2) # lwd = "line width",
 ```
 
-
-
-\begin{center}\includegraphics{statistics_files/figure-latex/abline plot-1} \end{center}
+<img src="statistics_files/figure-html/abline plot-1.png" width="672" style="display: block; margin: auto;" />
 
 In the call to `abline` above, we have specified the `lwd` argument, short for "line width", a.k.a. thickness. The default value is 1, and we have double the thickness here so the regression line stands out from the points more.
 
@@ -296,17 +274,13 @@ The `hist` function works with a vector of numeric values, and breaks this vecto
 hist(sat.act$ACT, breaks = 30)
 ```
 
-
-
-\begin{center}\includegraphics{statistics_files/figure-latex/hist-1} \end{center}
+<img src="statistics_files/figure-html/hist-1.png" width="672" style="display: block; margin: auto;" />
 
 ```r
 hist(sat.act$ACT, breaks = seq(0, max(sat.act$ACT), by=2))
 ```
 
-
-
-\begin{center}\includegraphics{statistics_files/figure-latex/hist-2} \end{center}
+<img src="statistics_files/figure-html/hist-2.png" width="672" style="display: block; margin: auto;" />
 
 If you want proportions instead of counts, set the `freq` argument to false. You can also use the same `xlab`, `ylab`, and `main` arguments we used with `plot` to get more informative titles/
 
@@ -316,9 +290,7 @@ hist(sat.act$ACT, breaks = 30, freq=FALSE,
      xlab = "ACT Score")
 ```
 
-
-
-\begin{center}\includegraphics{statistics_files/figure-latex/unnamed-chunk-3-1} \end{center}
+<img src="statistics_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" />
 
 
 ### Boxplots
@@ -334,9 +306,7 @@ boxplot(SATV ~ education, data=sat.act,
         ylab="SAT Verbal Score", xlab="Education")
 ```
 
-
-
-\begin{center}\includegraphics{statistics_files/figure-latex/boxplot-1} \end{center}
+<img src="statistics_files/figure-html/boxplot-1.png" width="672" style="display: block; margin: auto;" />
 
 Note the use of the `names` argument to override the labels on each X axis point.
 
@@ -355,9 +325,7 @@ barplot(SATV_means,
         )
 ```
 
-
-
-\begin{center}\includegraphics{statistics_files/figure-latex/barplot-1} \end{center}
+<img src="statistics_files/figure-html/barplot-1.png" width="672" style="display: block; margin: auto;" />
 
 ### Multiple plots in single figure
 In many situations, it is useful to have several different plots in a single figure to facilitate comparison. But in the examples we have encountered so far, each time we create a new plot, it has removed the existing one from out figure window. We can change this behavior to allow multiple figures within the same window by using the `par` function, which changes R's global graphics parameters.
@@ -375,9 +343,7 @@ hist(sat.act$ACT, breaks = 50, main = "50 breaks")
 hist(sat.act$ACT, breaks = 100, main = "100 breaks")
 ```
 
-
-
-\begin{center}\includegraphics{statistics_files/figure-latex/par_mfrow-1} \end{center}
+<img src="statistics_files/figure-html/par_mfrow-1.png" width="672" style="display: block; margin: auto;" />
 
 ```r
 par(mfrow = c(1,1)) # Reset back to default
@@ -387,7 +353,7 @@ Always make sure to set your `mfrow` or `mfcol` values back to `c(1,1)` afterwar
 ### Saving Plots
 Usually the purpose of creating a visualization in R is to include it in some kind of homework, report, or paper. It is easy to save a plot made in R to an image file on your hard drive using the "Export" option in the R Studio plot pane. Simply click the "Export" drop down menu, and select either the "Save to Image", "Save to PDF" or "Copy to Clipboard" options.
 
-![](images/export_plot.png)
+![](images/export.png)
 
 If you choose the "Save as Image" option, you'll get to choose which image format you want to save it as, and what the width and height (in pixels) the image should be saved as.
 
@@ -435,8 +401,7 @@ r | Get a random sample from the distribution. | `rnorm()`
 
 These functions are each demonstrated in the following sub-sections using the normal distribution. In these examples, consider that IQ scores are meant to be normally distributed with a mean of 100 and a standard deviation of 15:
 
-
-\begin{center}\includegraphics{statistics_files/figure-latex/IQ histogram with curve-1} \end{center}
+<img src="statistics_files/figure-html/IQ histogram with curve-1.png" width="672" style="display: block; margin: auto;" />
 
 #### Getting Densities
 
@@ -523,14 +488,14 @@ rnorm(50, mean=100, sd=15)
 ```
 
 ```
-##  [1] 111.33580  97.29993  99.13940 106.01447  97.86323 113.82818  82.82424
-##  [8] 107.38451 120.67687  88.57508 118.10343 104.81563  92.40881 104.93956
-## [15]  87.85371 102.75671 103.70937 120.69517 110.60208  96.80547 111.04438
-## [22] 102.47895 116.41754 111.62499  89.92688 114.31288 102.43311 123.55810
-## [29]  88.91965 110.86267 101.96260 108.44787  98.90081 109.11178  90.26682
-## [36]  79.38388 104.92816 123.19777  81.59651  95.07069 112.08451 112.37747
-## [43] 122.17292  91.05019 116.47476  88.01716 101.22635 109.84478 122.68649
-## [50]  90.10434
+##  [1] 102.61197  99.95912 104.67514 118.88445  96.66156  91.09176 119.79332
+##  [8] 123.04671 112.29085 120.21814  87.83577 103.92406 112.60514 108.30452
+## [15] 115.63441  93.98343 102.00049 103.70874  96.92393 103.56127  94.20702
+## [22]  88.51333 104.28309  95.36628 107.95967  62.83638 107.70292 133.14818
+## [29]  98.73227 120.68531  79.89659 105.11383 100.45743 115.71416 102.37068
+## [36] 124.62116 100.41408  85.44213  88.09161 143.29780 134.57792 108.90327
+## [43]  90.42733 119.52586 108.88395  96.44038  93.74834 104.92133 100.29515
+## [50]  71.24250
 ```
 
 #### Running Statistical Tests by Hand
@@ -626,7 +591,7 @@ CI_lower
 ```
 
 ```
-## [1] 99.10806
+## [1] 96.88894
 ```
 
 ```r
@@ -636,7 +601,7 @@ CI_upper
 ```
 
 ```
-## [1] 104.7115
+## [1] 102.5735
 ```
 
 The confidence interval ranges from 98.41 to 104.88, suggesting that if this experiment had been repeated over and over an infinite number of times, the true population mean would be within that range 95% of the time.
