@@ -78,31 +78,418 @@ Formulas can get much more complex than the examples here, which only extend as 
 
 ### Mean
 
+To calculate the mean of a vector by hand, use the `sum()` and `length()` functions. For instance, we can calculate the mean verbal SAT score in the `sat.act` data set as follows:
 
+
+```r
+sum(sat.act$SATV)/length(sat.act$SATV)
+```
+
+```
+## [1] 612.2343
+```
+
+We can also get the same answer by using the `mean()` function:
+
+
+```r
+mean(sat.act$SATV)
+```
+
+```
+## [1] 612.2343
+```
+
+Note that `NA` values can be removed from the vector when using the `mean()` function by setting the `na.rm` argument to `TRUE`. For instance, when we try to take the mean of the quantitative SAT scores without removing `NA` values, we get `NA` as the output:
+
+
+```r
+mean(sat.act$SATQ)
+```
+
+```
+## [1] NA
+```
+
+But by setting `na.rm=TRUE`, we get a sensible answer:
+
+
+```r
+mean(sat.act$SATQ, na.rm=TRUE)
+```
+
+```
+## [1] 610.2169
+```
+
+The `NA` values cannot be removed this easily when calculating the mean by hand because while the `sum()` function will take the `na.rm` argument, the `length()` function will not. Thus, if you plan to ask students to calculate the mean by hand in R, be sure to choose a method of removing NA values manually. You can either remove the values yourself beforehand, give the students code to do it, or teach them to look out for and handle `NA` values themselves.
 
 ### Median
 
+You can ask students to calculate the median of a vector by hand by having them index the output of the `sort()` function. To demonstrate, imagine that we want to know the median age of respondents in the `sat.act` data set. Calling `sort()` function on the `age` variable will take all of the respondents' ages and put them in ascending order:
 
+
+```r
+sort(sat.act$age)
+```
+
+```
+##   [1] 13 14 15 15 16 16 16 16 16 16 16 16 16 16 17 17 17 17 17 17 17 17 17
+##  [24] 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17
+##  [47] 17 17 17 17 17 17 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18
+##  [70] 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18
+##  [93] 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18
+## [116] 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18 19 19 19
+## [139] 19 19 19 19 19 19 19 19 19 19 19 19 19 19 19 19 19 19 19 19 19 19 19
+## [162] 19 19 19 19 19 19 19 19 19 19 19 19 19 19 19 19 19 19 19 19 19 19 19
+## [185] 19 19 19 19 19 19 19 19 19 19 19 19 19 19 19 19 19 19 19 19 19 19 19
+## [208] 19 19 19 19 19 19 19 19 19 19 19 19 19 19 19 19 19 19 20 20 20 20 20
+## [231] 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20
+## [254] 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20
+## [277] 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 21 21 21 21 21 21 21
+## [300] 21 21 21 21 21 21 21 21 21 21 21 21 21 21 21 21 21 21 21 21 21 21 21
+## [323] 21 22 22 22 22 22 22 22 22 22 22 22 22 22 22 22 22 22 22 22 22 22 22
+## [346] 22 22 22 22 22 22 22 22 22 22 22 22 22 22 22 22 22 22 22 23 23 23 23
+## [369] 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23
+## [392] 23 23 23 23 23 23 23 23 23 23 23 23 24 24 24 24 24 24 24 24 24 24 24
+## [415] 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 25 25 25 25 25 25
+## [438] 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25 26
+## [461] 26 26 26 26 26 26 26 26 26 26 26 26 26 26 26 26 26 26 26 26 26 27 27
+## [484] 27 27 27 27 27 27 27 27 27 27 27 27 27 27 27 27 27 28 28 28 28 28 28
+## [507] 28 28 28 28 28 28 28 28 28 28 28 28 28 29 29 29 29 29 29 29 29 29 29
+## [530] 29 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 31 31 31 31
+## [553] 31 31 31 31 31 32 32 32 32 32 33 33 33 33 33 33 33 33 33 33 34 34 34
+## [576] 34 34 34 34 34 34 34 34 34 34 34 34 35 35 35 35 35 35 35 35 35 35 35
+## [599] 35 35 36 36 36 36 36 36 36 36 36 36 37 37 37 37 37 37 37 37 37 37 37
+## [622] 38 38 38 38 38 38 38 39 39 39 40 40 40 40 40 40 40 40 40 41 41 41 41
+## [645] 42 42 42 42 43 43 43 43 43 43 43 44 44 44 44 44 44 45 45 46 46 46 46
+## [668] 47 48 48 49 50 50 50 50 50 52 52 52 53 53 54 54 55 55 55 55 56 57 57
+## [691] 57 57 57 58 58 58 61 61 62 65
+```
+
+We can then find the median by indexing the middle value of the sorted vector. If the vector has an odd number of values, this is simply half of the length of the vector plus .5:
+
+
+```r
+sort(sat.act$age)[(length(sat.act$age)/2)+.5]
+```
+
+Of course, there are 700 respondents in the `sat.act` data set, so the above command is not appropriate. When the vector has an even number of values like ours, the median is calculated as the average of the two middle values:
+
+
+```r
+# Find the two middle values
+middle_vals <- sort(sat.act$age)[(length(sat.act$age)/2):((length(sat.act$age)/2)+1)]
+
+# Take the mean of the two middle values
+mean(middle_vals)
+```
+
+```
+## [1] 22
+```
+
+Note that you might also allow students to simply print the output of `sort()` and find the median visually.
+
+We can also get the same answer by using the `median()` function:
+
+
+```r
+median(sat.act$age)
+```
+
+```
+## [1] 22
+```
+
+Note that `NA` values can be removed from the vector when using the `median()` function by setting the `na.rm` argument to `TRUE`. For instance, when we try to take the median of the quantitative SAT scores without removing `NA` values, we get `NA` as the output:
+
+
+```r
+median(sat.act$SATQ)
+```
+
+```
+## [1] NA
+```
+
+But by setting `na.rm=TRUE`, we get a sensible answer:
+
+
+```r
+median(sat.act$SATQ, na.rm=TRUE)
+```
+
+```
+## [1] 620
+```
+
+The `NA` values are automatically removed when calculating the median by hand using the `sort()` function, however you can also choose to have missing values placed last or first in the output by setting the `na.last` argument to 'TRUE' or 'FALSE', respectively.
 
 ### Variance
 
+Calculating the variance by hand requires more distinct sequencing than for the mean and the median. To demonstrate, imagine that we want to find the variance of the verbal SAT scores reported in the `sat.act` data set.
 
+Recall from your knowledge of statistics that the formula for the variance of a sample is:
+
+$$s^2=\frac{\sum (x_i-\bar{x})^2}{n-1}$$
+
+You might first have students find the squared difference between each value and the mean:
+
+
+```r
+SATV_sq_diff <- (sat.act$SATV-mean(sat.act$SATV))^2
+```
+
+You can then have students sum up these squared deviations and divide by the total number, minus one:
+
+
+```r
+sum(SATV_sq_diff)/(length(SATV_sq_diff)-1)
+```
+
+```
+## [1] 12746.99
+```
+
+We can also get the same answer by using the `var()` function:
+
+
+```r
+var(sat.act$SATV)
+```
+
+```
+## [1] 12746.99
+```
+
+Note that `NA` values can be removed from the vector when using the `var()` function by setting the `na.rm` argument to `TRUE`. For instance, when we try to take the variance of the quantitative SAT scores without removing `NA` values, we get `NA` as the output:
+
+
+```r
+var(sat.act$SATQ)
+```
+
+```
+## [1] NA
+```
+
+But by setting `na.rm=TRUE`, we get a sensible answer:
+
+
+```r
+var(sat.act$SATQ, na.rm=TRUE)
+```
+
+```
+## [1] 13372.45
+```
+
+The `NA` values cannot be removed this easily when calculating the variance by hand because while the `sum()` function will take the `na.rm` argument, the `length()` function will not. Thus, if you plan to ask students to calculate the variance by hand in R, be sure to choose a method of removing NA values manually. You can either remove the values yourself beforehand, give the students code to do it, or teach them to look out for and handle `NA` values themselves.
 
 ### Standard Deviation
 
+To calculate the standard deviation by hand, simply extend the previous commands for calculating the variance one step further by calling `sqrt()` on the previous result:
 
 
-### Standard Error
+```r
+# Find the squared deviations
+SATV_sq_diff <- (sat.act$SATV-mean(sat.act$SATV))^2
+
+# Sum squared deviations and divide by n-1
+SATV_var <- sum(SATV_sq_diff)/(length(SATV_sq_diff)-1)
+
+# Take the square root
+sqrt(SATV_var)
+```
+
+```
+## [1] 112.9026
+```
+
+More simply, students could take the square root of the output of `var()`:
 
 
+```r
+sqrt(var(sat.act$SATV))
+```
 
-### Correlation
+```
+## [1] 112.9026
+```
+
+Note that the square root of a value can also be found by raising it to .5:
 
 
+```r
+var(sat.act$SATV)^.5
+```
+
+```
+## [1] 112.9026
+```
+
+We can also get the same answer by using the `sd()` function:
+
+
+```r
+sd(sat.act$SATV)
+```
+
+```
+## [1] 112.9026
+```
+
+Note that `NA` values can be removed from the vector when using the `sd()` function by setting the `na.rm` argument to `TRUE`. For instance, when we try to take the standard deviation of the quantitative SAT scores without removing `NA` values, we get `NA` as the output:
+
+
+```r
+sd(sat.act$SATQ)
+```
+
+```
+## [1] NA
+```
+
+But by setting `na.rm=TRUE`, we get a sensible answer:
+
+
+```r
+sd(sat.act$SATQ, na.rm=TRUE)
+```
+
+```
+## [1] 115.6393
+```
+
+The `NA` values cannot be removed this easily when calculating the standard deviation entirely by hand (that is, without using the `var()` function) because while the `sum()` function will take the `na.rm` argument, the `length()` function will not. Thus, if you plan to ask students to calculate the standard deviation by hand in R, be sure to choose a method of removing NA values manually. You can either remove the values yourself beforehand, give the students code to do it, or teach them to look out for and handle `NA` values themselves.
+
+### Standard Error of the Mean
+
+To calculate the standard error of the mean, simply extend the previous commands for calculating the standard deviation one step further by dividing the previous result by the number of observations minus one:
+
+
+```r
+# Find the squared deviations
+SATV_sq_diff <- (sat.act$SATV-mean(sat.act$SATV))^2
+
+# Sum squared deviations and divide by n-1
+SATV_var <- sum(SATV_sq_diff)/(length(SATV_sq_diff)-1)
+
+# Take the square root
+SATV_sd <- sqrt(SATV_var)
+
+# Divide by n-1
+SATV_sd/(length(SATV_sq_diff)-1)
+```
+
+```
+## [1] 0.1615201
+```
+
+More simply, students could take divide the output of `sd()` by the number of observations minus one:
+
+
+```r
+sd(sat.act$SATV)/(length(sat.act$SATV)-1)
+```
+
+```
+## [1] 0.1615201
+```
+
+In either case, because `length()` is used in the final step, the `NA` values cannot be easily removed when calculating the standard error of the mean by hand. You should therefore be sure to choose a method of removing NA values manually. You can either remove the values yourself beforehand, give the students code to do it, or teach them to look out for and handle `NA` values themselves.
+
+Because there are different methods for calculating the standard error depending on the nature of the sample statistic, there is no central function for calculating the standard error in R. The `std.error()` function is available in the package `plotrix` and handily includes the `na.rm` argument. However, if `NA` values aren't an issue, you may find that calculating the standard error is a simple enough extension of the standard deviation to have students do it by hand.
+
+### Correlation & Proportion of Variance Explained
+
+We do not recommend having students calculate Pearson's $r$ by hand. Instead, the correlation coefficient can be found using the `cor()` function. 
+
+To demonstrate, imagine that we are curious as to whether there is a linear relationship between respondents' verbal and quantitative SAT scores:
+
+
+```r
+cor(sat.act$SATV, sat.act$SATQ)
+```
+
+```
+## [1] NA
+```
+
+We immediately note that the output is `NA` because there are missing values in the quantitative SAT scores. To remedy this, set the `use` argument to  `complete.obs`:
+
+
+```r
+cor(sat.act$SATV, sat.act$SATQ, use='complete.obs')
+```
+
+```
+## [1] 0.6442999
+```
+
+With this method, `cor()` will remove any pairs containing at least one missing value before calculating the correlation coefficient.
+
+To calculate the proportion of variance explained, $R^2$, simply square the correlation coefficient:
+
+
+```r
+cor(sat.act$SATV, sat.act$SATQ, use='complete.obs')^2
+```
+
+```
+## [1] 0.4151224
+```
+
+This is a handy way of demonstrating that $R^2$ is very simply $r$, squared.
 
 ### Summary Functions
 
+The standard method for summarizing data with multiple descriptive statistics at once is to use the `summary()` function. This function can be used to simultaneously summarize each variable in a data set, such as those in the `iris` data frame:
 
+
+```r
+summary(iris)
+```
+
+```
+##   Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
+##  Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  
+##  1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  
+##  Median :5.800   Median :3.000   Median :4.350   Median :1.300  
+##  Mean   :5.843   Mean   :3.057   Mean   :3.758   Mean   :1.199  
+##  3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.800  
+##  Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500  
+##        Species  
+##  setosa    :50  
+##  versicolor:50  
+##  virginica :50  
+##                 
+##                 
+## 
+```
+
+Numeric variables are summarized with the minimum and maximum values, the .25, .5, and .75 quantile cutoff values, and the mean value. Factors are summarized with a table of counts for each factor level. Character strings are summarized in terms of their total length. 
+
+A related function that is sometimes helpful is the `str()` function, which summarizes an object in terms of its class and the class of each of its elements:
+
+
+```r
+str(iris)
+```
+
+```
+## 'data.frame':	150 obs. of  5 variables:
+##  $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...
+##  $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...
+##  $ Petal.Length: num  1.4 1.4 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 ...
+##  $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...
+##  $ Species     : Factor w/ 3 levels "setosa","versicolor",..: 1 1 1 1 1 1 1 1 1 1 ...
+```
+
+While it can be inferred from the output of `summary()` that `Species` is a factor and the remaining variables are numeric, `str()` makes this explicit.
+
+Note that additional techniques exist for summarizing data with multiple descriptive statistics. The `describe()` function in the `psych` package provides a range of useful statistics for numeric variables. Tools provided in the `dplyr` package, particularly the combination of `group_by()` and `summarize()`, allow the user to specify their own descriptive statistics. 
 
 ## Plotting
 
@@ -523,14 +910,14 @@ rnorm(50, mean=100, sd=15)
 ```
 
 ```
-##  [1] 111.33580  97.29993  99.13940 106.01447  97.86323 113.82818  82.82424
-##  [8] 107.38451 120.67687  88.57508 118.10343 104.81563  92.40881 104.93956
-## [15]  87.85371 102.75671 103.70937 120.69517 110.60208  96.80547 111.04438
-## [22] 102.47895 116.41754 111.62499  89.92688 114.31288 102.43311 123.55810
-## [29]  88.91965 110.86267 101.96260 108.44787  98.90081 109.11178  90.26682
-## [36]  79.38388 104.92816 123.19777  81.59651  95.07069 112.08451 112.37747
-## [43] 122.17292  91.05019 116.47476  88.01716 101.22635 109.84478 122.68649
-## [50]  90.10434
+##  [1]  86.04863  88.58279 126.39453  96.11111  98.48149  97.93924 107.49571
+##  [8] 103.71737 106.40620  99.09119 101.02351 107.18726  91.09191  91.74318
+## [15]  82.48835  82.74876  99.28861  96.55389 124.25111 105.97752  91.63425
+## [22]  95.41107  83.55463  90.91766  97.40298 133.37319 115.92513 106.77569
+## [29] 106.62725  92.68529 102.87126 113.15220 126.33213  94.42654 101.79606
+## [36]  95.57496  94.66081 107.51815  90.08566 100.99948 124.55224 107.02571
+## [43]  93.63234  86.03714 114.45424  78.33172 102.40345 100.85652 110.06778
+## [50] 111.77403
 ```
 
 #### Running Statistical Tests by Hand
@@ -626,7 +1013,7 @@ CI_lower
 ```
 
 ```
-## [1] 99.10806
+## [1] 100.9857
 ```
 
 ```r
@@ -636,7 +1023,7 @@ CI_upper
 ```
 
 ```
-## [1] 104.7115
+## [1] 106.0206
 ```
 
 The confidence interval ranges from 98.41 to 104.88, suggesting that if this experiment had been repeated over and over an infinite number of times, the true population mean would be within that range 95% of the time.
@@ -730,6 +1117,7 @@ t.test(sat.act$SAT_diff)
 ##  2.117904
 ```
 
+
 The p-value is .566, so we fail to reject the null hypothesis that the difference between verbal and quantitative SAT scores are approximately zero.
 
 In the second method, we could have `t.test()` compute the difference scores for us by specifying both samples and setting the `paired` argument to `TRUE`:
@@ -754,7 +1142,6 @@ t.test(sat.act$SATV, sat.act$SATQ, paired=TRUE)
 ```
 
 We get exactly the same result. However, note that though this method uses fewer lines of code it risks obscuring the role of difference scores for the student.
-
 #### Two-sample t-tests
 
 To demonstrate a two-sample t-test, imagine that we are curious as to whether male and female students reported different quantitative SAT scores.
@@ -911,7 +1298,7 @@ The p-value for the interaction term is .610, so we fail to reject the null hypo
 
 ### `cor.test()`
 
-The `cor.test()` function can be used to test the significance of a correlation. The correlation is measured by Pearsons's r by default, but note that it can also be set to Kendall's $\tau$ or Spearman's $\rho$ with the `method` argument.
+The `cor.test()` function can be used to test the significance of a correlation. The correlation is measured by Pearsons's $r$ by default, but note that it can also be set to Kendall's $\tau$ or Spearman's $\rho$ with the `method` argument.
 
 To demonstrate, imagine that we are curious as to whether verbal and quantitative SAT scores are linearly related:
 

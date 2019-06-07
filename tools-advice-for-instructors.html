@@ -166,8 +166,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.3.2" data-path="statistics.html"><a href="statistics.html#median"><i class="fa fa-check"></i><b>3.3.2</b> Median</a></li>
 <li class="chapter" data-level="3.3.3" data-path="statistics.html"><a href="statistics.html#variance"><i class="fa fa-check"></i><b>3.3.3</b> Variance</a></li>
 <li class="chapter" data-level="3.3.4" data-path="statistics.html"><a href="statistics.html#standard-deviation"><i class="fa fa-check"></i><b>3.3.4</b> Standard Deviation</a></li>
-<li class="chapter" data-level="3.3.5" data-path="statistics.html"><a href="statistics.html#standard-error"><i class="fa fa-check"></i><b>3.3.5</b> Standard Error</a></li>
-<li class="chapter" data-level="3.3.6" data-path="statistics.html"><a href="statistics.html#correlation"><i class="fa fa-check"></i><b>3.3.6</b> Correlation</a></li>
+<li class="chapter" data-level="3.3.5" data-path="statistics.html"><a href="statistics.html#standard-error-of-the-mean"><i class="fa fa-check"></i><b>3.3.5</b> Standard Error of the Mean</a></li>
+<li class="chapter" data-level="3.3.6" data-path="statistics.html"><a href="statistics.html#correlation-proportion-of-variance-explained"><i class="fa fa-check"></i><b>3.3.6</b> Correlation &amp; Proportion of Variance Explained</a></li>
 <li class="chapter" data-level="3.3.7" data-path="statistics.html"><a href="statistics.html#summary-functions"><i class="fa fa-check"></i><b>3.3.7</b> Summary Functions</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="statistics.html"><a href="statistics.html#plotting"><i class="fa fa-check"></i><b>3.4</b> Plotting</a><ul>
@@ -207,10 +207,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.2.8" data-path="tools-advice-for-instructors.html"><a href="tools-advice-for-instructors.html#error-unexpected-symbol-in-___"><i class="fa fa-check"></i><b>4.2.8</b> <code>Error: unexpected symbol in '___'</code></a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="tools-advice-for-instructors.html"><a href="tools-advice-for-instructors.html#data-sets"><i class="fa fa-check"></i><b>4.3</b> Data Sets</a><ul>
-<li class="chapter" data-level="4.3.1" data-path="tools-advice-for-instructors.html"><a href="tools-advice-for-instructors.html#built-in"><i class="fa fa-check"></i><b>4.3.1</b> Built-In</a></li>
-<li class="chapter" data-level="4.3.2" data-path="tools-advice-for-instructors.html"><a href="tools-advice-for-instructors.html#fivethirtyeight"><i class="fa fa-check"></i><b>4.3.2</b> FiveThirtyEight</a></li>
-<li class="chapter" data-level="4.3.3" data-path="tools-advice-for-instructors.html"><a href="tools-advice-for-instructors.html#psych"><i class="fa fa-check"></i><b>4.3.3</b> psych</a></li>
-<li class="chapter" data-level="4.3.4" data-path="tools-advice-for-instructors.html"><a href="tools-advice-for-instructors.html#simulating-your-own-data-sets"><i class="fa fa-check"></i><b>4.3.4</b> Simulating your own Data Sets</a></li>
+<li class="chapter" data-level="4.3.1" data-path="tools-advice-for-instructors.html"><a href="tools-advice-for-instructors.html#how-to-handle-na-values"><i class="fa fa-check"></i><b>4.3.1</b> How to Handle <code>NA</code> Values</a></li>
+<li class="chapter" data-level="4.3.2" data-path="tools-advice-for-instructors.html"><a href="tools-advice-for-instructors.html#built-in"><i class="fa fa-check"></i><b>4.3.2</b> Built-In</a></li>
+<li class="chapter" data-level="4.3.3" data-path="tools-advice-for-instructors.html"><a href="tools-advice-for-instructors.html#fivethirtyeight"><i class="fa fa-check"></i><b>4.3.3</b> FiveThirtyEight</a></li>
+<li class="chapter" data-level="4.3.4" data-path="tools-advice-for-instructors.html"><a href="tools-advice-for-instructors.html#psych"><i class="fa fa-check"></i><b>4.3.4</b> psych</a></li>
+<li class="chapter" data-level="4.3.5" data-path="tools-advice-for-instructors.html"><a href="tools-advice-for-instructors.html#simulating-your-own-data-sets"><i class="fa fa-check"></i><b>4.3.5</b> Simulating your own Data Sets</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -300,11 +301,146 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Note that each package has many more data sets than those we have chosen to highlight here. To see all of the data sets available to you at any given time, including those are built-in with base R or part of loaded packages, enter the following command:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>()</code></pre></div>
 <p>You should see a list of all the available data sets with a brief summary of each, separated by the package they belong to.</p>
+<div id="how-to-handle-na-values" class="section level3">
+<h3><span class="header-section-number">4.3.1</span> How to Handle <code>NA</code> Values</h3>
+<p>Most of the data sets below include at least some missing data, marked as <code>NA</code>, in at least one variable. Because, as you know, missing data is a problem that is sure to appear in the wild for students who continue on a research path, you may choose to teach students how to handle <code>NA</code> values themselves. Alternatively, you may choose to remove <code>NA</code> values on your own for simplicity, either by removing them from the data set beforehand (in which case the data would need to be saved as a .CSV file for the students to read in later), or providing students with code to run before beginning the assignment. Regardless, this section reviews how to handle <code>NA</code> values.</p>
+<p>As mentioned previously, <code>NA</code> values can be identified with the <code>is.na()</code> function. For instance, imagine that we want to identify the missing quantitative SAT scores in the <code>sat.act</code> data set. We can first call <code>is.na()</code> on the variable to create a logical vector marking each <code>NA</code> as <code>TRUE</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.na</span>(sat.act<span class="op">$</span>SATQ)</code></pre></div>
+<pre><code>##   [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [12] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [23] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [34] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [45] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [56] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [67] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [78] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [89] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [100] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [111] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [122] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE
+## [133] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [144] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [155] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [166] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [177] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [188] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE
+## [199] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [210] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [221] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [232] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [243] FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE
+## [254] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [265] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [276] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [287] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [298] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [309] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [320] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [331] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [342] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [353] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [364]  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [375] FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [386] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [397] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [408] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [419]  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [430] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [441] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [452] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [463] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [474] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [485] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [496] FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [507] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE
+## [518] FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE
+## [529] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [540] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [551] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [562] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [573] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE
+## [584] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [595] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [606] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [617] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [628] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [639]  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [650] FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE
+## [661] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [672] FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [683] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [694] FALSE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
+<p>This logical vector can then be used to index the variable in question:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sat.act[<span class="kw">is.na</span>(sat.act<span class="op">$</span>SATQ), <span class="st">&#39;SATQ&#39;</span>]</code></pre></div>
+<pre><code>##  [1] NA NA NA NA NA NA NA NA NA NA NA NA NA</code></pre>
+<p>The previous command returns the <code>NA</code> values because we have asked R to show us all of the values in <code>sat.act$SATQ</code> variable that are coded as <code>NA</code>. However, we are often more interested in the values that are NOT missing than those that are. To find the <em>non</em>-missing values, we can reverse the logical vector by adding the negation operator, <code>!</code>, to the beginning of the call to <code>is.na()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sat.act[<span class="op">!</span><span class="kw">is.na</span>(sat.act<span class="op">$</span>SATQ), <span class="st">&#39;SATQ&#39;</span>]</code></pre></div>
+<pre><code>##   [1] 500 500 470 520 550 640 500 560 600 800 710 600 600 725 630 590 650
+##  [18] 620 580 680 450 500 700 600 540 650 700 385 450 500 500 710 710 570
+##  [35] 580 600 600 570 540 690 610 610 700 610 740 540 650 600 440 690 780
+##  [52] 600 590 760 740 700 650 640 450 760 700 750 650 760 550 680 530 610
+##  [69] 600 550 450 740 530 750 700 565 590 590 375 550 500 500 760 580 590
+##  [86] 700 530 550 700 250 720 690 700 760 600 720 600 729 600 660 650 750
+## [103] 660 680 700 610 650 550 710 480 740 720 630 560 700 700 500 660 500
+## [120] 500 550 650 800 400 600 730 560 700 500 500 500 570 400 790 600 600
+## [137] 620 700 720 680 610 690 770 770 550 530 720 320 800 800 600 800 700
+## [154] 700 745 500 630 465 500 800 350 600 650 760 720 700 750 695 680 670
+## [171] 540 500 500 800 680 640 600 680 600 650 580 400 750 678 530 600 675
+## [188] 630 560 575 650 500 350 700 610 600 650 600 678 720 660 650 660 450
+## [205] 670 620 480 500 555 800 710 630 770 710 600 560 550 350 450 460 700
+## [222] 540 680 620 650 620 580 660 600 430 580 670 480 600 650 500 490 640
+## [239] 570 680 720 500 660 600 570 650 550 200 690 460 525 675 700 700 650
+## [256] 500 570 600 430 540 300 500 700 760 770 600 500 500 700 700 475 400
+## [273] 750 600 650 480 520 720 300 780 520 400 550 450 680 800 725 540 690
+## [290] 730 640 700 540 540 610 640 650 420 600 500 480 640 770 450 740 510
+## [307] 650 600 700 700 750 450 450 600 750 650 300 700 750 540 300 600 480
+## [324] 650 420 730 790 620 350 500 650 300 700 660 540 520 742 400 500 800
+## [341] 570 690 680 500 640 700 600 650 520 540 609 800 690 780 640 580 750
+## [358] 770 680 500 450 680 600 660 450 230 570 580 600 500 530 710 500 730
+## [375] 450 550 760 450 740 770 690 540 650 300 440 420 640 690 400 710 500
+## [392] 650 475 730 490 630 635 550 780 450 600 350 520 670 450 500 550 620
+## [409] 550 600 740 620 670 560 710 700 480 800 760 650 550 720 650 700 660
+## [426] 700 710 650 400 420 770 600 490 400 510 550 480 670 500 750 780 670
+## [443] 640 710 750 650 300 700 720 600 600 590 650 500 650 680 400 480 400
+## [460] 750 700 590 654 630 600 600 600 680 450 620 590 440 450 720 470 600
+## [477] 700 640 500 530 640 799 800 600 800 600 550 600 450 750 560 590 500
+## [494] 730 600 430 480 400 500 400 333 450 460 450 700 750 765 500 610 450
+## [511] 450 500 600 600 600 670 620 660 700 600 620 680 677 640 596 660 530
+## [528] 710 780 710 650 590 680 700 600 500 420 410 650 550 440 600 500 300
+## [545] 530 600 400 730 610 600 720 780 490 700 680 400 800 740 760 720 720
+## [562] 770 670 620 720 730 690 720 710 700 680 600 740 640 670 800 740 660
+## [579] 800 400 640 710 680 680 700 640 690 720 510 690 770 640 500 590 640
+## [596] 670 650 600 660 670 500 690 350 600 650 750 300 795 700 600 690 600
+## [613] 650 600 710 690 500 700 740 430 684 610 750 430 780 770 600 550 760
+## [630] 680 400 800 720 700 800 800 750 670 530 750 620 500 500 530 740 300
+## [647] 670 700 690 800 750 500 580 700 600 540 690 600 520 500 720 600 700
+## [664] 620 790 700 550 600 410 710 600 760 490 600 500 680 600 690 610 700
+## [681] 660 680 500 630 630 780 600</code></pre>
+<p>Now we’ve asked R to show us all of the values in the <code>sat.act$SATQ</code> variable that are NOT coded as <code>NA</code>.</p>
+<p>To index the entire <code>sat.act</code> data frame so that <em>all</em> columns are returned, not just the quantitative SAT scores, use bracket notation without specifying any columns:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sat.act[<span class="op">!</span><span class="kw">is.na</span>(sat.act<span class="op">$</span>SATQ), ]</code></pre></div>
+<pre><code>##       gender education age ACT SATV SATQ
+## 29442      2         3  19  24  500  500
+## 29457      2         3  23  35  600  500
+## 29498      2         3  20  21  480  470
+## 29503      1         4  27  26  550  520
+## 29504      1         2  33  31  600  550
+## 29518      1         5  26  28  640  640</code></pre>
+<p>Now we have the full <code>sat.act</code> data set, but only those rows where the quantitative SAT score is not <code>NA</code>. To be complete, we recommend saving this subset as a new object:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sat.act_noNA &lt;-<span class="st"> </span>sat.act[<span class="op">!</span><span class="kw">is.na</span>(sat.act<span class="op">$</span>SATQ), ]</code></pre></div>
+<p>Note that you can also overwrite <code>NA</code> values, in cases where it is methodologically appropriate. For instance, perhaps you know that the students with missing quantitative SAT scores are treated as having a score of 0. You could replace the <code>NA</code> values with 0 as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># First save a new version of the data</span>
+sat.act_NA0 &lt;-<span class="st"> </span>sat.act
+
+<span class="co"># Recode NA values as 0 in new version</span>
+sat.act_NA0[<span class="kw">is.na</span>(sat.act<span class="op">$</span>SATQ), <span class="st">&#39;SATQ&#39;</span>] &lt;-<span class="st"> </span><span class="dv">0</span></code></pre></div>
+<p>Now all missing quantitative SAT scores will be treated as a 0 in future mathematical operations, using this new version of the data. Importantly, the original data frame is also preserved.</p>
+</div>
 <div id="built-in" class="section level3">
-<h3><span class="header-section-number">4.3.1</span> Built-In</h3>
+<h3><span class="header-section-number">4.3.2</span> Built-In</h3>
 <p>There are several small data sets included in base R that are useful for quick demos. Since they are part of base R, it is not necessary to load these packages; just type and enter their name in the console to view them.</p>
 <div id="iris" class="section level4">
-<h4><span class="header-section-number">4.3.1.1</span> iris</h4>
+<h4><span class="header-section-number">4.3.2.1</span> iris</h4>
 <p>The <code>iris</code> data set gives the lengths and widths of the sepals and petals of 50 irises from each of three different species:</p>
 <pre><code>## Skim summary statistics
 ##  n obs: 150 
@@ -322,7 +458,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ##   Sepal.Width       0 150 3.06 0.44 ▁▂▅▇▃▂▁▁</code></pre>
 </div>
 <div id="warpbreaks" class="section level4">
-<h4><span class="header-section-number">4.3.1.2</span> warpbreaks</h4>
+<h4><span class="header-section-number">4.3.2.2</span> warpbreaks</h4>
 <p>The <code>warpbreaks</code> data set gives the number of breaks in each of 54 looms of yarn, varied across two types of wool and three levels of tension:</p>
 <pre><code>## Skim summary statistics
 ##  n obs: 54 
@@ -338,7 +474,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ##    breaks       0 54 28.15 13.2 ▆▇▇▂▂▂▁▁</code></pre>
 </div>
 <div id="mtcars" class="section level4">
-<h4><span class="header-section-number">4.3.1.3</span> mtcars</h4>
+<h4><span class="header-section-number">4.3.2.3</span> mtcars</h4>
 <p>The <code>mtcars</code> data set gives a range of numeric and categorical measurements of 32 cars, including MPG, number of cylinders, horsepower, weight, and transmission type:</p>
 <pre><code>## Skim summary statistics
 ##  n obs: 32 
@@ -359,7 +495,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ##        wt       0 32   3.22   0.98 ▃▃▃▇▆▁▁▂</code></pre>
 </div>
 <div id="toothgrowth" class="section level4">
-<h4><span class="header-section-number">4.3.1.4</span> ToothGrowth</h4>
+<h4><span class="header-section-number">4.3.2.4</span> ToothGrowth</h4>
 <p>The <code>ToothGrowth</code> data set gives the tooth lengths of 60 guinea pigs, varied across three vitamin C dosage levels and two dosage delivery methods:</p>
 <pre><code>## Skim summary statistics
 ##  n obs: 60 
@@ -376,13 +512,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 </div>
 <div id="fivethirtyeight" class="section level3">
-<h3><span class="header-section-number">4.3.2</span> FiveThirtyEight</h3>
+<h3><span class="header-section-number">4.3.3</span> FiveThirtyEight</h3>
 <p>The <code>fivethirtyeight</code> package includes data sets used for articles written on Nate Silver’s website for data geeks, <a href="https://fivethirtyeight.com/">FiveThirtyEight</a>. From an instructional standpoint, these data sets are useful not only for being particularly engaging but because there is a published article associated with each one.</p>
 <p>To make the data sets available, install and load the <code>fivethirtyeight</code> package:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&#39;fivethirtyeight&#39;</span>)
 <span class="kw">library</span>(fivethirtyeight)</code></pre></div>
 <div id="bechdel" class="section level4">
-<h4><span class="header-section-number">4.3.2.1</span> bechdel</h4>
+<h4><span class="header-section-number">4.3.3.1</span> bechdel</h4>
 <p>The <code>bechdel</code> data set is a great all-purpose data set with both within- and between-subject continuous and categorical variables. Based on the <a href="https://en.wikipedia.org/wiki/Bechdel_test">Bechdel Test</a> for female representation in film, this data set includes 1,794 movies from 1970-2013 along with their test outcome, budget, and gross profits:</p>
 <pre><code>## Skim summary statistics
 ##  n obs: 1794 
@@ -416,7 +552,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ##  intgross_2013      11 1794 2e+08           2.8e+08 ▇▁▁▁▁▁▁▁</code></pre>
 </div>
 <div id="fandango" class="section level4">
-<h4><span class="header-section-number">4.3.2.2</span> fandango</h4>
+<h4><span class="header-section-number">4.3.3.2</span> fandango</h4>
 <p>The <code>fandango</code> data set shows ratings from 146 movies across the Fandango, IMDB, Rotten Tomatoes, and Metacritic websites. It is particularly useful for demonstrating correlation:</p>
 <pre><code>## Skim summary statistics
 ##  n obs: 146 
@@ -455,7 +591,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ##                        year       0 146 2014.88 0.32 ▁▁▁▁▁▁▁▇</code></pre>
 </div>
 <div id="comma_survey" class="section level4">
-<h4><span class="header-section-number">4.3.2.3</span> comma_survey</h4>
+<h4><span class="header-section-number">4.3.3.3</span> comma_survey</h4>
 <p>The <code>comma_survey</code> data set has Likert ratings as well as demographic information collected from 1,129 respondents to a survey on the Oxford comma:</p>
 <pre><code>## Skim summary statistics
 ##  n obs: 1129 
@@ -494,7 +630,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ##  respondent_id       0 1129 3.3e+09 1072966.47 ▇▃▇▇▆▂▁▂</code></pre>
 </div>
 <div id="avengers" class="section level4">
-<h4><span class="header-section-number">4.3.2.4</span> avengers</h4>
+<h4><span class="header-section-number">4.3.3.4</span> avengers</h4>
 <p>The <code>avengers</code> data set includes the death and revival status for 173 Marvel comic book characters. It largely includes count and categorical data:</p>
 <pre><code>## Skim summary statistics
 ##  n obs: 173 
@@ -531,7 +667,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ##   return5     172 173 1              NA: 172, TRU: 1</code></pre>
 </div>
 <div id="bob_ross" class="section level4">
-<h4><span class="header-section-number">4.3.2.5</span> bob_ross</h4>
+<h4><span class="header-section-number">4.3.3.5</span> bob_ross</h4>
 <p>The <code>bob_ross</code> data set is a great tool for demonstrating count data and tables. For each of 403 episodes, the data set marks the presence or absence of a series of possible elements in Bob’s painting. Useful combinations include tables of trees, lakes, and snowy mountains:</p>
 <pre><code>## Skim summary statistics
 ##  n obs: 403 
@@ -619,13 +755,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 </div>
 <div id="psych" class="section level3">
-<h3><span class="header-section-number">4.3.3</span> psych</h3>
+<h3><span class="header-section-number">4.3.4</span> psych</h3>
 <p>In addition to a range of new functions, the <code>psych</code> package includes data sets intended to demonstrate common statistical analyses for psychological research.</p>
 <p>To make the data sets available, install and load the <code>psych</code> package:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&#39;psych&#39;</span>)
 <span class="kw">library</span>(psych)</code></pre></div>
 <div id="tal.or" class="section level4">
-<h4><span class="header-section-number">4.3.3.1</span> Tal.Or</h4>
+<h4><span class="header-section-number">4.3.4.1</span> Tal.Or</h4>
 <p>The <code>Tal.Or</code> data set is from Study 2 of Tol-Or, Cohen, Tasfati, &amp; Gunther (2010), which used an experimental manipulation to test the effects of media on the attitudes of 123 respondents, measured with Likert scales:</p>
 <pre><code>## Skim summary statistics
 ##  n obs: 123 
@@ -641,7 +777,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ##  reaction       0 123  3.48 1.55 ▇▆▇▆▅▆▃▂</code></pre>
 </div>
 <div id="affect" class="section level4">
-<h4><span class="header-section-number">4.3.3.2</span> affect</h4>
+<h4><span class="header-section-number">4.3.4.2</span> affect</h4>
 <p>The <code>affect</code> data set consists of responses from 330 participants to state and trait mood scales given before and after viewing (1) a Frontline documentary about the liberation of a concentration camp, (2) the horror movie Halloween, (3) a National Geographic nature film about the Serengeti, or (4) the comedy movie Parenthood:</p>
 <pre><code>## Skim summary statistics
 ##  n obs: 330 
@@ -677,7 +813,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ##  traitanx       0 330 39.52  9.77 ▃▅▇▅▂▂▁▁</code></pre>
 </div>
 <div id="epi" class="section level4">
-<h4><span class="header-section-number">4.3.3.3</span> epi</h4>
+<h4><span class="header-section-number">4.3.4.3</span> epi</h4>
 <p>The <code>epi</code> data set includes responses to the Eysenck Personality Inventory from 3570 subjects:</p>
 <pre><code>## Skim summary statistics
 ##  n obs: 3570 
@@ -744,7 +880,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ##        V9      71 3570 1.46 0.5  ▇▁▁▁▁▁▁▇</code></pre>
 </div>
 <div id="sat.act" class="section level4">
-<h4><span class="header-section-number">4.3.3.4</span> sat.act</h4>
+<h4><span class="header-section-number">4.3.4.4</span> sat.act</h4>
 <p>The <code>sat.act</code> data set includes self-reported SAT and ACT scores along with demographic information from 700 respondents, making it useful for within- or between-subject comparisons:</p>
 <pre><code>## Skim summary statistics
 ##  n obs: 700 
@@ -761,8 +897,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 </div>
 <div id="simulating-your-own-data-sets" class="section level3">
-<h3><span class="header-section-number">4.3.4</span> Simulating your own Data Sets</h3>
-<p>If none of the available data sets satisfy your needs, or if you simply want to get creative, it is possible to simulate your own data set by drawing random samples from a distribution.</p>
+<h3><span class="header-section-number">4.3.5</span> Simulating your own Data Sets</h3>
+<p>If none of the available data sets satisfy your needs, or if you simply want to get creative, it is possible to simulate your own data set by drawing random samples from a distribution. This can be a great method of designing engaging data sets. It also ensures that you will have a nice “clean” data set, with no unwanted <code>NA</code> values, balanced or unbalanced designs as needed, and null and significant effects as desired.</p>
 <p>To demonstrate how to simulate a numeric variable, the following code simulates income for 1,000 families from a population in which income is normally distributed around $50,000 with a standard deviation of $5,000:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sim_income &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n=</span><span class="dv">1000</span>, <span class="dt">mean=</span><span class="dv">50000</span>, <span class="dt">sd=</span><span class="dv">5000</span>)
 <span class="kw">hist</span>(sim_income)</code></pre></div>

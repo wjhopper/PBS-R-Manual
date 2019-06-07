@@ -83,6 +83,185 @@ data()
 
 You should see a list of all the available data sets with a brief summary of each, separated by the package they belong to.
 
+### How to Handle `NA` Values
+
+Most of the data sets below include at least some missing data, marked as `NA`, in at least one variable. Because, as you know, missing data is a problem that is sure to appear in the wild for students who continue on a research path, you may choose to teach students how to handle `NA` values themselves. Alternatively, you may choose to remove `NA` values on your own for simplicity, either by removing them from the data set beforehand (in which case the data would need to be saved as a .CSV file for the students to read in later), or providing students with code to run before beginning the assignment. Regardless, this section reviews how to handle `NA` values.
+
+As mentioned previously, `NA` values can be identified with the `is.na()` function. For instance, imagine that we want to identify the missing quantitative SAT scores in the `sat.act` data set. We can first call `is.na()` on the variable to create a logical vector marking each `NA` as `TRUE`:
+
+
+```r
+is.na(sat.act$SATQ)
+```
+
+```
+##   [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [12] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [23] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [34] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [45] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [56] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [67] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [78] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [89] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [100] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [111] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [122] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE
+## [133] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [144] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [155] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [166] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [177] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [188] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE
+## [199] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [210] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [221] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [232] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [243] FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE
+## [254] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [265] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [276] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [287] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [298] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [309] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [320] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [331] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [342] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [353] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [364]  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [375] FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [386] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [397] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [408] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [419]  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [430] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [441] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [452] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [463] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [474] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [485] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [496] FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [507] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE
+## [518] FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE
+## [529] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [540] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [551] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [562] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [573] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE
+## [584] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [595] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [606] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [617] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [628] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [639]  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [650] FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE
+## [661] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [672] FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [683] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [694] FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+```
+
+This logical vector can then be used to index the variable in question:
+
+
+```r
+sat.act[is.na(sat.act$SATQ), 'SATQ']
+```
+
+```
+##  [1] NA NA NA NA NA NA NA NA NA NA NA NA NA
+```
+
+The previous command returns the `NA` values because we have asked R to show us all of the values in `sat.act$SATQ` variable that are coded as `NA`. However, we are often more interested in the values that are NOT missing than those that are. To find the *non*-missing values, we can reverse the logical vector by adding the negation operator, `!`, to the beginning of the call to `is.na()`:
+
+
+```r
+sat.act[!is.na(sat.act$SATQ), 'SATQ']
+```
+
+```
+##   [1] 500 500 470 520 550 640 500 560 600 800 710 600 600 725 630 590 650
+##  [18] 620 580 680 450 500 700 600 540 650 700 385 450 500 500 710 710 570
+##  [35] 580 600 600 570 540 690 610 610 700 610 740 540 650 600 440 690 780
+##  [52] 600 590 760 740 700 650 640 450 760 700 750 650 760 550 680 530 610
+##  [69] 600 550 450 740 530 750 700 565 590 590 375 550 500 500 760 580 590
+##  [86] 700 530 550 700 250 720 690 700 760 600 720 600 729 600 660 650 750
+## [103] 660 680 700 610 650 550 710 480 740 720 630 560 700 700 500 660 500
+## [120] 500 550 650 800 400 600 730 560 700 500 500 500 570 400 790 600 600
+## [137] 620 700 720 680 610 690 770 770 550 530 720 320 800 800 600 800 700
+## [154] 700 745 500 630 465 500 800 350 600 650 760 720 700 750 695 680 670
+## [171] 540 500 500 800 680 640 600 680 600 650 580 400 750 678 530 600 675
+## [188] 630 560 575 650 500 350 700 610 600 650 600 678 720 660 650 660 450
+## [205] 670 620 480 500 555 800 710 630 770 710 600 560 550 350 450 460 700
+## [222] 540 680 620 650 620 580 660 600 430 580 670 480 600 650 500 490 640
+## [239] 570 680 720 500 660 600 570 650 550 200 690 460 525 675 700 700 650
+## [256] 500 570 600 430 540 300 500 700 760 770 600 500 500 700 700 475 400
+## [273] 750 600 650 480 520 720 300 780 520 400 550 450 680 800 725 540 690
+## [290] 730 640 700 540 540 610 640 650 420 600 500 480 640 770 450 740 510
+## [307] 650 600 700 700 750 450 450 600 750 650 300 700 750 540 300 600 480
+## [324] 650 420 730 790 620 350 500 650 300 700 660 540 520 742 400 500 800
+## [341] 570 690 680 500 640 700 600 650 520 540 609 800 690 780 640 580 750
+## [358] 770 680 500 450 680 600 660 450 230 570 580 600 500 530 710 500 730
+## [375] 450 550 760 450 740 770 690 540 650 300 440 420 640 690 400 710 500
+## [392] 650 475 730 490 630 635 550 780 450 600 350 520 670 450 500 550 620
+## [409] 550 600 740 620 670 560 710 700 480 800 760 650 550 720 650 700 660
+## [426] 700 710 650 400 420 770 600 490 400 510 550 480 670 500 750 780 670
+## [443] 640 710 750 650 300 700 720 600 600 590 650 500 650 680 400 480 400
+## [460] 750 700 590 654 630 600 600 600 680 450 620 590 440 450 720 470 600
+## [477] 700 640 500 530 640 799 800 600 800 600 550 600 450 750 560 590 500
+## [494] 730 600 430 480 400 500 400 333 450 460 450 700 750 765 500 610 450
+## [511] 450 500 600 600 600 670 620 660 700 600 620 680 677 640 596 660 530
+## [528] 710 780 710 650 590 680 700 600 500 420 410 650 550 440 600 500 300
+## [545] 530 600 400 730 610 600 720 780 490 700 680 400 800 740 760 720 720
+## [562] 770 670 620 720 730 690 720 710 700 680 600 740 640 670 800 740 660
+## [579] 800 400 640 710 680 680 700 640 690 720 510 690 770 640 500 590 640
+## [596] 670 650 600 660 670 500 690 350 600 650 750 300 795 700 600 690 600
+## [613] 650 600 710 690 500 700 740 430 684 610 750 430 780 770 600 550 760
+## [630] 680 400 800 720 700 800 800 750 670 530 750 620 500 500 530 740 300
+## [647] 670 700 690 800 750 500 580 700 600 540 690 600 520 500 720 600 700
+## [664] 620 790 700 550 600 410 710 600 760 490 600 500 680 600 690 610 700
+## [681] 660 680 500 630 630 780 600
+```
+
+Now we've asked R to show us all of the values in the `sat.act$SATQ` variable that are NOT coded as `NA`.
+
+To index the entire `sat.act` data frame so that *all* columns are returned, not just the quantitative SAT scores, use bracket notation without specifying any columns:
+
+
+```r
+sat.act[!is.na(sat.act$SATQ), ]
+```
+
+```
+##       gender education age ACT SATV SATQ
+## 29442      2         3  19  24  500  500
+## 29457      2         3  23  35  600  500
+## 29498      2         3  20  21  480  470
+## 29503      1         4  27  26  550  520
+## 29504      1         2  33  31  600  550
+## 29518      1         5  26  28  640  640
+```
+
+Now we have the full `sat.act` data set, but only those rows where the quantitative SAT score is not `NA`. To be complete, we recommend saving this subset as a new object:
+
+
+```r
+sat.act_noNA <- sat.act[!is.na(sat.act$SATQ), ]
+```
+
+Note that you can also overwrite `NA` values, in cases where it is methodologically appropriate. For instance, perhaps you know that the students with missing quantitative SAT scores are treated as having a score of 0. You could replace the `NA` values with 0 as follows:
+
+
+```r
+# First save a new version of the data
+sat.act_NA0 <- sat.act
+
+# Recode NA values as 0 in new version
+sat.act_NA0[is.na(sat.act$SATQ), 'SATQ'] <- 0
+```
+
+Now all missing quantitative SAT scores will be treated as a 0 in future mathematical operations, using this new version of the data. Importantly, the original data frame is also preserved.
+
 ### Built-In
 
 There are several small data sets included in base R that are useful for quick demos. Since they are part of base R, it is not necessary to load these packages; just type and enter their name in the console to view them.
@@ -607,7 +786,7 @@ The `sat.act` data set includes self-reported SAT and ACT scores along with demo
 
 ### Simulating your own Data Sets
 
-If none of the available data sets satisfy your needs, or if you simply want to get creative, it is possible to simulate your own data set by drawing random samples from a distribution.
+If none of the available data sets satisfy your needs, or if you simply want to get creative, it is possible to simulate your own data set by drawing random samples from a distribution. This can be a great method of designing engaging data sets. It also ensures that you will have a nice "clean" data set, with no unwanted `NA` values, balanced or unbalanced designs as needed, and null and significant effects as desired.
 
 To demonstrate how to simulate a numeric variable, the following code simulates income for 1,000 families from a population in which income is normally distributed around $50,000 with a standard deviation of $5,000:
 
