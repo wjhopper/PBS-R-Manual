@@ -62,11 +62,79 @@ Formulas can get much more complex than the examples here, which only extend as 
 
 ### Mean
 
+To calculate the mean of a vector by hand, use the `sum()` and `length()` functions. For instance, we can calculate the mean verbal SAT score in the `sat.act` data set as follows:
 
+```{r mean hand}
+sum(sat.act$SATV)/length(sat.act$SATV)
+```
+
+We can also get the same answer by using the `mean()` function:
+
+```{r mean fun}
+mean(sat.act$SATV)
+```
+
+Note that `NA` values can be removed from the vector when using the `mean()` function by setting the `na.rm` argument to `TRUE`. For instance, when we try to take the mean of the quantitative SAT scores without removing `NA` values, we get `NA` as the output:
+
+```{r mean NA}
+mean(sat.act$SATQ)
+```
+
+But by setting `na.rm=TRUE`, we get a sensible answer:
+
+```{r mean NA remove}
+mean(sat.act$SATQ, na.rm=TRUE)
+```
+
+The `NA` values cannot be removed this easily when calculating the mean by hand because while the `sum()` function will take the `na.rm` argument, the `length()` function will not. Thus, if you plan to ask students to calculate the mean by hand in R, be sure to choose a method of removing NA values manually. You can either remove the values yourself beforehand, give the students code to do it, or teach them to look out for and handle `NA` values themselves.
 
 ### Median
 
+You can ask students to calculate the median of a vector by hand by having them index the output of the `sort()` function. To demonstrate, imagine that we want to know the median age of respondents in the `sat.act` data set. Calling `sort()` function on the `age` variable will take all of the respondents' ages and put them in ascending order:
 
+```{r sort}
+sort(sat.act$age)
+```
+
+We can then find the median by indexing the middle value of the sorted vector. If the vector has an odd number of values, this is simply half of the length of the vector plus .5:
+
+```{r sort index odd, eval=FALSE}
+sort(sat.act$age)[(length(sat.act$age)/2)+.5]
+```
+
+Of course, there are 700 respondents in the `sat.act` data set, so the above command is not appropriate. When the vector has an even number of values like ours, the median is calculated as the average of the two middle values:
+
+```{r sort index even}
+
+# Find the two middle values
+middle_vals <- sort(sat.act$age)[(length(sat.act$age)/2):((length(sat.act$age)/2)+1)]
+
+# Take the mean of the two middle values
+mean(middle_vals)
+
+```
+
+Note that you might also allow students to simply print the output of `sort()` and find the median visually.
+
+We can also get the same answer by using the `median()` function:
+
+```{r median fun}
+median(sat.act$age)
+```
+
+Note that `NA` values can be removed from the vector when using the `median()` function by setting the `na.rm` argument to `TRUE`. For instance, when we try to take the median of the quantitative SAT scores without removing `NA` values, we get `NA` as the output:
+
+```{r median NA}
+median(sat.act$SATQ)
+```
+
+But by setting `na.rm=TRUE`, we get a sensible answer:
+
+```{r median NA remove}
+median(sat.act$SATQ, na.rm=TRUE)
+```
+
+The `NA` values are automatically removed when calculating the median by hand using the `sort()` function, however you can also choose to have missing values placed last or first in the output by setting the `na.last` argument to 'TRUE' or 'FALSE', respectively.
 
 ### Variance
 
@@ -78,7 +146,7 @@ Formulas can get much more complex than the examples here, which only extend as 
 
 ### Standard Error
 
-
+Because there are different methods for calculating the standard error depending on the nature of the sample statistic, there is no central function for calculating the standard error in R. 
 
 ### Correlation
 
@@ -338,6 +406,9 @@ sat.act$SAT_diff <- sat.act$SATV-sat.act$SATQ
 t.test(sat.act$SAT_diff)
 
 ```
+```{r remove sat_diff, echo=FALSE, eval=FALSE}
+sat.act <- sat.act[, 1:6]
+```
 
 The p-value is .566, so we fail to reject the null hypothesis that the difference between verbal and quantitative SAT scores are approximately zero.
 
@@ -348,7 +419,6 @@ t.test(sat.act$SATV, sat.act$SATQ, paired=TRUE)
 ```
 
 We get exactly the same result. However, note that though this method uses fewer lines of code it risks obscuring the role of difference scores for the student.
-
 #### Two-sample t-tests
 
 To demonstrate a two-sample t-test, imagine that we are curious as to whether male and female students reported different quantitative SAT scores.
