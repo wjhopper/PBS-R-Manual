@@ -90,6 +90,7 @@ In short, saving your workspace sounds great, but encourages very bad practices.
 We **STRONGLY** advise you to disable this feature, and teach your students to disable it as well. To disable this feature, navigate to Tools Menu Global Options Basic. On this tab, set the "Save workspace to .RData on exit" option to "Never" using the drop down menu, as shown below. Your future self thanks you.
 
 ![](images/dontsavesession.png)
+
 ### History
 RStudio also keeps track of the R commands that you've run in the past. This is useful during experimentation and testing, because it allows you to quickly copy a previous command, modify it, and try it again. It can also be helpful when you discarded code because you thought it wasn't useful or necessary, but later realize it was, and need to remind yourself what you did.
 
