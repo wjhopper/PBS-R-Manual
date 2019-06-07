@@ -508,8 +508,10 @@ Unfortunately, we often have to deal with missing observations in real world dat
 ```{r isna}
 missingno <- c(10,NA,1,4,2,NA,NA,99,NaN, NA)
 is.na(missingno)
-missingno[!is.na(missingno)] # Select things that are the opposite of missing
+missingno[!is.na(missingno)] # Select the *not* missing observations
 ```
+
+Removing missing values in a common step in data manipuation before an anlysis. For examples of removig missing values with other data structures, and more realistic data sets, the examples in the [Data Sets](#data-sets) section.
 
 #### Converting a Logical to a Positional Index {-}
 A useful function to know is `which()`. When used on a logical vector, it will return to your the position indices of the vector's `TRUE` element. It is useful when you want to know **where** in the vector your matches occur. 
