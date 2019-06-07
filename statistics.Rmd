@@ -747,6 +747,7 @@ t.test(sat.act$SATV, sat.act$SATQ, paired=TRUE)
 ```
 
 We get exactly the same result. However, note that though this method uses fewer lines of code it risks obscuring the role of difference scores for the student.
+
 #### Two-sample t-tests
 
 To demonstrate a two-sample t-test, imagine that we are curious as to whether male and female students reported different quantitative SAT scores.
