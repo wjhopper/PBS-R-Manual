@@ -19,7 +19,8 @@ output:
         all: no
   bookdown::pdf_book:
     latex_engine: xelatex
-    
+font-family: "DejaVu Sans"
+mainfont: "DejaVu Sans"
 documentclass: book
 css: ["css/custom.css"]
 github-repo: wjhopper/PBS-R-Manual

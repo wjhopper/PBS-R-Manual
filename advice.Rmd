@@ -7,6 +7,13 @@ library(fivethirtyeight)
 library(psych)
 library(skimr)
 
+# A rediculous hack to get the unicode characters in skim_df's to show up on windows
+# Basically we pretend we're in China, and everything is OK.
+LC_CTYPE <- Sys.getlocale("LC_CTYPE")
+if (tolower(.Platform$OS.type) == "windows") {
+  Sys.setlocale("LC_CTYPE", "Chinese")
+}
+
 # Tailor skimr
 skim_with(numeric=list(complete=NULL, p0=NULL, p25=NULL, p50=NULL, p75=NULL, p100=NULL), 
           integer=list(complete=NULL, p0=NULL, p25=NULL, p50=NULL, p75=NULL, p100=NULL), 
@@ -278,6 +285,11 @@ The `sat.act` data set includes self-reported SAT and ACT scores along with demo
 ```{r sat.act summary, echo=FALSE}
 skim(sat.act)
 ```
+
+```{r, include=FALSE}
+Sys.setlocale("LC_CTYPE", LC_CTYPE) # Restore LC_CTYPE to original value
+```
+
 
 ### Simulating your own Data Sets
 
