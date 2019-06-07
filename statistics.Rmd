@@ -280,7 +280,7 @@ Always make sure to set your `mfrow` or `mfcol` values back to `c(1,1)` afterwar
 ### Saving Plots
 Usually the purpose of creating a visualization in R is to include it in some kind of homework, report, or paper. It is easy to save a plot made in R to an image file on your hard drive using the "Export" option in the R Studio plot pane. Simply click the "Export" drop down menu, and select either the "Save to Image", "Save to PDF" or "Copy to Clipboard" options.
 
-![](images/export.png)
+![](images/export_plot.png)
 
 If you choose the "Save as Image" option, you'll get to choose which image format you want to save it as, and what the width and height (in pixels) the image should be saved as.
 
