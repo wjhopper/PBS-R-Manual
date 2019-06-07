@@ -134,7 +134,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#rstudio"><i class="fa fa-check"></i>RStudio</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#formatting-conventions"><i class="fa fa-check"></i>Formatting Conventions</a></li>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#additional-materials"><i class="fa fa-check"></i><b>0.1</b> Additional Materials</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#additional-materials"><i class="fa fa-check"></i>Additional Materials</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html"><i class="fa fa-check"></i><b>1</b> Introducing R and RStudio</a><ul>
 <li class="chapter" data-level="1.1" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#console"><i class="fa fa-check"></i><b>1.1</b> Pane #1: The R Console</a></li>
@@ -198,11 +198,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="statistics.html"><a href="statistics.html#plotting"><i class="fa fa-check"></i><b>3.4</b> Plotting</a><ul>
 <li class="chapter" data-level="3.4.1" data-path="statistics.html"><a href="statistics.html#scatter-line-plots"><i class="fa fa-check"></i><b>3.4.1</b> Scatter &amp; Line Plots</a></li>
-<li class="chapter" data-level="3.4.2" data-path="statistics.html"><a href="statistics.html#barplots"><i class="fa fa-check"></i><b>3.4.2</b> Barplots</a></li>
-<li class="chapter" data-level="3.4.3" data-path="statistics.html"><a href="statistics.html#histograms"><i class="fa fa-check"></i><b>3.4.3</b> Histograms</a></li>
-<li class="chapter" data-level="3.4.4" data-path="statistics.html"><a href="statistics.html#boxplots"><i class="fa fa-check"></i><b>3.4.4</b> Boxplots</a></li>
-<li class="chapter" data-level="3.4.5" data-path="statistics.html"><a href="statistics.html#configuring-plots"><i class="fa fa-check"></i><b>3.4.5</b> Configuring Plots</a></li>
-<li class="chapter" data-level="3.4.6" data-path="statistics.html"><a href="statistics.html#what-about-ggplot"><i class="fa fa-check"></i><b>3.4.6</b> What about ggplot?</a></li>
+<li class="chapter" data-level="3.4.2" data-path="statistics.html"><a href="statistics.html#histograms"><i class="fa fa-check"></i><b>3.4.2</b> Histograms</a></li>
+<li class="chapter" data-level="3.4.3" data-path="statistics.html"><a href="statistics.html#boxplots"><i class="fa fa-check"></i><b>3.4.3</b> Boxplots</a></li>
+<li class="chapter" data-level="3.4.4" data-path="statistics.html"><a href="statistics.html#bar-plots"><i class="fa fa-check"></i><b>3.4.4</b> Bar plots</a></li>
+<li class="chapter" data-level="3.4.5" data-path="statistics.html"><a href="statistics.html#multiple-plots-in-single-figure"><i class="fa fa-check"></i><b>3.4.5</b> Multiple plots in single figure</a></li>
+<li class="chapter" data-level="3.4.6" data-path="statistics.html"><a href="statistics.html#saving-plots"><i class="fa fa-check"></i><b>3.4.6</b> Saving Plots</a></li>
+<li class="chapter" data-level="3.4.7" data-path="statistics.html"><a href="statistics.html#what-about-ggplot"><i class="fa fa-check"></i><b>3.4.7</b> What about ggplot?</a></li>
 </ul></li>
 <li class="chapter" data-level="3.5" data-path="statistics.html"><a href="statistics.html#inferential-statistics"><i class="fa fa-check"></i><b>3.5</b> Inferential Statistics</a><ul>
 <li class="chapter" data-level="3.5.1" data-path="statistics.html"><a href="statistics.html#distribution-functions"><i class="fa fa-check"></i><b>3.5.1</b> Distribution Functions</a></li>
@@ -289,14 +290,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Formulas are special objects in R that are used in a range of functions discussed in this chapter, notably <code>plot()</code>, <code>aov()</code>, and <code>lm()</code>. The use of formulas in these specific functions will be discussed in more detail below, but we first introduce their general properties here.</p>
 <p>The basic structure is as follows:</p>
 <p><code>y ~ x</code></p>
-<p>The <code>y</code> variable is the dependent variable, the <code>x</code> variable is the independent variable, and the <code>~</code> operator can be taken to mean “as a function of”. Thus, the above example is a formula for “y as a function fo x”.</p>
+<p>The <code>y</code> variable is the dependent variable, the <code>x</code> variable is the independent variable, and the <code>~</code> operator can be taken to mean “as a function of”. Thus, the above example is a formula for “y as a function of x”.</p>
 <p>For a more concrete example, consider the effect of the independent variable age on the dependent variable ACT scores:</p>
 <p><code>sat.act$ACT ~ sat.act$age</code></p>
 <p>We can have multiple independent variables in the formula. For instance, if we wanted to define ACT scores as a function of age and education, we would do so as follows:</p>
 <p><code>sat.act$ACT ~ sat.act$age + sat.act$education</code></p>
 <p>The above formula is an example of an “additive” model, in which ACT scores are a function of the additive effects of age and education. To define the interactive model, we would separate age and education by an asterisk instead of a plus sign:</p>
 <p><code>sat.act$ACT ~ sat.act$age*sat.act$education</code></p>
-<p>Note that the above formula defines the <em>full</em> interactive model, so ACT scores are defined as a function of (1) the main effect of age, (2) the main effect of education, and (3) the interaction of age and education. This same model can be implemented by definind each components separately in the formula object, like this:</p>
+<p>Note that the above formula defines the <em>full</em> interactive model, so ACT scores are defined as a function of (1) the main effect of age, (2) the main effect of education, and (3) the interaction of age and education. This same model can be implemented by defining each components separately in the formula object, like this:</p>
 <p><code>sat.act$ACT ~ sat.act$age + sat.act$education + sat.act$age:sat.act$education</code></p>
 <p>By defining the components separately, you can pick and choose which to keep. For instance, you could specify only the main effect of age and the interaction of age and education, as follows:</p>
 <p><code>sat.act$ACT ~ sat.act$age + sat.act$age:sat.act$education</code></p>
@@ -329,21 +330,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="plotting" class="section level2">
 <h2><span class="header-section-number">3.4</span> Plotting</h2>
 <p>One of the most compelling reason to learn and use is because it includes highly flexible and powerful tools for visualizing many kinds of data. After all, if a single tool can perform your analyses and create your figures, why not use the “one ring to rule them all”?</p>
-<p>Many visualizations can be created using the <code>plot()</code> function, so we’ll begin our introduction using that function. As you’ll soon see, the <code>plot()</code> function accepts many arguments, as there are many ways to customize a plot. Many of the other visualiation tools in R accept similar arguments. So, if <code>plot()</code> accepts an argument, there is a fair chance another function will accept it as well.</p>
+<p>Many visualizations can be created using the <code>plot()</code> function, so we’ll begin our introduction using that function. As you’ll soon see, the <code>plot()</code> function accepts many arguments, as there are many ways to customize a plot. Many of the other visualization tools in R accept similar arguments. So, if <code>plot()</code> accepts an argument, there is a fair chance another function will accept it as well.</p>
 <div id="scatter-line-plots" class="section level3">
 <h3><span class="header-section-number">3.4.1</span> Scatter &amp; Line Plots</h3>
 <p>If you have two vectors representing pairs of observations, you can plot them against one another in a scatter plot using the <code>plot()</code> function. Let’s demonstrate this by plotting the SAT Verbal and SAT Quantitative scores from the <code>sat.act</code> dataset against one another.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(sat.act<span class="op">$</span>SATV, sat.act<span class="op">$</span>SATQ) <span class="co"># Access the columns as vectors using $ syntax</span></code></pre>
 <p><img src="statistics_files/figure-html/basicplot-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>The points in the plot above represent pairs SAT Verbal and SAT Quantitative scores. The scores in each vector are paired up by position within each vector - the first value in <code>SATV</code> is paired with the first value in <code>SATQ</code>, the second value in <code>SATV</code> is paired with the second value in <code>SATQ</code>, etc. The vector given as the first argument determines the X axis position, and the vector given as the second argument determines the Y axis position.</p>
-<p>The axis titles are determined by the variable names of the vectors supplied to the <code>plot</code> function. However, variable names aren’t always the most informative names for other humans to read. We can customize the axes and plot with infomative titles using the <code>xlab</code>, <code>ylab</code> and <code>main</code> arguments for the <code>plot</code> function:</p>
+<p>The axis titles are determined by the variable names of the vectors supplied to the <code>plot</code> function. However, variable names aren’t always the most informative names for other humans to read. We can customize the axes and plot with informative titles using the <code>xlab</code>, <code>ylab</code> and <code>main</code> arguments for the <code>plot</code> function:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(sat.act<span class="op">$</span>SATV, sat.act<span class="op">$</span>SATQ,
      <span class="dt">xlab =</span> <span class="st">&quot;SAT Verbal&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;SAT Quantitative&quot;</span>,
      <span class="dt">main =</span> <span class="st">&quot;Relationship between SAT Scores&quot;</span>)</code></pre>
 <p><img src="statistics_files/figure-html/axeslabels-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div id="linetypes-symbols-and-colors" class="section level4">
 <h4><span class="header-section-number">3.4.1.1</span> Linetypes, Symbols, and Colors</h4>
-<p>You can customize the scatterplot to draw lines between the points, or just draw lines without the point symbols with the <code>type</code> argument. This is not a sensible thing to for these data, but we demonstrate it anyway for completeness.</p>
+<p>You can customize the scatterplot to draw lines between the points, or just draw lines without the point symbols with the <code>type</code> argument. This is not a sensible thing to do for these data, but we demonstrate it anyway for completeness.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Lines and points</span>
 <span class="kw">plot</span>(sat.act<span class="op">$</span>SATV, sat.act<span class="op">$</span>SATQ,
      <span class="dt">xlab =</span> <span class="st">&quot;SAT Verbal&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;SAT Quantitative&quot;</span>,
@@ -366,8 +367,8 @@ Figure 3.1: Points and lines with type=‘o’
 Figure 3.2: Just using lines with type=‘l’
 </p>
 </div>
-<p>You can also customise the types of symbols that are used for each point using the <code>pch</code>, the style of lines connecting these points using the <code>lty</code> argument, and the <code>col</code> argument to adjust the color of lines and symbol borders</p>
-<p>With the <code>pch</code> argument, you specify the symbol used for each point using a numeric code. For example, the value <code>0</code> is the code for an unfilled square, while the value <code>15</code> is the value for a filled square with no border. Unfortunately, it has been scientifically proven that rememebering the code for all the possible symbols is impossible. Luckily, a helpful mnemonic device called a “chart” has been invented to help R programmers customize their plots. This chart is shown below:</p>
+<p>You can also customize the types of symbols that are used for each point using the <code>pch</code>, the style of lines connecting these points using the <code>lty</code> argument, and the <code>col</code> argument to adjust the color of lines and symbol borders</p>
+<p>With the <code>pch</code> argument, you specify the symbol used for each point using a numeric code. For example, the value <code>0</code> is the code for an unfilled square, while the value <code>15</code> is the value for a filled square with no border. Unfortunately, it has been scientifically proven that remembering the code for all the possible symbols is impossible. Luckily, a helpful mnemonic device called a “chart” has been invented to help R programmers customize their plots. This chart is shown below:</p>
 <p><img src="images/pch.png" /></p>
 <p>Note that if you supply a character instead of a numeric values between 0 and 25, R will use that character as the plotting symbol. So, you could make a plot full of pound signs if you are so inclined!</p>
 <p>The <code>lty</code> argument has a bit more flexibility. Line types can either be specified as an integer (0=blank, 1=solid (default), 2=dashed, 3=dotted, 4=dotdash, 5=longdash, 6=twodash) or as one of the character strings “blank”, “solid”, “dashed”, “dotted”, “dotdash”, “longdash”, or “twodash”.</p>
@@ -380,31 +381,142 @@ Figure 3.2: Just using lines with type=‘l’
      <span class="dt">col=</span><span class="st">&quot;magenta&quot;</span>, <span class="dt">pch=</span><span class="dv">2</span>)</code></pre>
 <p><img src="statistics_files/figure-html/pch_and_col-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
+<div id="axis-limits" class="section level4">
+<h4><span class="header-section-number">3.4.1.2</span> Axis limits</h4>
+<p>R usually does a good job of determining good values for the range of each axis, but if you wish to override the defaults, you can do do using the <code>xlim</code> and <code>ylim</code> arguments. These arguments accepts 2-element numeric vectors specifying the minimum and maximum values along each axis (in that order). For example, if we wanted to include 0 in the range of SAT scores shown on the plot, we could use <code>c(0, 800)</code> for both our axis limits:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Lines and points</span>
+<span class="kw">plot</span>(sat.act<span class="op">$</span>SATV, sat.act<span class="op">$</span>SATQ,
+     <span class="dt">xlab =</span> <span class="st">&quot;SAT Verbal&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;SAT Quantitative&quot;</span>,
+     <span class="dt">main =</span> <span class="st">&quot;Relationship between SAT Scores&quot;</span>,
+     <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">800</span>),
+     <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">800</span>))</code></pre>
+<p><img src="statistics_files/figure-html/limits-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>This isn’t particularly sensible, because 0 is not a possible score on the SAT, so consider this just a demonstration of R’s capabilities.</p>
+</div>
 <div id="adding-to-an-existing-plot" class="section level4">
-<h4><span class="header-section-number">3.4.1.2</span> Adding to an existing plot</h4>
+<h4><span class="header-section-number">3.4.1.3</span> Adding to an existing plot</h4>
+<p>In many cases, it is useful to have <em>different</em> symbols, colors, and linetypes on the same plot - for example, to denote observations from different groups. There is more than one way to achieve this effect, but when you want different symbols, colors, and linetypes on the same plot, often the easiest way to do it is plot each group one at a time.</p>
+<p>To do this, you begin with the familiar plot command, but use it to plot only a subset of the data. Then, you can use the <code>points</code> or <code>lines</code> function to add additional points (or lines) to the plot. We’ll demonstrate how you can plot the SAT scores for males and females in different colors by subsetting the dataset, and then using the <code>plot</code> and <code>points</code> functions:</p>
+<pre class="sourceCode r"><code class="sourceCode r">males &lt;-<span class="st"> </span>sat.act[sat.act<span class="op">$</span>gender <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, ]
+females &lt;-<span class="st"> </span>sat.act[sat.act<span class="op">$</span>gender <span class="op">==</span><span class="st"> </span><span class="dv">2</span>, ]
+<span class="kw">plot</span>(males<span class="op">$</span>SATV, males<span class="op">$</span>SATQ,
+     <span class="dt">xlab =</span> <span class="st">&quot;SAT Verbal&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;SAT Quantitative&quot;</span>,
+     <span class="dt">main =</span> <span class="st">&quot;Relationship between SAT Scores&quot;</span>,
+     <span class="dt">col=</span><span class="st">&quot;red&quot;</span>)
+<span class="kw">points</span>(females<span class="op">$</span>SATV, females<span class="op">$</span>SATQ, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)</code></pre>
+<p><img src="statistics_files/figure-html/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
+<div id="adding-a-legend" class="section level4">
+<h4><span class="header-section-number">3.4.1.4</span> Adding a legend</h4>
+<p>If you use multiple symbols, colors, and linetypes on the same plot, you’ll also need a legend telling the viewer how to interpret the different symbols, colors, and linetypes. You can add legends to an existing plot using the <code>legend</code> function. Unfortunately, the <code>legend</code> function doesn’t know what symbols, colors, and linetypes you’ve used, or what the different groups in your data are. So, you’ll have to re-capitulate this information to the legend function. Make <em>absolutely</em> sure that you specify the labels, colors, symbol codes, and linetypes in the exact same order you added them to the plot! You also must specify a <code>pch</code> or <code>linetype</code> value, even if you used the default value in your plot!</p>
+<p>Perhaps the trickiest part about using the legend function is figuring out where to place the legend. The location may also be specified by setting the first argument to the legend function to a single keyword from the set “bottomright”, “bottom”, “bottomleft”, “left”, “topleft”, “top”, “topright”, “right” or “center”. Alternatively, you can get fine-grained control over the placement by providing two values that represent an x,y coordinate for the top-right corner of the legend:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(males<span class="op">$</span>SATV, males<span class="op">$</span>SATQ,
+     <span class="dt">xlab =</span> <span class="st">&quot;SAT Verbal&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;SAT Quantitative&quot;</span>,
+     <span class="dt">main =</span> <span class="st">&quot;Relationship between SAT Scores&quot;</span>,
+     <span class="dt">col=</span><span class="st">&quot;red&quot;</span>)
+<span class="kw">points</span>(females<span class="op">$</span>SATV, females<span class="op">$</span>SATQ, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)
+<span class="kw">legend</span>(<span class="dt">x=</span><span class="dv">200</span>, <span class="dt">y=</span><span class="dv">800</span>,
+       <span class="dt">legend =</span> <span class="kw">c</span>(<span class="st">&quot;Males&quot;</span>, <span class="st">&quot;Females&quot;</span>),
+       <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>),
+       <span class="dt">pch=</span><span class="dv">1</span>)</code></pre>
+<p><img src="statistics_files/figure-html/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
-<div id="barplots" class="section level3">
-<h3><span class="header-section-number">3.4.2</span> Barplots</h3>
+<div id="adding-a-regression-line" class="section level4">
+<h4><span class="header-section-number">3.4.1.5</span> Adding a regression line</h4>
+<p>It is often useful to summarize the linear relationship between variables shown in a scatterplot. It is easy to add the “line of best fit” from a linear regression to your scatter plot using the <code>lm</code> function (short for "linear model) and the <code>abline</code> function (used for drawing straight lines).</p>
+<p>The <code>lm</code> function performs regression analysis based on the <a href="statistics.html#formula-objects">formula</a> you specify. If you intended on adding the regression line to your scatterplot, we recommend you use the same formula to specify your plot, which the <code>plot</code> function is more than capable of understanding. The basic steps are:</p>
+<ol style="list-style-type: decimal">
+<li>Perform your linear regression with <code>lm</code>, and save the output to a variable</li>
+<li>Create your scatterplot using the same formula specification</li>
+<li>Prove the <code>lm</code> object you saved in Step #1 to the <code>abline</code> function.</li>
+<li>Marvel at your wonderful new plot</li>
+</ol>
+<pre class="sourceCode r"><code class="sourceCode r">regression_results &lt;-<span class="st"> </span><span class="kw">lm</span>(SATQ <span class="op">~</span><span class="st"> </span>SATV, <span class="dt">data=</span>sat.act)
+<span class="kw">plot</span>(SATQ <span class="op">~</span><span class="st"> </span>SATV, <span class="dt">data=</span>sat.act,
+     <span class="dt">xlab =</span> <span class="st">&quot;SAT Verbal&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;SAT Quantitative&quot;</span>,
+     <span class="dt">main =</span> <span class="st">&quot;Relationship between SAT Scores&quot;</span>)
+<span class="kw">abline</span>(regression_results, <span class="dt">lwd=</span><span class="dv">2</span>) <span class="co"># lwd = &quot;line width&quot;,</span></code></pre>
+<p><img src="statistics_files/figure-html/abline%20plot-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>In the call to <code>abline</code> above, we have specified the <code>lwd</code> argument, short for “line width”, a.k.a. thickness. The default value is 1, and we have double the thickness here so the regression line stands out from the points more.</p>
+</div>
 </div>
 <div id="histograms" class="section level3">
-<h3><span class="header-section-number">3.4.3</span> Histograms</h3>
+<h3><span class="header-section-number">3.4.2</span> Histograms</h3>
+<p>You can create a histogram showing the counts or proportion of values from a single variable using the <code>hist</code> function.</p>
+<p>The <code>hist</code> function works with a vector of numeric values, and breaks this vector up into a number of discrete bins. By default, the <code>hist</code> function decides what the boundary values of the bins should be, and how many bins should be used, by applying the <a href="https://stat.ethz.ch/R-manual/R-devel/library/grDevices/html/nclass.html">Sturges algorithm</a>. However, you can manually control where the boundaries are placed by providing a vector of boundary values, or by providing a single value specifying the number of bins that should be used. We demonstrate both techniques below in plotting a histogram of ACT scores:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(sat.act<span class="op">$</span>ACT, <span class="dt">breaks =</span> <span class="dv">30</span>)</code></pre>
+<p><img src="statistics_files/figure-html/hist-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(sat.act<span class="op">$</span>ACT, <span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">0</span>, <span class="kw">max</span>(sat.act<span class="op">$</span>ACT), <span class="dt">by=</span><span class="dv">2</span>))</code></pre>
+<p><img src="statistics_files/figure-html/hist-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>If you want proportions instead of counts, set the <code>freq</code> argument to false. You can also use the same <code>xlab</code>, <code>ylab</code>, and <code>main</code> arguments we used with <code>plot</code> to get more informative titles/</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(sat.act<span class="op">$</span>ACT, <span class="dt">breaks =</span> <span class="dv">30</span>, <span class="dt">freq=</span><span class="ot">FALSE</span>,
+     <span class="dt">main =</span> <span class="st">&quot;Distribution of ACT Scores&quot;</span>,
+     <span class="dt">xlab =</span> <span class="st">&quot;ACT Score&quot;</span>)</code></pre>
+<p><img src="statistics_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="boxplots" class="section level3">
-<h3><span class="header-section-number">3.4.4</span> Boxplots</h3>
+<h3><span class="header-section-number">3.4.3</span> Boxplots</h3>
+<p>Box plots are a good way to present the shape of distribution of samples from several groups, along with some summary statistics of each group. We can create these plots in R using the <code>boxplot</code> function.</p>
+<p>If your to-be-plotted data is in a data frame, the best way to instruct the <code>boxplot</code> function what variables should be plotted is using a <a href="statistics.html#formula-objects">formula</a>. If they are not in a data frame, you can provide each to-be-plotted variable as a separate vector. Here, we’ll demonstrate the formula interface by plotting the SAT Verbal scores for respondents with education levels. Remember, when using the formula interface, you also have to tell the <code>boxplot</code> function what data frame to look for the variables in!</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(SATV <span class="op">~</span><span class="st"> </span>education, <span class="dt">data=</span>sat.act,
+        <span class="dt">names=</span><span class="kw">c</span>(<span class="st">&quot;&lt; High School&quot;</span>, <span class="st">&quot;High School&quot;</span>, <span class="st">&quot;Some College&quot;</span>,
+                <span class="st">&quot;2 Yr. College&quot;</span>, <span class="st">&quot;4 Yr. College&quot;</span>, <span class="st">&quot;Grad. Work&quot;</span>),
+        <span class="dt">ylab=</span><span class="st">&quot;SAT Verbal Score&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Education&quot;</span>)</code></pre>
+<p><img src="statistics_files/figure-html/boxplot-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Note the use of the <code>names</code> argument to override the labels on each X axis point.</p>
 </div>
-<div id="configuring-plots" class="section level3">
-<h3><span class="header-section-number">3.4.5</span> Configuring Plots</h3>
+<div id="bar-plots" class="section level3">
+<h3><span class="header-section-number">3.4.4</span> Bar plots</h3>
+<p>Bar plots are used to visualize single summary statistics, like the mean or median across groups. We can create a bar plot in R using the <code>barplot</code> function. We’ll demonstrate this by plotting the mean SAT Verbal score for males and females. The to-be-plotted value should be specified in a vector or matrix, with one element for each bar you want plotted</p>
+<pre class="sourceCode r"><code class="sourceCode r">SATV_means &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">mean</span>(sat.act<span class="op">$</span>SATV[sat.act<span class="op">$</span>gender<span class="op">==</span><span class="dv">1</span>]),
+                <span class="kw">mean</span>(sat.act<span class="op">$</span>SATV[sat.act<span class="op">$</span>gender<span class="op">==</span><span class="dv">2</span>])
+                )
+<span class="kw">names</span>(SATV_means) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Males&quot;</span>,<span class="st">&quot;Females&quot;</span>)
+<span class="kw">barplot</span>(SATV_means,
+        <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">800</span>), <span class="dt">ylab=</span><span class="st">&quot;Average SAT Verbal Score&quot;</span>,
+        <span class="dt">main=</span><span class="st">&quot;SAT Verbal Scores for Males &amp; Females&quot;</span>
+        )</code></pre>
+<p><img src="statistics_files/figure-html/barplot-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="multiple-plots-in-single-figure" class="section level3">
+<h3><span class="header-section-number">3.4.5</span> Multiple plots in single figure</h3>
+<p>In many situations, it is useful to have several different plots in a single figure to facilitate comparison. But in the examples we have encountered so far, each time we create a new plot, it has removed the existing one from out figure window. We can change this behavior to allow multiple figures within the same window by using the <code>par</code> function, which changes R’s global graphics parameters.</p>
+<p>We can set the number of plots that go into a figure window much in the same way we set the dimensions of a matrix - by specifying how many rows of plots there can be, and how many columns of plots there can be. The product of these two values determines the number of plots that are put on a single figure window.</p>
+<p>There are two global graphics parameters that allow us to set these dimensions - the <code>mfrow</code> parameter, and the <code>mfcol</code> parameter. The <code>mf</code> stands for “multiple figures”, and the <code>row</code> or <code>col</code> part means the figures are filled in by rows, or by columns. Here, we demonstrate how to use the <code>mfrow</code> option to create a 2 by 2 grid of plots, which will allow us to compare the distribution of ACT scores in histograms with different numbers of breaks:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))
+<span class="kw">hist</span>(sat.act<span class="op">$</span>ACT, <span class="dt">breaks =</span> <span class="dv">10</span>, <span class="dt">main =</span> <span class="st">&quot;10 breaks&quot;</span>)
+<span class="kw">hist</span>(sat.act<span class="op">$</span>ACT, <span class="dt">breaks =</span> <span class="dv">30</span>, <span class="dt">main =</span> <span class="st">&quot;30 breaks&quot;</span>)
+<span class="kw">hist</span>(sat.act<span class="op">$</span>ACT, <span class="dt">breaks =</span> <span class="dv">50</span>, <span class="dt">main =</span> <span class="st">&quot;50 breaks&quot;</span>)
+<span class="kw">hist</span>(sat.act<span class="op">$</span>ACT, <span class="dt">breaks =</span> <span class="dv">100</span>, <span class="dt">main =</span> <span class="st">&quot;100 breaks&quot;</span>)</code></pre>
+<p><img src="statistics_files/figure-html/par_mfrow-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>)) <span class="co"># Reset back to default</span></code></pre>
+<p>Always make sure to set your <code>mfrow</code> or <code>mfcol</code> values back to <code>c(1,1)</code> afterwards, or <em>all</em> subsequent plots will use the same layout!</p>
+</div>
+<div id="saving-plots" class="section level3">
+<h3><span class="header-section-number">3.4.6</span> Saving Plots</h3>
+<p>Usually the purpose of creating a visualization in R is to include it in some kind of homework, report, or paper. It is easy to save a plot made in R to an image file on your hard drive using the “Export” option in the R Studio plot pane. Simply click the “Export” drop down menu, and select either the “Save to Image”, “Save to PDF” or “Copy to Clipboard” options.</p>
+<p><img src="images/export.png" /></p>
+<p>If you choose the “Save as Image” option, you’ll get to choose which image format you want to save it as, and what the width and height (in pixels) the image should be saved as.</p>
 </div>
 <div id="what-about-ggplot" class="section level3">
-<h3><span class="header-section-number">3.4.6</span> What about ggplot?</h3>
+<h3><span class="header-section-number">3.4.7</span> What about ggplot?</h3>
+<p>The <a href="https://www.rdocumentation.org/packages/ggplot2/versions/3.1.1">ggplot2 package</a> is an extremely popular visualization tool, which provides an alternative to the so-called “base graphics” functions described here. The popularity ggplot has achieved is well deserved - it’s visualizations are attractive, and it’s data-driven, modular coding style is very powerful. The programming style of ggplot is <em>very</em> different from the base graphics style. Perhaps the best way to summarize the ggplot approach is that it is builds on top of the organization of the observations inside a data frame and allows you to “map” the variables in your data frame to the “aesthetics” in a plot (shape, position, color, size, etc.).</p>
+<p>We will not cover ggplot here, because it is not a necessity for 240 and 241 (though, in our opinion, a proficient R programmer should know how both ggplot <em>and</em> base graphics). However, we will re-iterate the advice the ggplot package authors give for those wishing to learn how to use ggplot:</p>
+<blockquote>
+<p>If you are new to ggplot2 you are better off starting with a systematic introduction, rather than trying to learn from reading individual documentation pages. Currently, there are three good places to start:</p>
+<ol style="list-style-type: decimal">
+<li><p>The <a href="http://r4ds.had.co.nz/data-visualisation.html">data visualisation</a> and <a href="http://r4ds.had.co.nz/graphics-for-communication.html">graphics for communication</a> chapters in <a href="http://r4ds.had.co.nz/">R for data science</a>.</p></li>
+<li><p>If you’d like to take an interactive online course, try <a href="https://www.datacamp.com/courses/data-visualization-with-ggplot2-1">Data visualisation with ggplot2</a> by Rick Scavetta on DataCamp.</p></li>
+<li><p>If you want to dive into making common graphics as quickly as possible, I recommend <a href="http://amzn.to/2dVfMfn">The R Graphics Cookbook</a> by Winston Chang.</p></li>
+</ol>
+</blockquote>
 </div>
 </div>
 <div id="inferential-statistics" class="section level2">
 <h2><span class="header-section-number">3.5</span> Inferential Statistics</h2>
 <div id="distribution-functions" class="section level3">
 <h3><span class="header-section-number">3.5.1</span> Distribution Functions</h3>
-<p>The sections below introduce functions for executing common statistical tests. However, R’s family of distribution functions also make it possible to explore the underlying probability distributions for each test, and to carry out each test by hand. We therefore begin our demonstration of inferential statistics by giving an overview of these powerful intructional tools.</p>
+<p>The sections below introduce functions for executing common statistical tests. However, R’s family of distribution functions also make it possible to explore the underlying probability distributions for each test, and to carry out each test by hand. We therefore begin our demonstration of inferential statistics by giving an overview of these powerful instructional tools.</p>
 <p>The full list of available distributions can be found <a href="https://en.wikibooks.org/wiki/R_Programming/Probability_Distributions">here</a>. The following table provides an overview the distributions that are likely to be relevant to you as an instructor, including the suffix that each distribution is identified by in the functions below:</p>
 <table>
 <thead>
@@ -509,7 +621,7 @@ Figure 3.2: Just using lines with type=‘l’
 </div>
 <div id="getting-quantiles" class="section level4">
 <h4><span class="header-section-number">3.5.1.3</span> Getting Quantiles</h4>
-<p>You can use <code>qnorm()</code> to demonstrate that an IQ score of 124.67 marks the 95th percentile of scores:</p>
+<p>You can use <code>qnorm()</code> to demonstrate that an IQ score of 124.67 marks the 95<sup>th</sup> percentile of scores:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qnorm</span>(.<span class="dv">95</span>, <span class="dt">mean=</span><span class="dv">100</span>, <span class="dt">sd=</span><span class="dv">15</span>)</code></pre>
 <pre><code>## [1] 124.6728</code></pre>
 <p>Similarly, you can add the argument <code>lower.tail=FALSE</code> to see the point on the x-axis that marks the <em>top</em> 95% of scores:</p>
@@ -521,14 +633,14 @@ Figure 3.2: Just using lines with type=‘l’
 <h4><span class="header-section-number">3.5.1.4</span> Getting Random Samples</h4>
 <p>You can use <code>rnorm()</code> to randomly sample a class of 50 students from the population of IQ scores:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rnorm</span>(<span class="dv">50</span>, <span class="dt">mean=</span><span class="dv">100</span>, <span class="dt">sd=</span><span class="dv">15</span>)</code></pre>
-<pre><code>##  [1]  93.41420  95.70582  94.53327 123.12357 106.61557 132.14654  99.19861
-##  [8]  68.58907 101.46172  98.32712 102.64417 111.42898 100.05772  90.97660
-## [15] 106.72652  87.06458  80.24276 119.41905  99.21840  81.79788 111.21179
-## [22]  80.32440  93.03009  91.92552  88.65017 113.00005  85.63063 113.33810
-## [29]  91.79288  72.37315 112.36956  68.88669  85.24275 120.51950  80.91796
-## [36]  79.16941  86.06339 105.17669 109.64150 115.37794  94.64986 128.26509
-## [43]  97.52261 114.19445  93.51780  96.81953  78.88929  99.00226 109.89992
-## [50] 112.40981</code></pre>
+<pre><code>##  [1]  88.34978  94.59001  76.77104  83.83402  94.81948  85.26418  98.05681
+##  [8] 124.20045 103.68120  99.39780  81.10266 101.82454 115.94468  96.81382
+## [15]  96.65950 114.85277 106.01546  76.75924 110.58895  94.92199  99.45198
+## [22] 105.72418 114.08677  98.20056 108.21798  95.06323 100.69525 116.84644
+## [29] 118.88588  85.38621 121.39220 101.14632 119.12717 119.57454 102.38109
+## [36]  92.87468  88.73590  83.21046 101.53561  91.93236 106.91743 120.00010
+## [43] 124.49441 114.39422 111.85415  89.28847  87.75988 130.26767  82.50233
+## [50] 115.45107</code></pre>
 </div>
 <div id="running-statistical-tests-by-hand" class="section level4">
 <h4><span class="header-section-number">3.5.1.5</span> Running Statistical Tests by Hand</h4>

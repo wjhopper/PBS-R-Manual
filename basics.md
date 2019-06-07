@@ -374,57 +374,86 @@ Perhaps the best way to understand the properties of R functions, and how they c
 ```
 
 We'll focus on the Description, Usage, and Arguments section, shown below:
+<div class="r-help-page">
 
-```
-## Matrices
-## 
-## Description:
-## 
-##      'matrix' creates a matrix from the given set of values.
-## 
-##      'as.matrix' attempts to turn its argument into a matrix.
-## 
-##      'is.matrix' tests if its argument is a (strict) matrix.
-## 
-## Usage:
-## 
-##      matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE,
-##             dimnames = NULL)
-##      
-##      as.matrix(x, ...)
-##      ## S3 method for class 'data.frame'
-##      as.matrix(x, rownames.force = NA, ...)
-##      
-##      is.matrix(x)
-##      
-## Arguments:
-## 
-##     data: an optional data vector (including a list or 'expression'
-##           vector).  Non-atomic classed R objects are coerced by
-##           'as.vector' and all attributes discarded.
-## 
-##     nrow: the desired number of rows.
-## 
-##     ncol: the desired number of columns.
-## 
-##    byrow: logical. If 'FALSE' (the default) the matrix is filled by
-##           columns, otherwise the matrix is filled by rows.
-## 
-## dimnames: A 'dimnames' attribute for the matrix: 'NULL' or a 'list' of
-##           length 2 giving the row and column names respectively.  An
-##           empty list is treated as 'NULL', and a list of length one as
-##           row names.  The list can be named, and the list names will be
-##           used as names for the dimensions.
-## 
-##        x: an R object.
-## 
-##      ...: additional arguments to be passed to or from methods.
-## 
-## rownames.force: logical indicating if the resulting matrix should have
-##           character (rather than 'NULL') 'rownames'.  The default,
-##           'NA', uses 'NULL' rownames if the data frame has 'automatic'
-##           row.names or for a zero-row data frame.
-```
+<table width="100%" summary="page for matrix"><tr><td>matrix</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Matrices</h2>
+
+<h3>Description</h3>
+
+<p><code>matrix</code> creates a matrix from the given set of values.
+</p>
+<p><code>as.matrix</code> attempts to turn its argument into a matrix.
+</p>
+<p><code>is.matrix</code> tests if its argument is a (strict) matrix.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre class="r">
+matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE,
+       dimnames = NULL)
+
+as.matrix(x, ...)
+## S3 method for class 'data.frame'
+as.matrix(x, rownames.force = NA, ...)
+
+is.matrix(x)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>data</code></td>
+<td>
+<p>an optional data vector (including a list or
+<code>expression</code> vector).  Non-atomic classed <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> objects are
+coerced by <code>as.vector</code> and all attributes discarded.</p>
+</td></tr>
+<tr valign="top"><td><code>nrow</code></td>
+<td>
+<p>the desired number of rows.</p>
+</td></tr>
+<tr valign="top"><td><code>ncol</code></td>
+<td>
+<p>the desired number of columns.</p>
+</td></tr>
+<tr valign="top"><td><code>byrow</code></td>
+<td>
+<p>logical. If <code>FALSE</code> (the default) the matrix is
+filled by columns, otherwise the matrix is filled by rows.</p>
+</td></tr>
+<tr valign="top"><td><code>dimnames</code></td>
+<td>
+<p>A <code>dimnames</code> attribute for the matrix:
+<code>NULL</code> or a <code>list</code> of length 2 giving the row and column
+names respectively.  An empty list is treated as <code>NULL</code>, and a
+list of length one as row names.  The list can be named, and the
+list names will be used as names for the dimensions.</p>
+</td></tr>
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>an <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> object.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>additional arguments to be passed to or from methods.</p>
+</td></tr>
+<tr valign="top"><td><code>rownames.force</code></td>
+<td>
+<p>logical indicating if the resulting matrix
+should have character (rather than <code>NULL</code>)
+<code>rownames</code>.  The default, <code>NA</code>, uses <code>NULL</code>
+rownames if the data frame has &lsquo;automatic&rsquo; row.names or for a
+zero-row data frame.</p>
+</td></tr>
+</table>
+
+
+</div>
 
 ### Description
 As you might expect, the Description section describes what the function is used for, and lists the functions that are documented in this page. Here, the `matrix`, `as.matrix` and `is.matrix` functions are documented.
@@ -488,23 +517,29 @@ You may have noticed that in the "Usage" section, the `as.matrix` and the `is.ma
 
 #### Examples {-}
 The last section of the `matrix` help page we will look at  is "Examples" sections
+<div class="r-help-page">
 
-```
-## Matrices
-## 
-## Examples:
-## 
-##      is.matrix(as.matrix(1:10))
-##      !is.matrix(warpbreaks)  # data.frame, NOT matrix!
-##      warpbreaks[1:10,]
-##      as.matrix(warpbreaks[1:10,])  # using as.matrix.data.frame(.) method
-##      
-##      ## Example of setting row and column names
-##      mdat <- matrix(c(1,2,3, 11,12,13), nrow = 2, ncol = 3, byrow = TRUE,
-##                     dimnames = list(c("row1", "row2"),
-##                                     c("C.1", "C.2", "C.3")))
-##      mdat
-```
+<table width="100%" summary="page for matrix"><tr><td>matrix</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Matrices</h2>
+
+<h3>Examples</h3>
+
+<pre class="r">
+is.matrix(as.matrix(1:10))
+!is.matrix(warpbreaks)  # data.frame, NOT matrix!
+warpbreaks[1:10,]
+as.matrix(warpbreaks[1:10,])  # using as.matrix.data.frame(.) method
+
+## Example of setting row and column names
+mdat &lt;- matrix(c(1,2,3, 11,12,13), nrow = 2, ncol = 3, byrow = TRUE,
+               dimnames = list(c("row1", "row2"),
+                               c("C.1", "C.2", "C.3")))
+mdat
+</pre>
+
+
+</div>
 
 The examples sections demonstrate a simple application of the function. When using a function for the first time, or you find yourself confused by a part of the documentation, running and tweaking the examples you find here is a great way to get a concrete understanding of how the function behaves.
 
@@ -719,9 +754,11 @@ Unfortunately, we often have to deal with missing observations in real world dat
 missingno <- c(10,NA,1,4,2,NA,NA,99,NaN, NA)
 is.na(missingno)
 ##  [1] FALSE  TRUE FALSE FALSE FALSE  TRUE  TRUE FALSE  TRUE  TRUE
-missingno[!is.na(missingno)] # Select things that are the opposite of missing
+missingno[!is.na(missingno)] # Select the *not* missing observations
 ## [1] 10  1  4  2 99
 ```
+
+Removing missing values in a common step in data manipuation before an anlysis. For examples of removig missing values with other data structures, and more realistic data sets, the examples in the [Data Sets](#data-sets) section.
 
 #### Converting a Logical to a Positional Index {-}
 A useful function to know is `which()`. When used on a logical vector, it will return to your the position indices of the vector's `TRUE` element. It is useful when you want to know **where** in the vector your matches occur. 
@@ -937,7 +974,6 @@ The R session information when compiling this book is shown below:
 
 ```r
 library(printr)
-## Warning: package 'printr' was built under R version 3.5.3
 sessionInfo()
 ## R version 3.5.1 (2018-07-02)
 ## Platform: x86_64-w64-mingw32/x64 (64-bit)
@@ -959,8 +995,8 @@ sessionInfo()
 ## [1] printr_0.1
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] compiler_3.5.1   magrittr_1.5     bookdown_0.11    htmltools_0.3.6 
-##  [5] tools_3.5.1      Rcpp_1.0.1       codetools_0.2-15 stringi_1.4.3   
-##  [9] rmarkdown_1.13   knitr_1.22       stringr_1.3.1    xfun_0.6        
-## [13] digest_0.6.19    packrat_0.4.9-3  evaluate_0.14
+##  [1] compiler_3.5.1  magrittr_1.5    bookdown_0.11   htmltools_0.3.6
+##  [5] tools_3.5.1     Rcpp_1.0.1      stringi_1.4.3   rmarkdown_1.13 
+##  [9] knitr_1.22      stringr_1.3.1   xfun_0.6        digest_0.6.19  
+## [13] packrat_0.4.9-3 evaluate_0.14
 ```

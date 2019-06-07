@@ -1,7 +1,7 @@
 --- 
 title: "UMass PBS Instructors R Manual"
 author: Andrea Cataldo & Will Hopper
-date: "Jun 6, 2019"
+date: "Jun 7, 2019"
 site: bookdown::bookdown_site
 output:
   bookdown::gitbook:
@@ -30,7 +30,7 @@ description: "A guide for instructors teaching statistics and research methods w
 
 # Preface {-}
 
-
+<img src="images/cover.png" style="display: block; margin: auto;" />
 
 This book serves as a guide for instructors teaching statistics and research methods with R in the UMass Amherst Psychological & Brain Sciences Department. The book is organized into three main sections:
 
@@ -78,7 +78,7 @@ The company which produces the RStudio software has several different products w
 ## Formatting Conventions {-}
 R source code (i.e. code run in the R console or from an R script) and output are presented in monospace font in regions with a light gray background. We **do not** include command line prompts (`>` and `+`, like you would see in a real R console) to the R source code. This is to allow you to conveniently copy and run the code without having to delete the leading prompt symbols. All text output from executing R commands is denoted with two preceeding hashes (`##`). So, any time you see `##` following a block of R code, you are looking at the output of the preeceeding command.
 
-## Additional Materials
+## Additional Materials {-}
 As alluded to earlier, this is far from the only "Intro to R" material in existence, though this guide has been developed with Psych 240 and 241 specifically in mind. But we do encourage you to supplement your knowlege with outside sources. We recommend the following resources to learning about R programming:
 
 - [R in a Nutshell](http://silk.library.umass.edu/login?url=https://search.ebscohost.com/login.aspx?direct=true&db=cat06087a&AN=umass.016355822&site=eds-live&scope=site) by Joseph Adler
@@ -116,9 +116,9 @@ sessionInfo()
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] compiler_3.5.1   magrittr_1.5     bookdown_0.11    htmltools_0.3.6 
-##  [5] tools_3.5.1      yaml_2.2.0       Rcpp_1.0.1       codetools_0.2-15
-##  [9] stringi_1.4.3    rmarkdown_1.13   knitr_1.22       stringr_1.3.1   
-## [13] xfun_0.6         digest_0.6.19    packrat_0.4.9-3  evaluate_0.14
+##  [1] compiler_3.5.1  magrittr_1.5    bookdown_0.11   htmltools_0.3.6
+##  [5] tools_3.5.1     yaml_2.2.0      Rcpp_1.0.1      stringi_1.4.3  
+##  [9] rmarkdown_1.13  knitr_1.22      stringr_1.3.1   xfun_0.6       
+## [13] digest_0.6.19   packrat_0.4.9-3 evaluate_0.14
 ```
 

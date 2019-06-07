@@ -134,7 +134,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#rstudio"><i class="fa fa-check"></i>RStudio</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#formatting-conventions"><i class="fa fa-check"></i>Formatting Conventions</a></li>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#additional-materials"><i class="fa fa-check"></i><b>0.1</b> Additional Materials</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#additional-materials"><i class="fa fa-check"></i>Additional Materials</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html"><i class="fa fa-check"></i><b>1</b> Introducing R and RStudio</a><ul>
 <li class="chapter" data-level="1.1" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#console"><i class="fa fa-check"></i><b>1.1</b> Pane #1: The R Console</a></li>
@@ -198,11 +198,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="statistics.html"><a href="statistics.html#plotting"><i class="fa fa-check"></i><b>3.4</b> Plotting</a><ul>
 <li class="chapter" data-level="3.4.1" data-path="statistics.html"><a href="statistics.html#scatter-line-plots"><i class="fa fa-check"></i><b>3.4.1</b> Scatter &amp; Line Plots</a></li>
-<li class="chapter" data-level="3.4.2" data-path="statistics.html"><a href="statistics.html#barplots"><i class="fa fa-check"></i><b>3.4.2</b> Barplots</a></li>
-<li class="chapter" data-level="3.4.3" data-path="statistics.html"><a href="statistics.html#histograms"><i class="fa fa-check"></i><b>3.4.3</b> Histograms</a></li>
-<li class="chapter" data-level="3.4.4" data-path="statistics.html"><a href="statistics.html#boxplots"><i class="fa fa-check"></i><b>3.4.4</b> Boxplots</a></li>
-<li class="chapter" data-level="3.4.5" data-path="statistics.html"><a href="statistics.html#configuring-plots"><i class="fa fa-check"></i><b>3.4.5</b> Configuring Plots</a></li>
-<li class="chapter" data-level="3.4.6" data-path="statistics.html"><a href="statistics.html#what-about-ggplot"><i class="fa fa-check"></i><b>3.4.6</b> What about ggplot?</a></li>
+<li class="chapter" data-level="3.4.2" data-path="statistics.html"><a href="statistics.html#histograms"><i class="fa fa-check"></i><b>3.4.2</b> Histograms</a></li>
+<li class="chapter" data-level="3.4.3" data-path="statistics.html"><a href="statistics.html#boxplots"><i class="fa fa-check"></i><b>3.4.3</b> Boxplots</a></li>
+<li class="chapter" data-level="3.4.4" data-path="statistics.html"><a href="statistics.html#bar-plots"><i class="fa fa-check"></i><b>3.4.4</b> Bar plots</a></li>
+<li class="chapter" data-level="3.4.5" data-path="statistics.html"><a href="statistics.html#multiple-plots-in-single-figure"><i class="fa fa-check"></i><b>3.4.5</b> Multiple plots in single figure</a></li>
+<li class="chapter" data-level="3.4.6" data-path="statistics.html"><a href="statistics.html#saving-plots"><i class="fa fa-check"></i><b>3.4.6</b> Saving Plots</a></li>
+<li class="chapter" data-level="3.4.7" data-path="statistics.html"><a href="statistics.html#what-about-ggplot"><i class="fa fa-check"></i><b>3.4.7</b> What about ggplot?</a></li>
 </ul></li>
 <li class="chapter" data-level="3.5" data-path="statistics.html"><a href="statistics.html#inferential-statistics"><i class="fa fa-check"></i><b>3.5</b> Inferential Statistics</a><ul>
 <li class="chapter" data-level="3.5.1" data-path="statistics.html"><a href="statistics.html#distribution-functions"><i class="fa fa-check"></i><b>3.5.1</b> Distribution Functions</a></li>
@@ -336,11 +337,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  n obs: 150 
 ##  n variables: 5 
 ## 
-## -- Variable type:factor --------------------------
+## -- Variable type:factor -------------------------------
 ##  variable missing   n n_unique                       top_counts
 ##   Species       0 150        3 set: 50, ver: 50, vir: 50, NA: 0
 ## 
-## -- Variable type:numeric -------------------------
+## -- Variable type:numeric ------------------------------
 ##      variable missing   n mean   sd     hist
 ##  Petal.Length       0 150 3.76 1.77 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;&lt;U+2585&gt;&lt;U+2585&gt;&lt;U+2583&gt;&lt;U+2581&gt;
 ##   Petal.Width       0 150 1.2  0.76 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2585&gt;&lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2582&gt;&lt;U+2582&gt;
@@ -354,12 +355,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  n obs: 54 
 ##  n variables: 3 
 ## 
-## -- Variable type:factor --------------------------
+## -- Variable type:factor -------------------------------
 ##  variable missing  n n_unique                 top_counts
 ##   tension       0 54        3 L: 18, M: 18, H: 18, NA: 0
 ##      wool       0 54        2        A: 27, B: 27, NA: 0
 ## 
-## -- Variable type:numeric -------------------------
+## -- Variable type:numeric ------------------------------
 ##  variable missing  n  mean   sd     hist
 ##    breaks       0 54 28.15 13.2 &lt;U+2586&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2582&gt;&lt;U+2582&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;</code></pre>
 </div>
@@ -370,7 +371,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  n obs: 32 
 ##  n variables: 11 
 ## 
-## -- Variable type:numeric -------------------------
+## -- Variable type:numeric ------------------------------
 ##  variable missing  n   mean     sd     hist
 ##        am       0 32   0.41   0.5  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2586&gt;
 ##      carb       0 32   2.81   1.62 &lt;U+2586&gt;&lt;U+2587&gt;&lt;U+2582&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
@@ -391,11 +392,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  n obs: 60 
 ##  n variables: 3 
 ## 
-## -- Variable type:factor --------------------------
+## -- Variable type:factor -------------------------------
 ##  variable missing  n n_unique            top_counts
 ##      supp       0 60        2 OJ: 30, VC: 30, NA: 0
 ## 
-## -- Variable type:numeric -------------------------
+## -- Variable type:numeric ------------------------------
 ##  variable missing  n  mean   sd     hist
 ##      dose       0 60  1.17 0.63 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
 ##       len       0 60 18.81 7.65 &lt;U+2583&gt;&lt;U+2585&gt;&lt;U+2583&gt;&lt;U+2585&gt;&lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2582&gt;&lt;U+2582&gt;</code></pre>
@@ -414,7 +415,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  n obs: 1794 
 ##  n variables: 15 
 ## 
-## -- Variable type:character -----------------------
+## -- Variable type:character ----------------------------
 ##  variable missing    n min max empty n_unique
 ##    binary       0 1794   4   4     0        2
 ##      code       0 1794   8   8     0       85
@@ -422,11 +423,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##      test       0 1794   2  16     0       10
 ##     title       0 1794   1  83     0     1768
 ## 
-## -- Variable type:factor --------------------------
+## -- Variable type:factor -------------------------------
 ##    variable missing    n n_unique                            top_counts
 ##  clean_test       0 1794        5 ok: 803, not: 514, men: 194, dub: 142
 ## 
-## -- Variable type:integer -------------------------
+## -- Variable type:integer ------------------------------
 ##     variable missing    n       mean      sd     hist
 ##       budget       0 1794    4.5e+07 4.8e+07 &lt;U+2587&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
 ##  budget_2013       0 1794    5.5e+07 5.5e+07 &lt;U+2587&gt;&lt;U+2583&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
@@ -434,7 +435,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  period_code     179 1794    2.42    1.19    &lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2586&gt;&lt;U+2581&gt;&lt;U+2585&gt;&lt;U+2581&gt;&lt;U+2582&gt;
 ##         year       0 1794 2002.55    8.98    &lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;&lt;U+2585&gt;&lt;U+2585&gt;&lt;U+2587&gt;
 ## 
-## -- Variable type:numeric -------------------------
+## -- Variable type:numeric ------------------------------
 ##       variable missing    n        mean          sd     hist
 ##       domgross      17 1794     6.9e+07 8e+07       &lt;U+2587&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
 ##  domgross_2013      18 1794     9.5e+07     1.3e+08 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
@@ -448,11 +449,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  n obs: 146 
 ##  n variables: 23 
 ## 
-## -- Variable type:character -----------------------
+## -- Variable type:character ----------------------------
 ##  variable missing   n min max empty n_unique
 ##      film       0 146   3  63     0      146
 ## 
-## -- Variable type:integer -------------------------
+## -- Variable type:integer ------------------------------
 ##                    variable missing   n     mean       sd     hist
 ##              fandango_votes       0 146  3848.79  6357.78 &lt;U+2587&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
 ##        imdb_user_vote_count       0 146 42846.21 67406.51 &lt;U+2587&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
@@ -461,7 +462,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##              rottentomatoes       0 146    60.85    30.17 &lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2582&gt;&lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2582&gt;&lt;U+2585&gt;&lt;U+2587&gt;
 ##         rottentomatoes_user       0 146    63.88    20.02 &lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2586&gt;&lt;U+2585&gt;&lt;U+2585&gt;&lt;U+2587&gt;&lt;U+2587&gt;
 ## 
-## -- Variable type:numeric -------------------------
+## -- Variable type:numeric ------------------------------
 ##                    variable missing   n    mean   sd     hist
 ##         fandango_difference       0 146    0.24 0.15 &lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2586&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2587&gt;&lt;U+2583&gt;
 ##        fandango_ratingvalue       0 146    3.85 0.5  &lt;U+2582&gt;&lt;U+2583&gt;&lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2582&gt;
@@ -487,14 +488,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  n obs: 1129 
 ##  n variables: 13 
 ## 
-## -- Variable type:character -----------------------
+## -- Variable type:character ----------------------------
 ##              variable missing    n min max empty n_unique
 ##                gender      92 1129   4   6     0        2
 ##              location     102 1129   7  18     0        9
 ##  more_grammar_correct       0 1129  57  58     0        2
 ##       write_following      36 1129  76  77     0        2
 ## 
-## -- Variable type:factor --------------------------
+## -- Variable type:factor -------------------------------
 ##             variable missing    n n_unique
 ##                  age      92 1129        4
 ##            care_data      38 1129        4
@@ -510,12 +511,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   Bac: 344, Som: 295, Gra: 276, NA: 103
 ##   NA: 293, $50: 290, $10: 164, $25: 158
 ## 
-## -- Variable type:logical -------------------------
+## -- Variable type:logical ------------------------------
 ##              variable missing    n mean                      count
 ##  data_singular_plural      38 1129  0.5 FAL: 547, TRU: 544, NA: 38
 ##    heard_oxford_comma      30 1129  0.6 TRU: 655, FAL: 444, NA: 30
 ## 
-## -- Variable type:numeric -------------------------
+## -- Variable type:numeric ------------------------------
 ##       variable missing    n    mean         sd     hist
 ##  respondent_id       0 1129 3.3e+09 1072966.47 &lt;U+2587&gt;&lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2582&gt;</code></pre>
 </div>
@@ -526,7 +527,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  n obs: 173 
 ##  n variables: 21 
 ## 
-## -- Variable type:character -----------------------
+## -- Variable type:character ----------------------------
 ##                     variable missing   n min max empty n_unique
 ##  full_reserve_avengers_intro      14 173   5   6     0       93
 ##                       gender       0 173   4   6     0        2
@@ -536,13 +537,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##           probationary_intro     158 173   6   6     0       12
 ##                          url       0 173  36  67     0      173
 ## 
-## -- Variable type:integer -------------------------
+## -- Variable type:integer ------------------------------
 ##             variable missing   n    mean     sd     hist
 ##          appearances       0 173  414.05 677.99 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
 ##                 year       0 173 1988.45  30.37 &lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;&lt;U+2582&gt;&lt;U+2583&gt;&lt;U+2587&gt;
 ##  years_since_joining       0 173   26.55  30.37 &lt;U+2587&gt;&lt;U+2583&gt;&lt;U+2582&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
 ## 
-## -- Variable type:logical -------------------------
+## -- Variable type:logical ------------------------------
 ##  variable missing   n mean                     count
 ##   current       0 173 0.47   FAL: 91, TRU: 82, NA: 0
 ##    death1       0 173 0.4   FAL: 104, TRU: 69, NA: 0
@@ -563,12 +564,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  n obs: 403 
 ##  n variables: 71 
 ## 
-## -- Variable type:character -----------------------
+## -- Variable type:character ----------------------------
 ##  variable missing   n min max empty n_unique
 ##   episode       0 403   6   6     0      403
 ##     title       0 403   8  27     0      401
 ## 
-## -- Variable type:integer -------------------------
+## -- Variable type:integer ------------------------------
 ##            variable missing   n   mean    sd     hist
 ##         apple_frame       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
 ##     aurora_borealis       0 403 0.005  0.07  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
@@ -638,7 +639,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##              winter       0 403 0.17   0.38  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;
 ##         wood_framed       0 403 0.0025 0.05  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
 ## 
-## -- Variable type:numeric -------------------------
+## -- Variable type:numeric ------------------------------
 ##     variable missing   n mean   sd     hist
 ##  episode_num       0 403    7 3.75 &lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2583&gt;&lt;U+2587&gt;&lt;U+2583&gt;&lt;U+2587&gt;
 ##       season       0 403   16 8.96 &lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;</code></pre>
@@ -657,7 +658,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  n obs: 123 
 ##  n variables: 6 
 ## 
-## -- Variable type:numeric -------------------------
+## -- Variable type:numeric ------------------------------
 ##  variable missing   n  mean   sd     hist
 ##       age       0 123 24.63 5.8  &lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
 ##      cond       0 123  0.47 0.5  &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
@@ -673,16 +674,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  n obs: 330 
 ##  n variables: 20 
 ## 
-## -- Variable type:factor --------------------------
+## -- Variable type:factor -------------------------------
 ##  variable missing   n n_unique                top_counts
 ##     Study       0 330        2 fla: 170, map: 160, NA: 0
 ## 
-## -- Variable type:integer -------------------------
+## -- Variable type:integer ------------------------------
 ##  variable missing   n  mean    sd     hist
 ##      Film       0 330  2.52  1.13 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2587&gt;
 ##       MEQ     160 330 39.36 10.28 &lt;U+2582&gt;&lt;U+2583&gt;&lt;U+2586&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2582&gt;&lt;U+2581&gt;
 ## 
-## -- Variable type:numeric -------------------------
+## -- Variable type:numeric ------------------------------
 ##  variable missing   n  mean    sd     hist
 ##       BDI     170 330  0.31  0.28 &lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2585&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
 ##       EA1       0 330  9.19  7.11 &lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2583&gt;&lt;U+2585&gt;&lt;U+2583&gt;&lt;U+2582&gt;&lt;U+2582&gt;&lt;U+2581&gt;
@@ -709,7 +710,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  n obs: 3570 
 ##  n variables: 57 
 ## 
-## -- Variable type:integer -------------------------
+## -- Variable type:integer ------------------------------
 ##  variable missing    n mean   sd     hist
 ##        V1     296 3570 1.28 0.45 &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2583&gt;
 ##       V10      64 3570 1.86 0.35 &lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;
@@ -776,7 +777,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  n obs: 700 
 ##  n variables: 6 
 ## 
-## -- Variable type:integer -------------------------
+## -- Variable type:integer ------------------------------
 ##   variable missing   n   mean     sd     hist
 ##        ACT       0 700  28.55   4.82 &lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2583&gt;&lt;U+2585&gt;&lt;U+2587&gt;&lt;U+2587&gt;
 ##        age       0 700  25.59   9.5  &lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2582&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;

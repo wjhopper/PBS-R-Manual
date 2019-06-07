@@ -97,11 +97,11 @@ The `iris` data set gives the lengths and widths of the sepals and petals of 50 
 ##  n obs: 150 
 ##  n variables: 5 
 ## 
-## -- Variable type:factor --------------------------
+## -- Variable type:factor -------------------------------
 ##  variable missing   n n_unique                       top_counts
 ##   Species       0 150        3 set: 50, ver: 50, vir: 50, NA: 0
 ## 
-## -- Variable type:numeric -------------------------
+## -- Variable type:numeric ------------------------------
 ##      variable missing   n mean   sd     hist
 ##  Petal.Length       0 150 3.76 1.77 <U+2587><U+2581><U+2581><U+2582><U+2585><U+2585><U+2583><U+2581>
 ##   Petal.Width       0 150 1.2  0.76 <U+2587><U+2581><U+2581><U+2585><U+2583><U+2583><U+2582><U+2582>
@@ -119,12 +119,12 @@ The `warpbreaks` data set gives the number of breaks in each of 54 looms of yarn
 ##  n obs: 54 
 ##  n variables: 3 
 ## 
-## -- Variable type:factor --------------------------
+## -- Variable type:factor -------------------------------
 ##  variable missing  n n_unique                 top_counts
 ##   tension       0 54        3 L: 18, M: 18, H: 18, NA: 0
 ##      wool       0 54        2        A: 27, B: 27, NA: 0
 ## 
-## -- Variable type:numeric -------------------------
+## -- Variable type:numeric ------------------------------
 ##  variable missing  n  mean   sd     hist
 ##    breaks       0 54 28.15 13.2 <U+2586><U+2587><U+2587><U+2582><U+2582><U+2582><U+2581><U+2581>
 ```
@@ -139,7 +139,7 @@ The `mtcars` data set gives a range of numeric and categorical measurements of 3
 ##  n obs: 32 
 ##  n variables: 11 
 ## 
-## -- Variable type:numeric -------------------------
+## -- Variable type:numeric ------------------------------
 ##  variable missing  n   mean     sd     hist
 ##        am       0 32   0.41   0.5  <U+2587><U+2581><U+2581><U+2581><U+2581><U+2581><U+2581><U+2586>
 ##      carb       0 32   2.81   1.62 <U+2586><U+2587><U+2582><U+2587><U+2581><U+2581><U+2581><U+2581>
@@ -164,11 +164,11 @@ The `ToothGrowth` data set gives the tooth lengths of 60 guinea pigs, varied acr
 ##  n obs: 60 
 ##  n variables: 3 
 ## 
-## -- Variable type:factor --------------------------
+## -- Variable type:factor -------------------------------
 ##  variable missing  n n_unique            top_counts
 ##      supp       0 60        2 OJ: 30, VC: 30, NA: 0
 ## 
-## -- Variable type:numeric -------------------------
+## -- Variable type:numeric ------------------------------
 ##  variable missing  n  mean   sd     hist
 ##      dose       0 60  1.17 0.63 <U+2587><U+2581><U+2587><U+2581><U+2581><U+2581><U+2581><U+2587>
 ##       len       0 60 18.81 7.65 <U+2583><U+2585><U+2583><U+2585><U+2583><U+2587><U+2582><U+2582>
@@ -196,7 +196,7 @@ The `bechdel` data set is a great all-purpose data set with both within- and bet
 ##  n obs: 1794 
 ##  n variables: 15 
 ## 
-## -- Variable type:character -----------------------
+## -- Variable type:character ----------------------------
 ##  variable missing    n min max empty n_unique
 ##    binary       0 1794   4   4     0        2
 ##      code       0 1794   8   8     0       85
@@ -204,11 +204,11 @@ The `bechdel` data set is a great all-purpose data set with both within- and bet
 ##      test       0 1794   2  16     0       10
 ##     title       0 1794   1  83     0     1768
 ## 
-## -- Variable type:factor --------------------------
+## -- Variable type:factor -------------------------------
 ##    variable missing    n n_unique                            top_counts
 ##  clean_test       0 1794        5 ok: 803, not: 514, men: 194, dub: 142
 ## 
-## -- Variable type:integer -------------------------
+## -- Variable type:integer ------------------------------
 ##     variable missing    n       mean      sd     hist
 ##       budget       0 1794    4.5e+07 4.8e+07 <U+2587><U+2582><U+2581><U+2581><U+2581><U+2581><U+2581><U+2581>
 ##  budget_2013       0 1794    5.5e+07 5.5e+07 <U+2587><U+2583><U+2581><U+2581><U+2581><U+2581><U+2581><U+2581>
@@ -216,7 +216,7 @@ The `bechdel` data set is a great all-purpose data set with both within- and bet
 ##  period_code     179 1794    2.42    1.19    <U+2587><U+2587><U+2581><U+2586><U+2581><U+2585><U+2581><U+2582>
 ##         year       0 1794 2002.55    8.98    <U+2581><U+2581><U+2581><U+2581><U+2582><U+2585><U+2585><U+2587>
 ## 
-## -- Variable type:numeric -------------------------
+## -- Variable type:numeric ------------------------------
 ##       variable missing    n        mean          sd     hist
 ##       domgross      17 1794     6.9e+07 8e+07       <U+2587><U+2582><U+2581><U+2581><U+2581><U+2581><U+2581><U+2581>
 ##  domgross_2013      18 1794     9.5e+07     1.3e+08 <U+2587><U+2581><U+2581><U+2581><U+2581><U+2581><U+2581><U+2581>
@@ -234,11 +234,11 @@ The `fandango` data set shows ratings from 146 movies across the Fandango, IMDB,
 ##  n obs: 146 
 ##  n variables: 23 
 ## 
-## -- Variable type:character -----------------------
+## -- Variable type:character ----------------------------
 ##  variable missing   n min max empty n_unique
 ##      film       0 146   3  63     0      146
 ## 
-## -- Variable type:integer -------------------------
+## -- Variable type:integer ------------------------------
 ##                    variable missing   n     mean       sd     hist
 ##              fandango_votes       0 146  3848.79  6357.78 <U+2587><U+2582><U+2581><U+2581><U+2581><U+2581><U+2581><U+2581>
 ##        imdb_user_vote_count       0 146 42846.21 67406.51 <U+2587><U+2582><U+2581><U+2581><U+2581><U+2581><U+2581><U+2581>
@@ -247,7 +247,7 @@ The `fandango` data set shows ratings from 146 movies across the Fandango, IMDB,
 ##              rottentomatoes       0 146    60.85    30.17 <U+2583><U+2583><U+2582><U+2583><U+2583><U+2582><U+2585><U+2587>
 ##         rottentomatoes_user       0 146    63.88    20.02 <U+2583><U+2583><U+2583><U+2586><U+2585><U+2585><U+2587><U+2587>
 ## 
-## -- Variable type:numeric -------------------------
+## -- Variable type:numeric ------------------------------
 ##                    variable missing   n    mean   sd     hist
 ##         fandango_difference       0 146    0.24 0.15 <U+2583><U+2587><U+2581><U+2586><U+2587><U+2581><U+2587><U+2583>
 ##        fandango_ratingvalue       0 146    3.85 0.5  <U+2582><U+2583><U+2583><U+2587><U+2587><U+2587><U+2587><U+2582>
@@ -277,14 +277,14 @@ The `comma_survey` data set has Likert ratings as well as demographic informatio
 ##  n obs: 1129 
 ##  n variables: 13 
 ## 
-## -- Variable type:character -----------------------
+## -- Variable type:character ----------------------------
 ##              variable missing    n min max empty n_unique
 ##                gender      92 1129   4   6     0        2
 ##              location     102 1129   7  18     0        9
 ##  more_grammar_correct       0 1129  57  58     0        2
 ##       write_following      36 1129  76  77     0        2
 ## 
-## -- Variable type:factor --------------------------
+## -- Variable type:factor -------------------------------
 ##             variable missing    n n_unique
 ##                  age      92 1129        4
 ##            care_data      38 1129        4
@@ -300,12 +300,12 @@ The `comma_survey` data set has Likert ratings as well as demographic informatio
 ##   Bac: 344, Som: 295, Gra: 276, NA: 103
 ##   NA: 293, $50: 290, $10: 164, $25: 158
 ## 
-## -- Variable type:logical -------------------------
+## -- Variable type:logical ------------------------------
 ##              variable missing    n mean                      count
 ##  data_singular_plural      38 1129  0.5 FAL: 547, TRU: 544, NA: 38
 ##    heard_oxford_comma      30 1129  0.6 TRU: 655, FAL: 444, NA: 30
 ## 
-## -- Variable type:numeric -------------------------
+## -- Variable type:numeric ------------------------------
 ##       variable missing    n    mean         sd     hist
 ##  respondent_id       0 1129 3.3e+09 1072966.47 <U+2587><U+2583><U+2587><U+2587><U+2586><U+2582><U+2581><U+2582>
 ```
@@ -320,7 +320,7 @@ The `avengers` data set includes the death and revival status for 173 Marvel com
 ##  n obs: 173 
 ##  n variables: 21 
 ## 
-## -- Variable type:character -----------------------
+## -- Variable type:character ----------------------------
 ##                     variable missing   n min max empty n_unique
 ##  full_reserve_avengers_intro      14 173   5   6     0       93
 ##                       gender       0 173   4   6     0        2
@@ -330,13 +330,13 @@ The `avengers` data set includes the death and revival status for 173 Marvel com
 ##           probationary_intro     158 173   6   6     0       12
 ##                          url       0 173  36  67     0      173
 ## 
-## -- Variable type:integer -------------------------
+## -- Variable type:integer ------------------------------
 ##             variable missing   n    mean     sd     hist
 ##          appearances       0 173  414.05 677.99 <U+2587><U+2581><U+2581><U+2581><U+2581><U+2581><U+2581><U+2581>
 ##                 year       0 173 1988.45  30.37 <U+2582><U+2581><U+2581><U+2581><U+2582><U+2582><U+2583><U+2587>
 ##  years_since_joining       0 173   26.55  30.37 <U+2587><U+2583><U+2582><U+2582><U+2581><U+2581><U+2581><U+2582>
 ## 
-## -- Variable type:logical -------------------------
+## -- Variable type:logical ------------------------------
 ##  variable missing   n mean                     count
 ##   current       0 173 0.47   FAL: 91, TRU: 82, NA: 0
 ##    death1       0 173 0.4   FAL: 104, TRU: 69, NA: 0
@@ -361,12 +361,12 @@ The `bob_ross` data set is a great tool for demonstrating count data and tables.
 ##  n obs: 403 
 ##  n variables: 71 
 ## 
-## -- Variable type:character -----------------------
+## -- Variable type:character ----------------------------
 ##  variable missing   n min max empty n_unique
 ##   episode       0 403   6   6     0      403
 ##     title       0 403   8  27     0      401
 ## 
-## -- Variable type:integer -------------------------
+## -- Variable type:integer ------------------------------
 ##            variable missing   n   mean    sd     hist
 ##         apple_frame       0 403 0.0025 0.05  <U+2587><U+2581><U+2581><U+2581><U+2581><U+2581><U+2581><U+2581>
 ##     aurora_borealis       0 403 0.005  0.07  <U+2587><U+2581><U+2581><U+2581><U+2581><U+2581><U+2581><U+2581>
@@ -436,7 +436,7 @@ The `bob_ross` data set is a great tool for demonstrating count data and tables.
 ##              winter       0 403 0.17   0.38  <U+2587><U+2581><U+2581><U+2581><U+2581><U+2581><U+2581><U+2582>
 ##         wood_framed       0 403 0.0025 0.05  <U+2587><U+2581><U+2581><U+2581><U+2581><U+2581><U+2581><U+2581>
 ## 
-## -- Variable type:numeric -------------------------
+## -- Variable type:numeric ------------------------------
 ##     variable missing   n mean   sd     hist
 ##  episode_num       0 403    7 3.75 <U+2587><U+2587><U+2583><U+2587><U+2583><U+2587><U+2583><U+2587>
 ##       season       0 403   16 8.96 <U+2587><U+2587><U+2587><U+2587><U+2586><U+2587><U+2587><U+2587>
@@ -464,7 +464,7 @@ The `Tal.Or` data set is from Study 2 of Tol-Or, Cohen, Tasfati, & Gunther (2010
 ##  n obs: 123 
 ##  n variables: 6 
 ## 
-## -- Variable type:numeric -------------------------
+## -- Variable type:numeric ------------------------------
 ##  variable missing   n  mean   sd     hist
 ##       age       0 123 24.63 5.8  <U+2587><U+2587><U+2581><U+2581><U+2581><U+2581><U+2581><U+2581>
 ##      cond       0 123  0.47 0.5  <U+2587><U+2581><U+2581><U+2581><U+2581><U+2581><U+2581><U+2587>
@@ -484,16 +484,16 @@ The `affect` data set consists of responses from 330 participants to state and t
 ##  n obs: 330 
 ##  n variables: 20 
 ## 
-## -- Variable type:factor --------------------------
+## -- Variable type:factor -------------------------------
 ##  variable missing   n n_unique                top_counts
 ##     Study       0 330        2 fla: 170, map: 160, NA: 0
 ## 
-## -- Variable type:integer -------------------------
+## -- Variable type:integer ------------------------------
 ##  variable missing   n  mean    sd     hist
 ##      Film       0 330  2.52  1.13 <U+2587><U+2581><U+2587><U+2581><U+2581><U+2587><U+2581><U+2587>
 ##       MEQ     160 330 39.36 10.28 <U+2582><U+2583><U+2586><U+2587><U+2587><U+2586><U+2582><U+2581>
 ## 
-## -- Variable type:numeric -------------------------
+## -- Variable type:numeric ------------------------------
 ##  variable missing   n  mean    sd     hist
 ##       BDI     170 330  0.31  0.28 <U+2587><U+2586><U+2585><U+2581><U+2581><U+2581><U+2581><U+2581>
 ##       EA1       0 330  9.19  7.11 <U+2587><U+2586><U+2583><U+2585><U+2583><U+2582><U+2582><U+2581>
@@ -524,7 +524,7 @@ The `epi` data set includes responses to the Eysenck Personality Inventory from 
 ##  n obs: 3570 
 ##  n variables: 57 
 ## 
-## -- Variable type:integer -------------------------
+## -- Variable type:integer ------------------------------
 ##  variable missing    n mean   sd     hist
 ##        V1     296 3570 1.28 0.45 <U+2587><U+2581><U+2581><U+2581><U+2581><U+2581><U+2581><U+2583>
 ##       V10      64 3570 1.86 0.35 <U+2581><U+2581><U+2581><U+2581><U+2581><U+2581><U+2581><U+2587>
@@ -595,7 +595,7 @@ The `sat.act` data set includes self-reported SAT and ACT scores along with demo
 ##  n obs: 700 
 ##  n variables: 6 
 ## 
-## -- Variable type:integer -------------------------
+## -- Variable type:integer ------------------------------
 ##   variable missing   n   mean     sd     hist
 ##        ACT       0 700  28.55   4.82 <U+2581><U+2581><U+2581><U+2581><U+2583><U+2585><U+2587><U+2587>
 ##        age       0 700  25.59   9.5  <U+2587><U+2587><U+2582><U+2582><U+2581><U+2581><U+2581><U+2581>
@@ -617,7 +617,7 @@ sim_income <- rnorm(n=1000, mean=50000, sd=5000)
 hist(sim_income)
 ```
 
-![](advice_files/figure-latex/numeric sample demo-1.pdf)<!-- --> 
+<img src="advice_files/figure-html/numeric sample demo-1.png" width="672" />
 
 To demonstrate how to simulate a categorical variable, the following code simulates grades for 50 students in a pass/fail course in which there is a 50% chance of passing in the population:
 
@@ -628,7 +628,7 @@ sim_grades <- factor(sim_grades, levels=0:1, labels=c('FAIL', 'PASS'))
 barplot(table(sim_grades))
 ```
 
-![](advice_files/figure-latex/categorical sample demo-1.pdf)<!-- --> 
+<img src="advice_files/figure-html/categorical sample demo-1.png" width="672" />
 
 Other potentially useful "population" distributions include `rbeta()`, `rbinom()`, `rchisq()`, `rexp()`, `rf()`, `rgamma()`, `rlogis()`, `rlnorm()`, `rpois()`, `rt()`, and `runif()`. A full list can be found [here](https://en.wikibooks.org/wiki/R_Programming/Probability_Distributions). See the help documentation for each to see which parameter values can be specified.
 
