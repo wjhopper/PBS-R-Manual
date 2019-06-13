@@ -27,7 +27,7 @@ skim_with(numeric=list(complete=NULL, p0=NULL, p25=NULL, p50=NULL, p75=NULL, p10
 
 ### Commands vs. Buttons
 
-Though we strongly encourage you to use R through R Studio, we also encourage you and your students to rely on commands instead of button presses where possible. For instance, it is possible to save plots by exporting them from the Plots pane in R Studio, but it is also possible to save them with commands such as `pdf()` or `png()`. There are several benefits to prioritizing commands over button presses. First, it has the practical effect of reinforcing a command-line approach to programming your analyses, which may be new for you and is very likely new for your students. Second, and perhaps more importantly, it encourages reproduceability. If your students document all of the actions that they took in completing an assignment by having a command for each one, it will be easier for you to make sure that they did everything on their own, correct their habits where needed, and find the source of an error. It will also help you to reproduce your own work from semester to semester if your assignments are coded in R.
+Though we strongly encourage you to use R through R Studio, we also encourage you and your students to rely on commands instead of button presses where possible. For instance, it is possible to save plots by exporting them from the Plots pane in R Studio, but it is also possible to save them with commands such as `pdf()` or `png()`. There are several benefits to prioritizing commands over button presses. First, it has the practical effect of reinforcing a command-line approach to programming your analyses, which may be new for you and is very likely new for your students. Second, and perhaps more importantly, it encourages reproducibility. If your students document all of the actions that they took in completing an assignment by having a command for each one, it will be easier for you to make sure that they did everything on their own, correct their habits where needed, and find the source of an error. It will also help you to reproduce your own work from semester to semester if your assignments are coded in R.
 
 ### Naming Objects
 
@@ -39,9 +39,9 @@ Regardless of the convention, it is also important to choose object names that a
 
 ### Scripting
 
-More than just a collection of commands, the script is an excellent tool for both both reproduceability and documentation of an analysis. It is therefore worthwhile to teach students good habits for writing scripts.
+More than just a collection of commands, the script is an excellent tool for both both reproducibility and documentation of an analysis. It is therefore worthwhile to teach students good habits for writing scripts.
 
-First and foremost, scripts should include *all of the commands that you need to conduct an analysis, and none of the commands that you don't*. That is, you should be able to run all of the lines in a script in order and get the same result each time (with the obvious exception of things like drawing random samples). To that end, all the commands necessary for an analysis should be in the proper sequence, and dny commands that are not necessary for the analysis but kept for posterity should be "commented out" by adding the `#` symbol at the start of the line.
+First and foremost, scripts should include *all of the commands that you need to conduct an analysis, and none of the commands that you don't*. That is, you should be able to run all of the lines in a script in order and get the same result each time (with the obvious exception of things like drawing random samples). To that end, all the commands necessary for an analysis should be in the proper sequence, and deny commands that are not necessary for the analysis but kept for posterity should be "commented out" by adding the `#` symbol at the start of the line.
 
 Second, scripts should be well-documented. Recall that you can add comments to any line by preceding the comment with the `#` symbol. Comments are an efficient way to explain to someone unfamiliar with the script what the intention is for each section of code. Ample documentation is not only a good programming habit to teach your students, it will also likely be very useful in helping you decipher their code.
 
@@ -93,15 +93,15 @@ R cannot interpret part of the command, likely because the user has forgotten a 
 
 ## Data Sets
 
-This section includes an overview of useful data sets for in-class demonstrations or assignments. The first section includes data sets that are "built-in" as part of the base R `datasets` package, whereas the remaining sections review data sets from other packages that need to be installed. 
+This section includes an overview of some selected data sets that may be useful for in-class demonstrations or assignments. The first section includes data sets that are "built-in" as part of the base R `datasets` package, whereas the remaining sections review data sets from other selected packages that need to be installed. Of course, this list is non-exhaustive. The packages used here have more data sets than those we have chosen to highlight, and there are many more interesting data sets in other packages we have not highlighted. So, feel free to explore more options.
 
-Note that each package has many more data sets than those we have chosen to highlight here. To see all of the data sets available to you at any given time, including those are built-in with base R or part of loaded packages, enter the following command:
+To see all of the data sets available from all *loaded* packages, including those are built-in with base R o, enter the following command:
 
 ```{r data list, eval=FALSE}
 data()
 ```
 
-You should see a list of all the available data sets with a brief summary of each, separated by the package they belong to.
+You should see a list of all the available data sets with a brief summary of each, separated by the package they belong to. To see a list of datsets in *all* installed packages (loaded or not), run the command `data(package = .packages(all.available = TRUE))`.
 
 ### How to Handle `NA` Values
 
@@ -159,6 +159,8 @@ Now all missing quantitative SAT scores will be treated as a 0 in future mathema
 ### Built-In
 
 There are several small data sets included in base R that are useful for quick demos. Since they are part of base R, it is not necessary to load these packages; just type and enter their name in the console to view them.
+
+Note that the descriptions and summary statistics shown for each dataset were computed using the `skim()` function from the `skimr` pacakge.
 
 #### iris
 
