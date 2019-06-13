@@ -19,7 +19,7 @@ R has several special numeric values. `Inf` and `-Inf` are used to represent pos
 Just as in mathematics, the integer class can only represent whole numbers, e.g., 6. However, if you type `6` into the R console, R will not use the integer class to represent the 6. As mentioned just above, R will use the numeric data type to represent the 6. If you want to *force* R to use the integer class, you must terminate the number with an upper-case L, e.g., `2L`. In practice, it usually makes little difference whether you use the integer class or the numeric class to represent whole numbers, so sticking with the default class of numeric is safe to do.
 
 ### The Logical Class {#logicals}
-Logical data can only take on 2 possible values: TRUE (1) or FALSE (0). This type of datum is used to represent whether some state exists (is true) or does not exist (is false). TRUE and FALSE **must be uppercase**. They *can* can be abbreviated as T and F, but it is not recommended because while the names `T` and `F` can be over-written with non-logical values, `TRUE` and `FALSE` are reserved names that can never be overwritten. Such a restrictive class of data may not seem useful, but play an important role in data manipulation, as they can be used to indicate the presence (or absence) of other data values you are interested in.
+Logical data can only take on 2 possible values: TRUE (1) or FALSE (0). This type of datum is used to represent whether some state exists (is true) or does not exist (is false). TRUE and FALSE **must be uppercase**. They *can* can be abbreviated as T and F, but it is not recommended because while the names `T` and `F` can be over-written with non-logical values, `TRUE` and `FALSE` are reserved names that can never be overwritten. Such a restrictive class of data may not seem useful, but it plays an important role in data manipulation, as it can be used to indicate the presence (or absence) of other data values you are interested in.
 
 You can change a `TRUE` to a `FALSE` (or a `FALSE` to a `TRUE`) by prefixing them with the `!` negation operator.
 
@@ -230,7 +230,7 @@ df
 ## 4 2 4   Jan
 ```
 
-This example also shows an extra argument, `stringsAsFactors = FALSE`, that was **not** a variable to store in the data frame. This argument is another way to control how R interprets character vectors (a.k.a. strings) when forming the data frame. Here, using `stringsAsFactors = TRUE` forces R to leave your character vectors as they are when creating the data frame.
+This example also shows an extra argument, `stringsAsFactors = FALSE`, that was **not** a variable to store in the data frame. This argument is another way to control how R interprets character vectors (a.k.a. strings) when forming the data frame. Here, using `stringsAsFactors = FALSE` forces R to leave your character vectors as they are when creating the data frame.
 
 ### Lists
 Lists are the most abstract and flexible data structure in R. Lists can hold any type of R object, but don't impose any relationship between them. You can have a list holding matrices, data frames, vectors, and even lists holding other lists!
@@ -324,7 +324,7 @@ c(10, 5, -10) == c(20, -5, 0)
 ## [1] FALSE FALSE FALSE
 ```
 
-When using relational operators with two vectors/matrices, make sure they both have the same number of elements. If not, R will recycle values from the beginning of the shorter vector in order to "pad" it's length. This is probably not what you want to happen, but R will **only** warn you if the length of the longer vector is not a multiple of the shorter vector. If it is a multiple, then R will recycle silently. Be vigilant! 
+When using relational operators with two vectors/matrices, make sure they both have the same number of elements. If not, R will recycle values from the beginning of the shorter vector in order to "pad" its length. This is probably not what you want to happen, but R will **only** warn you if the length of the longer vector is not a multiple of the shorter vector. If it is a multiple, then R will recycle silently. Be vigilant! 
 
 
 ```r
@@ -449,13 +449,13 @@ We can see that the `matrix` function has 5 arguments, `data`, `nrow`, `ncol`, `
 
 Lines saying "S3 Method for class ..." tell you about the function's behavior when called on objects of a specific class. For example, this help page tells us that when the `as.matrix` function is called on a data.frame, there is an optional argument called `rownames.force` that isn't used when the input is some other data structure (like a vector). We can safely ignore the cryptic term "S3 Method". 
 
-We will, however, focus on other cryptic parts of the "Usage" section. What is `x`? What is `trim`? What do they do? For clarification, we must go the argument-specific subsections.
+We will, however, focus on other cryptic parts of the "Usage" section. What is `data`? What is `byrow`? What do they do? For clarification, we must go the argument-specific subsections.
 
 ### Arguments
 The detailed descriptions in the argument subsection tell us what types of values each argument is permitted to take on. It also tells us what aspect of the function's behavior each argument controls. For example, the `byrow` argument must be a logical value (i.e., `TRUE` or `FALSE`) and it controls whether the matrix is row-by-row, or column-by-column.
 
 ### Named vs. Unnamed Arguments
-As we see in the "Usage" and "Arguments" sections, every function argument has a name (e.g., `x`, `na.rm`, `trim`). When you call a function, those names can be used in a `keyname = value` style of syntax, or they may be omitted in favor of just specifying the value. 
+As we see in the "Usage" and "Arguments" sections, every function argument has a name (e.g., `data`, `nrow`, `byrow`). When you call a function, those names can be used in a `keyname = value` style of syntax, or they may be omitted in favor of just specifying the value. 
 
 If you wish to omit the names of the arguments when calling a function, **then you must order your inputs in the exact same order as they appear in the `Usage` section!!!**. If you specify arguments as `keyname=value` pairs, they may be passed in any order. If you mix and match named and unnamed, unnamed inputs that R encounters will be paired up with the unmatched arguments following their order in the Usage section.
 
@@ -489,7 +489,7 @@ We would venture to guess the answer to these questions is "No", which makes a s
 In summary, name your arguments.
 
 #### Special Arguments {-}
-You may have noticed that in the "Usage" section, the `as.matrix` and the `is.matrix` functions have an argument called  `...`. In fact, many R functions have such an argument. A full discussion of the `...` construct is beyond the scope of this guide (or the ellipsis, if you're trying to Google it) is beyond the scope of this guide. For our purposes, we can understand it as a special "catch all" device for any parameters inputs that aren't otherwise explicitly declared. The `...` is used to enable argument passing between functions: it allows one function to capture arguments intended for another function, and send them directly to the other function, without ever know what the names of the arguments for the other function. Neat!
+You may have noticed that in the "Usage" section, the `as.matrix` and the `is.matrix` functions have an argument called  `...`. In fact, many R functions have such an argument. A full discussion of the `...` construct (or the ellipsis, if you're trying to Google it) is beyond the scope of this guide. For our purposes, we can understand it as a special "catch all" device for any inputs whose names aren't explicitly declared ahead of time. The `...` is used to enable argument passing between functions: it allows one function to capture arguments intended for another function, and send them directly to the other function, without ever knowing the names of the arguments for the other function. Neat!
 
 #### Examples {-}
 The last section of the `matrix` help page we will look at  is "Examples" sections
@@ -514,10 +514,10 @@ The last section of the `matrix` help page we will look at  is "Examples" sectio
 The examples sections demonstrate a simple application of the function. When using a function for the first time, or you find yourself confused by a part of the documentation, running and tweaking the examples you find here is a great way to get a concrete understanding of how the function behaves.
 
 #### The Return Value {-}
-The `matrix` function lacks one field in the help file that most R function have - the "Value" field. This section describes what the function outputs, i.e., what it "returns" to the caller. The `matrix` function can get away with omitting this section, because it's return value is fairly obvious - a matrix! But functions with more complicated outputs need to describe what they return in more detail, so the user can understand how to process the output in their own code.
+The `matrix` function lacks one field in the help file that most R function have - the "Value" field. This section describes what the function outputs, i.e., what it "returns" to the caller. The `matrix` function can get away with omitting this section, because its return value is fairly obvious - a matrix! But functions with more complicated outputs need to describe what they return in more detail, so the user can understand how to process the output in their own code.
 
 ## Data Manipulation
-Data manipulations describes the processes of editing and re-organizing a set of observations in order to facilitate a subsequent analysis. In this guide, we will cover three main data manipulation processes: indexing, subsetting, and replacement. Since data manipulations typically begins by importing data from a file on your hard drive into R, we will begin this section describing how to import or "read in" 
+Data manipulation describes the processes of editing and re-organizing a set of observations in order to facilitate a subsequent analysis. In this guide, we will cover three main data manipulation processes: indexing, subsetting, and replacement. Since data manipulation typically begins by importing data from a file on your hard drive into R, we will begin this section describing how to import or "read in" 
 
 ### Tidy Data
 It's worth beginning with an outline of a well-formatted data set. 
@@ -536,34 +536,32 @@ Adhering to these principles when you save new data, or manipulate data you have
 #### CSV files {-}
 A CSV file is a type of plain-text document, and is indicated by the .csv file extension. Plain text files consist only of sequences of characters codes, including spaces, tabs, new lines and delimiters. They have no styling associated with them (e.g. no italics or bolding, no images). Files with extensions such as .txt, .R  and .html are plain-text files, while files such as .doc, .docx (Word documents) and .xlsx (Excel documents) are **not** plain text files. We recommend you use plain-text formats for sharing data, because they have the greatest deal of interoperability between computer operating systems and analysis programs.
 
-In a CSV file, the content is arranged in a tabular format. Each new line in the file represents a row, and distinct values within each row are separated by commas to form the different columns. Below is an example of what a CSV file looks like before it is imported into R:
+In a CSV file, the content is arranged in a tabular format. Each new line in the file represents a row, and distinct values within each row are separated by commas to form the different columns. Below is an example of what the text of a CSV file looks like before it is imported into R:
 
 
-```r
-commas <- read.csv("data/commas.csv")
-write.csv(commas, file="", quote=FALSE, row.names=FALSE)
-## condition,trial,rating
-## a,1,3
-## b,2,1
-## c,3,11
+```
+condition,trial,rating
+a,1,3
+b,2,1
+c,3,11
 ```
 
-We can see that the file has 3 columns, a header row, and 3 observation rows. Before we can import this file into R, we must know how to instruct R where to find the file on our computer, and . To do this, we must understand about file paths on our hard drive, and how R looks for files.
+We can see that the file has 3 columns, a header row, and 3 observation rows. Before we can import this file into R, we must know how to instruct R where to find the file on our computer. To do this, we must understand about file paths on our hard drive, and how R looks for files.
 
 #### File Paths and Working Directories {-}
 All the files stored on your computer's hard drive are associated with a named location in the file system's hierarchy. For example, Windows users are likely familiar storing files inside the "My Documents" folder (also known as a "directory").
 
-Much like a file, the R session you have open is also associated with a directory on your hard drive. But, unlike a file, your R session can easily change it's current location without copying the session. The directory your R session currently inhabits is called the "Current Working Directory". You can see what this directory is by issuing the command `getwd()`.
+Much like a file, the R session you have open is also associated with a directory on your hard drive. But, unlike a file, your R session can easily change its current location without copying the session. The directory your R session currently inhabits is called the "Current Working Directory". You can see what this directory is by issuing the command `getwd()`.
 
 
 ```r
 getwd()
-## [1] "/Users/andrea/Documents/GitHub/PBS-R-Manual"
+## [1] "C:/Users/will/source/PBS R Manual"
 ```
 
-As you can see, the current working directory of my R session is the PBS-R-Manual folder. I can change this location using the `setwd()` command, and providing the name of another directory to move the R session to. The new directory I move to needs to be specified as a Character value (i.e., surrounded with quotation marks). However, I have to be very clear and explicit when describing the location of this directory. Specifically, I have describe this directories location using either a **relative** or an **absolute** path.
+As you can see, the current working directory of my R session is the PBS R Manual folder. I can change this location using the `setwd()` command, and providing the name of another directory to move the R session to. The new directory I move to needs to be specified as a Character value (i.e., surrounded with quotation marks). However, I have to be very clear and explicit when describing the location of this directory. Specifically, I have describe this directories location using either a **relative** or an **absolute** path.
 
-An absolute file path describes the location in relationship to the beginning of the entire file system, while a relative path describes the location in relationship to R's current working directory. This is important, because not every location on your hard drive is visible from R's current directory - R can only see files *below* it's current working directory in the file system hierarchy. 
+An absolute file path describes the location in relationship to the beginning of the entire file system, while a relative path describes the location in relationship to R's current working directory. This is important, because not every location on your hard drive is visible from R's current directory - R can only see files *below* its current working directory in the file system hierarchy. 
 
 If you need to access a file that *is not* below your current working directory, the best way to do this is with an absolute file path. On Windows, the start of each file system is given a letter prefix; the prefix of the file system holding the Window's installation is `C:\`. Directories are separated  with **backward** slashes (e.g. `C:\Users\will` is an absolute path). On Mac OSX and Linux, the start of the file system is `/` (read as "root"). Here, directories are separated  with **forward** slashes (e.g., `/Users/will` is an absolute path). But in R, you don't have to worry about forward slashes vs. backward slashes. **You can use forward slashes in your code, and it will work on either Mac or Windows**
 
@@ -587,12 +585,12 @@ commas
 Note that I assigned the output of the `read.csv` function to variable named `commas`, and that the function imported the CSV file as a `data.frame` object. Also note that the values in the first row of the CSV file were used as names for each columns, rather than a row of data.
 
 #### Importing Excel Files {-}
-Excel files are ubiquitous, but because of their history as a proprietary format, R does not have native support for importing them. However, all is not lost: you can install the `readxl` package and use it's `read_excel` function to import .xls and .xlsx files into R as data frames.
+Excel files are ubiquitous, but because of their history as a proprietary format, R does not have native support for importing them. However, all is not lost: you can install the `readxl` package and use its `read_excel` function to import .xls and .xlsx files into R as data frames.
 
 ### Subsetting
 Subsetting describes the processes of "extracting" or "slicing out" a subset of the values from one data structure into another. In R, the processes of subsetting **does not** remove the values you subset from the original data structure. Rather, it creates a copy of the subset you ask for, and puts that copy into your new data structure. So, subsetting is a safe operation that will not result in any data loss.
 
-Subsetting a data structure is performed in R using the `[]` operator, which are called square brackets. All R data structures can be subsetted using the `[]` operators. To subset a data structure, the `[]` operator immediately after the data structure. Between the two square brackets, you place what is known as an **index vector**. An index vector is a vector that describes which values in the data structure you want included in the subset. There are 3 types of index vectors:
+Subsetting a data structure is performed in R using the `[]` operator, which are called square brackets. All R data structures can be subsetted using the `[]` operators. To subset a data structure, put the `[]` operator immediately after the data structure. Between the two square brackets, you place what is known as an **index vector**. An index vector is a vector that describes which values in the data structure you want included in the subset. There are 3 types of index vectors:
 
 - Numeric Index Vectors, which describe the *position* (e.g. first, third, or 19th) of the elements you want included in the subset.
 - Character Index Vectors, which describe the *names* of the elements you want included in the subset (only useful when the elements have names).
@@ -679,7 +677,7 @@ But this specific example is not a good use case for logical vectors. Why?
 1. Longer Code: length of the logical vector must match the length of the object its subsetting.
 2. Duplicating work: If you already know the position of the elements you want, just put them into a vector and you're done!
 
-The logical vector's utility comes into play when you *don't* know the numeric positions of the elements you are interested in. But, how can you determine which values you want to keep without knowing their position or their name? In these cases, we must *search* for values meeting a specific criteria. Searching for values within a data structure is a processes called **Indexing**.
+The logical vector's utility comes into play when you *don't* know the numeric positions of the elements you are interested in. But, how can you determine which values you want to keep without knowing their position or their name? In these cases, we must *search* for values meeting a specific criterion. Searching for values within a data structure is a processes called **Indexing**.
 
 ### Indexing
 Indexing a data structure in a search for specific values is a job for R's [relational operators](#relational-operators). Remember, relational operator are applied to all the elements of a data structure individually (i.e., "element-wise"). Thus, we can apply them to search for specific values, and use the Logical `TRUE`/`FALSE` values that result from this search as an index vector.
@@ -728,7 +726,7 @@ missingno[!is.na(missingno)] # Select the *not* missing observations
 ## [1] 10  1  4  2 99
 ```
 
-Removing missing values in a common step in data manipuation before an anlysis. For examples of removig missing values with other data structures, and more realistic data sets, the examples in the [Data Sets](#data-sets) section.
+Removing missing values in a common step in data manipuation before an anlysis. For examples of removing missing values with other data structures, and more realistic data sets, the examples in the [Data Sets](#data-sets) section.
 
 #### Converting a Logical to a Positional Index {-}
 A useful function to know is `which()`. When used on a logical vector, it will return to your the position indices of the vector's `TRUE` element. It is useful when you want to know **where** in the vector your matches occur. 
@@ -831,11 +829,11 @@ dummy[,colSums(dummy) < 8] # Select columns with a sum less than 8
 #### Data Frames {-}
 To learn about data frames, we're going to use several data frames that come built-in with R as part of the `datasets` package. Try typing `InsectSprays`, `iris`, `airquality` and `mtcars` into the console to be sure they are loaded and available to you. Since they are included as part of a package, you will *not* see them listed in your environment pane. 
 
-The `[row, column]` indexing style used with matrices also applies to data frames. However, data frames also support a different subsetting technique based on a special syntax that applies to it's column names. Subsetting or indexing a data frame using column names should be preferred to using column numbers, because that name is unlikely to change, while the row or column number is **very** likely to get changed throughout the course of an analysis. It's also much easier to remember the name of something than remember its position in a data frame!
+The `[row, column]` indexing style used with matrices also applies to data frames. However, data frames also support a different subsetting technique based on a special syntax that applies to its column names. Subsetting or indexing a data frame using column names should be preferred to using column numbers, because that name is unlikely to change, while the row or column number is **very** likely to get changed throughout the course of an analysis. It's also much easier to remember the name of something than remember its position in a data frame!
 
 ##### Subsetting with $ syntax {-}
 
-To subset a single column from a data frame, we can use that columns name, and the `$` operator. In this case, quotes around the column's name are not required. To demonstrate, we will subset the `mpg` column from the `mtcars` dataset.
+To subset a single column from a data frame, we can use that column's name, and the `$` operator. In this case, quotes around the column's name are not required. To demonstrate, we will subset the `mpg` column from the `mtcars` dataset.
 
 ```r
 mtcars
@@ -864,7 +862,7 @@ But we're not forced to use numeric vectors just because we're using the `[` ope
 
 
 ```r
-mtcars[,c("mpg","disp","gear")] # need  as well as the quotes here
+mtcars[,c("mpg","disp","gear")] # need c() function as well as the quotes here
 ##                      mpg  disp gear
 ## Mazda RX4           21.0 160.0    4
 ## Mazda RX4 Wag       21.0 160.0    4
@@ -944,17 +942,20 @@ The R session information when compiling this book is shown below:
 
 ```r
 library(printr)
+## Warning: package 'printr' was built under R version 3.5.3
 sessionInfo()
 ## R version 3.5.1 (2018-07-02)
-## Platform: x86_64-apple-darwin15.6.0 (64-bit)
-## Running under: macOS  10.14.5
+## Platform: x86_64-w64-mingw32/x64 (64-bit)
+## Running under: Windows 7 x64 (build 7601) Service Pack 1
 ## 
 ## Matrix products: default
-## BLAS: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRblas.0.dylib
-## LAPACK: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRlapack.dylib
 ## 
 ## locale:
-## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## [1] LC_COLLATE=English_United States.1252 
+## [2] LC_CTYPE=English_United States.1252   
+## [3] LC_MONETARY=English_United States.1252
+## [4] LC_NUMERIC=C                          
+## [5] LC_TIME=English_United States.1252    
 ## 
 ## attached base packages:
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     

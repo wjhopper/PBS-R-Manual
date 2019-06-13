@@ -64,7 +64,7 @@ The above formula is an example of an "additive" model, in which ACT scores are 
 
 ```sat.act$ACT ~ sat.act$age*sat.act$education```
 
-Note that the above formula defines the *full* interactive model, so ACT scores are defined as a function of (1) the main effect of age, (2) the main effect of education, and (3) the interaction of age and education. This same model can be implemented by defining each components separately in the formula object, like this:
+Note that the above formula defines the *full* interactive model, so ACT scores are defined as a function of (1) the main effect of age, (2) the main effect of education, and (3) the interaction of age and education. This same model can be implemented by defining each component separately in the formula object, like this:
 
 ```sat.act$ACT ~ sat.act$age + sat.act$education + sat.act$age:sat.act$education```
 
@@ -493,7 +493,7 @@ Note that additional techniques exist for summarizing data with multiple descrip
 
 ## Plotting
 
-One of the most compelling reason to learn and use is because it includes highly flexible and powerful tools for visualizing many kinds of data. After all, if a single tool can perform your analyses and create your figures, why not use the "one ring to rule them all"?
+One of the most compelling reason to learn and use R is because it includes highly flexible and powerful tools for visualizing many kinds of data. After all, if a single tool can perform your analyses and create your figures, why not use the "one ring to rule them all"?
 
 Many visualizations can be created using the `plot()` function, so we'll begin our introduction using that function. As you'll soon see, the `plot()` function accepts many arguments, as there are many ways to customize a plot. Many of the other visualization tools in R accept similar arguments. So, if `plot()` accepts an argument, there is a fair chance another function will accept it as well.
 
@@ -505,7 +505,9 @@ If you have two vectors representing pairs of observations, you can plot them ag
 plot(sat.act$SATV, sat.act$SATQ) # Access the columns as vectors using $ syntax
 ```
 
-<img src="statistics_files/figure-html/basicplot-1.png" width="672" style="display: block; margin: auto;" />
+
+
+\begin{center}\includegraphics{statistics_files/figure-latex/basicplot-1} \end{center}
 
 The points in the plot above represent pairs SAT Verbal and SAT Quantitative scores. The scores in each vector are paired up by position within each vector - the first value in `SATV` is paired with the first value in `SATQ`, the second value in `SATV` is paired with the second value in `SATQ`, etc. The vector given as the first argument determines the X axis position, and the vector given as the second argument determines the Y axis position.
 
@@ -518,10 +520,12 @@ plot(sat.act$SATV, sat.act$SATQ,
      main = "Relationship between SAT Scores")
 ```
 
-<img src="statistics_files/figure-html/axeslabels-1.png" width="672" style="display: block; margin: auto;" />
+
+
+\begin{center}\includegraphics{statistics_files/figure-latex/axeslabels-1} \end{center}
 
 #### Linetypes, Symbols, and Colors
-You can customize the scatterplot to draw lines between the points, or just draw lines without the point symbols with the `type` argument. This is not a sensible thing to do for these data, but we demonstrate it anyway for completeness.
+You can customize the scatterplot to draw lines between the points, or just draw lines without the point symbols with the `type` argument. **This is not a sensible thing to do for these data**, but we demonstrate it anyway for completeness.
 
 
 ```r
@@ -532,10 +536,14 @@ plot(sat.act$SATV, sat.act$SATQ,
      type = "o")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="statistics_files/figure-html/lines-1.png" alt="Points and lines with type='o'" width="672" />
-<p class="caption">(\#fig:lines1)Points and lines with type='o'</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{statistics_files/figure-latex/lines-1} 
+
+}
+
+\caption{Points and lines with type='o'}(\#fig:lines1)
+\end{figure}
 
 ```r
 # Just lines
@@ -545,10 +553,14 @@ plot(sat.act$SATV, sat.act$SATQ,
      type = "l")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="statistics_files/figure-html/lines-2.png" alt="Just using lines with type='l'" width="672" />
-<p class="caption">(\#fig:lines2)Just using lines with type='l'</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{statistics_files/figure-latex/lines-2} 
+
+}
+
+\caption{Just using lines with type='l'}(\#fig:lines2)
+\end{figure}
 
 You can also customize the types of symbols that are used for each point using the `pch`, the style of lines connecting these points using the `lty` argument, and the `col` argument to adjust the color of lines and symbol borders
 
@@ -560,7 +572,7 @@ Note that if you supply a character instead of a numeric values between 0 and 25
 
 The `lty` argument has a bit more flexibility. Line types can either be specified as an integer (0=blank, 1=solid (default), 2=dashed, 3=dotted, 4=dotdash, 5=longdash, 6=twodash) or as one of the character strings "blank", "solid", "dashed", "dotted", "dotdash", "longdash", or "twodash".
 
-The `col` argument accepts character string describing either a "built in" color name (see `?colors` for a list) or an RGB triplet encoded in hexadecimal notation. Unless you are intimately familiar with RGB color space, it's a good idea to use a tool like the [W3 Organizations Online Color Picker](https://www.w3schools.com/colors/colors_picker.asp) to help you figure out the RGB hex code for the color you want.
+The `col` argument accepts character strings describing either a "built in" color name (see `?colors` for a list) or an RGB triplet encoded in hexadecimal notation. Unless you are intimately familiar with RGB color space, it's a good idea to use a tool like the [W3 Organizations Online Color Picker](https://www.w3schools.com/colors/colors_picker.asp) to help you figure out the RGB hex code for the color you want.
 
 To demonstrate, lets take our original plot (with no lines) and customize it to use unfilled, magenta triangles:
 
@@ -572,7 +584,9 @@ plot(sat.act$SATV, sat.act$SATQ,
      col="magenta", pch=2)
 ```
 
-<img src="statistics_files/figure-html/pch_and_col-1.png" width="672" style="display: block; margin: auto;" />
+
+
+\begin{center}\includegraphics{statistics_files/figure-latex/pch_and_col-1} \end{center}
 
 #### Axis limits
 R usually does a good job of determining good values for the range of each axis, but if you wish to override the defaults, you can do do using the `xlim` and `ylim` arguments. These arguments accepts 2-element numeric vectors specifying the minimum and maximum values along each axis (in that order). For example, if we wanted to include 0 in the range of SAT scores shown on the plot, we could use `c(0, 800)` for both our axis limits:
@@ -587,7 +601,9 @@ plot(sat.act$SATV, sat.act$SATQ,
      ylim=c(0, 800))
 ```
 
-<img src="statistics_files/figure-html/limits-1.png" width="672" style="display: block; margin: auto;" />
+
+
+\begin{center}\includegraphics{statistics_files/figure-latex/limits-1} \end{center}
 
 This isn't particularly sensible, because 0 is not a possible score on the SAT, so consider this just a demonstration of R's capabilities.
 
@@ -607,7 +623,9 @@ plot(males$SATV, males$SATQ,
 points(females$SATV, females$SATQ, col="blue")
 ```
 
-<img src="statistics_files/figure-html/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;" />
+
+
+\begin{center}\includegraphics{statistics_files/figure-latex/unnamed-chunk-1-1} \end{center}
 
 #### Adding a legend
 If you use multiple symbols, colors, and linetypes on the same plot, you'll also need a legend telling the viewer how to interpret the different symbols, colors, and linetypes. You can add legends to an existing plot using the `legend` function. Unfortunately, the `legend` function doesn't know what symbols, colors, and linetypes you've used, or what the different groups in your data are. So, you'll have to re-capitulate this information to the legend function. Make *absolutely* sure that you specify the labels, colors, symbol codes, and linetypes in the exact same order you added them to the plot! You also must specify a `pch` or `linetype` value, even if you used the default value in your plot!
@@ -626,16 +644,21 @@ legend(x=200, y=800,
        pch=1)
 ```
 
-<img src="statistics_files/figure-html/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;" />
+
+
+\begin{center}\includegraphics{statistics_files/figure-latex/unnamed-chunk-2-1} \end{center}
 
 #### Adding a regression line
 It is often useful to summarize the linear relationship between variables shown in a scatterplot. It is easy to add the "line of best fit" from a linear regression to your scatter plot using the `lm` function (short for "linear model) and the `abline` function (used for drawing straight lines).
 
-The `lm` function performs regression analysis based on the [formula](#formula-objects) you specify. If you intended on adding the regression line to your scatterplot, we recommend you use the same formula to specify your plot, which the `plot` function is more than capable of understanding. The basic steps are:
+The `lm` function performs regression analysis based on the [formula](#formula-objects) you specify. If you intend on adding the regression line to your scatterplot, we recommend you use the formula interface to the `plot()` function. Instead of using an `x` vector and a `y` vector, you can provide a formula of the form `y ~ x`, and the name of the data frame containing your vaiable, just like when using the `lm` function.
+In this case, you would use the same formula to specify your plot that you use to specify your regression model. Remember of course, that the response variable (i.e., the y variable) goes first in the formula, not second as it would if you were providing two separate vectors.
+
+To summarise, the basic steps are:
 
 1. Perform your linear regression with `lm`, and save the output to a variable
-2. Create your scatterplot using the same formula specification
-3. Prove the `lm` object you saved in Step #1 to the `abline` function.
+2. Create your scatterplot using the same formula specification as in your linear model from Step 1.
+3. Provide the `lm` object you saved in Step #1 to the `abline` function
 4. Marvel at your wonderful new plot
 
 
@@ -647,7 +670,9 @@ plot(SATQ ~ SATV, data=sat.act,
 abline(regression_results, lwd=2) # lwd = "line width",
 ```
 
-<img src="statistics_files/figure-html/abline plot-1.png" width="672" style="display: block; margin: auto;" />
+
+
+\begin{center}\includegraphics{statistics_files/figure-latex/abline plot-1} \end{center}
 
 In the call to `abline` above, we have specified the `lwd` argument, short for "line width", a.k.a. thickness. The default value is 1, and we have double the thickness here so the regression line stands out from the points more.
 
@@ -661,13 +686,18 @@ The `hist` function works with a vector of numeric values, and breaks this vecto
 hist(sat.act$ACT, breaks = 30)
 ```
 
-<img src="statistics_files/figure-html/hist-1.png" width="672" style="display: block; margin: auto;" />
+
+
+\begin{center}\includegraphics{statistics_files/figure-latex/hist-1} \end{center}
 
 ```r
-hist(sat.act$ACT, breaks = seq(0, max(sat.act$ACT), by=2))
+bin_boundaries <- seq(0, max(sat.act$ACT), by=2) # from 0 to 36 by 2's
+hist(sat.act$ACT, breaks = bin_boundaries)
 ```
 
-<img src="statistics_files/figure-html/hist-2.png" width="672" style="display: block; margin: auto;" />
+
+
+\begin{center}\includegraphics{statistics_files/figure-latex/hist-2} \end{center}
 
 If you want proportions instead of counts, set the `freq` argument to false. You can also use the same `xlab`, `ylab`, and `main` arguments we used with `plot` to get more informative titles/
 
@@ -677,7 +707,9 @@ hist(sat.act$ACT, breaks = 30, freq=FALSE,
      xlab = "ACT Score")
 ```
 
-<img src="statistics_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" />
+
+
+\begin{center}\includegraphics{statistics_files/figure-latex/unnamed-chunk-3-1} \end{center}
 
 
 ### Boxplots
@@ -693,9 +725,11 @@ boxplot(SATV ~ education, data=sat.act,
         ylab="SAT Verbal Score", xlab="Education")
 ```
 
-<img src="statistics_files/figure-html/boxplot-1.png" width="672" style="display: block; margin: auto;" />
 
-Note the use of the `names` argument to override the labels on each X axis point.
+
+\begin{center}\includegraphics{statistics_files/figure-latex/boxplot-1} \end{center}
+
+Note the use of the `names` argument to override the labels on each X axis point. Depending on how long the names of each variable are, some variable names might be ommitted from the axis labels, in order to prevent having overlapping characters obscuring the names. This can usually be be remedied by re-sizing the plot window to be larger, so that all the names can fit in. 
 
 ### Bar plots
 Bar plots are used to visualize single summary statistics, like the mean or median across groups. We can create a bar plot in R using the `barplot` function. We'll demonstrate this by plotting the mean SAT Verbal score for males and females. The to-be-plotted value should be specified in a vector or matrix, with one element for each bar you want plotted
@@ -712,7 +746,9 @@ barplot(SATV_means,
         )
 ```
 
-<img src="statistics_files/figure-html/barplot-1.png" width="672" style="display: block; margin: auto;" />
+
+
+\begin{center}\includegraphics{statistics_files/figure-latex/barplot-1} \end{center}
 
 ### Multiple plots in single figure
 In many situations, it is useful to have several different plots in a single figure to facilitate comparison. But in the examples we have encountered so far, each time we create a new plot, it has removed the existing one from out figure window. We can change this behavior to allow multiple figures within the same window by using the `par` function, which changes R's global graphics parameters.
@@ -730,7 +766,9 @@ hist(sat.act$ACT, breaks = 50, main = "50 breaks")
 hist(sat.act$ACT, breaks = 100, main = "100 breaks")
 ```
 
-<img src="statistics_files/figure-html/par_mfrow-1.png" width="672" style="display: block; margin: auto;" />
+
+
+\begin{center}\includegraphics{statistics_files/figure-latex/par_mfrow-1} \end{center}
 
 ```r
 par(mfrow = c(1,1)) # Reset back to default
@@ -745,7 +783,7 @@ Usually the purpose of creating a visualization in R is to include it in some ki
 If you choose the "Save as Image" option, you'll get to choose which image format you want to save it as, and what the width and height (in pixels) the image should be saved as.
 
 ### What about ggplot?
-The [ggplot2 package](https://www.rdocumentation.org/packages/ggplot2/versions/3.1.1) is an extremely popular visualization tool, which provides an alternative to the so-called "base graphics" functions described here. The popularity ggplot has achieved is well deserved - it's visualizations are attractive, and it's data-driven, modular coding style is very powerful. The programming style of ggplot is *very* different from the base graphics style. Perhaps the best way to summarize the ggplot approach is that it is builds on top of the organization of the observations inside a data frame and allows you to "map" the variables in your data frame to the "aesthetics" in a plot (shape, position, color, size, etc.).
+The [ggplot2 package](https://www.rdocumentation.org/packages/ggplot2/versions/3.1.1) is an extremely popular visualization tool, which provides an alternative to the so-called "base graphics" functions described here. The popularity ggplot has achieved is well deserved - its visualizations are attractive, and its data-driven, modular coding style is very powerful. The programming style of ggplot is *very* different from the base graphics style. Perhaps the best way to summarize the ggplot approach is that it is builds on top of the organization of the observations inside a data frame and allows you to "map" the variables in your data frame to the "aesthetics" in a plot (shape, position, color, size, etc.).
 
 We will not cover ggplot here, because it is not a necessity for 240 and 241 (though, in our opinion, a proficient R programmer should know how both ggplot *and* base graphics). However, we will re-iterate the advice the ggplot package authors give for those wishing to learn how to use ggplot:
 
@@ -788,7 +826,8 @@ r | Get a random sample from the distribution. | `rnorm()`
 
 These functions are each demonstrated in the following sub-sections using the normal distribution. In these examples, consider that IQ scores are meant to be normally distributed with a mean of 100 and a standard deviation of 15:
 
-<img src="statistics_files/figure-html/IQ histogram with curve-1.png" width="672" style="display: block; margin: auto;" />
+
+\begin{center}\includegraphics{statistics_files/figure-latex/IQ histogram with curve-1} \end{center}
 
 #### Getting Densities
 
@@ -796,8 +835,11 @@ The functions for getting the probability density associated with a point on the
 
 
 ```r
-hist(rnorm(10000, mean=100, sd=15), freq=FALSE, ylim=c(0, .03), xlab='', main='IQ Scores')
-points(x=seq(40, 160, .001), y=dnorm(seq(40, 160, .001), mean=100, sd=15), type='l', col='red')
+hist(rnorm(10000, mean=100, sd=15), freq=FALSE,
+     ylim=c(0, .03), xlab='', main='IQ Scores')
+points(x=seq(40, 160, .001),
+       y=dnorm(seq(40, 160, .001), mean=100, sd=15),
+       type='l', col='red')
 ```
 
 Note that the input to `dnorm()` was a sequence of values from 40 to 160, by steps of .001. The output was the probability density for each value in the sequence. These values were then used to create a continuous curve that was added to the histogram of the data, in which the argument `freq=FALSE` ensured that the y-axis denoted probability densities instead of counts. A more detailed tutorial is provided [here](https://homepage.divms.uiowa.edu/~luke/classes/STAT4580/histdens.html).
@@ -875,14 +917,14 @@ rnorm(50, mean=100, sd=15)
 ```
 
 ```
-##  [1] 143.81032 103.57538 102.29086 102.22452 112.02145  99.78281 102.63584
-##  [8]  94.17262 118.28936 117.46267  72.80432 114.59053  81.88941 109.46511
-## [15]  86.72583  94.64747  84.68890  83.99114 114.76639 101.19664 105.50725
-## [22] 111.57709 106.53852  74.31757 119.21110  87.78338 113.03931  73.49925
-## [29]  94.98636 107.62382 111.68477  88.69246 114.87322  80.46305  90.47666
-## [36] 106.53919 109.72513  87.85876  90.68982  72.86363 117.58975 102.03528
-## [43] 100.33919 100.55813  92.32450  97.28823 118.83622 113.98039 119.05917
-## [50] 123.83376
+##  [1]  89.81402  88.30404 102.03326 134.73196 116.00185 107.24395  83.55036
+##  [8] 101.76820 113.43654  72.32327  90.04465  90.72219  92.18293  86.88732
+## [15] 116.71990 128.33724 100.27873 113.89936  99.14543 105.86220 103.74827
+## [22]  99.65415  73.70314  86.52523 110.87850 104.62925 104.40762  81.62521
+## [29]  70.12503  92.47490  94.48980 105.79239 111.83618 120.69841  92.34982
+## [36]  89.39371 116.05776 102.60141  92.08796  95.58895 109.31635 116.68597
+## [43] 105.47576  87.72715 101.96032 106.70880 107.90183 100.25704  81.40165
+## [50]  97.40004
 ```
 
 #### Running Statistical Tests by Hand
@@ -920,7 +962,7 @@ qnorm(.975)
 
 The z-score of an IQ of 135 is greater than the critical z-score for the upper tail, so we can reject the null hypothesis. Note that for a one-tailed hypothesis, simply use one call to `qnorm()` with .05 or .95 for the lower or upper tail, respectively.
 
-Alternatively, you could find the probability of getting a z-score that if equal to the test score or more extreme (in this case, more positive), and compare that to the alpha value instead of the critical z-score:
+Alternatively, you could find the probability of getting a z-score that is equal to the test score or more extreme (in this case, more positive), and compare that to the alpha value instead of the critical z-score:
 
 
 ```r
@@ -978,7 +1020,7 @@ CI_lower
 ```
 
 ```
-## [1] 99.44623
+## [1] 97.53625
 ```
 
 ```r
@@ -988,7 +1030,7 @@ CI_upper
 ```
 
 ```
-## [1] 105.1537
+## [1] 103.3767
 ```
 
 The confidence interval ranges from 98.41 to 104.88, suggesting that if this experiment had been repeated over and over an infinite number of times, the true population mean would be within that range 95% of the time.
@@ -1051,7 +1093,7 @@ t.test(sat.act$SATV, mu=600)
 ##  612.2343
 ```
 
-The p-value is 0.004, so we can reject the null hypothesis that the average verbal SAT score is 600. Instead, it appears to be significantly higher.
+The p-value is 0.004, so we can reject the null hypothesis that the average verbal SAT score is 600. Instead, it appears to be higher.
 
 #### Paired t-tests
 
@@ -1133,7 +1175,7 @@ t.test(sat.act$SATQ[sat.act$gender==1], sat.act$SATQ[sat.act$gender==2], paired=
 ##  635.8735  595.9955
 ```
 
-The p-value is approximately .00002, so we can reject the null hypothesis that male and female students report essentially the same quantitative SAT scores. Instead, the mean score for males appears to be significantly higher.
+The p-value is approximately .00002, so we can reject the null hypothesis that male and female students report essentially the same quantitative SAT scores. Instead, the mean score for males appears to be higher.
 
 Note that the default value for the `paired` argument is `FALSE`, so running the above call with the `paired` argument omitted would produce the same result. However, you might want to encourage students to always specify the argument for a t-test with two samples so that they can be sure they are running the intended test.
 
@@ -1454,15 +1496,17 @@ sessionInfo()
 
 ```
 ## R version 3.5.1 (2018-07-02)
-## Platform: x86_64-apple-darwin15.6.0 (64-bit)
-## Running under: macOS  10.14.5
+## Platform: x86_64-w64-mingw32/x64 (64-bit)
+## Running under: Windows 7 x64 (build 7601) Service Pack 1
 ## 
 ## Matrix products: default
-## BLAS: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRblas.0.dylib
-## LAPACK: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRlapack.dylib
 ## 
 ## locale:
-## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## [1] LC_COLLATE=English_United States.1252 
+## [2] LC_CTYPE=English_United States.1252   
+## [3] LC_MONETARY=English_United States.1252
+## [4] LC_NUMERIC=C                          
+## [5] LC_TIME=English_United States.1252    
 ## 
 ## attached base packages:
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
@@ -1473,8 +1517,7 @@ sessionInfo()
 ## loaded via a namespace (and not attached):
 ##  [1] Rcpp_1.0.1      bookdown_0.11   lattice_0.20-35 packrat_0.4.9-3
 ##  [5] digest_0.6.19   grid_3.5.1      nlme_3.1-137    magrittr_1.5   
-##  [9] evaluate_0.14   highr_0.7       stringi_1.4.3   rmarkdown_1.13 
-## [13] tools_3.5.1     foreign_0.8-70  stringr_1.3.1   xfun_0.6       
-## [17] parallel_3.5.1  compiler_3.5.1  mnormt_1.5-5    htmltools_0.3.6
-## [21] knitr_1.22
+##  [9] evaluate_0.14   stringi_1.4.3   rmarkdown_1.13  tools_3.5.1    
+## [13] foreign_0.8-70  stringr_1.3.1   xfun_0.6        parallel_3.5.1 
+## [17] compiler_3.5.1  mnormt_1.5-5    htmltools_0.3.6 knitr_1.22
 ```

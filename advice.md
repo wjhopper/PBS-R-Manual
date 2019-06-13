@@ -6,7 +6,7 @@
 
 ### Commands vs. Buttons
 
-Though we strongly encourage you to use R through R Studio, we also encourage you and your students to rely on commands instead of button presses where possible. For instance, it is possible to save plots by exporting them from the Plots pane in R Studio, but it is also possible to save them with commands such as `pdf()` or `png()`. There are several benefits to prioritizing commands over button presses. First, it has the practical effect of reinforcing a command-line approach to programming your analyses, which may be new for you and is very likely new for your students. Second, and perhaps more importantly, it encourages reproduceability. If your students document all of the actions that they took in completing an assignment by having a command for each one, it will be easier for you to make sure that they did everything on their own, correct their habits where needed, and find the source of an error. It will also help you to reproduce your own work from semester to semester if your assignments are coded in R.
+Though we strongly encourage you to use R through R Studio, we also encourage you and your students to rely on commands instead of button presses where possible. For instance, it is possible to save plots by exporting them from the Plots pane in R Studio, but it is also possible to save them with commands such as `pdf()` or `png()`. There are several benefits to prioritizing commands over button presses. First, it has the practical effect of reinforcing a command-line approach to programming your analyses, which may be new for you and is very likely new for your students. Second, and perhaps more importantly, it encourages reproducibility. If your students document all of the actions that they took in completing an assignment by having a command for each one, it will be easier for you to make sure that they did everything on their own, correct their habits where needed, and find the source of an error. It will also help you to reproduce your own work from semester to semester if your assignments are coded in R.
 
 ### Naming Objects
 
@@ -18,9 +18,9 @@ Regardless of the convention, it is also important to choose object names that a
 
 ### Scripting
 
-More than just a collection of commands, the script is an excellent tool for both both reproduceability and documentation of an analysis. It is therefore worthwhile to teach students good habits for writing scripts.
+More than just a collection of commands, the script is an excellent tool for both both reproducibility and documentation of an analysis. It is therefore worthwhile to teach students good habits for writing scripts.
 
-First and foremost, scripts should include *all of the commands that you need to conduct an analysis, and none of the commands that you don't*. That is, you should be able to run all of the lines in a script in order and get the same result each time (with the obvious exception of things like drawing random samples). To that end, all the commands necessary for an analysis should be in the proper sequence, and dny commands that are not necessary for the analysis but kept for posterity should be "commented out" by adding the `#` symbol at the start of the line.
+First and foremost, scripts should include *all of the commands that you need to conduct an analysis, and none of the commands that you don't*. That is, you should be able to run all of the lines in a script in order and get the same result each time (with the obvious exception of things like drawing random samples). To that end, all the commands necessary for an analysis should be in the proper sequence, and deny commands that are not necessary for the analysis but kept for posterity should be "commented out" by adding the `#` symbol at the start of the line.
 
 Second, scripts should be well-documented. Recall that you can add comments to any line by preceding the comment with the `#` symbol. Comments are an efficient way to explain to someone unfamiliar with the script what the intention is for each section of code. Ample documentation is not only a good programming habit to teach your students, it will also likely be very useful in helping you decipher their code.
 
@@ -72,16 +72,16 @@ R cannot interpret part of the command, likely because the user has forgotten a 
 
 ## Data Sets
 
-This section includes an overview of useful data sets for in-class demonstrations or assignments. The first section includes data sets that are "built-in" as part of the base R `datasets` package, whereas the remaining sections review data sets from other packages that need to be installed. 
+This section includes an overview of some selected data sets that may be useful for in-class demonstrations or assignments. The first section includes data sets that are "built-in" as part of the base R `datasets` package, whereas the remaining sections review data sets from other selected packages that need to be installed. Of course, this list is non-exhaustive. The packages used here have more data sets than those we have chosen to highlight, and there are many more interesting data sets in other packages we have not highlighted. So, feel free to explore more options.
 
-Note that each package has many more data sets than those we have chosen to highlight here. To see all of the data sets available to you at any given time, including those are built-in with base R or part of loaded packages, enter the following command:
+To see all of the data sets available from all *loaded* packages, including those are built-in with base R o, enter the following command:
 
 
 ```r
 data()
 ```
 
-You should see a list of all the available data sets with a brief summary of each, separated by the package they belong to.
+You should see a list of all the available data sets with a brief summary of each, separated by the package they belong to. To see a list of datsets in *all* installed packages (loaded or not), run the command `data(package = .packages(all.available = TRUE))`.
 
 ### How to Handle `NA` Values
 
@@ -266,6 +266,8 @@ Now all missing quantitative SAT scores will be treated as a 0 in future mathema
 
 There are several small data sets included in base R that are useful for quick demos. Since they are part of base R, it is not necessary to load these packages; just type and enter their name in the console to view them.
 
+Note that the descriptions and summary statistics shown for each dataset were computed using the `skim()` function from the `skimr` pacakge.
+
 #### iris
 
 The `iris` data set gives the lengths and widths of the sepals and petals of 50 irises from each of three different species:
@@ -276,11 +278,11 @@ The `iris` data set gives the lengths and widths of the sepals and petals of 50 
 ##  n obs: 150 
 ##  n variables: 5 
 ## 
-## ── Variable type:factor ────────────────────────────────────
+## -- Variable type:factor --------------
 ##  variable missing   n n_unique                       top_counts
 ##   Species       0 150        3 set: 50, ver: 50, vir: 50, NA: 0
 ## 
-## ── Variable type:numeric ───────────────────────────────────
+## -- Variable type:numeric -------------
 ##      variable missing   n mean   sd     hist
 ##  Petal.Length       0 150 3.76 1.77 ▇▁▁▂▅▅▃▁
 ##   Petal.Width       0 150 1.2  0.76 ▇▁▁▅▃▃▂▂
@@ -298,12 +300,12 @@ The `warpbreaks` data set gives the number of breaks in each of 54 looms of yarn
 ##  n obs: 54 
 ##  n variables: 3 
 ## 
-## ── Variable type:factor ────────────────────────────────────
+## -- Variable type:factor --------------
 ##  variable missing  n n_unique                 top_counts
 ##   tension       0 54        3 L: 18, M: 18, H: 18, NA: 0
 ##      wool       0 54        2        A: 27, B: 27, NA: 0
 ## 
-## ── Variable type:numeric ───────────────────────────────────
+## -- Variable type:numeric -------------
 ##  variable missing  n  mean   sd     hist
 ##    breaks       0 54 28.15 13.2 ▆▇▇▂▂▂▁▁
 ```
@@ -318,7 +320,7 @@ The `mtcars` data set gives a range of numeric and categorical measurements of 3
 ##  n obs: 32 
 ##  n variables: 11 
 ## 
-## ── Variable type:numeric ───────────────────────────────────
+## -- Variable type:numeric -------------
 ##  variable missing  n   mean     sd     hist
 ##        am       0 32   0.41   0.5  ▇▁▁▁▁▁▁▆
 ##      carb       0 32   2.81   1.62 ▆▇▂▇▁▁▁▁
@@ -343,11 +345,11 @@ The `ToothGrowth` data set gives the tooth lengths of 60 guinea pigs, varied acr
 ##  n obs: 60 
 ##  n variables: 3 
 ## 
-## ── Variable type:factor ────────────────────────────────────
+## -- Variable type:factor --------------
 ##  variable missing  n n_unique            top_counts
 ##      supp       0 60        2 OJ: 30, VC: 30, NA: 0
 ## 
-## ── Variable type:numeric ───────────────────────────────────
+## -- Variable type:numeric -------------
 ##  variable missing  n  mean   sd     hist
 ##      dose       0 60  1.17 0.63 ▇▁▇▁▁▁▁▇
 ##       len       0 60 18.81 7.65 ▃▅▃▅▃▇▂▂
@@ -375,7 +377,7 @@ The `bechdel` data set is a great all-purpose data set with both within- and bet
 ##  n obs: 1794 
 ##  n variables: 15 
 ## 
-## ── Variable type:character ─────────────────────────────────
+## -- Variable type:character -----------
 ##  variable missing    n min max empty n_unique
 ##    binary       0 1794   4   4     0        2
 ##      code       0 1794   8   8     0       85
@@ -383,11 +385,11 @@ The `bechdel` data set is a great all-purpose data set with both within- and bet
 ##      test       0 1794   2  16     0       10
 ##     title       0 1794   1  83     0     1768
 ## 
-## ── Variable type:factor ────────────────────────────────────
+## -- Variable type:factor --------------
 ##    variable missing    n n_unique                            top_counts
 ##  clean_test       0 1794        5 ok: 803, not: 514, men: 194, dub: 142
 ## 
-## ── Variable type:integer ───────────────────────────────────
+## -- Variable type:integer -------------
 ##     variable missing    n       mean      sd     hist
 ##       budget       0 1794    4.5e+07 4.8e+07 ▇▂▁▁▁▁▁▁
 ##  budget_2013       0 1794    5.5e+07 5.5e+07 ▇▃▁▁▁▁▁▁
@@ -395,7 +397,7 @@ The `bechdel` data set is a great all-purpose data set with both within- and bet
 ##  period_code     179 1794    2.42    1.19    ▇▇▁▆▁▅▁▂
 ##         year       0 1794 2002.55    8.98    ▁▁▁▁▂▅▅▇
 ## 
-## ── Variable type:numeric ───────────────────────────────────
+## -- Variable type:numeric -------------
 ##       variable missing    n        mean          sd     hist
 ##       domgross      17 1794     6.9e+07 8e+07       ▇▂▁▁▁▁▁▁
 ##  domgross_2013      18 1794     9.5e+07     1.3e+08 ▇▁▁▁▁▁▁▁
@@ -413,11 +415,11 @@ The `fandango` data set shows ratings from 146 movies across the Fandango, IMDB,
 ##  n obs: 146 
 ##  n variables: 23 
 ## 
-## ── Variable type:character ─────────────────────────────────
+## -- Variable type:character -----------
 ##  variable missing   n min max empty n_unique
 ##      film       0 146   3  63     0      146
 ## 
-## ── Variable type:integer ───────────────────────────────────
+## -- Variable type:integer -------------
 ##                    variable missing   n     mean       sd     hist
 ##              fandango_votes       0 146  3848.79  6357.78 ▇▂▁▁▁▁▁▁
 ##        imdb_user_vote_count       0 146 42846.21 67406.51 ▇▂▁▁▁▁▁▁
@@ -426,7 +428,7 @@ The `fandango` data set shows ratings from 146 movies across the Fandango, IMDB,
 ##              rottentomatoes       0 146    60.85    30.17 ▃▃▂▃▃▂▅▇
 ##         rottentomatoes_user       0 146    63.88    20.02 ▃▃▃▆▅▅▇▇
 ## 
-## ── Variable type:numeric ───────────────────────────────────
+## -- Variable type:numeric -------------
 ##                    variable missing   n    mean   sd     hist
 ##         fandango_difference       0 146    0.24 0.15 ▃▇▁▆▇▁▇▃
 ##        fandango_ratingvalue       0 146    3.85 0.5  ▂▃▃▇▇▇▇▂
@@ -456,14 +458,14 @@ The `comma_survey` data set has Likert ratings as well as demographic informatio
 ##  n obs: 1129 
 ##  n variables: 13 
 ## 
-## ── Variable type:character ─────────────────────────────────
+## -- Variable type:character -----------
 ##              variable missing    n min max empty n_unique
 ##                gender      92 1129   4   6     0        2
 ##              location     102 1129   7  18     0        9
 ##  more_grammar_correct       0 1129  57  58     0        2
 ##       write_following      36 1129  76  77     0        2
 ## 
-## ── Variable type:factor ────────────────────────────────────
+## -- Variable type:factor --------------
 ##             variable missing    n n_unique
 ##                  age      92 1129        4
 ##            care_data      38 1129        4
@@ -479,12 +481,12 @@ The `comma_survey` data set has Likert ratings as well as demographic informatio
 ##   Bac: 344, Som: 295, Gra: 276, NA: 103
 ##   NA: 293, $50: 290, $10: 164, $25: 158
 ## 
-## ── Variable type:logical ───────────────────────────────────
+## -- Variable type:logical -------------
 ##              variable missing    n mean                      count
 ##  data_singular_plural      38 1129  0.5 FAL: 547, TRU: 544, NA: 38
 ##    heard_oxford_comma      30 1129  0.6 TRU: 655, FAL: 444, NA: 30
 ## 
-## ── Variable type:numeric ───────────────────────────────────
+## -- Variable type:numeric -------------
 ##       variable missing    n    mean         sd     hist
 ##  respondent_id       0 1129 3.3e+09 1072966.47 ▇▃▇▇▆▂▁▂
 ```
@@ -499,7 +501,7 @@ The `avengers` data set includes the death and revival status for 173 Marvel com
 ##  n obs: 173 
 ##  n variables: 21 
 ## 
-## ── Variable type:character ─────────────────────────────────
+## -- Variable type:character -----------
 ##                     variable missing   n min max empty n_unique
 ##  full_reserve_avengers_intro      14 173   5   6     0       93
 ##                       gender       0 173   4   6     0        2
@@ -509,13 +511,13 @@ The `avengers` data set includes the death and revival status for 173 Marvel com
 ##           probationary_intro     158 173   6   6     0       12
 ##                          url       0 173  36  67     0      173
 ## 
-## ── Variable type:integer ───────────────────────────────────
+## -- Variable type:integer -------------
 ##             variable missing   n    mean     sd     hist
 ##          appearances       0 173  414.05 677.99 ▇▁▁▁▁▁▁▁
 ##                 year       0 173 1988.45  30.37 ▂▁▁▁▂▂▃▇
 ##  years_since_joining       0 173   26.55  30.37 ▇▃▂▂▁▁▁▂
 ## 
-## ── Variable type:logical ───────────────────────────────────
+## -- Variable type:logical -------------
 ##  variable missing   n mean                     count
 ##   current       0 173 0.47   FAL: 91, TRU: 82, NA: 0
 ##    death1       0 173 0.4   FAL: 104, TRU: 69, NA: 0
@@ -540,12 +542,12 @@ The `bob_ross` data set is a great tool for demonstrating count data and tables.
 ##  n obs: 403 
 ##  n variables: 71 
 ## 
-## ── Variable type:character ─────────────────────────────────
+## -- Variable type:character -----------
 ##  variable missing   n min max empty n_unique
 ##   episode       0 403   6   6     0      403
 ##     title       0 403   8  27     0      401
 ## 
-## ── Variable type:integer ───────────────────────────────────
+## -- Variable type:integer -------------
 ##            variable missing   n   mean    sd     hist
 ##         apple_frame       0 403 0.0025 0.05  ▇▁▁▁▁▁▁▁
 ##     aurora_borealis       0 403 0.005  0.07  ▇▁▁▁▁▁▁▁
@@ -615,7 +617,7 @@ The `bob_ross` data set is a great tool for demonstrating count data and tables.
 ##              winter       0 403 0.17   0.38  ▇▁▁▁▁▁▁▂
 ##         wood_framed       0 403 0.0025 0.05  ▇▁▁▁▁▁▁▁
 ## 
-## ── Variable type:numeric ───────────────────────────────────
+## -- Variable type:numeric -------------
 ##     variable missing   n mean   sd     hist
 ##  episode_num       0 403    7 3.75 ▇▇▃▇▃▇▃▇
 ##       season       0 403   16 8.96 ▇▇▇▇▆▇▇▇
@@ -643,7 +645,7 @@ The `Tal.Or` data set is from Study 2 of Tol-Or, Cohen, Tasfati, & Gunther (2010
 ##  n obs: 123 
 ##  n variables: 6 
 ## 
-## ── Variable type:numeric ───────────────────────────────────
+## -- Variable type:numeric -------------
 ##  variable missing   n  mean   sd     hist
 ##       age       0 123 24.63 5.8  ▇▇▁▁▁▁▁▁
 ##      cond       0 123  0.47 0.5  ▇▁▁▁▁▁▁▇
@@ -663,16 +665,16 @@ The `affect` data set consists of responses from 330 participants to state and t
 ##  n obs: 330 
 ##  n variables: 20 
 ## 
-## ── Variable type:factor ────────────────────────────────────
+## -- Variable type:factor --------------
 ##  variable missing   n n_unique                top_counts
 ##     Study       0 330        2 fla: 170, map: 160, NA: 0
 ## 
-## ── Variable type:integer ───────────────────────────────────
+## -- Variable type:integer -------------
 ##  variable missing   n  mean    sd     hist
 ##      Film       0 330  2.52  1.13 ▇▁▇▁▁▇▁▇
 ##       MEQ     160 330 39.36 10.28 ▂▃▆▇▇▆▂▁
 ## 
-## ── Variable type:numeric ───────────────────────────────────
+## -- Variable type:numeric -------------
 ##  variable missing   n  mean    sd     hist
 ##       BDI     170 330  0.31  0.28 ▇▆▅▁▁▁▁▁
 ##       EA1       0 330  9.19  7.11 ▇▆▃▅▃▂▂▁
@@ -703,7 +705,7 @@ The `epi` data set includes responses to the Eysenck Personality Inventory from 
 ##  n obs: 3570 
 ##  n variables: 57 
 ## 
-## ── Variable type:integer ───────────────────────────────────
+## -- Variable type:integer -------------
 ##  variable missing    n mean   sd     hist
 ##        V1     296 3570 1.28 0.45 ▇▁▁▁▁▁▁▃
 ##       V10      64 3570 1.86 0.35 ▁▁▁▁▁▁▁▇
@@ -774,7 +776,7 @@ The `sat.act` data set includes self-reported SAT and ACT scores along with demo
 ##  n obs: 700 
 ##  n variables: 6 
 ## 
-## ── Variable type:integer ───────────────────────────────────
+## -- Variable type:integer -------------
 ##   variable missing   n   mean     sd     hist
 ##        ACT       0 700  28.55   4.82 ▁▁▁▁▃▅▇▇
 ##        age       0 700  25.59   9.5  ▇▇▂▂▁▁▁▁
@@ -799,7 +801,7 @@ sim_income <- rnorm(n=1000, mean=50000, sd=5000)
 hist(sim_income)
 ```
 
-<img src="advice_files/figure-html/numeric sample demo-1.png" width="672" />
+![](advice_files/figure-latex/numeric sample demo-1.pdf)<!-- --> 
 
 To demonstrate how to simulate a categorical variable, the following code simulates grades for 50 students in a pass/fail course in which there is a 50% chance of passing in the population:
 
@@ -810,7 +812,7 @@ sim_grades <- factor(sim_grades, levels=0:1, labels=c('FAIL', 'PASS'))
 barplot(table(sim_grades))
 ```
 
-<img src="advice_files/figure-html/categorical sample demo-1.png" width="672" />
+![](advice_files/figure-latex/categorical sample demo-1.pdf)<!-- --> 
 
 Other potentially useful "population" distributions include `rbeta()`, `rbinom()`, `rchisq()`, `rexp()`, `rf()`, `rgamma()`, `rlogis()`, `rlnorm()`, `rpois()`, `rt()`, and `runif()`. A full list can be found [here](https://en.wikibooks.org/wiki/R_Programming/Probability_Distributions). See the help documentation for each to see which parameter values can be specified.
 
@@ -823,15 +825,17 @@ sessionInfo()
 
 ```
 ## R version 3.5.1 (2018-07-02)
-## Platform: x86_64-apple-darwin15.6.0 (64-bit)
-## Running under: macOS  10.14.5
+## Platform: x86_64-w64-mingw32/x64 (64-bit)
+## Running under: Windows 7 x64 (build 7601) Service Pack 1
 ## 
 ## Matrix products: default
-## BLAS: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRblas.0.dylib
-## LAPACK: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRlapack.dylib
 ## 
 ## locale:
-## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## [1] LC_COLLATE=English_United States.1252 
+## [2] LC_CTYPE=English_United States.1252   
+## [3] LC_MONETARY=English_United States.1252
+## [4] LC_NUMERIC=C                          
+## [5] LC_TIME=English_United States.1252    
 ## 
 ## attached base packages:
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
