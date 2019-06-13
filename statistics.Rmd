@@ -48,7 +48,7 @@ The above formula is an example of an "additive" model, in which ACT scores are 
 
 ```sat.act$ACT ~ sat.act$age*sat.act$education```
 
-Note that the above formula defines the *full* interactive model, so ACT scores are defined as a function of (1) the main effect of age, (2) the main effect of education, and (3) the interaction of age and education. This same model can be implemented by defining each components separately in the formula object, like this:
+Note that the above formula defines the *full* interactive model, so ACT scores are defined as a function of (1) the main effect of age, (2) the main effect of education, and (3) the interaction of age and education. This same model can be implemented by defining each component separately in the formula object, like this:
 
 ```sat.act$ACT ~ sat.act$age + sat.act$education + sat.act$age:sat.act$education```
 
@@ -303,7 +303,7 @@ Note that additional techniques exist for summarizing data with multiple descrip
 
 ## Plotting
 
-One of the most compelling reason to learn and use is because it includes highly flexible and powerful tools for visualizing many kinds of data. After all, if a single tool can perform your analyses and create your figures, why not use the "one ring to rule them all"?
+One of the most compelling reason to learn and use R is because it includes highly flexible and powerful tools for visualizing many kinds of data. After all, if a single tool can perform your analyses and create your figures, why not use the "one ring to rule them all"?
 
 Many visualizations can be created using the `plot()` function, so we'll begin our introduction using that function. As you'll soon see, the `plot()` function accepts many arguments, as there are many ways to customize a plot. Many of the other visualization tools in R accept similar arguments. So, if `plot()` accepts an argument, there is a fair chance another function will accept it as well.
 
@@ -325,7 +325,7 @@ plot(sat.act$SATV, sat.act$SATQ,
 ```
 
 #### Linetypes, Symbols, and Colors
-You can customize the scatterplot to draw lines between the points, or just draw lines without the point symbols with the `type` argument. This is not a sensible thing to do for these data, but we demonstrate it anyway for completeness.
+You can customize the scatterplot to draw lines between the points, or just draw lines without the point symbols with the `type` argument. **This is not a sensible thing to do for these data**, but we demonstrate it anyway for completeness.
 
 ```{r lines, fig.cap=c("Points and lines with type='o'", "Just using lines with type='l'")}
 # Lines and points
@@ -351,7 +351,7 @@ Note that if you supply a character instead of a numeric values between 0 and 25
 
 The `lty` argument has a bit more flexibility. Line types can either be specified as an integer (0=blank, 1=solid (default), 2=dashed, 3=dotted, 4=dotdash, 5=longdash, 6=twodash) or as one of the character strings "blank", "solid", "dashed", "dotted", "dotdash", "longdash", or "twodash".
 
-The `col` argument accepts character string describing either a "built in" color name (see `?colors` for a list) or an RGB triplet encoded in hexadecimal notation. Unless you are intimately familiar with RGB color space, it's a good idea to use a tool like the [W3 Organizations Online Color Picker](https://www.w3schools.com/colors/colors_picker.asp) to help you figure out the RGB hex code for the color you want.
+The `col` argument accepts character strings describing either a "built in" color name (see `?colors` for a list) or an RGB triplet encoded in hexadecimal notation. Unless you are intimately familiar with RGB color space, it's a good idea to use a tool like the [W3 Organizations Online Color Picker](https://www.w3schools.com/colors/colors_picker.asp) to help you figure out the RGB hex code for the color you want.
 
 To demonstrate, lets take our original plot (with no lines) and customize it to use unfilled, magenta triangles:
 ```{r pch_and_col}
@@ -410,11 +410,14 @@ legend(x=200, y=800,
 #### Adding a regression line
 It is often useful to summarize the linear relationship between variables shown in a scatterplot. It is easy to add the "line of best fit" from a linear regression to your scatter plot using the `lm` function (short for "linear model) and the `abline` function (used for drawing straight lines).
 
-The `lm` function performs regression analysis based on the [formula](#formula-objects) you specify. If you intended on adding the regression line to your scatterplot, we recommend you use the same formula to specify your plot, which the `plot` function is more than capable of understanding. The basic steps are:
+The `lm` function performs regression analysis based on the [formula](#formula-objects) you specify. If you intend on adding the regression line to your scatterplot, we recommend you use the formula interface to the `plot()` function. Instead of using an `x` vector and a `y` vector, you can provide a formula of the form `y ~ x`, and the name of the data frame containing your vaiable, just like when using the `lm` function.
+In this case, you would use the same formula to specify your plot that you use to specify your regression model. Remember of course, that the response variable (i.e., the y variable) goes first in the formula, not second as it would if you were providing two separate vectors.
+
+To summarise, the basic steps are:
 
 1. Perform your linear regression with `lm`, and save the output to a variable
-2. Create your scatterplot using the same formula specification
-3. Prove the `lm` object you saved in Step #1 to the `abline` function.
+2. Create your scatterplot using the same formula specification as in your linear model from Step 1.
+3. Provide the `lm` object you saved in Step #1 to the `abline` function
 4. Marvel at your wonderful new plot
 
 ```{r abline plot}
@@ -434,7 +437,8 @@ The `hist` function works with a vector of numeric values, and breaks this vecto
 
 ```{r hist}
 hist(sat.act$ACT, breaks = 30)
-hist(sat.act$ACT, breaks = seq(0, max(sat.act$ACT), by=2))
+bin_boundaries <- seq(0, max(sat.act$ACT), by=2) # from 0 to 36 by 2's
+hist(sat.act$ACT, breaks = bin_boundaries)
 ```
 
 If you want proportions instead of counts, set the `freq` argument to false. You can also use the same `xlab`, `ylab`, and `main` arguments we used with `plot` to get more informative titles/
@@ -450,14 +454,14 @@ Box plots are a good way to present the shape of distribution of samples from se
 
 If your to-be-plotted data is in a data frame, the best way to instruct the `boxplot` function what variables should be plotted is using a [formula](#formula-objects). If they are not in a data frame, you can provide each to-be-plotted variable as a separate vector. Here, we'll demonstrate the formula interface by plotting the SAT Verbal scores for respondents with education levels. Remember, when using the formula interface, you also have to tell the `boxplot` function what data frame to look for the variables in!
 
-```{r boxplot}
+```{r boxplot, fig.width=9}
 boxplot(SATV ~ education, data=sat.act,
         names=c("< High School", "High School", "Some College",
                 "2 Yr. College", "4 Yr. College", "Grad. Work"),
         ylab="SAT Verbal Score", xlab="Education")
 ```
 
-Note the use of the `names` argument to override the labels on each X axis point.
+Note the use of the `names` argument to override the labels on each X axis point. Depending on how long the names of each variable are, some variable names might be ommitted from the axis labels, in order to prevent having overlapping characters obscuring the names. This can usually be be remedied by re-sizing the plot window to be larger, so that all the names can fit in. 
 
 ### Bar plots
 Bar plots are used to visualize single summary statistics, like the mean or median across groups. We can create a bar plot in R using the `barplot` function. We'll demonstrate this by plotting the mean SAT Verbal score for males and females. The to-be-plotted value should be specified in a vector or matrix, with one element for each bar you want plotted
@@ -550,9 +554,12 @@ points(x=seq(40, 160, .001), y=dnorm(seq(40, 160, .001), mean=100, sd=15), type=
 
 The functions for getting the probability density associated with a point on the x-axis, such as `dnorm()` in the case of the normal distribution, are unlikely to come up in class. However, they may be useful for generating figures such as the one above, which was created with the following code:
 
-```{r IQ code for histogram with curve, eval=FALSE}
-hist(rnorm(10000, mean=100, sd=15), freq=FALSE, ylim=c(0, .03), xlab='', main='IQ Scores')
-points(x=seq(40, 160, .001), y=dnorm(seq(40, 160, .001), mean=100, sd=15), type='l', col='red')
+```{r IQ code for histogram with curve, eval=FALSE, tidy.opts=list(width.cutoff=30)}
+hist(rnorm(10000, mean=100, sd=15), freq=FALSE,
+     ylim=c(0, .03), xlab='', main='IQ Scores')
+points(x=seq(40, 160, .001),
+       y=dnorm(seq(40, 160, .001), mean=100, sd=15),
+       type='l', col='red')
 ```
 
 Note that the input to `dnorm()` was a sequence of values from 40 to 160, by steps of .001. The output was the probability density for each value in the sequence. These values were then used to create a continuous curve that was added to the histogram of the data, in which the argument `freq=FALSE` ensured that the y-axis denoted probability densities instead of counts. A more detailed tutorial is provided [here](https://homepage.divms.uiowa.edu/~luke/classes/STAT4580/histdens.html).
@@ -621,7 +628,7 @@ qnorm(.975)
 
 The z-score of an IQ of 135 is greater than the critical z-score for the upper tail, so we can reject the null hypothesis. Note that for a one-tailed hypothesis, simply use one call to `qnorm()` with .05 or .95 for the lower or upper tail, respectively.
 
-Alternatively, you could find the probability of getting a z-score that if equal to the test score or more extreme (in this case, more positive), and compare that to the alpha value instead of the critical z-score:
+Alternatively, you could find the probability of getting a z-score that is equal to the test score or more extreme (in this case, more positive), and compare that to the alpha value instead of the critical z-score:
 
 ```{r z-score probability}
 IQ135_z_prob <- 1-pnorm(IQ135_z)
@@ -717,7 +724,7 @@ If we wanted to instead see if the average verbal SAT score was different from 6
 t.test(sat.act$SATV, mu=600)
 ```
 
-The p-value is 0.004, so we can reject the null hypothesis that the average verbal SAT score is 600. Instead, it appears to be significantly higher.
+The p-value is 0.004, so we can reject the null hypothesis that the average verbal SAT score is 600. Instead, it appears to be higher.
 
 #### Paired t-tests
 
@@ -758,7 +765,7 @@ The function call is very similar to the second method for conducting a paired t
 t.test(sat.act$SATQ[sat.act$gender==1], sat.act$SATQ[sat.act$gender==2], paired=FALSE)
 ```
 
-The p-value is approximately .00002, so we can reject the null hypothesis that male and female students report essentially the same quantitative SAT scores. Instead, the mean score for males appears to be significantly higher.
+The p-value is approximately .00002, so we can reject the null hypothesis that male and female students report essentially the same quantitative SAT scores. Instead, the mean score for males appears to be higher.
 
 Note that the default value for the `paired` argument is `FALSE`, so running the above call with the `paired` argument omitted would produce the same result. However, you might want to encourage students to always specify the argument for a t-test with two samples so that they can be sure they are running the intended test.
 
