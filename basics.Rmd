@@ -21,7 +21,7 @@ R has several special numeric values. `Inf` and `-Inf` are used to represent pos
 Just as in mathematics, the integer class can only represent whole numbers, e.g., 6. However, if you type `6` into the R console, R will not use the integer class to represent the 6. As mentioned just above, R will use the numeric data type to represent the 6. If you want to *force* R to use the integer class, you must terminate the number with an upper-case L, e.g., `2L`. In practice, it usually makes little difference whether you use the integer class or the numeric class to represent whole numbers, so sticking with the default class of numeric is safe to do.
 
 ### The Logical Class {#logicals}
-Logical data can only take on 2 possible values: TRUE (1) or FALSE (0). This type of datum is used to represent whether some state exists (is true) or does not exist (is false). TRUE and FALSE **must be uppercase**. They *can* can be abbreviated as T and F, but it is not recommended because while the names `T` and `F` can be over-written with non-logical values, `TRUE` and `FALSE` are reserved names that can never be overwritten. Such a restrictive class of data may not seem useful, but play an important role in data manipulation, as they can be used to indicate the presence (or absence) of other data values you are interested in.
+Logical data can only take on 2 possible values: TRUE (1) or FALSE (0). This type of datum is used to represent whether some state exists (is true) or does not exist (is false). TRUE and FALSE **must be uppercase**. They *can* can be abbreviated as T and F, but it is not recommended because while the names `T` and `F` can be over-written with non-logical values, `TRUE` and `FALSE` are reserved names that can never be overwritten. Such a restrictive class of data may not seem useful, but it plays an important role in data manipulation, as it can be used to indicate the presence (or absence) of other data values you are interested in.
 
 You can change a `TRUE` to a `FALSE` (or a `FALSE` to a `TRUE`) by prefixing them with the `!` negation operator.
 
@@ -172,7 +172,7 @@ df <- data.frame(x = c(1,4,4,2),
 df
 ```
 
-This example also shows an extra argument, `stringsAsFactors = FALSE`, that was **not** a variable to store in the data frame. This argument is another way to control how R interprets character vectors (a.k.a. strings) when forming the data frame. Here, using `stringsAsFactors = TRUE` forces R to leave your character vectors as they are when creating the data frame.
+This example also shows an extra argument, `stringsAsFactors = FALSE`, that was **not** a variable to store in the data frame. This argument is another way to control how R interprets character vectors (a.k.a. strings) when forming the data frame. Here, using `stringsAsFactors = FALSE` forces R to leave your character vectors as they are when creating the data frame.
 
 ### Lists
 Lists are the most abstract and flexible data structure in R. Lists can hold any type of R object, but don't impose any relationship between them. You can have a list holding matrices, data frames, vectors, and even lists holding other lists!
@@ -309,13 +309,13 @@ We can see that the `matrix` function has 5 arguments, `data`, `nrow`, `ncol`, `
 
 Lines saying "S3 Method for class ..." tell you about the function's behavior when called on objects of a specific class. For example, this help page tells us that when the `as.matrix` function is called on a data.frame, there is an optional argument called `rownames.force` that isn't used when the input is some other data structure (like a vector). We can safely ignore the cryptic term "S3 Method". 
 
-We will, however, focus on other cryptic parts of the "Usage" section. What is `x`? What is `trim`? What do they do? For clarification, we must go the argument-specific subsections.
+We will, however, focus on other cryptic parts of the "Usage" section. What is `data`? What is `byrow`? What do they do? For clarification, we must go the argument-specific subsections.
 
 ### Arguments
 The detailed descriptions in the argument subsection tell us what types of values each argument is permitted to take on. It also tells us what aspect of the function's behavior each argument controls. For example, the `byrow` argument must be a logical value (i.e., `TRUE` or `FALSE`) and it controls whether the matrix is row-by-row, or column-by-column.
 
 ### Named vs. Unnamed Arguments
-As we see in the "Usage" and "Arguments" sections, every function argument has a name (e.g., `x`, `na.rm`, `trim`). When you call a function, those names can be used in a `keyname = value` style of syntax, or they may be omitted in favor of just specifying the value. 
+As we see in the "Usage" and "Arguments" sections, every function argument has a name (e.g., `data`, `nrow`, `byrow`). When you call a function, those names can be used in a `keyname = value` style of syntax, or they may be omitted in favor of just specifying the value. 
 
 If you wish to omit the names of the arguments when calling a function, **then you must order your inputs in the exact same order as they appear in the `Usage` section!!!**. If you specify arguments as `keyname=value` pairs, they may be passed in any order. If you mix and match named and unnamed, unnamed inputs that R encounters will be paired up with the unmatched arguments following their order in the Usage section.
 
@@ -339,7 +339,7 @@ We would venture to guess the answer to these questions is "No", which makes a s
 In summary, name your arguments.
 
 #### Special Arguments {-}
-You may have noticed that in the "Usage" section, the `as.matrix` and the `is.matrix` functions have an argument called  `...`. In fact, many R functions have such an argument. A full discussion of the `...` construct is beyond the scope of this guide (or the ellipsis, if you're trying to Google it) is beyond the scope of this guide. For our purposes, we can understand it as a special "catch all" device for any parameters inputs that aren't otherwise explicitly declared. The `...` is used to enable argument passing between functions: it allows one function to capture arguments intended for another function, and send them directly to the other function, without ever know what the names of the arguments for the other function. Neat!
+You may have noticed that in the "Usage" section, the `as.matrix` and the `is.matrix` functions have an argument called  `...`. In fact, many R functions have such an argument. A full discussion of the `...` construct (or the ellipsis, if you're trying to Google it) is beyond the scope of this guide. For our purposes, we can understand it as a special "catch all" device for any inputs whose names aren't explicitly declared ahead of time. The `...` is used to enable argument passing between functions: it allows one function to capture arguments intended for another function, and send them directly to the other function, without ever knowing the names of the arguments for the other function. Neat!
 
 #### Examples {-}
 The last section of the `matrix` help page we will look at  is "Examples" sections
@@ -355,7 +355,7 @@ The examples sections demonstrate a simple application of the function. When usi
 The `matrix` function lacks one field in the help file that most R function have - the "Value" field. This section describes what the function outputs, i.e., what it "returns" to the caller. The `matrix` function can get away with omitting this section, because it's return value is fairly obvious - a matrix! But functions with more complicated outputs need to describe what they return in more detail, so the user can understand how to process the output in their own code.
 
 ## Data Manipulation
-Data manipulations describes the processes of editing and re-organizing a set of observations in order to facilitate a subsequent analysis. In this guide, we will cover three main data manipulation processes: indexing, subsetting, and replacement. Since data manipulations typically begins by importing data from a file on your hard drive into R, we will begin this section describing how to import or "read in" 
+Data manipulation describes the processes of editing and re-organizing a set of observations in order to facilitate a subsequent analysis. In this guide, we will cover three main data manipulation processes: indexing, subsetting, and replacement. Since data manipulation typically begins by importing data from a file on your hard drive into R, we will begin this section describing how to import or "read in" 
 
 ### Tidy Data
 It's worth beginning with an outline of a well-formatted data set. 
@@ -374,14 +374,14 @@ Adhering to these principles when you save new data, or manipulate data you have
 #### CSV files {-}
 A CSV file is a type of plain-text document, and is indicated by the .csv file extension. Plain text files consist only of sequences of characters codes, including spaces, tabs, new lines and delimiters. They have no styling associated with them (e.g. no italics or bolding, no images). Files with extensions such as .txt, .R  and .html are plain-text files, while files such as .doc, .docx (Word documents) and .xlsx (Excel documents) are **not** plain text files. We recommend you use plain-text formats for sharing data, because they have the greatest deal of interoperability between computer operating systems and analysis programs.
 
-In a CSV file, the content is arranged in a tabular format. Each new line in the file represents a row, and distinct values within each row are separated by commas to form the different columns. Below is an example of what a CSV file looks like before it is imported into R:
+In a CSV file, the content is arranged in a tabular format. Each new line in the file represents a row, and distinct values within each row are separated by commas to form the different columns. Below is an example of what the text of a CSV file looks like before it is imported into R:
 
-```{r csv}
+```{r csv, echo=FALSE, comment=""}
 commas <- read.csv("data/commas.csv")
 write.csv(commas, file="", quote=FALSE, row.names=FALSE)
 ```
 
-We can see that the file has 3 columns, a header row, and 3 observation rows. Before we can import this file into R, we must know how to instruct R where to find the file on our computer, and . To do this, we must understand about file paths on our hard drive, and how R looks for files.
+We can see that the file has 3 columns, a header row, and 3 observation rows. Before we can import this file into R, we must know how to instruct R where to find the file on our computer. To do this, we must understand about file paths on our hard drive, and how R looks for files.
 
 #### File Paths and Working Directories {-}
 All the files stored on your computer's hard drive are associated with a named location in the file system's hierarchy. For example, Windows users are likely familiar storing files inside the "My Documents" folder (also known as a "directory").
@@ -417,7 +417,7 @@ Excel files are ubiquitous, but because of their history as a proprietary format
 ### Subsetting
 Subsetting describes the processes of "extracting" or "slicing out" a subset of the values from one data structure into another. In R, the processes of subsetting **does not** remove the values you subset from the original data structure. Rather, it creates a copy of the subset you ask for, and puts that copy into your new data structure. So, subsetting is a safe operation that will not result in any data loss.
 
-Subsetting a data structure is performed in R using the `[]` operator, which are called square brackets. All R data structures can be subsetted using the `[]` operators. To subset a data structure, the `[]` operator immediately after the data structure. Between the two square brackets, you place what is known as an **index vector**. An index vector is a vector that describes which values in the data structure you want included in the subset. There are 3 types of index vectors:
+Subsetting a data structure is performed in R using the `[]` operator, which are called square brackets. All R data structures can be subsetted using the `[]` operators. To subset a data structure, put the `[]` operator immediately after the data structure. Between the two square brackets, you place what is known as an **index vector**. An index vector is a vector that describes which values in the data structure you want included in the subset. There are 3 types of index vectors:
 
 - Numeric Index Vectors, which describe the *position* (e.g. first, third, or 19th) of the elements you want included in the subset.
 - Character Index Vectors, which describe the *names* of the elements you want included in the subset (only useful when the elements have names).
@@ -482,7 +482,7 @@ But this specific example is not a good use case for logical vectors. Why?
 1. Longer Code: length of the logical vector must match the length of the object its subsetting.
 2. Duplicating work: If you already know the position of the elements you want, just put them into a vector and you're done!
 
-The logical vector's utility comes into play when you *don't* know the numeric positions of the elements you are interested in. But, how can you determine which values you want to keep without knowing their position or their name? In these cases, we must *search* for values meeting a specific criteria. Searching for values within a data structure is a processes called **Indexing**.
+The logical vector's utility comes into play when you *don't* know the numeric positions of the elements you are interested in. But, how can you determine which values you want to keep without knowing their position or their name? In these cases, we must *search* for values meeting a specific criterion. Searching for values within a data structure is a processes called **Indexing**.
 
 ### Indexing
 Indexing a data structure in a search for specific values is a job for R's [relational operators](#relational-operators). Remember, relational operator are applied to all the elements of a data structure individually (i.e., "element-wise"). Thus, we can apply them to search for specific values, and use the Logical `TRUE`/`FALSE` values that result from this search as an index vector.
@@ -516,7 +516,7 @@ is.na(missingno)
 missingno[!is.na(missingno)] # Select the *not* missing observations
 ```
 
-Removing missing values in a common step in data manipuation before an anlysis. For examples of removig missing values with other data structures, and more realistic data sets, the examples in the [Data Sets](#data-sets) section.
+Removing missing values in a common step in data manipuation before an anlysis. For examples of removing missing values with other data structures, and more realistic data sets, the examples in the [Data Sets](#data-sets) section.
 
 #### Converting a Logical to a Positional Index {-}
 A useful function to know is `which()`. When used on a logical vector, it will return to your the position indices of the vector's `TRUE` element. It is useful when you want to know **where** in the vector your matches occur. 
@@ -592,7 +592,7 @@ The `[row, column]` indexing style used with matrices also applies to data frame
 
 ##### Subsetting with $ syntax {-}
 
-To subset a single column from a data frame, we can use that columns name, and the `$` operator. In this case, quotes around the column's name are not required. To demonstrate, we will subset the `mpg` column from the `mtcars` dataset.
+To subset a single column from a data frame, we can use that column's name, and the `$` operator. In this case, quotes around the column's name are not required. To demonstrate, we will subset the `mpg` column from the `mtcars` dataset.
 ```{r dollar, R.options=list(max.print=100)}
 mtcars
 mtcars$mpg
@@ -605,7 +605,7 @@ To subset *multiple* columns, or to subset specific rows, we need to use `[row,c
 But we're not forced to use numeric vectors just because we're using the `[` operator. We can select multiple columns by their names using a character vector that has the names of our desired columns as its elements.
 
 ```{r multiple_cols,R.options=list(max.print=15)}
-mtcars[,c("mpg","disp","gear")] # need  as well as the quotes here
+mtcars[,c("mpg","disp","gear")] # need c() function as well as the quotes here
 ```
 
 One of the most common subsetting tasks with a data frame (or matrix) is the need to select values in one column where the values in another column meet a certain criteria. For example, you might want to select all the values in the column holding reaction times where participants were incorrect. There are 2 syntactic approaches to this, both of which use relational operators and logical indexing.
