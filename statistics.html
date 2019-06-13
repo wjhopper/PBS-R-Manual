@@ -807,14 +807,14 @@ In this case, you would use the same formula to specify your plot that you use t
 <h4><span class="header-section-number">3.5.1.4</span> Getting Random Samples</h4>
 <p>You can use <code>rnorm()</code> to randomly sample a class of 50 students from the population of IQ scores:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rnorm</span>(<span class="dv">50</span>, <span class="dt">mean=</span><span class="dv">100</span>, <span class="dt">sd=</span><span class="dv">15</span>)</code></pre>
-<pre><code>##  [1] 105.59088 141.41325 109.27092 103.21301 103.10922  96.01118  88.91119
-##  [8]  98.45228 107.77575  93.82389 119.18946 107.13198 112.19677  99.77637
-## [15] 108.43054  63.32241  79.33576  95.36238 131.72355  98.33870  94.47536
-## [22]  85.05919 145.16068 101.86471  94.94045  97.74303 101.84727  94.22807
-## [29]  77.34755 106.86618 114.12983 123.59548  88.63259  73.09013  97.15892
-## [36] 122.27776  78.12674 104.86592  98.67181 105.07155 120.25942 102.03413
-## [43] 106.62404  71.02081  83.35175  84.19040 114.33629  92.20393  94.88957
-## [50]  98.98736</code></pre>
+<pre><code>##  [1] 101.80020  85.34683  96.32901 123.58950 101.24094  96.04170  90.60191
+##  [8]  85.48735 100.15583  68.54189 150.35095  86.21951 105.59640  69.87312
+## [15] 124.21835  85.12870  93.53162 106.49419 121.36345  95.20614 103.06040
+## [22] 129.78925 104.23027 130.93886 104.40821 101.16872  95.83243  87.55549
+## [29]  95.51418  79.26049 109.04003  93.00818 104.57864 108.16677 131.43950
+## [36] 113.52002 126.19622  94.42457  52.47868  77.98795 111.99836  94.51909
+## [43]  96.15285  96.14904  92.27892 130.82268 109.93313 142.91995 107.42655
+## [50] 108.44700</code></pre>
 </div>
 <div id="running-statistical-tests-by-hand" class="section level4">
 <h4><span class="header-section-number">3.5.1.5</span> Running Statistical Tests by Hand</h4>
@@ -857,11 +857,11 @@ z_crit &lt;-<span class="st"> </span><span class="kw">qnorm</span>(.<span class=
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Find the lower limit</span>
 CI_lower &lt;-<span class="st"> </span>mean_IQ <span class="op">-</span><span class="st"> </span>z_crit<span class="op">*</span>(sd_IQ<span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">100</span>))
 CI_lower</code></pre>
-<pre><code>## [1] 95.07892</code></pre>
+<pre><code>## [1] 96.9069</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Find the upper limit</span>
 CI_upper &lt;-<span class="st"> </span>mean_IQ <span class="op">+</span><span class="st"> </span>z_crit<span class="op">*</span>(sd_IQ<span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">100</span>))
 CI_upper</code></pre>
-<pre><code>## [1] 101.0841</code></pre>
+<pre><code>## [1] 102.7769</code></pre>
 <p>The confidence interval ranges from 98.41 to 104.88, suggesting that if this experiment had been repeated over and over an infinite number of times, the true population mean would be within that range 95% of the time.</p>
 <p>Note that while calculating confidence intervals by hand is a useful instructional tool, some functions for statistical tests do give the confidence interval “for free”, such as <code>t.test()</code> and <code>binom.test()</code>. Make sure to be clear with students when it is acceptable to get confidence intervals from these functions to complete assignments.</p>
 </div>
