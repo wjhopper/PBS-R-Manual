@@ -162,7 +162,7 @@ There are several small data sets included in base R that are useful for quick d
 
 Note that the descriptions and summary statistics shown for each dataset were computed using the `skim()` function from the `skimr` pacakge.
 
-#### iris
+#### iris {-}
 
 The `iris` data set gives the lengths and widths of the sepals and petals of 50 irises from each of three different species:
 
@@ -170,7 +170,7 @@ The `iris` data set gives the lengths and widths of the sepals and petals of 50 
 skim(iris)
 ```
 
-#### warpbreaks
+#### warpbreaks {-}
 
 The `warpbreaks` data set gives the number of breaks in each of 54 looms of yarn, varied across two types of wool and three levels of tension:
 
@@ -178,7 +178,7 @@ The `warpbreaks` data set gives the number of breaks in each of 54 looms of yarn
 skim(warpbreaks)
 ```
 
-#### mtcars
+#### mtcars {-}
 
 The `mtcars` data set gives a range of numeric and categorical measurements of 32 cars, including MPG, number of cylinders, horsepower, weight, and transmission type:
 
@@ -186,7 +186,7 @@ The `mtcars` data set gives a range of numeric and categorical measurements of 3
 skim(mtcars)
 ```
 
-#### ToothGrowth
+#### ToothGrowth {-}
 
 The `ToothGrowth` data set gives the tooth lengths of 60 guinea pigs, varied across three vitamin C dosage levels and two dosage delivery methods:
 
@@ -205,7 +205,7 @@ install.packages('fivethirtyeight')
 library(fivethirtyeight)
 ```
 
-#### bechdel
+#### bechdel {-}
 
 The `bechdel` data set is a great all-purpose data set with both within- and between-subject continuous and categorical variables. Based on the [Bechdel Test](https://en.wikipedia.org/wiki/Bechdel_test) for female representation in film, this data set includes 1,794 movies from 1970-2013 along with their test outcome, budget, and gross profits:
 
@@ -213,7 +213,7 @@ The `bechdel` data set is a great all-purpose data set with both within- and bet
 skim(bechdel)
 ```
 
-#### fandango
+#### fandango {-}
 
 The `fandango` data set shows ratings from 146 movies across the Fandango, IMDB, Rotten Tomatoes, and Metacritic websites. It is particularly useful for demonstrating correlation:
 
@@ -221,7 +221,7 @@ The `fandango` data set shows ratings from 146 movies across the Fandango, IMDB,
 skim(fandango)
 ```
 
-#### comma_survey
+#### comma_survey {-}
 
 The `comma_survey` data set has Likert ratings as well as demographic information collected from 1,129 respondents to a survey on the Oxford comma:
 
@@ -229,7 +229,7 @@ The `comma_survey` data set has Likert ratings as well as demographic informatio
 skim(comma_survey)
 ```
 
-#### avengers
+#### avengers {-}
 
 The `avengers` data set includes the death and revival status for 173 Marvel comic book characters. It largely includes count and categorical data:
 
@@ -237,7 +237,7 @@ The `avengers` data set includes the death and revival status for 173 Marvel com
 skim(avengers)
 ```
 
-#### bob_ross
+#### bob_ross {-}
 
 The `bob_ross` data set is a great tool for demonstrating count data and tables. For each of 403 episodes, the data set marks the presence or absence of a series of possible elements in Bob's painting. Useful combinations include tables of trees, lakes, and snowy mountains:
 
@@ -256,7 +256,7 @@ install.packages('psych')
 library(psych)
 ```
 
-#### Tal.Or
+#### Tal.Or {-}
 
 The `Tal.Or` data set is from Study 2 of Tol-Or, Cohen, Tasfati, & Gunther (2010), which used an experimental manipulation to test the effects of media on the attitudes of 123 respondents, measured with Likert scales:
 
@@ -264,7 +264,7 @@ The `Tal.Or` data set is from Study 2 of Tol-Or, Cohen, Tasfati, & Gunther (2010
 skim(Tal.Or)
 ```
 
-#### affect
+#### affect {-}
 
 The `affect` data set consists of responses from 330 participants to state and trait mood scales given before and after viewing (1) a Frontline documentary about the liberation of a concentration camp, (2) the horror movie Halloween, (3) a National Geographic nature film about the Serengeti, or (4) the comedy movie Parenthood:
 
@@ -272,7 +272,7 @@ The `affect` data set consists of responses from 330 participants to state and t
 skim(affect)
 ```
 
-#### epi
+#### epi {-}
 
 The `epi` data set includes responses to the Eysenck Personality Inventory from 3570 subjects:
 
@@ -280,7 +280,7 @@ The `epi` data set includes responses to the Eysenck Personality Inventory from 
 skim(epi)
 ```
 
-#### sat.act
+#### sat.act {-}
 
 The `sat.act` data set includes self-reported SAT and ACT scores along with demographic information from 700 respondents, making it useful for within- or between-subject comparisons:
 

@@ -60,6 +60,24 @@ Formulas can get much more complex than the examples here, which only extend as 
 
 ## Descriptive Statistics
 
+### Handling `NA` Values
+
+Missing data are coded as `NA` in R. Several functions include arguments that allow for `NA` values to be removed before any calculations are done by setting the `na.rm` argument to `TRUE`. For instance, when we try to take the mean of the quantitative SAT scores in the `sat.act` data set without removing `NA` values, we get `NA` as the output:
+
+```{r mean NA}
+mean(sat.act$SATQ)
+```
+
+But by setting `na.rm=TRUE`, we get a sensible answer:
+
+```{r mean NA remove}
+mean(sat.act$SATQ, na.rm=TRUE)
+```
+
+In addition to the `mean()` function, the `median()`, `var()`, and `sd()` functions take the `na.rm` argument. To see whether other functions not discussed take this argument, consult the help page for that particular function.
+
+Note that `NA` values cannot always be easily removed when calculating descriptive statistics by hand. For instance, in the case of the mean (demonstrated below), while the `sum()` function will take the `na.rm` argument, the `length()` function will not. Thus, if you plan to ask students to calculate the mean by hand in R, be sure to choose a method of removing `NA` values manually. You can either remove the values yourself beforehand, give the students code to do it, or teach them to look out for and handle `NA` values themselves.
+
 ### Mean
 
 To calculate the mean of a vector by hand, use the `sum()` and `length()` functions. For instance, we can calculate the mean verbal SAT score in the `sat.act` data set as follows:
@@ -73,20 +91,6 @@ We can also get the same answer by using the `mean()` function:
 ```{r mean fun}
 mean(sat.act$SATV)
 ```
-
-Note that `NA` values can be removed from the vector when using the `mean()` function by setting the `na.rm` argument to `TRUE`. For instance, when we try to take the mean of the quantitative SAT scores without removing `NA` values, we get `NA` as the output:
-
-```{r mean NA}
-mean(sat.act$SATQ)
-```
-
-But by setting `na.rm=TRUE`, we get a sensible answer:
-
-```{r mean NA remove}
-mean(sat.act$SATQ, na.rm=TRUE)
-```
-
-The `NA` values cannot be removed this easily when calculating the mean by hand because while the `sum()` function will take the `na.rm` argument, the `length()` function will not. Thus, if you plan to ask students to calculate the mean by hand in R, be sure to choose a method of removing NA values manually. You can either remove the values yourself beforehand, give the students code to do it, or teach them to look out for and handle `NA` values themselves.
 
 ### Median
 
@@ -114,27 +118,15 @@ mean(middle_vals)
 
 ```
 
-Note that you might also allow students to simply print the output of `sort()` and find the median visually.
+Any `NA` values are automatically removed when calculating the median by hand using the `sort()` function, however you can also choose to have missing values placed last or first in the output by setting the `na.last` argument to 'TRUE' or 'FALSE', respectively. 
+
+Note, of course, that you might also allow students to simply print the output of `sort()` and find the median visually.
 
 We can also get the same answer by using the `median()` function:
 
 ```{r median fun}
 median(sat.act$age)
 ```
-
-Note that `NA` values can be removed from the vector when using the `median()` function by setting the `na.rm` argument to `TRUE`. For instance, when we try to take the median of the quantitative SAT scores without removing `NA` values, we get `NA` as the output:
-
-```{r median NA}
-median(sat.act$SATQ)
-```
-
-But by setting `na.rm=TRUE`, we get a sensible answer:
-
-```{r median NA remove}
-median(sat.act$SATQ, na.rm=TRUE)
-```
-
-The `NA` values are automatically removed when calculating the median by hand using the `sort()` function, however you can also choose to have missing values placed last or first in the output by setting the `na.last` argument to 'TRUE' or 'FALSE', respectively.
 
 ### Variance
 
@@ -161,20 +153,6 @@ We can also get the same answer by using the `var()` function:
 ```{r var fun}
 var(sat.act$SATV)
 ```
-
-Note that `NA` values can be removed from the vector when using the `var()` function by setting the `na.rm` argument to `TRUE`. For instance, when we try to take the variance of the quantitative SAT scores without removing `NA` values, we get `NA` as the output:
-
-```{r var NA}
-var(sat.act$SATQ)
-```
-
-But by setting `na.rm=TRUE`, we get a sensible answer:
-
-```{r var NA remove}
-var(sat.act$SATQ, na.rm=TRUE)
-```
-
-The `NA` values cannot be removed this easily when calculating the variance by hand because while the `sum()` function will take the `na.rm` argument, the `length()` function will not. Thus, if you plan to ask students to calculate the variance by hand in R, be sure to choose a method of removing NA values manually. You can either remove the values yourself beforehand, give the students code to do it, or teach them to look out for and handle `NA` values themselves.
 
 ### Standard Deviation
 
@@ -211,20 +189,6 @@ We can also get the same answer by using the `sd()` function:
 sd(sat.act$SATV)
 ```
 
-Note that `NA` values can be removed from the vector when using the `sd()` function by setting the `na.rm` argument to `TRUE`. For instance, when we try to take the standard deviation of the quantitative SAT scores without removing `NA` values, we get `NA` as the output:
-
-```{r sd NA}
-sd(sat.act$SATQ)
-```
-
-But by setting `na.rm=TRUE`, we get a sensible answer:
-
-```{r sd NA remove}
-sd(sat.act$SATQ, na.rm=TRUE)
-```
-
-The `NA` values cannot be removed this easily when calculating the standard deviation entirely by hand (that is, without using the `var()` function) because while the `sum()` function will take the `na.rm` argument, the `length()` function will not. Thus, if you plan to ask students to calculate the standard deviation by hand in R, be sure to choose a method of removing NA values manually. You can either remove the values yourself beforehand, give the students code to do it, or teach them to look out for and handle `NA` values themselves.
-
 ### Standard Error of the Mean
 
 To calculate the standard error of the mean, simply extend the previous commands for calculating the standard deviation one step further by dividing the previous result by the number of observations minus one:
@@ -250,8 +214,6 @@ More simply, students could take divide the output of `sd()` by the number of ob
 ```{r sem hand sd}
 sd(sat.act$SATV)/(length(sat.act$SATV)-1)
 ```
-
-In either case, because `length()` is used in the final step, the `NA` values cannot be easily removed when calculating the standard error of the mean by hand. You should therefore be sure to choose a method of removing NA values manually. You can either remove the values yourself beforehand, give the students code to do it, or teach them to look out for and handle `NA` values themselves.
 
 Because there are different methods for calculating the standard error depending on the nature of the sample statistic, there is no central function for calculating the standard error in R. The `std.error()` function is available in the package `plotrix` and handily includes the `na.rm` argument. However, if `NA` values aren't an issue, you may find that calculating the standard error is a simple enough extension of the standard deviation to have students do it by hand.
 
@@ -324,7 +286,7 @@ plot(sat.act$SATV, sat.act$SATQ,
      main = "Relationship between SAT Scores")
 ```
 
-#### Linetypes, Symbols, and Colors
+#### Linetypes, Symbols, and Colors {-}
 You can customize the scatterplot to draw lines between the points, or just draw lines without the point symbols with the `type` argument. **This is not a sensible thing to do for these data**, but we demonstrate it anyway for completeness.
 
 ```{r lines, fig.cap=c("Points and lines with type='o'", "Just using lines with type='l'")}
@@ -362,7 +324,7 @@ plot(sat.act$SATV, sat.act$SATQ,
      col="magenta", pch=2)
 ```
 
-#### Axis limits
+#### Axis limits {-}
 R usually does a good job of determining good values for the range of each axis, but if you wish to override the defaults, you can do do using the `xlim` and `ylim` arguments. These arguments accepts 2-element numeric vectors specifying the minimum and maximum values along each axis (in that order). For example, if we wanted to include 0 in the range of SAT scores shown on the plot, we could use `c(0, 800)` for both our axis limits:
 
 ```{r limits}
@@ -376,7 +338,7 @@ plot(sat.act$SATV, sat.act$SATQ,
 
 This isn't particularly sensible, because 0 is not a possible score on the SAT, so consider this just a demonstration of R's capabilities.
 
-#### Adding to an existing plot
+#### Adding to an existing plot {-}
 In many cases, it is useful to have *different* symbols, colors, and linetypes on the same plot - for example, to denote observations from different groups. There is more than one way to achieve this effect, but when you want different symbols, colors, and linetypes on the same plot, often the easiest way to do it is plot each group one at a time.
 
 To do this, you begin with the familiar plot command, but use it to plot only a subset of the data. Then, you can use the `points` or `lines` function to add additional points (or lines) to the plot. We'll demonstrate how you can plot the SAT scores for males and females in different colors by subsetting the dataset, and then using the `plot` and `points` functions:
@@ -391,7 +353,7 @@ plot(males$SATV, males$SATQ,
 points(females$SATV, females$SATQ, col="blue")
 ```
 
-#### Adding a legend
+#### Adding a legend {-}
 If you use multiple symbols, colors, and linetypes on the same plot, you'll also need a legend telling the viewer how to interpret the different symbols, colors, and linetypes. You can add legends to an existing plot using the `legend` function. Unfortunately, the `legend` function doesn't know what symbols, colors, and linetypes you've used, or what the different groups in your data are. So, you'll have to re-capitulate this information to the legend function. Make *absolutely* sure that you specify the labels, colors, symbol codes, and linetypes in the exact same order you added them to the plot! You also must specify a `pch` or `linetype` value, even if you used the default value in your plot!
 
 Perhaps the trickiest part about using the legend function is figuring out where to place the legend. The location may also be specified by setting the first argument to the legend function to a single keyword from the set "bottomright", "bottom", "bottomleft", "left", "topleft", "top", "topright", "right" or "center". Alternatively, you can get fine-grained control over the placement by providing two values that represent an x,y coordinate for the top-right corner of the legend:
@@ -407,7 +369,7 @@ legend(x=200, y=800,
        pch=1)
 ```
 
-#### Adding a regression line
+#### Adding a regression line {-}
 It is often useful to summarize the linear relationship between variables shown in a scatterplot. It is easy to add the "line of best fit" from a linear regression to your scatter plot using the `lm` function (short for "linear model) and the `abline` function (used for drawing straight lines).
 
 The `lm` function performs regression analysis based on the [formula](#formula-objects) you specify. If you intend on adding the regression line to your scatterplot, we recommend you use the formula interface to the `plot()` function. Instead of using an `x` vector and a `y` vector, you can provide a formula of the form `y ~ x`, and the name of the data frame containing your vaiable, just like when using the `lm` function.
@@ -550,7 +512,7 @@ hist(rnorm(10000, mean=100, sd=15), freq=FALSE, ylim=c(0, .03), xlab='', main='I
 points(x=seq(40, 160, .001), y=dnorm(seq(40, 160, .001), mean=100, sd=15), type='l', col='red')
 ```
 
-#### Getting Densities
+#### Getting Densities {-}
 
 The functions for getting the probability density associated with a point on the x-axis, such as `dnorm()` in the case of the normal distribution, are unlikely to come up in class. However, they may be useful for generating figures such as the one above, which was created with the following code:
 
@@ -564,7 +526,7 @@ points(x=seq(40, 160, .001),
 
 Note that the input to `dnorm()` was a sequence of values from 40 to 160, by steps of .001. The output was the probability density for each value in the sequence. These values were then used to create a continuous curve that was added to the histogram of the data, in which the argument `freq=FALSE` ensured that the y-axis denoted probability densities instead of counts. A more detailed tutorial is provided [here](https://homepage.divms.uiowa.edu/~luke/classes/STAT4580/histdens.html).
 
-#### Getting Probabilities
+#### Getting Probabilities {-}
 
 You can use `pnorm()` to demonstrate that there is a 9.12% chance of getting an IQ score that is less than or equal to 80:
 
@@ -586,7 +548,7 @@ pnorm(80, mean=100, sd=15, lower.tail=FALSE)
 
 The latter method may be better for instructional purposes.
 
-#### Getting Quantiles
+#### Getting Quantiles {-}
 
 You can use `qnorm()` to demonstrate that an IQ score of 124.67 marks the 95^th^ percentile of scores:
 
@@ -602,7 +564,7 @@ qnorm(.95, mean=100, sd=15, lower.tail=FALSE)
 
 Note that subtracting from 1 does not work here as it did with `pnorm()` because the output of `qnorm()` is a quantile, which does not need to sum to 1 as probabilities do.
 
-#### Getting Random Samples
+#### Getting Random Samples {-}
 
 You can use `rnorm()` to randomly sample a class of 50 students from the population of IQ scores:
 
@@ -610,7 +572,7 @@ You can use `rnorm()` to randomly sample a class of 50 students from the populat
 rnorm(50, mean=100, sd=15)
 ```
 
-#### Running Statistical Tests by Hand
+#### Running Statistical Tests by Hand {-}
 
 These functions can be used to conduct statistical analyses by hand. Consider a demonstration of a z-test using the functions for the normal distribution. To test whether an IQ score of 135 is significantly different from the mean IQ score, first find the z-score:
 
@@ -694,7 +656,7 @@ CI_upper
 
 ```
 
-The confidence interval ranges from 98.41 to 104.88, suggesting that if this experiment had been repeated over and over an infinite number of times, the true population mean would be within that range 95% of the time.
+The confidence interval ranges from 98.41 to 104.88.
 
 Note that while calculating confidence intervals by hand is a useful instructional tool, some functions for statistical tests do give the confidence interval "for free", such as `t.test()` and `binom.test()`. Make sure to be clear with students when it is acceptable to get confidence intervals from these functions to complete assignments.
 
@@ -708,7 +670,7 @@ Argument | Values
 `var.equal` | Set to `TRUE` to assume equal variance and `FALSE` otherwise; the default is `FALSE`.
 `conf.level` | Provide a number between 0 and 1 to specify the range for the confidence interval; the default is .95.
 
-#### One-sample t-tests
+#### One-sample t-tests {-}
 
 To demonstrate a one-sample t-test, imagine that we are curious whether the average verbal SAT score in the `sat.act` data set is different from 0. We could test that question with the following call:
 
@@ -726,7 +688,7 @@ t.test(sat.act$SATV, mu=600)
 
 The p-value is 0.004, so we can reject the null hypothesis that the average verbal SAT score is 600. Instead, it appears to be higher.
 
-#### Paired t-tests
+#### Paired t-tests {-}
 
 To demonstrate a paired t-test, imagine that we are curious as to whether verbal SAT scores are different from quantitative SAT scores. We can conduct this in one of two ways. 
 
@@ -755,7 +717,7 @@ t.test(sat.act$SATV, sat.act$SATQ, paired=TRUE)
 
 We get exactly the same result. However, note that though this method uses fewer lines of code it risks obscuring the role of difference scores for the student.
 
-#### Two-sample t-tests
+#### Two-sample t-tests {-}
 
 To demonstrate a two-sample t-test, imagine that we are curious as to whether male and female students reported different quantitative SAT scores.
 
@@ -786,7 +748,7 @@ t.test(male_SATQ, female_SATQ, paired=FALSE)
 
 The `aov()` function can be used to execute an ANOVA. The basic call includes one argument, which is a formula object. Whether `aov()` is used to run a one-way, two-way, or multi-way ANOVA, with or without interaction terms, is based entirely on the formula.
 
-#### One-way ANOVA
+#### One-way ANOVA {-}
 
 To demonstrate a one-way ANOVA, imagine that we are curious as to whether verbal SAT scores vary across education level:
 
@@ -810,7 +772,7 @@ educ_aov <- aov(SATV ~ education, data=sat.act)
 summary(educ_aov)
 ```
 
-#### Two-way ANOVA
+#### Two-way ANOVA {-}
 
 To demonstrate a two-way ANOVA, imagine that we are curious as to whether quantitative SAT scores vary across levels of education and gender:
 
@@ -894,7 +856,7 @@ Argument | Values
 
 The `chisq.test()` function can be used to execute either a Chi-Square test for goodness-of-fit or a Chi-Square test of independence, determined by whether a table with one or two groups is supplied, respectively.
 
-#### Chi-Square test of Goodness-of-Fit
+#### Chi-Square test of Goodness-of-Fit {-}
 
 To demonstrate the Chi-Square goodness-of-fit test, imagine that we are curious as to whether there are equal numbers of people in each education level measured in the `sat.act` data set. 
 
@@ -920,7 +882,7 @@ chisq.test(educ_table, p=c(.25, .25, .125, .125, .125, .125))
 
 The p-value is approximately zero, so we can reject the null hypothesis that the proportions are the same as for the neighboring state.
 
-#### Chi-Square test of Independence
+#### Chi-Square test of Independence {-}
 
 To demonstrate the Chi-Square test of independence, imagine that we are curious as to whether the proportions of males and females reporting their test scores are equal across levels of education. 
 

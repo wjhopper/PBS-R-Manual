@@ -84,7 +84,7 @@ The company which produces the RStudio software has several different products w
 R source code (i.e., code run in the R console or from an R script) and output are presented in monospace font in regions with a light gray background. We **do not** include command line prompts (`>` and `+`, like you would see in a real R console) in the R source code. This is to allow you to conveniently copy and run the code without having to delete the leading prompt symbols. All text output from executing R commands is denoted with two preceeding hashes (`##`). So, any time you see `##` following a block of R code, you are looking at the output of the preeceeding command.
 
 ## Additional Materials {-}
-As alluded to earlier, this is far from the only "Intro to R" material in existence, though this guide has been developed with PSYCH 240 and 241 specifically in mind. But we do encourage you to supplement your knowlege with outside sources. We recommend the following resources to learning about R programming:
+As alluded to earlier, this is far from the only "Intro to R" material in existence, though this guide has been developed with Psych 240 and 241 specifically in mind. But we do encourage you to supplement your knowlege with outside sources. We recommend the following resources to learning about R programming:
 
 - [R in a Nutshell](http://silk.library.umass.edu/login?url=https://search.ebscohost.com/login.aspx?direct=true&db=cat06087a&AN=umass.016355822&site=eds-live&scope=site) by Joseph Adler
 - [The Art of R Programming](http://silk.library.umass.edu/login?url=https://search.ebscohost.com/login.aspx?direct=true&db=cat06087a&AN=umass.016669840&site=eds-live&scope=site) by Norman Matloff
@@ -102,3 +102,10 @@ The R session information when compiling this book is shown below:
 sessionInfo()
 ```
 
+## About the Authors {-}
+
+[Andrea Cataldo](https://www.umass.edu/pbs/people/andrea-cataldo) [(email)](mailto:andrea.m.cataldo@gmail.com) and [Will Hopper](https://www.umass.edu/pbs/people/william-hopper) [(email)](mailto:wjhopper510@gmail.com) are 2019 graduates of the Cognitive Psychology PhD program. They each have extensive experience teaching statistics with R to undergraduate students as instructors and TAs for Psych 240, and have additional experience teaching R to graduate students and faculty through various methodological workshops on campus and as teaching assistants for Psych 640 and 641. 
+
+## Funding {-}
+
+Development of this manual was funded by a Periodic Multi-Year Review (PMYR) Grant to Adrian Staub from the UMass Institute for Teaching Excellence & Faculty Development (TEFD). Please [email Adrian](mailto:astaub@psych.umass.edu) for any comments and questions.

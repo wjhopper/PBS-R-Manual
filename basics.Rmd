@@ -409,7 +409,16 @@ class(commas)
 commas
 ```
 
-Note that I assigned the output of the `read.csv` function to variable named `commas`, and that the function imported the CSV file as a `data.frame` object. Also note that the values in the first row of the CSV file were used as names for each columns, rather than a row of data.
+Note that I assigned the output of the `read.csv` function to variable named `commas`, and that the function imported the CSV file as a `data.frame` object. Also note that the values in the first row of the CSV file were used as names for each column, rather than a row of data. 
+
+#### file.choose() {-}
+There are several advantages to relying on explicit file paths when reading in data, including automaticity and encouraging good project management habits. However, for the purposes of Psych 240 and 241, you may find it easier to teach your students to avoid writing out file paths by supplying the `file.choose()` function as the path argument to `read.csv()` instead:
+
+```{r readcommas file chooser, eval=FALSE}
+commas <- read.csv(file.choose())
+```
+
+Replacing the explicit file path with the `file.choose()` function will bring up a file browser, which will allow you to navigate your hard drive and select the file you wish.
 
 #### Importing Excel Files {-}
 Excel files are ubiquitous, but because of their history as a proprietary format, R does not have native support for importing them. However, all is not lost: you can install the `readxl` package and use its `read_excel` function to import .xls and .xlsx files into R as data frames.
