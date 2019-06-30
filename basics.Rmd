@@ -1,5 +1,5 @@
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(cache = TRUE, collapse = TRUE, render=knitr:::knit_print.default)
+```{r basics_setup, include=FALSE}
+knitr::opts_chunk$set(render=knitr:::knit_print.default)
 ```
 
 # R Programming Fundamentals
@@ -656,11 +656,4 @@ Its also a common mistake to forget the quotes around names inside the `[]` brac
 
 ```{r quoteless, error=TRUE, class.error="Rerrormsg"}
 InsectSprays[, spray]
-```
-
-#### Reproducibility {-}
-The R session information when compiling this book is shown below:
-```{r reproducibility}
-library(printr)
-sessionInfo()
 ```

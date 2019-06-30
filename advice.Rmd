@@ -1,6 +1,6 @@
 # Tools & Advice for Instructors
 
-```{r setup, include=FALSE}
+```{r advice_setup, include=FALSE}
 
 # Load libraries
 library(fivethirtyeight)
@@ -251,9 +251,7 @@ In addition to a range of new functions, the `psych` package includes data sets 
 
 To make the data sets available, install and load the `psych` package:
 
-```{r load psych, eval=FALSE}
-install.packages('psych')
-library(psych)
+```{r ref.label="load_psych", eval=FALSE}
 ```
 
 #### Tal.Or {-}

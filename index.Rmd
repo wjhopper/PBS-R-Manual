@@ -97,11 +97,6 @@ On campus, there are two great consulting resources for getting help with statis
 - [The Institute for Social Science Research](https://www.umass.edu/issr/what-we-do/consultation)
 - [The Center for Research on Famlies](https://www.umass.edu/family/methodology-department)
 
-#### Reproducibility {-}
-The R session information when compiling this book is shown below:
-```{r reproducibility}
-sessionInfo()
-```
 
 ## About the Authors {-}
 

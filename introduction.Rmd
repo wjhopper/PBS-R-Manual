@@ -1,7 +1,7 @@
 # Introducing R and RStudio
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(cache = TRUE, collapse = TRUE)
+```{r intro_setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
 ```
 
 ![](images/rstudio.png)
@@ -134,9 +134,3 @@ The help pane provides a way for you to access documentation explaining how to u
 
 ## Conclusion
 Here, we have given an introduction to some of the R language's basic functionality (the interactive console, arithmetic, variables, plots and packages) by using the layout of the RStudio IDE as a guide. In the following sections, we demonstrate the basic tenets of the R language and basic R programming tasks, such as calling functions, creating and manipulating data structures, and importing data from files on your hard drive into R.
-
-#### Reproducibility {-}
-The R session information when compiling this book is shown below:
-```{r reproducibility}
-sessionInfo()
-```
