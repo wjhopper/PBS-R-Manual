@@ -50,7 +50,11 @@ Much of the information in this guide can be found in any "Introduction to R" bo
 1. To provide you with the information you need specifically for Psych 240 and 241, and none of the information you don't.
 2. To provide opinionated guidance and reference material for the instructor specifically, not just the "average" R user.
 
-We hope that you find this guide useful as you embark on teaching a new class!
+It is worth emphasizing again that this guide is designed for *instructors* of Psych 340 and 241, not necessarily the *students* in Psych 240 and 241. This means that not everything in this guide should be recapitulated to students directly.
+
+The material in Chapter 2 is a good example of this. Chapter 2 goes into some detail about general programming concepts and some characteristics of the R language itself (not just its application to statistics). It is likely that most students will not need to know, for example, the details of named vs. unnamed function arguments. However, you as the instructor probably do need to know something about this topic, if only to be able to help trouble-shoot problems your students encounter. And your students may not need to know all the data manipulation techniques covered here, but you may find them useful as you use R to prepare data for in-class demonstrations or assignments. So, think judiciously about what programming and R language concepts your students *need* to know, and don't overwhelm them by teaching every detail in this guide.
+
+With all the background out of the way, we hope that you find this guide useful as you embark on teaching a new class!
 
 ## Getting Started {-}
 To follow along with the examples in this book, it is recommended that you install the latest version of R and RStudio to your personal computer.
