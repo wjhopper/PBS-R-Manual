@@ -135,6 +135,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#formatting-conventions"><i class="fa fa-check"></i>Formatting Conventions</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#additional-materials"><i class="fa fa-check"></i>Additional Materials</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-the-authors"><i class="fa fa-check"></i>About the Authors</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#funding"><i class="fa fa-check"></i>Funding</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html"><i class="fa fa-check"></i><b>1</b> Introducing R and RStudio</a><ul>
 <li class="chapter" data-level="1.1" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#console"><i class="fa fa-check"></i><b>1.1</b> Pane #1: The R Console</a></li>
@@ -189,13 +191,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1" data-path="statistics.html"><a href="statistics.html#the-data"><i class="fa fa-check"></i><b>3.1</b> The Data</a></li>
 <li class="chapter" data-level="3.2" data-path="statistics.html"><a href="statistics.html#formula-objects"><i class="fa fa-check"></i><b>3.2</b> Formula Objects</a></li>
 <li class="chapter" data-level="3.3" data-path="statistics.html"><a href="statistics.html#descriptive-statistics"><i class="fa fa-check"></i><b>3.3</b> Descriptive Statistics</a><ul>
-<li class="chapter" data-level="3.3.1" data-path="statistics.html"><a href="statistics.html#mean"><i class="fa fa-check"></i><b>3.3.1</b> Mean</a></li>
-<li class="chapter" data-level="3.3.2" data-path="statistics.html"><a href="statistics.html#median"><i class="fa fa-check"></i><b>3.3.2</b> Median</a></li>
-<li class="chapter" data-level="3.3.3" data-path="statistics.html"><a href="statistics.html#variance"><i class="fa fa-check"></i><b>3.3.3</b> Variance</a></li>
-<li class="chapter" data-level="3.3.4" data-path="statistics.html"><a href="statistics.html#standard-deviation"><i class="fa fa-check"></i><b>3.3.4</b> Standard Deviation</a></li>
-<li class="chapter" data-level="3.3.5" data-path="statistics.html"><a href="statistics.html#standard-error-of-the-mean"><i class="fa fa-check"></i><b>3.3.5</b> Standard Error of the Mean</a></li>
-<li class="chapter" data-level="3.3.6" data-path="statistics.html"><a href="statistics.html#correlation-proportion-of-variance-explained"><i class="fa fa-check"></i><b>3.3.6</b> Correlation &amp; Proportion of Variance Explained</a></li>
-<li class="chapter" data-level="3.3.7" data-path="statistics.html"><a href="statistics.html#summary-functions"><i class="fa fa-check"></i><b>3.3.7</b> Summary Functions</a></li>
+<li class="chapter" data-level="3.3.1" data-path="statistics.html"><a href="statistics.html#handling-na-values"><i class="fa fa-check"></i><b>3.3.1</b> Handling <code>NA</code> Values</a></li>
+<li class="chapter" data-level="3.3.2" data-path="statistics.html"><a href="statistics.html#mean"><i class="fa fa-check"></i><b>3.3.2</b> Mean</a></li>
+<li class="chapter" data-level="3.3.3" data-path="statistics.html"><a href="statistics.html#median"><i class="fa fa-check"></i><b>3.3.3</b> Median</a></li>
+<li class="chapter" data-level="3.3.4" data-path="statistics.html"><a href="statistics.html#variance"><i class="fa fa-check"></i><b>3.3.4</b> Variance</a></li>
+<li class="chapter" data-level="3.3.5" data-path="statistics.html"><a href="statistics.html#standard-deviation"><i class="fa fa-check"></i><b>3.3.5</b> Standard Deviation</a></li>
+<li class="chapter" data-level="3.3.6" data-path="statistics.html"><a href="statistics.html#standard-error-of-the-mean"><i class="fa fa-check"></i><b>3.3.6</b> Standard Error of the Mean</a></li>
+<li class="chapter" data-level="3.3.7" data-path="statistics.html"><a href="statistics.html#correlation-proportion-of-variance-explained"><i class="fa fa-check"></i><b>3.3.7</b> Correlation &amp; Proportion of Variance Explained</a></li>
+<li class="chapter" data-level="3.3.8" data-path="statistics.html"><a href="statistics.html#summary-functions"><i class="fa fa-check"></i><b>3.3.8</b> Summary Functions</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="statistics.html"><a href="statistics.html#plotting"><i class="fa fa-check"></i><b>3.4</b> Plotting</a><ul>
 <li class="chapter" data-level="3.4.1" data-path="statistics.html"><a href="statistics.html#scatter-line-plots"><i class="fa fa-check"></i><b>3.4.1</b> Scatter &amp; Line Plots</a></li>
@@ -281,12 +284,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">2.1.3</span> The Logical Class</h3>
 <p>Logical data can only take on 2 possible values: TRUE (1) or FALSE (0). This type of datum is used to represent whether some state exists (is true) or does not exist (is false). TRUE and FALSE <strong>must be uppercase</strong>. They <em>can</em> can be abbreviated as T and F, but it is not recommended because while the names <code>T</code> and <code>F</code> can be over-written with non-logical values, <code>TRUE</code> and <code>FALSE</code> are reserved names that can never be overwritten. Such a restrictive class of data may not seem useful, but it plays an important role in data manipulation, as it can be used to indicate the presence (or absence) of other data values you are interested in.</p>
 <p>You can change a <code>TRUE</code> to a <code>FALSE</code> (or a <code>FALSE</code> to a <code>TRUE</code>) by prefixing them with the <code>!</code> negation operator.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="ot">TRUE</span>
-<span class="co">## [1] TRUE</span>
-<span class="op">!</span><span class="ot">TRUE</span>
-<span class="co">## [1] FALSE</span>
-<span class="op">!</span><span class="ot">FALSE</span>
-<span class="co">## [1] TRUE</span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="ot">TRUE</span></code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="op">!</span><span class="ot">TRUE</span></code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="op">!</span><span class="ot">FALSE</span></code></pre>
+<pre><code>## [1] TRUE</code></pre>
 <p>The <code>!</code> operator isn’t useful when you are typing out literal <code>TRUE</code> and <code>FALSE</code> values, but is useful in situations where you have a function which produces one type of logical, and but you’re actually interested in its opposite. We will look at such a case later in the <a href="r-programming-fundamentals.html#indexing">logical indexing</a> section.</p>
 <div id="missing" class="section level4 unnumbered">
 <h4>Special Values</h4>
@@ -298,15 +301,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The character data type (sometimes referred to as the “string” data type) is used for representing textual data.</p>
 <p>To encode a string of text as character data in R, it must be wrapped in quotes. Both <code>" "</code> and <code>' '</code> are acceptable, as long as the same character is used to open and close the string (i.e., you can’t open with a single quote and close with a double quote).</p>
 <pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> &quot;foobar&quot;</span>
-a
-<span class="co">## [1] &quot;foobar&quot;</span></code></pre>
+a</code></pre>
+<pre><code>## [1] &quot;foobar&quot;</code></pre>
 <p>Without the quotes, R will interpret the text as the name of an R variable, and attempt to locate that variable. As demonstrated below, missing quotes is a common source of “object not found” errors.</p>
 <pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span>foobar </code></pre>
 <pre class="Rerrormsg"><code>## Error in eval(expr, envir, enclos): object &#39;foobar&#39; not found</code></pre>
 <p>Sometimes, a value can be represented using <em>either</em> a Character or Numeric class. For example, 4.2 could be represented as a numeric by typing <code>4.2</code> or a character by typing <code>"4.2"</code>. While these look similar, and print similarly, they behave <em>very</em> differently. Consider the following two operations.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="fl">4.2</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span>
-<span class="co">## [1] 5.2</span>
-<span class="st">&quot;4.2&quot;</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="fl">4.2</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span></code></pre>
+<pre><code>## [1] 5.2</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="st">&quot;4.2&quot;</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span></code></pre>
 <pre class="Rerrormsg"><code>## Error in &quot;4.2&quot; + 1: non-numeric argument to binary operator</code></pre>
 <p>This illustrates the earlier point that different classes of data support different operations. Here, we can see that you cannot perform mathematical operations on Character data, even if the data <strong>could</strong> be interpreted numerically.</p>
 </div>
@@ -319,25 +322,25 @@ a
 <h3><span class="header-section-number">2.1.6</span> Class detection and conversion</h3>
 <p>Speaking of conversion, programmers commonly face the need to convert data of one class into data of another class. To determine which class of data you have, you can use the <code>class</code> function. For each atomic class, R provide a class detection function (starting with the prefix <code>is.</code>) that provides a <code>TRUE</code> or <code>FALSE</code> response, and an associated class conversion function (starting with the prefix <code>as.</code>). Consider the following examples:</p>
 <pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">1</span>
-<span class="kw">class</span>(x) 
-<span class="co">## [1] &quot;numeric&quot;</span>
-<span class="kw">is.numeric</span>(x)
-<span class="co">## [1] TRUE</span>
-<span class="kw">is.integer</span>(x)
-<span class="co">## [1] FALSE</span>
-x &lt;-<span class="st"> </span><span class="kw">as.integer</span>(x)
-<span class="kw">class</span>(x)
-<span class="co">## [1] &quot;integer&quot;</span>
-<span class="kw">is.integer</span>(x)
-<span class="co">## [1] TRUE</span>
-x &lt;-<span class="st"> </span><span class="kw">as.logical</span>(x) <span class="co"># 1 converts to TRUE</span>
-x
-<span class="co">## [1] TRUE</span>
-x &lt;-<span class="st"> </span><span class="kw">as.character</span>(x) <span class="co"># TRUE converts to &quot;TRUE&quot;</span>
-x
-<span class="co">## [1] &quot;TRUE&quot;</span>
-<span class="kw">is.character</span>(x) 
-<span class="co">## [1] TRUE</span></code></pre>
+<span class="kw">class</span>(x) </code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.numeric</span>(x)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.integer</span>(x)</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">as.integer</span>(x)
+<span class="kw">class</span>(x)</code></pre>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.integer</span>(x)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">as.logical</span>(x) <span class="co"># 1 converts to TRUE</span>
+x</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">as.character</span>(x) <span class="co"># TRUE converts to &quot;TRUE&quot;</span>
+x</code></pre>
+<pre><code>## [1] &quot;TRUE&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.character</span>(x) </code></pre>
+<pre><code>## [1] TRUE</code></pre>
 <p>Class conversion is not always possible (e.g., <code>"Z"</code> cannot be converted into a number) or without loss of information (e.g., a numeric like <code>6.23</code> cannot be converted to an integer without losing the <code>.23</code>.).</p>
 </div>
 </div>
@@ -351,24 +354,24 @@ x
 <p>Vectors, no matter what type of data they hold, can be created by using the <code>c()</code> function in R, short for concatenate. Just place each value you want to be included in the vector inside the parenthesis, separated with a comma.</p>
 <p>The individual values held in the vector are referred to as elements, and vectors have a length equal to the number of elements it contains. You can check how many elements there are in a vector using the <code>length()</code> function:</p>
 <pre class="sourceCode r"><code class="sourceCode r">new_vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">45</span>, <span class="dv">-1</span>)
-<span class="kw">length</span>(new_vector)
-<span class="co">## [1] 4</span>
-char_vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;foo&quot;</span>, <span class="st">&quot;bar&quot;</span>, <span class="st">&quot;herp&quot;</span>, <span class="st">&quot;derp&quot;</span>)
-<span class="kw">length</span>(char_vector)
-<span class="co">## [1] 4</span></code></pre>
+<span class="kw">length</span>(new_vector)</code></pre>
+<pre><code>## [1] 4</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">char_vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;foo&quot;</span>, <span class="st">&quot;bar&quot;</span>, <span class="st">&quot;herp&quot;</span>, <span class="st">&quot;derp&quot;</span>)
+<span class="kw">length</span>(char_vector)</code></pre>
+<pre><code>## [1] 4</code></pre>
 <p>The <code>c()</code> function can also combine existing vectors into a single, larger vector""</p>
 <pre class="sourceCode r"><code class="sourceCode r">big_vec &lt;-<span class="st"> </span><span class="kw">c</span>(new_vector, <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>))
-big_vec
-<span class="co">## [1]  1 10 45 -1  1  2  3  4  5</span></code></pre>
+big_vec</code></pre>
+<pre><code>## [1]  1 10 45 -1  1  2  3  4  5</code></pre>
 <p>If you need to create a vector that contains a long one-by-one numeric sequence, there is a shortcut for typing out all the values you need - the <code>:</code> operator. Put the first number in the sequence before the colon and the final number in the sequence after the colon:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">5</span><span class="op">:</span><span class="dv">50</span>
-<span class="co">##  [1]  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27</span>
-<span class="co">## [24] 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50</span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">5</span><span class="op">:</span><span class="dv">50</span></code></pre>
+<pre><code>##  [1]  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27
+## [24] 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50</code></pre>
 <p>After you create a vector, you can give each element a name using the <code>names()</code> function and a character vector:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(new_vector) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>)
-new_vector
-<span class="co">##  A  B  C  D </span>
-<span class="co">##  1 10 45 -1</span></code></pre>
+new_vector</code></pre>
+<pre><code>##  A  B  C  D 
+##  1 10 45 -1</code></pre>
 <p>Names can be useful when you want to select a subset of the values in a vector, which will come up in Section <a href="r-programming-fundamentals.html#subsetting">2.5.3</a>.</p>
 </div>
 <div id="matrices" class="section level3">
@@ -381,28 +384,28 @@ new_vector
 <p>Like vectors, data types may <em>not</em> be mixed in a matrix (e.g., you cannot have some elements be characters and other be numeric).</p>
 <p>A matrix is created by feeding a vector into the <code>matrix()</code> function, and specifying either the number of rows, the number of columns, or both.</p>
 <pre class="sourceCode r"><code class="sourceCode r">wide &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dv">99</span><span class="op">:</span><span class="dv">101</span>), <span class="dt">ncol =</span> <span class="dv">3</span>)
-wide
-<span class="co">##      [,1] [,2] [,3]</span>
-<span class="co">## [1,]    1    3  100</span>
-<span class="co">## [2,]    2   99  101</span>
-long &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dv">99</span><span class="op">:</span><span class="dv">101</span>), <span class="dt">nrow =</span> <span class="dv">3</span>)
-long
-<span class="co">##      [,1] [,2]</span>
-<span class="co">## [1,]    1   99</span>
-<span class="co">## [2,]    2  100</span>
-<span class="co">## [3,]    3  101</span></code></pre>
+wide</code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    3  100
+## [2,]    2   99  101</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">long &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dv">99</span><span class="op">:</span><span class="dv">101</span>), <span class="dt">nrow =</span> <span class="dv">3</span>)
+long</code></pre>
+<pre><code>##      [,1] [,2]
+## [1,]    1   99
+## [2,]    2  100
+## [3,]    3  101</code></pre>
 <p>We recommend always specifying both the number of rows and the number of columns to avoid errors.</p>
 <p>If you want a large matrix but with only a few unique values, take advantage of R’s ability to <strong>recycle</strong> input:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">4</span>), <span class="dt">nrow =</span> <span class="dv">3</span>, <span class="dt">ncol =</span> <span class="dv">10</span>)
-<span class="co">##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]</span>
-<span class="co">## [1,]    4    4    4    4    4    4    4    4    4     4</span>
-<span class="co">## [2,]    4    4    4    4    4    4    4    4    4     4</span>
-<span class="co">## [3,]    4    4    4    4    4    4    4    4    4     4</span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">4</span>), <span class="dt">nrow =</span> <span class="dv">3</span>, <span class="dt">ncol =</span> <span class="dv">10</span>)</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+## [1,]    4    4    4    4    4    4    4    4    4     4
+## [2,]    4    4    4    4    4    4    4    4    4     4
+## [3,]    4    4    4    4    4    4    4    4    4     4</code></pre>
 <p>Note the matrix is filled up by column (i.e. first element goes to row 1 column 1, second element goes to row 2, column 1, and so on):</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">0</span>), <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">10</span>)
-<span class="co">##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]</span>
-<span class="co">## [1,]    4    4    4    4    4    4    4    4    4     4</span>
-<span class="co">## [2,]    0    0    0    0    0    0    0    0    0     0</span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">0</span>), <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">10</span>)</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+## [1,]    4    4    4    4    4    4    4    4    4     4
+## [2,]    0    0    0    0    0    0    0    0    0     0</code></pre>
 </div>
 <div id="data-frames" class="section level3">
 <h3><span class="header-section-number">2.2.3</span> Data Frames</h3>
@@ -413,12 +416,12 @@ long
                  <span class="dt">y =</span> <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">4</span>),
                  <span class="dt">month =</span> <span class="kw">c</span>(<span class="st">&quot;Sep&quot;</span>,<span class="st">&quot;Oct&quot;</span>,<span class="st">&quot;Nov&quot;</span>,<span class="st">&quot;Jan&quot;</span>),
                  <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
-df
-<span class="co">##   x y month</span>
-<span class="co">## 1 1 3   Sep</span>
-<span class="co">## 2 4 3   Oct</span>
-<span class="co">## 3 4 1   Nov</span>
-<span class="co">## 4 2 4   Jan</span></code></pre>
+df</code></pre>
+<pre><code>##   x y month
+## 1 1 3   Sep
+## 2 4 3   Oct
+## 3 4 1   Nov
+## 4 2 4   Jan</code></pre>
 <p>This example also shows an extra argument, <code>stringsAsFactors = FALSE</code>, that was <strong>not</strong> a variable to store in the data frame. This argument is another way to control how R interprets character vectors (a.k.a. strings) when forming the data frame. Here, using <code>stringsAsFactors = FALSE</code> forces R to leave your character vectors as they are when creating the data frame.</p>
 </div>
 <div id="lists" class="section level3">
@@ -427,14 +430,14 @@ df
 <p>Think of lists like a folder on your hard drive. You can stuff any kind of file you like in there and give it a name, but there is no relationship between them inside that folder, other than the order they are sorted in. Use a list when you need to group data structures of different sizes and types together. However, you should be aware that the lack of structured relationships between the data in different list elements can make them tricky to work with.</p>
 <p>As you might have guessed, you can create lists of your own with the <code>list()</code> function. Like the <code>data.frame()</code> function, you pass in <code>name=value</code> pairs. But now, the values can be any R object of any size, not just vectors with equal lengths.</p>
 <pre class="sourceCode r"><code class="sourceCode r">biglist &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">first =</span> <span class="dv">-10</span><span class="op">:-</span><span class="dv">15</span>, <span class="dt">second =</span> <span class="kw">data.frame</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>), <span class="dt">y =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>))
-biglist
-<span class="co">## $first</span>
-<span class="co">## [1] -10 -11 -12 -13 -14 -15</span>
-<span class="co">## </span>
-<span class="co">## $second</span>
-<span class="co">##   x y</span>
-<span class="co">## 1 A 1</span>
-<span class="co">## 2 B 2</span></code></pre>
+biglist</code></pre>
+<pre><code>## $first
+## [1] -10 -11 -12 -13 -14 -15
+## 
+## $second
+##   x y
+## 1 A 1
+## 2 B 2</code></pre>
 </div>
 </div>
 <div id="operators" class="section level2">
@@ -461,46 +464,45 @@ biglist
 </ul>
 <p>All 6 of these operators can be used sensibly on Integer and Numeric data, while only the last two can be used sensibly on Logical and Character data.</p>
 <p>Each of these operators returns its answer in the form of a Logical value. Consider the following examples that demonstrate each operator:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> <span class="op">&lt;</span><span class="st"> </span><span class="dv">2</span>
-<span class="co">## [1] TRUE</span>
-<span class="dv">1</span> <span class="op">&gt;</span><span class="st"> </span><span class="dv">2</span>
-<span class="co">## [1] FALSE</span>
-<span class="dv">2</span> <span class="op">&gt;</span><span class="st"> </span><span class="dv">2</span>
-<span class="co">## [1] FALSE</span>
-<span class="dv">2</span> <span class="op">&gt;=</span><span class="st"> </span><span class="dv">2</span>
-<span class="co">## [1] TRUE</span>
-<span class="dv">2</span> <span class="op">==</span><span class="st"> </span><span class="dv">2</span>
-<span class="co">## [1] TRUE</span>
-<span class="dv">2</span> <span class="op">!=</span><span class="st"> </span><span class="dv">2</span>
-<span class="co">## [1] FALSE</span>
-<span class="dv">1</span> <span class="op">!=</span><span class="st"> </span><span class="dv">2</span>
-<span class="co">## [1] TRUE</span>
-
-<span class="st">&quot;hi&quot;</span> <span class="op">==</span><span class="st"> &quot;hello&quot;</span>
-<span class="co">## [1] FALSE</span>
-<span class="st">&quot;bye&quot;</span> <span class="op">==</span><span class="st"> &quot;bye&quot;</span>
-<span class="co">## [1] TRUE</span>
-<span class="st">&quot;bye&quot;</span> <span class="op">!=</span><span class="st"> &quot;bye&quot;</span>
-<span class="co">## [1] FALSE</span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> <span class="op">&lt;</span><span class="st"> </span><span class="dv">2</span></code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> <span class="op">&gt;</span><span class="st"> </span><span class="dv">2</span></code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> <span class="op">&gt;</span><span class="st"> </span><span class="dv">2</span></code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> <span class="op">&gt;=</span><span class="st"> </span><span class="dv">2</span></code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> <span class="op">==</span><span class="st"> </span><span class="dv">2</span></code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> <span class="op">!=</span><span class="st"> </span><span class="dv">2</span></code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> <span class="op">!=</span><span class="st"> </span><span class="dv">2</span></code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="st">&quot;hi&quot;</span> <span class="op">==</span><span class="st"> &quot;hello&quot;</span></code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="st">&quot;bye&quot;</span> <span class="op">==</span><span class="st"> &quot;bye&quot;</span></code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="st">&quot;bye&quot;</span> <span class="op">!=</span><span class="st"> &quot;bye&quot;</span></code></pre>
+<pre><code>## [1] FALSE</code></pre>
 <p>These relational operators can be applied to matrices and vectors as well. When applied to matrices and vectors, they operate <strong>element-wise</strong>, meaning they operate on each element of the vector or matrix one at a time, and give you an answer for each individual element. So, if you apply the <code>==</code> operator to a vector with 10 values, you will get 10 <code>TRUE</code>/<code>FALSE</code> answers.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">5</span>, <span class="dv">-10</span>) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>
-<span class="co">## [1]  TRUE  TRUE FALSE</span>
-<span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">5</span>, <span class="dv">-10</span>) <span class="op">==</span><span class="st"> </span><span class="dv">0</span>
-<span class="co">## [1] FALSE FALSE FALSE</span>
-<span class="kw">c</span>(<span class="st">&quot;foo&quot;</span>, <span class="st">&quot;bar&quot;</span>, <span class="st">&quot;herp&quot;</span>, <span class="st">&quot;derp&quot;</span>) <span class="op">==</span><span class="st"> &quot;bar&quot;</span>
-<span class="co">## [1] FALSE  TRUE FALSE FALSE</span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">5</span>, <span class="dv">-10</span>) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span></code></pre>
+<pre><code>## [1]  TRUE  TRUE FALSE</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">5</span>, <span class="dv">-10</span>) <span class="op">==</span><span class="st"> </span><span class="dv">0</span></code></pre>
+<pre><code>## [1] FALSE FALSE FALSE</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="st">&quot;foo&quot;</span>, <span class="st">&quot;bar&quot;</span>, <span class="st">&quot;herp&quot;</span>, <span class="st">&quot;derp&quot;</span>) <span class="op">==</span><span class="st"> &quot;bar&quot;</span></code></pre>
+<pre><code>## [1] FALSE  TRUE FALSE FALSE</code></pre>
 <p>When you have a vector or matrix on <em>both</em> sides of the operator, it still operates element-wise. In this situation, it will match up the elements on each data structure by position (first with first, second with second, etc.).</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">5</span>, <span class="dv">-10</span>) <span class="op">&gt;</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">20</span>, <span class="dv">-5</span>, <span class="dv">0</span>)
-<span class="co">## [1] FALSE  TRUE FALSE</span>
-<span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">5</span>, <span class="dv">-10</span>) <span class="op">==</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">20</span>, <span class="dv">-5</span>, <span class="dv">0</span>)
-<span class="co">## [1] FALSE FALSE FALSE</span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">5</span>, <span class="dv">-10</span>) <span class="op">&gt;</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">20</span>, <span class="dv">-5</span>, <span class="dv">0</span>)</code></pre>
+<pre><code>## [1] FALSE  TRUE FALSE</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">5</span>, <span class="dv">-10</span>) <span class="op">==</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">20</span>, <span class="dv">-5</span>, <span class="dv">0</span>)</code></pre>
+<pre><code>## [1] FALSE FALSE FALSE</code></pre>
 <p>When using relational operators with two vectors/matrices, make sure they both have the same number of elements. If not, R will recycle values from the beginning of the shorter vector in order to “pad” its length. This is probably not what you want to happen, but R will <strong>only</strong> warn you if the length of the longer vector is not a multiple of the shorter vector. If it is a multiple, then R will recycle silently. Be vigilant!</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">5</span>) <span class="op">==</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">20</span>, <span class="dv">-5</span>, <span class="dv">0</span>, <span class="dv">50</span>) <span class="co"># No warning, 4 is a multiple of 2 !!!</span>
-<span class="co">## [1] FALSE FALSE FALSE FALSE</span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">5</span>) <span class="op">==</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">20</span>, <span class="dv">-5</span>, <span class="dv">0</span>, <span class="dv">50</span>) <span class="co"># No warning, 4 is a multiple of 2 !!!</span></code></pre>
+<pre><code>## [1] FALSE FALSE FALSE FALSE</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">5</span>) <span class="op">==</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">20</span>, <span class="dv">-5</span>, <span class="dv">0</span>) <span class="co"># Recycling warning, 3 is not a multiple of 2</span></code></pre>
 <pre class="Rerrormsg"><code>## Warning in c(10, 5) == c(20, -5, 0): longer object length is not a multiple
-## of shorter object length
-## [1] FALSE FALSE FALSE</code></pre>
+## of shorter object length</code></pre>
+<pre><code>## [1] FALSE FALSE FALSE</code></pre>
 </div>
 <div id="logical-operators" class="section level3">
 <h3><span class="header-section-number">2.3.2</span> Logical Operators</h3>
@@ -700,17 +702,17 @@ zero-row data frame.
 <p>As we see in the “Usage” and “Arguments” sections, every function argument has a name (e.g., <code>data</code>, <code>nrow</code>, <code>byrow</code>). When you call a function, those names can be used in a <code>keyname = value</code> style of syntax, or they may be omitted in favor of just specifying the value.</p>
 <p>If you wish to omit the names of the arguments when calling a function, <strong>then you must order your inputs in the exact same order as they appear in the <code>Usage</code> section!!!</strong>. If you specify arguments as <code>keyname=value</code> pairs, they may be passed in any order. If you mix and match named and unnamed, unnamed inputs that R encounters will be paired up with the unmatched arguments following their order in the Usage section.</p>
 <pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">10</span>,<span class="dv">3</span>,<span class="dv">33</span>,<span class="dv">2</span>,<span class="ot">NA</span>,<span class="dv">43</span>,<span class="dv">22</span>,<span class="dv">31</span>,<span class="dv">95</span>)
-<span class="kw">matrix</span>(<span class="dt">data=</span>x, <span class="dt">byrow=</span><span class="ot">TRUE</span>, <span class="dt">nrow=</span><span class="dv">2</span>, <span class="dt">ncol=</span><span class="dv">5</span>) <span class="co"># named key/value style</span>
-<span class="co">##      [,1] [,2] [,3] [,4] [,5]</span>
-<span class="co">## [1,]    4   10    3   33    2</span>
-<span class="co">## [2,]   NA   43   22   31   95</span>
-<span class="kw">matrix</span>(x, <span class="dv">2</span>, <span class="dv">5</span>, <span class="ot">TRUE</span>)  <span class="co"># unnamed style, byrow goes last</span>
-<span class="co">##      [,1] [,2] [,3] [,4] [,5]</span>
-<span class="co">## [1,]    4   10    3   33    2</span>
-<span class="co">## [2,]   NA   43   22   31   95</span></code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">matrix</span>(x, <span class="ot">TRUE</span>, <span class="dv">2</span>, <span class="dv">5</span>) <span class="co">#5 gets matched up with byrow, not ncol!</span>
-<span class="co">##      [,1] [,2]</span>
-<span class="co">## [1,]    4   10</span></code></pre>
+<span class="kw">matrix</span>(<span class="dt">data=</span>x, <span class="dt">byrow=</span><span class="ot">TRUE</span>, <span class="dt">nrow=</span><span class="dv">2</span>, <span class="dt">ncol=</span><span class="dv">5</span>) <span class="co"># named key/value style</span></code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    4   10    3   33    2
+## [2,]   NA   43   22   31   95</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">matrix</span>(x, <span class="dv">2</span>, <span class="dv">5</span>, <span class="ot">TRUE</span>)  <span class="co"># unnamed style, byrow goes last</span></code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    4   10    3   33    2
+## [2,]   NA   43   22   31   95</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">matrix</span>(x, <span class="ot">TRUE</span>, <span class="dv">2</span>, <span class="dv">5</span>) <span class="co">#5 gets matched up with byrow, not ncol!</span></code></pre>
+<pre><code>##      [,1] [,2]
+## [1,]    4   10</code></pre>
 </div>
 <div id="a-word-of-advice-2" class="section level3">
 <h3><span class="header-section-number">2.4.5</span> A Word of Advice</h3>
@@ -795,8 +797,8 @@ c,3,11</code></pre>
 <h4>File Paths and Working Directories</h4>
 <p>All the files stored on your computer’s hard drive are associated with a named location in the file system’s hierarchy. For example, Windows users are likely familiar storing files inside the “My Documents” folder (also known as a “directory”).</p>
 <p>Much like a file, the R session you have open is also associated with a directory on your hard drive. But, unlike a file, your R session can easily change its current location without copying the session. The directory your R session currently inhabits is called the “Current Working Directory”. You can see what this directory is by issuing the command <code>getwd()</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getwd</span>()
-<span class="co">## [1] &quot;C:/Users/will/source/PBS R Manual&quot;</span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getwd</span>()</code></pre>
+<pre><code>## [1] &quot;C:/Users/will/source/PBS R Manual&quot;</code></pre>
 <p>As you can see, the current working directory of my R session is the PBS R Manual folder. I can change this location using the <code>setwd()</code> command, and providing the name of another directory to move the R session to. The new directory I move to needs to be specified as a Character value (i.e., surrounded with quotation marks). However, I have to be very clear and explicit when describing the location of this directory. Specifically, I have describe this directories location using either a <strong>relative</strong> or an <strong>absolute</strong> path.</p>
 <p>An absolute file path describes the location in relationship to the beginning of the entire file system, while a relative path describes the location in relationship to R’s current working directory. This is important, because not every location on your hard drive is visible from R’s current directory - R can only see files <em>below</em> its current working directory in the file system hierarchy.</p>
 <p>If you need to access a file that <em>is not</em> below your current working directory, the best way to do this is with an absolute file path. On Windows, the start of each file system is given a letter prefix; the prefix of the file system holding the Window’s installation is <code>C:\</code>. Directories are separated with <strong>backward</strong> slashes (e.g. <code>C:\Users\will</code> is an absolute path). On Mac OSX and Linux, the start of the file system is <code>/</code> (read as “root”). Here, directories are separated with <strong>forward</strong> slashes (e.g., <code>/Users/will</code> is an absolute path). But in R, you don’t have to worry about forward slashes vs. backward slashes. <strong>You can use forward slashes in your code, and it will work on either Mac or Windows</strong></p>
@@ -806,14 +808,20 @@ c,3,11</code></pre>
 <h4>read.csv</h4>
 <p>The R function used for importing CSV files is called <code>read.csv</code>. It has one required argument, the file path describing the name and location of the CSV file to import. In this case, the CSV file is named <code>commas.csv</code> and it is stored in a directory named <code>data</code> that is in my current working directory. Let’s import it now:</p>
 <pre class="sourceCode r"><code class="sourceCode r">commas &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/commas.csv&quot;</span>)
-<span class="kw">class</span>(commas)
-<span class="co">## [1] &quot;data.frame&quot;</span>
-commas
-<span class="co">##   condition trial rating</span>
-<span class="co">## 1         a     1      3</span>
-<span class="co">## 2         b     2      1</span>
-<span class="co">## 3         c     3     11</span></code></pre>
-<p>Note that I assigned the output of the <code>read.csv</code> function to variable named <code>commas</code>, and that the function imported the CSV file as a <code>data.frame</code> object. Also note that the values in the first row of the CSV file were used as names for each columns, rather than a row of data.</p>
+<span class="kw">class</span>(commas)</code></pre>
+<pre><code>## [1] &quot;data.frame&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">commas</code></pre>
+<pre><code>##   condition trial rating
+## 1         a     1      3
+## 2         b     2      1
+## 3         c     3     11</code></pre>
+<p>Note that I assigned the output of the <code>read.csv</code> function to variable named <code>commas</code>, and that the function imported the CSV file as a <code>data.frame</code> object. Also note that the values in the first row of the CSV file were used as names for each column, rather than a row of data.</p>
+</div>
+<div id="file.choose" class="section level4 unnumbered">
+<h4>file.choose()</h4>
+<p>There are several advantages to relying on explicit file paths when reading in data, including automaticity and encouraging good project management habits. However, for the purposes of Psych 240 and 241, you may find it easier to teach your students to avoid writing out file paths by supplying the <code>file.choose()</code> function as the path argument to <code>read.csv()</code> instead:</p>
+<pre class="sourceCode r"><code class="sourceCode r">commas &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="kw">file.choose</span>())</code></pre>
+<p>Replacing the explicit file path with the <code>file.choose()</code> function will bring up a file browser, which will allow you to navigate your hard drive and select the file you wish.</p>
 </div>
 <div id="importing-excel-files" class="section level4 unnumbered">
 <h4>Importing Excel Files</h4>
@@ -834,13 +842,13 @@ commas
 <h4>Subsetting with a Numeric Index</h4>
 <pre class="sourceCode r"><code class="sourceCode r">alphabet &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>,<span class="st">&quot;d&quot;</span>,<span class="st">&quot;e&quot;</span>,<span class="st">&quot;f&quot;</span>,<span class="st">&quot;g&quot;</span>,<span class="st">&quot;h&quot;</span>,<span class="st">&quot;i&quot;</span>,<span class="st">&quot;j&quot;</span>,<span class="st">&quot;k&quot;</span>,<span class="st">&quot;l&quot;</span>,<span class="st">&quot;m&quot;</span>,<span class="st">&quot;n&quot;</span>,<span class="st">&quot;o&quot;</span>,
               <span class="st">&quot;p&quot;</span>,<span class="st">&quot;q&quot;</span>,<span class="st">&quot;r&quot;</span>,<span class="st">&quot;s&quot;</span>,<span class="st">&quot;t&quot;</span>,<span class="st">&quot;u&quot;</span>,<span class="st">&quot;v&quot;</span>,<span class="st">&quot;w&quot;</span>,<span class="st">&quot;x&quot;</span>,<span class="st">&quot;y&quot;</span>,<span class="st">&quot;z&quot;</span>) 
-alphabet[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">26</span>)] <span class="co"># Extract First and 26th element</span>
-<span class="co">## [1] &quot;a&quot; &quot;z&quot;</span>
-alphabet[<span class="dv">10</span><span class="op">:</span><span class="dv">20</span>] <span class="co"># Extract tenth through 20th</span>
-<span class="co">##  [1] &quot;j&quot; &quot;k&quot; &quot;l&quot; &quot;m&quot; &quot;n&quot; &quot;o&quot; &quot;p&quot; &quot;q&quot; &quot;r&quot; &quot;s&quot; &quot;t&quot;</span></code></pre>
+alphabet[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">26</span>)] <span class="co"># Extract First and 26th element</span></code></pre>
+<pre><code>## [1] &quot;a&quot; &quot;z&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">alphabet[<span class="dv">10</span><span class="op">:</span><span class="dv">20</span>] <span class="co"># Extract tenth through 20th</span></code></pre>
+<pre><code>##  [1] &quot;j&quot; &quot;k&quot; &quot;l&quot; &quot;m&quot; &quot;n&quot; &quot;o&quot; &quot;p&quot; &quot;q&quot; &quot;r&quot; &quot;s&quot; &quot;t&quot;</code></pre>
 <p>One of the most common mistake is including a value in your indexing vector which is greater than the length of the vector you are subsetting</p>
-<pre class="sourceCode r"><code class="sourceCode r">alphabet[<span class="dv">100</span>] <span class="co"># there are not 100 letters in the alphabet</span>
-<span class="co">## [1] NA</span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">alphabet[<span class="dv">100</span>] <span class="co"># there are not 100 letters in the alphabet</span></code></pre>
+<pre><code>## [1] NA</code></pre>
 <p>The <code>NA</code> means the value is missing. This is commonly referred to as an “index out of bounds” error, although R does not explicitly give you an error.</p>
 <p>Another common mistake is forgetting to concatenate the values you want to use for the indexing vector (i.e. forgetting the <code>c()</code> function).</p>
 <pre class="sourceCode r"><code class="sourceCode r">alphabet[<span class="dv">1</span>,<span class="dv">5</span>]</code></pre>
@@ -849,11 +857,11 @@ alphabet[<span class="dv">10</span><span class="op">:</span><span class="dv">20<
 <div id="negative-subsetting" class="section level5 unnumbered">
 <h5>“Negative” Subsetting</h5>
 <p>Instead of creating a vector of values you <em>do</em> want to pick out, it may be easier to come up with a vector of ones you <em>don’t</em> want. We can use negative number’s to specify which vector elements we don’t want.</p>
-<pre class="sourceCode r"><code class="sourceCode r">alphabet[<span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">26</span>)] <span class="co"># Same as alphabet[2:24]</span>
-<span class="co">##  [1] &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot; &quot;k&quot; &quot;l&quot; &quot;m&quot; &quot;n&quot; &quot;o&quot; &quot;p&quot; &quot;q&quot; &quot;r&quot;</span>
-<span class="co">## [18] &quot;s&quot; &quot;t&quot; &quot;u&quot; &quot;v&quot; &quot;w&quot; &quot;x&quot; &quot;y&quot;</span>
-alphabet[<span class="op">-</span><span class="dv">1</span><span class="op">:-</span><span class="dv">10</span>]
-<span class="co">##  [1] &quot;k&quot; &quot;l&quot; &quot;m&quot; &quot;n&quot; &quot;o&quot; &quot;p&quot; &quot;q&quot; &quot;r&quot; &quot;s&quot; &quot;t&quot; &quot;u&quot; &quot;v&quot; &quot;w&quot; &quot;x&quot; &quot;y&quot; &quot;z&quot;</span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">alphabet[<span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">26</span>)] <span class="co"># Same as alphabet[2:24]</span></code></pre>
+<pre><code>##  [1] &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot; &quot;k&quot; &quot;l&quot; &quot;m&quot; &quot;n&quot; &quot;o&quot; &quot;p&quot; &quot;q&quot; &quot;r&quot;
+## [18] &quot;s&quot; &quot;t&quot; &quot;u&quot; &quot;v&quot; &quot;w&quot; &quot;x&quot; &quot;y&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">alphabet[<span class="op">-</span><span class="dv">1</span><span class="op">:-</span><span class="dv">10</span>]</code></pre>
+<pre><code>##  [1] &quot;k&quot; &quot;l&quot; &quot;m&quot; &quot;n&quot; &quot;o&quot; &quot;p&quot; &quot;q&quot; &quot;r&quot; &quot;s&quot; &quot;t&quot; &quot;u&quot; &quot;v&quot; &quot;w&quot; &quot;x&quot; &quot;y&quot; &quot;z&quot;</code></pre>
 <p>Indexing with positive vectors is usually preferred, as the intent of the code is more clear, but sometimes this form can be clearer when constructing the “anti-set” is easier (e.g. when dropping the first value).</p>
 </div>
 </div>
@@ -862,23 +870,23 @@ alphabet[<span class="op">-</span><span class="dv">1</span><span class="op">:-</
 <p>If the elements of our vector have names, we can use those names instead of their positions.</p>
 <pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span>
 <span class="kw">names</span>(x) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>,<span class="st">&quot;D&quot;</span>,<span class="st">&quot;F&quot;</span>)
-x
-<span class="co">## A B C D F </span>
-<span class="co">## 1 2 3 4 5</span>
-x[<span class="kw">c</span>(<span class="st">&quot;B&quot;</span>,<span class="st">&quot;F&quot;</span>)]
-<span class="co">## B F </span>
-<span class="co">## 2 5</span></code></pre>
+x</code></pre>
+<pre><code>## A B C D F 
+## 1 2 3 4 5</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">x[<span class="kw">c</span>(<span class="st">&quot;B&quot;</span>,<span class="st">&quot;F&quot;</span>)]</code></pre>
+<pre><code>## B F 
+## 2 5</code></pre>
 </div>
 <div id="subsetting-with-a-logical-index" class="section level4 unnumbered">
 <h4>Subsetting with a Logical Index</h4>
 <p>When subsetting with a logical index vector, you supply a vector specifying whether to extract a specific element (with a <code>TRUE</code>) or to <em>not</em> extract a specific element (with a <code>FALSE</code>).</p>
 <p>Let’s revisit the example of selecting the first and last elements of the alphabet vector: We make a vector of logicals and stick it in the square brackets after your vector.</p>
-<pre class="sourceCode r"><code class="sourceCode r">alphabet[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">26</span>)]
-<span class="co">## [1] &quot;a&quot; &quot;z&quot;</span>
-alphabet[<span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>,
+<pre class="sourceCode r"><code class="sourceCode r">alphabet[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">26</span>)]</code></pre>
+<pre><code>## [1] &quot;a&quot; &quot;z&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">alphabet[<span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>,
            <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>,
-           <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>)]
-<span class="co">## [1] &quot;a&quot; &quot;z&quot;</span></code></pre>
+           <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>)]</code></pre>
+<pre><code>## [1] &quot;a&quot; &quot;z&quot;</code></pre>
 <p>But this specific example is not a good use case for logical vectors. Why?</p>
 <ol style="list-style-type: decimal">
 <li>Longer Code: length of the logical vector must match the length of the object its subsetting.</li>
@@ -891,43 +899,43 @@ alphabet[<span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot
 <h3><span class="header-section-number">2.5.4</span> Indexing</h3>
 <p>Indexing a data structure in a search for specific values is a job for R’s <a href="r-programming-fundamentals.html#relational-operators">relational operators</a>. Remember, relational operator are applied to all the elements of a data structure individually (i.e., “element-wise”). Thus, we can apply them to search for specific values, and use the Logical <code>TRUE</code>/<code>FALSE</code> values that result from this search as an index vector.</p>
 <pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">2</span><span class="op">:</span><span class="dv">11</span>
-<span class="kw">print</span>(x)
-<span class="co">##  [1]  2  3  4  5  6  7  8  9 10 11</span>
-x <span class="op">&lt;=</span><span class="st"> </span><span class="dv">5</span> <span class="co"># Apply the less than or equals test</span>
-<span class="co">##  [1]  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE</span></code></pre>
+<span class="kw">print</span>(x)</code></pre>
+<pre><code>##  [1]  2  3  4  5  6  7  8  9 10 11</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">x <span class="op">&lt;=</span><span class="st"> </span><span class="dv">5</span> <span class="co"># Apply the less than or equals test</span></code></pre>
+<pre><code>##  [1]  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
 <p>As you can see, values that meet the criteria (&lt;= 5) return as <code>TRUE</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r">x[x <span class="op">&lt;=</span><span class="st"> </span><span class="dv">5</span>] <span class="co"># Index vector x with the results of the test. </span>
-<span class="co">## [1] 2 3 4 5</span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">x[x <span class="op">&lt;=</span><span class="st"> </span><span class="dv">5</span>] <span class="co"># Index vector x with the results of the test. </span></code></pre>
+<pre><code>## [1] 2 3 4 5</code></pre>
 <p>When this logical vector is used to index the vector <code>x</code>, only the elements where the logical vector has value <code>TRUE</code> are returned.</p>
 <p>We index character vectors using the <code>==</code> and <code>!=</code> operators, but not the greater/less than operators. Quantity makes no sense for characters!</p>
 <pre class="sourceCode r"><code class="sourceCode r">months &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;January&quot;</span>, <span class="st">&quot;February&quot;</span>, <span class="st">&quot;March&quot;</span>, <span class="st">&quot;April&quot;</span>, <span class="st">&quot;May&quot;</span>, <span class="st">&quot;June&quot;</span>, <span class="st">&quot;July&quot;</span>,
             <span class="st">&quot;August&quot;</span>, <span class="st">&quot;September&quot;</span>, <span class="st">&quot;October&quot;</span>, <span class="st">&quot;November&quot;</span>, <span class="st">&quot;December&quot;</span>)
-months <span class="op">==</span><span class="st"> &quot;June&quot;</span> <span class="co"># The sixth element is TRUE</span>
-<span class="co">##  [1] FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE</span>
-<span class="co">## [12] FALSE</span>
-months[months <span class="op">==</span><span class="st"> &quot;June&quot;</span>]
-<span class="co">## [1] &quot;June&quot;</span>
-months[months <span class="op">!=</span><span class="st"> &quot;July&quot;</span>]
-<span class="co">##  [1] &quot;January&quot;   &quot;February&quot;  &quot;March&quot;     &quot;April&quot;     &quot;May&quot;      </span>
-<span class="co">##  [6] &quot;June&quot;      &quot;August&quot;    &quot;September&quot; &quot;October&quot;   &quot;November&quot; </span>
-<span class="co">## [11] &quot;December&quot;</span></code></pre>
+months <span class="op">==</span><span class="st"> &quot;June&quot;</span> <span class="co"># The sixth element is TRUE</span></code></pre>
+<pre><code>##  [1] FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE
+## [12] FALSE</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">months[months <span class="op">==</span><span class="st"> &quot;June&quot;</span>]</code></pre>
+<pre><code>## [1] &quot;June&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">months[months <span class="op">!=</span><span class="st"> &quot;July&quot;</span>]</code></pre>
+<pre><code>##  [1] &quot;January&quot;   &quot;February&quot;  &quot;March&quot;     &quot;April&quot;     &quot;May&quot;      
+##  [6] &quot;June&quot;      &quot;August&quot;    &quot;September&quot; &quot;October&quot;   &quot;November&quot; 
+## [11] &quot;December&quot;</code></pre>
 <div id="other-useful-tests-is.na" class="section level4 unnumbered">
 <h4>Other Useful Tests: <code>is.na()</code></h4>
 <p>Unfortunately, we often have to deal with missing observations in real world data sets. R codes missing data as <code>NA</code> (or sometimes <code>NaN</code>). We can use the <code>is.na()</code> function to find any missing values in a vector.</p>
 <pre class="sourceCode r"><code class="sourceCode r">missingno &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>,<span class="ot">NA</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="ot">NA</span>,<span class="ot">NA</span>,<span class="dv">99</span>,<span class="ot">NaN</span>, <span class="ot">NA</span>)
-<span class="kw">is.na</span>(missingno)
-<span class="co">##  [1] FALSE  TRUE FALSE FALSE FALSE  TRUE  TRUE FALSE  TRUE  TRUE</span>
-missingno[<span class="op">!</span><span class="kw">is.na</span>(missingno)] <span class="co"># Select the *not* missing observations</span>
-<span class="co">## [1] 10  1  4  2 99</span></code></pre>
+<span class="kw">is.na</span>(missingno)</code></pre>
+<pre><code>##  [1] FALSE  TRUE FALSE FALSE FALSE  TRUE  TRUE FALSE  TRUE  TRUE</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">missingno[<span class="op">!</span><span class="kw">is.na</span>(missingno)] <span class="co"># Select the *not* missing observations</span></code></pre>
+<pre><code>## [1] 10  1  4  2 99</code></pre>
 <p>Removing missing values in a common step in data manipuation before an anlysis. For examples of removing missing values with other data structures, and more realistic data sets, the examples in the <a href="tools-advice-for-instructors.html#data-sets">Data Sets</a> section.</p>
 </div>
 <div id="converting-a-logical-to-a-positional-index" class="section level4 unnumbered">
 <h4>Converting a Logical to a Positional Index</h4>
 <p>A useful function to know is <code>which()</code>. When used on a logical vector, it will return to your the position indices of the vector’s <code>TRUE</code> element. It is useful when you want to know <strong>where</strong> in the vector your matches occur.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.na</span>(missingno)
-<span class="co">##  [1] FALSE  TRUE FALSE FALSE FALSE  TRUE  TRUE FALSE  TRUE  TRUE</span>
-<span class="kw">which</span>(<span class="kw">is.na</span>(missingno))
-<span class="co">## [1]  2  6  7  9 10</span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.na</span>(missingno)</code></pre>
+<pre><code>##  [1] FALSE  TRUE FALSE FALSE FALSE  TRUE  TRUE FALSE  TRUE  TRUE</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">which</span>(<span class="kw">is.na</span>(missingno))</code></pre>
+<pre><code>## [1]  2  6  7  9 10</code></pre>
 </div>
 </div>
 <div id="replacement" class="section level3">
@@ -935,18 +943,18 @@ missingno[<span class="op">!</span><span class="kw">is.na</span>(missingno)] <sp
 <p>To replace the values in a vector (e.g., to replace empty characters with <code>NA</code> values), move the indexing and subsetting operation to the right-hand side of the assignment operator, and put the replacement value(s) on the left-hand side.</p>
 <pre class="sourceCode r"><code class="sourceCode r">song &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Happy&quot;</span>, <span class="st">&quot;Birthday&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot;You&quot;</span>) 
 song[song <span class="op">==</span><span class="st"> &quot;&quot;</span>] &lt;-<span class="st"> </span><span class="ot">NA</span>
-song
-<span class="co">## [1] &quot;Happy&quot;    &quot;Birthday&quot; NA         &quot;You&quot;</span></code></pre>
+song</code></pre>
+<pre><code>## [1] &quot;Happy&quot;    &quot;Birthday&quot; NA         &quot;You&quot;</code></pre>
 <div id="replacement-advice" class="section level4 unnumbered advice">
 <h4>A Word of Advice</h4>
 <p>Unlike subsetting, replacement <em>does</em> present the risk of data loss, because once a value is replaced, it can’t be undone. So, when you are experimenting, we recommend you make a “backup” copy of your data structure before editing it. In the previous example, with the “Happy Birthday” lyrics, you might do the following.</p>
 <pre class="sourceCode r"><code class="sourceCode r">song &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Happy&quot;</span>, <span class="st">&quot;Birthday&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot;You&quot;</span>)
 song_original &lt;-<span class="st"> </span>song
 song[song <span class="op">==</span><span class="st"> &quot;&quot;</span>] &lt;-<span class="st"> </span><span class="ot">NA</span>
-song
-<span class="co">## [1] &quot;Happy&quot;    &quot;Birthday&quot; NA         &quot;You&quot;</span>
-song_original
-<span class="co">## [1] &quot;Happy&quot;    &quot;Birthday&quot; &quot;&quot;         &quot;You&quot;</span></code></pre>
+song</code></pre>
+<pre><code>## [1] &quot;Happy&quot;    &quot;Birthday&quot; NA         &quot;You&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">song_original</code></pre>
+<pre><code>## [1] &quot;Happy&quot;    &quot;Birthday&quot; &quot;&quot;         &quot;You&quot;</code></pre>
 <p>This way, you have a copy of the original data, in case there was a bug in your code, or you need the raw data later on for another operation.</p>
 </div>
 </div>
@@ -963,39 +971,39 @@ song_original
 <li>Logical vectors specifying for each column and row whether we want to access it (<code>TRUE</code>) or ignore it (<code>FALSE</code>)</li>
 </ul>
 <pre class="sourceCode r"><code class="sourceCode r">dummy &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">6</span><span class="op">:</span><span class="dv">1</span>, <span class="dt">nrow =</span> <span class="dv">2</span>)
-dummy
-<span class="co">##      [,1] [,2] [,3]</span>
-<span class="co">## [1,]    6    4    2</span>
-<span class="co">## [2,]    5    3    1</span>
-dummy[<span class="dv">1</span>,<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>] <span class="co"># Row 1, Column 2 and 3. Output is a vector! </span>
-<span class="co">## [1] 4 2</span>
-dummy[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>] <span class="co"># Row 1 and 2, Column 2 and 3. Output is a matrix.</span>
-<span class="co">##      [,1] [,2]</span>
-<span class="co">## [1,]    4    2</span>
-<span class="co">## [2,]    3    1</span></code></pre>
+dummy</code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    6    4    2
+## [2,]    5    3    1</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">dummy[<span class="dv">1</span>,<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>] <span class="co"># Row 1, Column 2 and 3. Output is a vector! </span></code></pre>
+<pre><code>## [1] 4 2</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">dummy[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>] <span class="co"># Row 1 and 2, Column 2 and 3. Output is a matrix.</span></code></pre>
+<pre><code>##      [,1] [,2]
+## [1,]    4    2
+## [2,]    3    1</code></pre>
 <p>If you want to select <strong>all</strong> of one dimension, (e.g., keep all rows or all columns) but index the other dimension, provide the separating comma as usual, but don’t give any indexing vector for the dimension you want to stay 100% intact.</p>
-<pre class="sourceCode r"><code class="sourceCode r">dummy[<span class="dv">1</span>,] <span class="co"># First Row, all columns</span>
-<span class="co">## [1] 6 4 2</span>
-dummy[<span class="dv">1</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>] <span class="co"># Same as previous</span>
-<span class="co">## [1] 6 4 2</span>
-dummy[,<span class="dv">2</span>] <span class="co"># All rows, second columns</span>
-<span class="co">## [1] 4 3</span>
-dummy[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,<span class="dv">2</span>] <span class="co"># Same as previous</span>
-<span class="co">## [1] 4 3</span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">dummy[<span class="dv">1</span>,] <span class="co"># First Row, all columns</span></code></pre>
+<pre><code>## [1] 6 4 2</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">dummy[<span class="dv">1</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>] <span class="co"># Same as previous</span></code></pre>
+<pre><code>## [1] 6 4 2</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">dummy[,<span class="dv">2</span>] <span class="co"># All rows, second columns</span></code></pre>
+<pre><code>## [1] 4 3</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">dummy[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,<span class="dv">2</span>] <span class="co"># Same as previous</span></code></pre>
+<pre><code>## [1] 4 3</code></pre>
 <p>We can apply our relational operators to entire matrices in the same manner as vectors. The resulting logical matrix has the same dimensions as the one we apply the test to.</p>
-<pre class="sourceCode r"><code class="sourceCode r">dummy <span class="op">&lt;</span><span class="st"> </span><span class="dv">4</span> <span class="co"># 2 x 3</span>
-<span class="co">##       [,1]  [,2] [,3]</span>
-<span class="co">## [1,] FALSE FALSE TRUE</span>
-<span class="co">## [2,] FALSE  TRUE TRUE</span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">dummy <span class="op">&lt;</span><span class="st"> </span><span class="dv">4</span> <span class="co"># 2 x 3</span></code></pre>
+<pre><code>##       [,1]  [,2] [,3]
+## [1,] FALSE FALSE TRUE
+## [2,] FALSE  TRUE TRUE</code></pre>
 <p>We can also apply logical testing and logical indexing to specific dimensions of a matrix. This example here keeps all the columns of the matrix with a sum less than 8.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">colSums</span>(dummy) <span class="co"># colSums() adds up each column</span>
-<span class="co">## [1] 11  7  3</span>
-<span class="kw">colSums</span>(dummy) <span class="op">&lt;</span><span class="st"> </span><span class="dv">8</span> <span class="co"># Does each column sum to less than 8?</span>
-<span class="co">## [1] FALSE  TRUE  TRUE</span>
-dummy[,<span class="kw">colSums</span>(dummy) <span class="op">&lt;</span><span class="st"> </span><span class="dv">8</span>] <span class="co"># Select columns with a sum less than 8</span>
-<span class="co">##      [,1] [,2]</span>
-<span class="co">## [1,]    4    2</span>
-<span class="co">## [2,]    3    1</span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">colSums</span>(dummy) <span class="co"># colSums() adds up each column</span></code></pre>
+<pre><code>## [1] 11  7  3</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">colSums</span>(dummy) <span class="op">&lt;</span><span class="st"> </span><span class="dv">8</span> <span class="co"># Does each column sum to less than 8?</span></code></pre>
+<pre><code>## [1] FALSE  TRUE  TRUE</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">dummy[,<span class="kw">colSums</span>(dummy) <span class="op">&lt;</span><span class="st"> </span><span class="dv">8</span>] <span class="co"># Select columns with a sum less than 8</span></code></pre>
+<pre><code>##      [,1] [,2]
+## [1,]    4    2
+## [2,]    3    1</code></pre>
 </div>
 <div id="data-frames-1" class="section level4 unnumbered">
 <h4>Data Frames</h4>
@@ -1004,105 +1012,74 @@ dummy[,<span class="kw">colSums</span>(dummy) <span class="op">&lt;</span><span 
 <div id="subsetting-with-syntax" class="section level5 unnumbered">
 <h5>Subsetting with $ syntax</h5>
 <p>To subset a single column from a data frame, we can use that column’s name, and the <code>$</code> operator. In this case, quotes around the column’s name are not required. To demonstrate, we will subset the <code>mpg</code> column from the <code>mtcars</code> dataset.</p>
-<pre class="sourceCode r"><code class="sourceCode r">mtcars
-<span class="co">##                      mpg cyl  disp  hp drat    wt  qsec vs am gear carb</span>
-<span class="co">## Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4</span>
-<span class="co">## Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4</span>
-<span class="co">## Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1</span>
-<span class="co">## Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1</span>
-<span class="co">## Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2</span>
-<span class="co">## Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1</span>
-<span class="co">## Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4</span>
-<span class="co">## Merc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2</span>
-<span class="co">## Merc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2</span>
-<span class="co">##  [ reached getOption(&quot;max.print&quot;) -- omitted 23 rows ]</span>
-mtcars<span class="op">$</span>mpg
-<span class="co">##  [1] 21.0 21.0 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 17.8 16.4 17.3 15.2</span>
-<span class="co">## [15] 10.4 10.4 14.7 32.4 30.4 33.9 21.5 15.5 15.2 13.3 19.2 27.3 26.0 30.4</span>
-<span class="co">## [29] 15.8 19.7 15.0 21.4</span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">mtcars</code></pre>
+<pre><code>##                      mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+## Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+## Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+## Merc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+## Merc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+##  [ reached getOption(&quot;max.print&quot;) -- omitted 23 rows ]</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">mtcars<span class="op">$</span>mpg</code></pre>
+<pre><code>##  [1] 21.0 21.0 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 17.8 16.4 17.3 15.2
+## [15] 10.4 10.4 14.7 32.4 30.4 33.9 21.5 15.5 15.2 13.3 19.2 27.3 26.0 30.4
+## [29] 15.8 19.7 15.0 21.4</code></pre>
 <p>This <code>$</code> syntax <em>can not</em> be applied to rows.</p>
 </div>
 <div id="subsetting-with-syntax-1" class="section level5 unnumbered">
 <h5>Subsetting with [] syntax</h5>
 <p>To subset <em>multiple</em> columns, or to subset specific rows, we need to use <code>[row,column]</code> style indexing (not the <code>$</code>).</p>
 <p>But we’re not forced to use numeric vectors just because we’re using the <code>[</code> operator. We can select multiple columns by their names using a character vector that has the names of our desired columns as its elements.</p>
-<pre class="sourceCode r"><code class="sourceCode r">mtcars[,<span class="kw">c</span>(<span class="st">&quot;mpg&quot;</span>,<span class="st">&quot;disp&quot;</span>,<span class="st">&quot;gear&quot;</span>)] <span class="co"># need c() function as well as the quotes here</span>
-<span class="co">##                      mpg  disp gear</span>
-<span class="co">## Mazda RX4           21.0 160.0    4</span>
-<span class="co">## Mazda RX4 Wag       21.0 160.0    4</span>
-<span class="co">## Datsun 710          22.8 108.0    4</span>
-<span class="co">## Hornet 4 Drive      21.4 258.0    3</span>
-<span class="co">## Hornet Sportabout   18.7 360.0    3</span>
-<span class="co">##  [ reached getOption(&quot;max.print&quot;) -- omitted 27 rows ]</span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">mtcars[,<span class="kw">c</span>(<span class="st">&quot;mpg&quot;</span>,<span class="st">&quot;disp&quot;</span>,<span class="st">&quot;gear&quot;</span>)] <span class="co"># need c() function as well as the quotes here</span></code></pre>
+<pre><code>##                      mpg  disp gear
+## Mazda RX4           21.0 160.0    4
+## Mazda RX4 Wag       21.0 160.0    4
+## Datsun 710          22.8 108.0    4
+## Hornet 4 Drive      21.4 258.0    3
+## Hornet Sportabout   18.7 360.0    3
+##  [ reached getOption(&quot;max.print&quot;) -- omitted 27 rows ]</code></pre>
 <p>One of the most common subsetting tasks with a data frame (or matrix) is the need to select values in one column where the values in another column meet a certain criteria. For example, you might want to select all the values in the column holding reaction times where participants were incorrect. There are 2 syntactic approaches to this, both of which use relational operators and logical indexing.</p>
 </div>
 <div id="method-1-index-the-data-frame-itself" class="section level5 unnumbered">
 <h5>Method 1: Index the data frame itself</h5>
 <p>We will use the <code>[row,column]</code> method to pick out the values of the <code>count</code> column in <code>InsectSprays</code> where spray A was used. First, we will build up a logical vector to index the correct rows by testing where the spray column has value ‘A’</p>
-<pre class="sourceCode r"><code class="sourceCode r">InsectSprays<span class="op">$</span>spray
-<span class="co">##  [1] A A A A A A A A A A A A B B B B B B B B B B B B C C C C C C</span>
-<span class="co">##  [ reached getOption(&quot;max.print&quot;) -- omitted 42 entries ]</span>
-<span class="co">## Levels: A B C D E F</span>
-InsectSprays<span class="op">$</span>spray<span class="op">==</span><span class="st">&quot;A&quot;</span>
-<span class="co">##  [1]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE</span>
-<span class="co">## [12]  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span>
-<span class="co">## [23] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span>
-<span class="co">##  [ reached getOption(&quot;max.print&quot;) -- omitted 42 entries ]</span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">InsectSprays<span class="op">$</span>spray</code></pre>
+<pre><code>##  [1] A A A A A A A A A A A A B B B B B B B B B B B B C C C C C C
+##  [ reached getOption(&quot;max.print&quot;) -- omitted 42 entries ]
+## Levels: A B C D E F</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">InsectSprays<span class="op">$</span>spray<span class="op">==</span><span class="st">&quot;A&quot;</span></code></pre>
+<pre><code>##  [1]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+## [12]  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [23] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [ reached getOption(&quot;max.print&quot;) -- omitted 42 entries ]</code></pre>
 <p>Next, we combine this with a character vector of the column names we’re interested in, and put it inside our <code>[]</code> brackets</p>
-<pre class="sourceCode r"><code class="sourceCode r">InsectSprays[InsectSprays<span class="op">$</span>spray<span class="op">==</span><span class="st">&quot;A&quot;</span>,<span class="st">&#39;count&#39;</span>]
-<span class="co">##  [1] 10  7 20 14 14 12 10 23 17 20 14 13</span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">InsectSprays[InsectSprays<span class="op">$</span>spray<span class="op">==</span><span class="st">&quot;A&quot;</span>,<span class="st">&#39;count&#39;</span>]</code></pre>
+<pre><code>##  [1] 10  7 20 14 14 12 10 23 17 20 14 13</code></pre>
 <p>If we leave the column vector out, this statement will return a data frame. Can you guess how many unique values will be in the spray column in this case?</p>
 </div>
 </div>
 <div id="method-2-index-a-vector-from-the-data-frame" class="section level4 unnumbered">
 <h4>Method 2: Index a vector <em>from</em> the data frame</h4>
 <p>Here, we will use the <code>$</code> operator to subset the <code>count</code> column from the <code>InsectSprays</code> data frame. Then, index this vector with the logical vector resulting from a relational test</p>
-<pre class="sourceCode r"><code class="sourceCode r">InsectSprays<span class="op">$</span>count[InsectSprays<span class="op">$</span>spray<span class="op">==</span><span class="st">&quot;A&quot;</span>] <span class="co"># Same result as before</span>
-<span class="co">##  [1] 10  7 20 14 14 12 10 23 17 20 14 13</span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">InsectSprays<span class="op">$</span>count[InsectSprays<span class="op">$</span>spray<span class="op">==</span><span class="st">&quot;A&quot;</span>] <span class="co"># Same result as before</span></code></pre>
+<pre><code>##  [1] 10  7 20 14 14 12 10 23 17 20 14 13</code></pre>
 <div id="errors-when-indexing-by-name" class="section level5 unnumbered">
 <h5>Errors when indexing by name</h5>
 <p>If you try to subset a column of a data frame using the <code>$</code> operator, but the name of the column doesn’t exist, <code>R</code> will return <code>NULL</code></p>
-<pre class="sourceCode r"><code class="sourceCode r">InsectSprays<span class="op">$</span>neeeeeeighhhhh
-<span class="co">## NULL</span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">InsectSprays<span class="op">$</span>neeeeeeighhhhh</code></pre>
+<pre><code>## NULL</code></pre>
 <p>But, if you use the <code>[row,column]</code> style of indexing and ask for a column that doesn’t exist, you get a formal error.</p>
 <pre class="sourceCode r"><code class="sourceCode r">InsectSprays[, <span class="st">&#39;neeeeeeighhhhh&#39;</span>]</code></pre>
 <pre class="Rerrormsg"><code>## Error in `[.data.frame`(InsectSprays, , &quot;neeeeeeighhhhh&quot;): undefined columns selected</code></pre>
 <p>Its also a common mistake to forget the quotes around names inside the <code>[]</code> brackets, which will throw an “object not found” error (unless the an object with the same name just happens to exist by coincidence, in which case you will probably get another type of error).</p>
 <pre class="sourceCode r"><code class="sourceCode r">InsectSprays[, spray]</code></pre>
 <pre class="Rerrormsg"><code>## Error in `[.data.frame`(InsectSprays, , spray): object &#39;spray&#39; not found</code></pre>
-</div>
-</div>
-<div id="reproducibility-2" class="section level4 unnumbered">
-<h4>Reproducibility</h4>
-<p>The R session information when compiling this book is shown below:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(printr)
-<span class="co">## Warning: package &#39;printr&#39; was built under R version 3.5.3</span>
-<span class="kw">sessionInfo</span>()
-<span class="co">## R version 3.5.1 (2018-07-02)</span>
-<span class="co">## Platform: x86_64-w64-mingw32/x64 (64-bit)</span>
-<span class="co">## Running under: Windows 7 x64 (build 7601) Service Pack 1</span>
-<span class="co">## </span>
-<span class="co">## Matrix products: default</span>
-<span class="co">## </span>
-<span class="co">## locale:</span>
-<span class="co">## [1] LC_COLLATE=English_United States.1252 </span>
-<span class="co">## [2] LC_CTYPE=English_United States.1252   </span>
-<span class="co">## [3] LC_MONETARY=English_United States.1252</span>
-<span class="co">## [4] LC_NUMERIC=C                          </span>
-<span class="co">## [5] LC_TIME=English_United States.1252    </span>
-<span class="co">## </span>
-<span class="co">## attached base packages:</span>
-<span class="co">## [1] stats     graphics  grDevices utils     datasets  methods   base     </span>
-<span class="co">## </span>
-<span class="co">## other attached packages:</span>
-<span class="co">## [1] printr_0.1</span>
-<span class="co">## </span>
-<span class="co">## loaded via a namespace (and not attached):</span>
-<span class="co">##  [1] compiler_3.5.1   magrittr_1.5     bookdown_0.11    htmltools_0.3.6 </span>
-<span class="co">##  [5] tools_3.5.1      Rcpp_1.0.1       codetools_0.2-15 stringi_1.4.3   </span>
-<span class="co">##  [9] rmarkdown_1.13   knitr_1.22       stringr_1.3.1    xfun_0.6        </span>
-<span class="co">## [13] digest_0.6.19    packrat_0.4.9-3  evaluate_0.14</span></code></pre>
 
+</div>
 </div>
 </div>
 </div>

@@ -135,6 +135,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#formatting-conventions"><i class="fa fa-check"></i>Formatting Conventions</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#additional-materials"><i class="fa fa-check"></i>Additional Materials</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-the-authors"><i class="fa fa-check"></i>About the Authors</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#funding"><i class="fa fa-check"></i>Funding</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html"><i class="fa fa-check"></i><b>1</b> Introducing R and RStudio</a><ul>
 <li class="chapter" data-level="1.1" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#console"><i class="fa fa-check"></i><b>1.1</b> Pane #1: The R Console</a></li>
@@ -189,13 +191,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1" data-path="statistics.html"><a href="statistics.html#the-data"><i class="fa fa-check"></i><b>3.1</b> The Data</a></li>
 <li class="chapter" data-level="3.2" data-path="statistics.html"><a href="statistics.html#formula-objects"><i class="fa fa-check"></i><b>3.2</b> Formula Objects</a></li>
 <li class="chapter" data-level="3.3" data-path="statistics.html"><a href="statistics.html#descriptive-statistics"><i class="fa fa-check"></i><b>3.3</b> Descriptive Statistics</a><ul>
-<li class="chapter" data-level="3.3.1" data-path="statistics.html"><a href="statistics.html#mean"><i class="fa fa-check"></i><b>3.3.1</b> Mean</a></li>
-<li class="chapter" data-level="3.3.2" data-path="statistics.html"><a href="statistics.html#median"><i class="fa fa-check"></i><b>3.3.2</b> Median</a></li>
-<li class="chapter" data-level="3.3.3" data-path="statistics.html"><a href="statistics.html#variance"><i class="fa fa-check"></i><b>3.3.3</b> Variance</a></li>
-<li class="chapter" data-level="3.3.4" data-path="statistics.html"><a href="statistics.html#standard-deviation"><i class="fa fa-check"></i><b>3.3.4</b> Standard Deviation</a></li>
-<li class="chapter" data-level="3.3.5" data-path="statistics.html"><a href="statistics.html#standard-error-of-the-mean"><i class="fa fa-check"></i><b>3.3.5</b> Standard Error of the Mean</a></li>
-<li class="chapter" data-level="3.3.6" data-path="statistics.html"><a href="statistics.html#correlation-proportion-of-variance-explained"><i class="fa fa-check"></i><b>3.3.6</b> Correlation &amp; Proportion of Variance Explained</a></li>
-<li class="chapter" data-level="3.3.7" data-path="statistics.html"><a href="statistics.html#summary-functions"><i class="fa fa-check"></i><b>3.3.7</b> Summary Functions</a></li>
+<li class="chapter" data-level="3.3.1" data-path="statistics.html"><a href="statistics.html#handling-na-values"><i class="fa fa-check"></i><b>3.3.1</b> Handling <code>NA</code> Values</a></li>
+<li class="chapter" data-level="3.3.2" data-path="statistics.html"><a href="statistics.html#mean"><i class="fa fa-check"></i><b>3.3.2</b> Mean</a></li>
+<li class="chapter" data-level="3.3.3" data-path="statistics.html"><a href="statistics.html#median"><i class="fa fa-check"></i><b>3.3.3</b> Median</a></li>
+<li class="chapter" data-level="3.3.4" data-path="statistics.html"><a href="statistics.html#variance"><i class="fa fa-check"></i><b>3.3.4</b> Variance</a></li>
+<li class="chapter" data-level="3.3.5" data-path="statistics.html"><a href="statistics.html#standard-deviation"><i class="fa fa-check"></i><b>3.3.5</b> Standard Deviation</a></li>
+<li class="chapter" data-level="3.3.6" data-path="statistics.html"><a href="statistics.html#standard-error-of-the-mean"><i class="fa fa-check"></i><b>3.3.6</b> Standard Error of the Mean</a></li>
+<li class="chapter" data-level="3.3.7" data-path="statistics.html"><a href="statistics.html#correlation-proportion-of-variance-explained"><i class="fa fa-check"></i><b>3.3.7</b> Correlation &amp; Proportion of Variance Explained</a></li>
+<li class="chapter" data-level="3.3.8" data-path="statistics.html"><a href="statistics.html#summary-functions"><i class="fa fa-check"></i><b>3.3.8</b> Summary Functions</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="statistics.html"><a href="statistics.html#plotting"><i class="fa fa-check"></i><b>3.4</b> Plotting</a><ul>
 <li class="chapter" data-level="3.4.1" data-path="statistics.html"><a href="statistics.html#scatter-line-plots"><i class="fa fa-check"></i><b>3.4.1</b> Scatter &amp; Line Plots</a></li>
@@ -306,24 +309,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="descriptive-statistics" class="section level2">
 <h2><span class="header-section-number">3.3</span> Descriptive Statistics</h2>
+<div id="handling-na-values" class="section level3">
+<h3><span class="header-section-number">3.3.1</span> Handling <code>NA</code> Values</h3>
+<p>Missing data are coded as <code>NA</code> in R. Several functions include arguments that allow for <code>NA</code> values to be removed before any calculations are done by setting the <code>na.rm</code> argument to <code>TRUE</code>. For instance, when we try to take the mean of the quantitative SAT scores in the <code>sat.act</code> data set without removing <code>NA</code> values, we get <code>NA</code> as the output:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(sat.act<span class="op">$</span>SATQ)</code></pre>
+<pre><code>## [1] NA</code></pre>
+<p>But by setting <code>na.rm=TRUE</code>, we get a sensible answer:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(sat.act<span class="op">$</span>SATQ, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</code></pre>
+<pre><code>## [1] 610.2169</code></pre>
+<p>In addition to the <code>mean()</code> function, the <code>median()</code>, <code>var()</code>, and <code>sd()</code> functions take the <code>na.rm</code> argument. To see whether other functions not discussed take this argument, consult the help page for that particular function.</p>
+<p>Note that <code>NA</code> values cannot always be easily removed when calculating descriptive statistics by hand. For instance, in the case of the mean (demonstrated below), while the <code>sum()</code> function will take the <code>na.rm</code> argument, the <code>length()</code> function will not. Thus, if you plan to ask students to calculate the mean by hand in R, be sure to choose a method of removing <code>NA</code> values manually. You can either remove the values yourself beforehand, give the students code to do it, or teach them to look out for and handle <code>NA</code> values themselves.</p>
+</div>
 <div id="mean" class="section level3">
-<h3><span class="header-section-number">3.3.1</span> Mean</h3>
+<h3><span class="header-section-number">3.3.2</span> Mean</h3>
 <p>To calculate the mean of a vector by hand, use the <code>sum()</code> and <code>length()</code> functions. For instance, we can calculate the mean verbal SAT score in the <code>sat.act</code> data set as follows:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(sat.act<span class="op">$</span>SATV)<span class="op">/</span><span class="kw">length</span>(sat.act<span class="op">$</span>SATV)</code></pre>
 <pre><code>## [1] 612.2343</code></pre>
 <p>We can also get the same answer by using the <code>mean()</code> function:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(sat.act<span class="op">$</span>SATV)</code></pre>
 <pre><code>## [1] 612.2343</code></pre>
-<p>Note that <code>NA</code> values can be removed from the vector when using the <code>mean()</code> function by setting the <code>na.rm</code> argument to <code>TRUE</code>. For instance, when we try to take the mean of the quantitative SAT scores without removing <code>NA</code> values, we get <code>NA</code> as the output:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(sat.act<span class="op">$</span>SATQ)</code></pre>
-<pre><code>## [1] NA</code></pre>
-<p>But by setting <code>na.rm=TRUE</code>, we get a sensible answer:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(sat.act<span class="op">$</span>SATQ, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</code></pre>
-<pre><code>## [1] 610.2169</code></pre>
-<p>The <code>NA</code> values cannot be removed this easily when calculating the mean by hand because while the <code>sum()</code> function will take the <code>na.rm</code> argument, the <code>length()</code> function will not. Thus, if you plan to ask students to calculate the mean by hand in R, be sure to choose a method of removing NA values manually. You can either remove the values yourself beforehand, give the students code to do it, or teach them to look out for and handle <code>NA</code> values themselves.</p>
 </div>
 <div id="median" class="section level3">
-<h3><span class="header-section-number">3.3.2</span> Median</h3>
+<h3><span class="header-section-number">3.3.3</span> Median</h3>
 <p>You can ask students to calculate the median of a vector by hand by having them index the output of the <code>sort()</code> function. To demonstrate, imagine that we want to know the median age of respondents in the <code>sat.act</code> data set. Calling <code>sort()</code> function on the <code>age</code> variable will take all of the respondents’ ages and put them in ascending order:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sort</span>(sat.act<span class="op">$</span>age)</code></pre>
 <pre><code>##   [1] 13 14 15 15 16 16 16 16 16 16 16 16 16 16 17 17 17 17 17 17 17 17 17
@@ -366,20 +373,14 @@ middle_vals &lt;-<span class="st"> </span><span class="kw">sort</span>(sat.act<s
 <span class="co"># Take the mean of the two middle values</span>
 <span class="kw">mean</span>(middle_vals)</code></pre>
 <pre><code>## [1] 22</code></pre>
-<p>Note that you might also allow students to simply print the output of <code>sort()</code> and find the median visually.</p>
+<p>Any <code>NA</code> values are automatically removed when calculating the median by hand using the <code>sort()</code> function, however you can also choose to have missing values placed last or first in the output by setting the <code>na.last</code> argument to ‘TRUE’ or ‘FALSE’, respectively.</p>
+<p>Note, of course, that you might also allow students to simply print the output of <code>sort()</code> and find the median visually.</p>
 <p>We can also get the same answer by using the <code>median()</code> function:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">median</span>(sat.act<span class="op">$</span>age)</code></pre>
 <pre><code>## [1] 22</code></pre>
-<p>Note that <code>NA</code> values can be removed from the vector when using the <code>median()</code> function by setting the <code>na.rm</code> argument to <code>TRUE</code>. For instance, when we try to take the median of the quantitative SAT scores without removing <code>NA</code> values, we get <code>NA</code> as the output:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">median</span>(sat.act<span class="op">$</span>SATQ)</code></pre>
-<pre><code>## [1] NA</code></pre>
-<p>But by setting <code>na.rm=TRUE</code>, we get a sensible answer:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">median</span>(sat.act<span class="op">$</span>SATQ, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</code></pre>
-<pre><code>## [1] 620</code></pre>
-<p>The <code>NA</code> values are automatically removed when calculating the median by hand using the <code>sort()</code> function, however you can also choose to have missing values placed last or first in the output by setting the <code>na.last</code> argument to ‘TRUE’ or ‘FALSE’, respectively.</p>
 </div>
 <div id="variance" class="section level3">
-<h3><span class="header-section-number">3.3.3</span> Variance</h3>
+<h3><span class="header-section-number">3.3.4</span> Variance</h3>
 <p>Calculating the variance by hand requires more distinct sequencing than for the mean and the median. To demonstrate, imagine that we want to find the variance of the verbal SAT scores reported in the <code>sat.act</code> data set.</p>
 <p>Recall from your knowledge of statistics that the formula for the variance of a sample is:</p>
 <p><span class="math display">\[s^2=\frac{\sum (x_i-\bar{x})^2}{n-1}\]</span></p>
@@ -391,16 +392,9 @@ middle_vals &lt;-<span class="st"> </span><span class="kw">sort</span>(sat.act<s
 <p>We can also get the same answer by using the <code>var()</code> function:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">var</span>(sat.act<span class="op">$</span>SATV)</code></pre>
 <pre><code>## [1] 12746.99</code></pre>
-<p>Note that <code>NA</code> values can be removed from the vector when using the <code>var()</code> function by setting the <code>na.rm</code> argument to <code>TRUE</code>. For instance, when we try to take the variance of the quantitative SAT scores without removing <code>NA</code> values, we get <code>NA</code> as the output:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">var</span>(sat.act<span class="op">$</span>SATQ)</code></pre>
-<pre><code>## [1] NA</code></pre>
-<p>But by setting <code>na.rm=TRUE</code>, we get a sensible answer:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">var</span>(sat.act<span class="op">$</span>SATQ, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</code></pre>
-<pre><code>## [1] 13372.45</code></pre>
-<p>The <code>NA</code> values cannot be removed this easily when calculating the variance by hand because while the <code>sum()</code> function will take the <code>na.rm</code> argument, the <code>length()</code> function will not. Thus, if you plan to ask students to calculate the variance by hand in R, be sure to choose a method of removing NA values manually. You can either remove the values yourself beforehand, give the students code to do it, or teach them to look out for and handle <code>NA</code> values themselves.</p>
 </div>
 <div id="standard-deviation" class="section level3">
-<h3><span class="header-section-number">3.3.4</span> Standard Deviation</h3>
+<h3><span class="header-section-number">3.3.5</span> Standard Deviation</h3>
 <p>To calculate the standard deviation by hand, simply extend the previous commands for calculating the variance one step further by calling <code>sqrt()</code> on the previous result:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Find the squared deviations</span>
 SATV_sq_diff &lt;-<span class="st"> </span>(sat.act<span class="op">$</span>SATV<span class="op">-</span><span class="kw">mean</span>(sat.act<span class="op">$</span>SATV))<span class="op">^</span><span class="dv">2</span>
@@ -420,16 +414,9 @@ SATV_var &lt;-<span class="st"> </span><span class="kw">sum</span>(SATV_sq_diff)
 <p>We can also get the same answer by using the <code>sd()</code> function:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(sat.act<span class="op">$</span>SATV)</code></pre>
 <pre><code>## [1] 112.9026</code></pre>
-<p>Note that <code>NA</code> values can be removed from the vector when using the <code>sd()</code> function by setting the <code>na.rm</code> argument to <code>TRUE</code>. For instance, when we try to take the standard deviation of the quantitative SAT scores without removing <code>NA</code> values, we get <code>NA</code> as the output:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(sat.act<span class="op">$</span>SATQ)</code></pre>
-<pre><code>## [1] NA</code></pre>
-<p>But by setting <code>na.rm=TRUE</code>, we get a sensible answer:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(sat.act<span class="op">$</span>SATQ, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</code></pre>
-<pre><code>## [1] 115.6393</code></pre>
-<p>The <code>NA</code> values cannot be removed this easily when calculating the standard deviation entirely by hand (that is, without using the <code>var()</code> function) because while the <code>sum()</code> function will take the <code>na.rm</code> argument, the <code>length()</code> function will not. Thus, if you plan to ask students to calculate the standard deviation by hand in R, be sure to choose a method of removing NA values manually. You can either remove the values yourself beforehand, give the students code to do it, or teach them to look out for and handle <code>NA</code> values themselves.</p>
 </div>
 <div id="standard-error-of-the-mean" class="section level3">
-<h3><span class="header-section-number">3.3.5</span> Standard Error of the Mean</h3>
+<h3><span class="header-section-number">3.3.6</span> Standard Error of the Mean</h3>
 <p>To calculate the standard error of the mean, simply extend the previous commands for calculating the standard deviation one step further by dividing the previous result by the number of observations minus one:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Find the squared deviations</span>
 SATV_sq_diff &lt;-<span class="st"> </span>(sat.act<span class="op">$</span>SATV<span class="op">-</span><span class="kw">mean</span>(sat.act<span class="op">$</span>SATV))<span class="op">^</span><span class="dv">2</span>
@@ -446,11 +433,10 @@ SATV_sd<span class="op">/</span>(<span class="kw">length</span>(SATV_sq_diff)<sp
 <p>More simply, students could take divide the output of <code>sd()</code> by the number of observations minus one:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(sat.act<span class="op">$</span>SATV)<span class="op">/</span>(<span class="kw">length</span>(sat.act<span class="op">$</span>SATV)<span class="op">-</span><span class="dv">1</span>)</code></pre>
 <pre><code>## [1] 0.1615201</code></pre>
-<p>In either case, because <code>length()</code> is used in the final step, the <code>NA</code> values cannot be easily removed when calculating the standard error of the mean by hand. You should therefore be sure to choose a method of removing NA values manually. You can either remove the values yourself beforehand, give the students code to do it, or teach them to look out for and handle <code>NA</code> values themselves.</p>
 <p>Because there are different methods for calculating the standard error depending on the nature of the sample statistic, there is no central function for calculating the standard error in R. The <code>std.error()</code> function is available in the package <code>plotrix</code> and handily includes the <code>na.rm</code> argument. However, if <code>NA</code> values aren’t an issue, you may find that calculating the standard error is a simple enough extension of the standard deviation to have students do it by hand.</p>
 </div>
 <div id="correlation-proportion-of-variance-explained" class="section level3">
-<h3><span class="header-section-number">3.3.6</span> Correlation &amp; Proportion of Variance Explained</h3>
+<h3><span class="header-section-number">3.3.7</span> Correlation &amp; Proportion of Variance Explained</h3>
 <p>We do not recommend having students calculate Pearson’s <span class="math inline">\(r\)</span> by hand. Instead, the correlation coefficient can be found using the <code>cor()</code> function.</p>
 <p>To demonstrate, imagine that we are curious as to whether there is a linear relationship between respondents’ verbal and quantitative SAT scores:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor</span>(sat.act<span class="op">$</span>SATV, sat.act<span class="op">$</span>SATQ)</code></pre>
@@ -465,7 +451,7 @@ SATV_sd<span class="op">/</span>(<span class="kw">length</span>(SATV_sq_diff)<sp
 <p>This is a handy way of demonstrating that <span class="math inline">\(R^2\)</span> is very simply <span class="math inline">\(r\)</span>, squared.</p>
 </div>
 <div id="summary-functions" class="section level3">
-<h3><span class="header-section-number">3.3.7</span> Summary Functions</h3>
+<h3><span class="header-section-number">3.3.8</span> Summary Functions</h3>
 <p>The standard method for summarizing data with multiple descriptive statistics at once is to use the <code>summary()</code> function. This function can be used to simultaneously summarize each variable in a data set, such as those in the <code>iris</code> data frame:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(iris)</code></pre>
 <pre><code>##   Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
@@ -503,23 +489,23 @@ SATV_sd<span class="op">/</span>(<span class="kw">length</span>(SATV_sq_diff)<sp
 <h3><span class="header-section-number">3.4.1</span> Scatter &amp; Line Plots</h3>
 <p>If you have two vectors representing pairs of observations, you can plot them against one another in a scatter plot using the <code>plot()</code> function. Let’s demonstrate this by plotting the SAT Verbal and SAT Quantitative scores from the <code>sat.act</code> dataset against one another.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(sat.act<span class="op">$</span>SATV, sat.act<span class="op">$</span>SATQ) <span class="co"># Access the columns as vectors using $ syntax</span></code></pre>
-<p><img src="statistics_files/figure-html/basicplot-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="PBS-R-Manual_files/figure-html/basicplot-1.png" width="672" /></p>
 <p>The points in the plot above represent pairs SAT Verbal and SAT Quantitative scores. The scores in each vector are paired up by position within each vector - the first value in <code>SATV</code> is paired with the first value in <code>SATQ</code>, the second value in <code>SATV</code> is paired with the second value in <code>SATQ</code>, etc. The vector given as the first argument determines the X axis position, and the vector given as the second argument determines the Y axis position.</p>
 <p>The axis titles are determined by the variable names of the vectors supplied to the <code>plot</code> function. However, variable names aren’t always the most informative names for other humans to read. We can customize the axes and plot with informative titles using the <code>xlab</code>, <code>ylab</code> and <code>main</code> arguments for the <code>plot</code> function:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(sat.act<span class="op">$</span>SATV, sat.act<span class="op">$</span>SATQ,
      <span class="dt">xlab =</span> <span class="st">&quot;SAT Verbal&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;SAT Quantitative&quot;</span>,
      <span class="dt">main =</span> <span class="st">&quot;Relationship between SAT Scores&quot;</span>)</code></pre>
-<p><img src="statistics_files/figure-html/axeslabels-1.png" width="672" style="display: block; margin: auto;" /></p>
-<div id="linetypes-symbols-and-colors" class="section level4">
-<h4><span class="header-section-number">3.4.1.1</span> Linetypes, Symbols, and Colors</h4>
+<p><img src="PBS-R-Manual_files/figure-html/axeslabels-1.png" width="672" /></p>
+<div id="linetypes-symbols-and-colors" class="section level4 unnumbered">
+<h4>Linetypes, Symbols, and Colors</h4>
 <p>You can customize the scatterplot to draw lines between the points, or just draw lines without the point symbols with the <code>type</code> argument. <strong>This is not a sensible thing to do for these data</strong>, but we demonstrate it anyway for completeness.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Lines and points</span>
 <span class="kw">plot</span>(sat.act<span class="op">$</span>SATV, sat.act<span class="op">$</span>SATQ,
      <span class="dt">xlab =</span> <span class="st">&quot;SAT Verbal&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;SAT Quantitative&quot;</span>,
      <span class="dt">main =</span> <span class="st">&quot;Relationship between SAT Scores&quot;</span>,
      <span class="dt">type =</span> <span class="st">&quot;o&quot;</span>)</code></pre>
-<div class="figure" style="text-align: center"><span id="fig:lines1"></span>
-<img src="statistics_files/figure-html/lines-1.png" alt="Points and lines with type='o'" width="672" />
+<div class="figure"><span id="fig:lines1"></span>
+<img src="PBS-R-Manual_files/figure-html/lines-1.png" alt="Points and lines with type='o'" width="672" />
 <p class="caption">
 Figure 3.1: Points and lines with type=‘o’
 </p>
@@ -529,8 +515,8 @@ Figure 3.1: Points and lines with type=‘o’
      <span class="dt">xlab =</span> <span class="st">&quot;SAT Verbal&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;SAT Quantitative&quot;</span>,
      <span class="dt">main =</span> <span class="st">&quot;Relationship between SAT Scores&quot;</span>,
      <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>)</code></pre>
-<div class="figure" style="text-align: center"><span id="fig:lines2"></span>
-<img src="statistics_files/figure-html/lines-2.png" alt="Just using lines with type='l'" width="672" />
+<div class="figure"><span id="fig:lines2"></span>
+<img src="PBS-R-Manual_files/figure-html/lines-2.png" alt="Just using lines with type='l'" width="672" />
 <p class="caption">
 Figure 3.2: Just using lines with type=‘l’
 </p>
@@ -547,10 +533,10 @@ Figure 3.2: Just using lines with type=‘l’
      <span class="dt">xlab =</span> <span class="st">&quot;SAT Verbal&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;SAT Quantitative&quot;</span>,
      <span class="dt">main =</span> <span class="st">&quot;Relationship between SAT Scores&quot;</span>,
      <span class="dt">col=</span><span class="st">&quot;magenta&quot;</span>, <span class="dt">pch=</span><span class="dv">2</span>)</code></pre>
-<p><img src="statistics_files/figure-html/pch_and_col-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="PBS-R-Manual_files/figure-html/pch_and_col-1.png" width="672" /></p>
 </div>
-<div id="axis-limits" class="section level4">
-<h4><span class="header-section-number">3.4.1.2</span> Axis limits</h4>
+<div id="axis-limits" class="section level4 unnumbered">
+<h4>Axis limits</h4>
 <p>R usually does a good job of determining good values for the range of each axis, but if you wish to override the defaults, you can do do using the <code>xlim</code> and <code>ylim</code> arguments. These arguments accepts 2-element numeric vectors specifying the minimum and maximum values along each axis (in that order). For example, if we wanted to include 0 in the range of SAT scores shown on the plot, we could use <code>c(0, 800)</code> for both our axis limits:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Lines and points</span>
 <span class="kw">plot</span>(sat.act<span class="op">$</span>SATV, sat.act<span class="op">$</span>SATQ,
@@ -558,11 +544,11 @@ Figure 3.2: Just using lines with type=‘l’
      <span class="dt">main =</span> <span class="st">&quot;Relationship between SAT Scores&quot;</span>,
      <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">800</span>),
      <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">800</span>))</code></pre>
-<p><img src="statistics_files/figure-html/limits-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="PBS-R-Manual_files/figure-html/limits-1.png" width="672" /></p>
 <p>This isn’t particularly sensible, because 0 is not a possible score on the SAT, so consider this just a demonstration of R’s capabilities.</p>
 </div>
-<div id="adding-to-an-existing-plot" class="section level4">
-<h4><span class="header-section-number">3.4.1.3</span> Adding to an existing plot</h4>
+<div id="adding-to-an-existing-plot" class="section level4 unnumbered">
+<h4>Adding to an existing plot</h4>
 <p>In many cases, it is useful to have <em>different</em> symbols, colors, and linetypes on the same plot - for example, to denote observations from different groups. There is more than one way to achieve this effect, but when you want different symbols, colors, and linetypes on the same plot, often the easiest way to do it is plot each group one at a time.</p>
 <p>To do this, you begin with the familiar plot command, but use it to plot only a subset of the data. Then, you can use the <code>points</code> or <code>lines</code> function to add additional points (or lines) to the plot. We’ll demonstrate how you can plot the SAT scores for males and females in different colors by subsetting the dataset, and then using the <code>plot</code> and <code>points</code> functions:</p>
 <pre class="sourceCode r"><code class="sourceCode r">males &lt;-<span class="st"> </span>sat.act[sat.act<span class="op">$</span>gender <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, ]
@@ -572,10 +558,10 @@ females &lt;-<span class="st"> </span>sat.act[sat.act<span class="op">$</span>ge
      <span class="dt">main =</span> <span class="st">&quot;Relationship between SAT Scores&quot;</span>,
      <span class="dt">col=</span><span class="st">&quot;red&quot;</span>)
 <span class="kw">points</span>(females<span class="op">$</span>SATV, females<span class="op">$</span>SATQ, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)</code></pre>
-<p><img src="statistics_files/figure-html/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="PBS-R-Manual_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 </div>
-<div id="adding-a-legend" class="section level4">
-<h4><span class="header-section-number">3.4.1.4</span> Adding a legend</h4>
+<div id="adding-a-legend" class="section level4 unnumbered">
+<h4>Adding a legend</h4>
 <p>If you use multiple symbols, colors, and linetypes on the same plot, you’ll also need a legend telling the viewer how to interpret the different symbols, colors, and linetypes. You can add legends to an existing plot using the <code>legend</code> function. Unfortunately, the <code>legend</code> function doesn’t know what symbols, colors, and linetypes you’ve used, or what the different groups in your data are. So, you’ll have to re-capitulate this information to the legend function. Make <em>absolutely</em> sure that you specify the labels, colors, symbol codes, and linetypes in the exact same order you added them to the plot! You also must specify a <code>pch</code> or <code>linetype</code> value, even if you used the default value in your plot!</p>
 <p>Perhaps the trickiest part about using the legend function is figuring out where to place the legend. The location may also be specified by setting the first argument to the legend function to a single keyword from the set “bottomright”, “bottom”, “bottomleft”, “left”, “topleft”, “top”, “topright”, “right” or “center”. Alternatively, you can get fine-grained control over the placement by providing two values that represent an x,y coordinate for the top-right corner of the legend:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(males<span class="op">$</span>SATV, males<span class="op">$</span>SATQ,
@@ -587,10 +573,10 @@ females &lt;-<span class="st"> </span>sat.act[sat.act<span class="op">$</span>ge
        <span class="dt">legend =</span> <span class="kw">c</span>(<span class="st">&quot;Males&quot;</span>, <span class="st">&quot;Females&quot;</span>),
        <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>),
        <span class="dt">pch=</span><span class="dv">1</span>)</code></pre>
-<p><img src="statistics_files/figure-html/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="PBS-R-Manual_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 </div>
-<div id="adding-a-regression-line" class="section level4">
-<h4><span class="header-section-number">3.4.1.5</span> Adding a regression line</h4>
+<div id="adding-a-regression-line" class="section level4 unnumbered">
+<h4>Adding a regression line</h4>
 <p>It is often useful to summarize the linear relationship between variables shown in a scatterplot. It is easy to add the “line of best fit” from a linear regression to your scatter plot using the <code>lm</code> function (short for "linear model) and the <code>abline</code> function (used for drawing straight lines).</p>
 <p>The <code>lm</code> function performs regression analysis based on the <a href="statistics.html#formula-objects">formula</a> you specify. If you intend on adding the regression line to your scatterplot, we recommend you use the formula interface to the <code>plot()</code> function. Instead of using an <code>x</code> vector and a <code>y</code> vector, you can provide a formula of the form <code>y ~ x</code>, and the name of the data frame containing your vaiable, just like when using the <code>lm</code> function.
 In this case, you would use the same formula to specify your plot that you use to specify your regression model. Remember of course, that the response variable (i.e., the y variable) goes first in the formula, not second as it would if you were providing two separate vectors.</p>
@@ -606,7 +592,7 @@ In this case, you would use the same formula to specify your plot that you use t
      <span class="dt">xlab =</span> <span class="st">&quot;SAT Verbal&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;SAT Quantitative&quot;</span>,
      <span class="dt">main =</span> <span class="st">&quot;Relationship between SAT Scores&quot;</span>)
 <span class="kw">abline</span>(regression_results, <span class="dt">lwd=</span><span class="dv">2</span>) <span class="co"># lwd = &quot;line width&quot;,</span></code></pre>
-<p><img src="statistics_files/figure-html/abline%20plot-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="PBS-R-Manual_files/figure-html/abline%20plot-1.png" width="672" /></p>
 <p>In the call to <code>abline</code> above, we have specified the <code>lwd</code> argument, short for “line width”, a.k.a. thickness. The default value is 1, and we have double the thickness here so the regression line stands out from the points more.</p>
 </div>
 </div>
@@ -615,15 +601,15 @@ In this case, you would use the same formula to specify your plot that you use t
 <p>You can create a histogram showing the counts or proportion of values from a single variable using the <code>hist</code> function.</p>
 <p>The <code>hist</code> function works with a vector of numeric values, and breaks this vector up into a number of discrete bins. By default, the <code>hist</code> function decides what the boundary values of the bins should be, and how many bins should be used, by applying the <a href="https://stat.ethz.ch/R-manual/R-devel/library/grDevices/html/nclass.html">Sturges algorithm</a>. However, you can manually control where the boundaries are placed by providing a vector of boundary values, or by providing a single value specifying the number of bins that should be used. We demonstrate both techniques below in plotting a histogram of ACT scores:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(sat.act<span class="op">$</span>ACT, <span class="dt">breaks =</span> <span class="dv">30</span>)</code></pre>
-<p><img src="statistics_files/figure-html/hist-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="PBS-R-Manual_files/figure-html/hist-1.png" width="672" /></p>
 <pre class="sourceCode r"><code class="sourceCode r">bin_boundaries &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>, <span class="kw">max</span>(sat.act<span class="op">$</span>ACT), <span class="dt">by=</span><span class="dv">2</span>) <span class="co"># from 0 to 36 by 2&#39;s</span>
 <span class="kw">hist</span>(sat.act<span class="op">$</span>ACT, <span class="dt">breaks =</span> bin_boundaries)</code></pre>
-<p><img src="statistics_files/figure-html/hist-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="PBS-R-Manual_files/figure-html/hist-2.png" width="672" /></p>
 <p>If you want proportions instead of counts, set the <code>freq</code> argument to false. You can also use the same <code>xlab</code>, <code>ylab</code>, and <code>main</code> arguments we used with <code>plot</code> to get more informative titles/</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(sat.act<span class="op">$</span>ACT, <span class="dt">breaks =</span> <span class="dv">30</span>, <span class="dt">freq=</span><span class="ot">FALSE</span>,
      <span class="dt">main =</span> <span class="st">&quot;Distribution of ACT Scores&quot;</span>,
      <span class="dt">xlab =</span> <span class="st">&quot;ACT Score&quot;</span>)</code></pre>
-<p><img src="statistics_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="PBS-R-Manual_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 </div>
 <div id="boxplots" class="section level3">
 <h3><span class="header-section-number">3.4.3</span> Boxplots</h3>
@@ -633,7 +619,7 @@ In this case, you would use the same formula to specify your plot that you use t
         <span class="dt">names=</span><span class="kw">c</span>(<span class="st">&quot;&lt; High School&quot;</span>, <span class="st">&quot;High School&quot;</span>, <span class="st">&quot;Some College&quot;</span>,
                 <span class="st">&quot;2 Yr. College&quot;</span>, <span class="st">&quot;4 Yr. College&quot;</span>, <span class="st">&quot;Grad. Work&quot;</span>),
         <span class="dt">ylab=</span><span class="st">&quot;SAT Verbal Score&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Education&quot;</span>)</code></pre>
-<p><img src="statistics_files/figure-html/boxplot-1.png" width="864" style="display: block; margin: auto;" /></p>
+<p><img src="PBS-R-Manual_files/figure-html/boxplot-1.png" width="864" /></p>
 <p>Note the use of the <code>names</code> argument to override the labels on each X axis point. Depending on how long the names of each variable are, some variable names might be ommitted from the axis labels, in order to prevent having overlapping characters obscuring the names. This can usually be be remedied by re-sizing the plot window to be larger, so that all the names can fit in.</p>
 </div>
 <div id="bar-plots" class="section level3">
@@ -647,7 +633,7 @@ In this case, you would use the same formula to specify your plot that you use t
         <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">800</span>), <span class="dt">ylab=</span><span class="st">&quot;Average SAT Verbal Score&quot;</span>,
         <span class="dt">main=</span><span class="st">&quot;SAT Verbal Scores for Males &amp; Females&quot;</span>
         )</code></pre>
-<p><img src="statistics_files/figure-html/barplot-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="PBS-R-Manual_files/figure-html/barplot-1.png" width="672" /></p>
 </div>
 <div id="multiple-plots-in-single-figure" class="section level3">
 <h3><span class="header-section-number">3.4.5</span> Multiple plots in single figure</h3>
@@ -659,7 +645,7 @@ In this case, you would use the same formula to specify your plot that you use t
 <span class="kw">hist</span>(sat.act<span class="op">$</span>ACT, <span class="dt">breaks =</span> <span class="dv">30</span>, <span class="dt">main =</span> <span class="st">&quot;30 breaks&quot;</span>)
 <span class="kw">hist</span>(sat.act<span class="op">$</span>ACT, <span class="dt">breaks =</span> <span class="dv">50</span>, <span class="dt">main =</span> <span class="st">&quot;50 breaks&quot;</span>)
 <span class="kw">hist</span>(sat.act<span class="op">$</span>ACT, <span class="dt">breaks =</span> <span class="dv">100</span>, <span class="dt">main =</span> <span class="st">&quot;100 breaks&quot;</span>)</code></pre>
-<p><img src="statistics_files/figure-html/par_mfrow-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="PBS-R-Manual_files/figure-html/par_mfrow-1.png" width="672" /></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>)) <span class="co"># Reset back to default</span></code></pre>
 <p>Always make sure to set your <code>mfrow</code> or <code>mfcol</code> values back to <code>c(1,1)</code> afterwards, or <em>all</em> subsequent plots will use the same layout!</p>
 </div>
@@ -769,9 +755,9 @@ In this case, you would use the same formula to specify your plot that you use t
 </tbody>
 </table>
 <p>These functions are each demonstrated in the following sub-sections using the normal distribution. In these examples, consider that IQ scores are meant to be normally distributed with a mean of 100 and a standard deviation of 15:</p>
-<p><img src="statistics_files/figure-html/IQ%20histogram%20with%20curve-1.png" width="672" style="display: block; margin: auto;" /></p>
-<div id="getting-densities" class="section level4">
-<h4><span class="header-section-number">3.5.1.1</span> Getting Densities</h4>
+<p><img src="PBS-R-Manual_files/figure-html/IQ%20histogram%20with%20curve-1.png" width="672" /></p>
+<div id="getting-densities" class="section level4 unnumbered">
+<h4>Getting Densities</h4>
 <p>The functions for getting the probability density associated with a point on the x-axis, such as <code>dnorm()</code> in the case of the normal distribution, are unlikely to come up in class. However, they may be useful for generating figures such as the one above, which was created with the following code:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(<span class="kw">rnorm</span>(<span class="dv">10000</span>, <span class="dt">mean=</span><span class="dv">100</span>, <span class="dt">sd=</span><span class="dv">15</span>), <span class="dt">freq=</span><span class="ot">FALSE</span>,
      <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">.03</span>), <span class="dt">xlab=</span><span class="st">&#39;&#39;</span>, <span class="dt">main=</span><span class="st">&#39;IQ Scores&#39;</span>)
@@ -780,8 +766,8 @@ In this case, you would use the same formula to specify your plot that you use t
        <span class="dt">type=</span><span class="st">&#39;l&#39;</span>, <span class="dt">col=</span><span class="st">&#39;red&#39;</span>)</code></pre>
 <p>Note that the input to <code>dnorm()</code> was a sequence of values from 40 to 160, by steps of .001. The output was the probability density for each value in the sequence. These values were then used to create a continuous curve that was added to the histogram of the data, in which the argument <code>freq=FALSE</code> ensured that the y-axis denoted probability densities instead of counts. A more detailed tutorial is provided <a href="https://homepage.divms.uiowa.edu/~luke/classes/STAT4580/histdens.html">here</a>.</p>
 </div>
-<div id="getting-probabilities" class="section level4">
-<h4><span class="header-section-number">3.5.1.2</span> Getting Probabilities</h4>
+<div id="getting-probabilities" class="section level4 unnumbered">
+<h4>Getting Probabilities</h4>
 <p>You can use <code>pnorm()</code> to demonstrate that there is a 9.12% chance of getting an IQ score that is less than or equal to 80:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pnorm</span>(<span class="dv">80</span>, <span class="dt">mean=</span><span class="dv">100</span>, <span class="dt">sd=</span><span class="dv">15</span>)</code></pre>
 <pre><code>## [1] 0.09121122</code></pre>
@@ -793,8 +779,8 @@ In this case, you would use the same formula to specify your plot that you use t
 <pre><code>## [1] 0.9087888</code></pre>
 <p>The latter method may be better for instructional purposes.</p>
 </div>
-<div id="getting-quantiles" class="section level4">
-<h4><span class="header-section-number">3.5.1.3</span> Getting Quantiles</h4>
+<div id="getting-quantiles" class="section level4 unnumbered">
+<h4>Getting Quantiles</h4>
 <p>You can use <code>qnorm()</code> to demonstrate that an IQ score of 124.67 marks the 95<sup>th</sup> percentile of scores:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qnorm</span>(.<span class="dv">95</span>, <span class="dt">mean=</span><span class="dv">100</span>, <span class="dt">sd=</span><span class="dv">15</span>)</code></pre>
 <pre><code>## [1] 124.6728</code></pre>
@@ -803,21 +789,21 @@ In this case, you would use the same formula to specify your plot that you use t
 <pre><code>## [1] 75.3272</code></pre>
 <p>Note that subtracting from 1 does not work here as it did with <code>pnorm()</code> because the output of <code>qnorm()</code> is a quantile, which does not need to sum to 1 as probabilities do.</p>
 </div>
-<div id="getting-random-samples" class="section level4">
-<h4><span class="header-section-number">3.5.1.4</span> Getting Random Samples</h4>
+<div id="getting-random-samples" class="section level4 unnumbered">
+<h4>Getting Random Samples</h4>
 <p>You can use <code>rnorm()</code> to randomly sample a class of 50 students from the population of IQ scores:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rnorm</span>(<span class="dv">50</span>, <span class="dt">mean=</span><span class="dv">100</span>, <span class="dt">sd=</span><span class="dv">15</span>)</code></pre>
-<pre><code>##  [1] 101.80020  85.34683  96.32901 123.58950 101.24094  96.04170  90.60191
-##  [8]  85.48735 100.15583  68.54189 150.35095  86.21951 105.59640  69.87312
-## [15] 124.21835  85.12870  93.53162 106.49419 121.36345  95.20614 103.06040
-## [22] 129.78925 104.23027 130.93886 104.40821 101.16872  95.83243  87.55549
-## [29]  95.51418  79.26049 109.04003  93.00818 104.57864 108.16677 131.43950
-## [36] 113.52002 126.19622  94.42457  52.47868  77.98795 111.99836  94.51909
-## [43]  96.15285  96.14904  92.27892 130.82268 109.93313 142.91995 107.42655
-## [50] 108.44700</code></pre>
+<pre><code>##  [1] 117.30425  78.14707 110.65297  78.14948  98.53827  94.74063  89.72061
+##  [8] 124.09362  85.94177  72.02761 121.11672 110.28795  87.20304 109.43780
+## [15]  72.27193 108.90524  98.16672 110.28295 121.92779 121.20203  94.94223
+## [22]  99.80811  82.18963  84.79018 132.95560 107.68640 107.27344 119.02022
+## [29]  98.71324  88.23459 112.98403  97.64553  98.76934  84.56835  81.45438
+## [36] 116.61258  87.80789 120.20412 126.61454  78.58377  93.52474  93.08167
+## [43] 113.82438  68.56666  87.73623  93.02585 113.00488 119.88321 102.40266
+## [50]  94.67811</code></pre>
 </div>
-<div id="running-statistical-tests-by-hand" class="section level4">
-<h4><span class="header-section-number">3.5.1.5</span> Running Statistical Tests by Hand</h4>
+<div id="running-statistical-tests-by-hand" class="section level4 unnumbered">
+<h4>Running Statistical Tests by Hand</h4>
 <p>These functions can be used to conduct statistical analyses by hand. Consider a demonstration of a z-test using the functions for the normal distribution. To test whether an IQ score of 135 is significantly different from the mean IQ score, first find the z-score:</p>
 <pre class="sourceCode r"><code class="sourceCode r">IQ135_z &lt;-<span class="st"> </span>(<span class="dv">135-100</span>)<span class="op">/</span><span class="dv">15</span>
 IQ135_z</code></pre>
@@ -857,12 +843,12 @@ z_crit &lt;-<span class="st"> </span><span class="kw">qnorm</span>(.<span class=
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Find the lower limit</span>
 CI_lower &lt;-<span class="st"> </span>mean_IQ <span class="op">-</span><span class="st"> </span>z_crit<span class="op">*</span>(sd_IQ<span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">100</span>))
 CI_lower</code></pre>
-<pre><code>## [1] 96.9069</code></pre>
+<pre><code>## [1] 98.46517</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Find the upper limit</span>
 CI_upper &lt;-<span class="st"> </span>mean_IQ <span class="op">+</span><span class="st"> </span>z_crit<span class="op">*</span>(sd_IQ<span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">100</span>))
 CI_upper</code></pre>
-<pre><code>## [1] 102.7769</code></pre>
-<p>The confidence interval ranges from 98.41 to 104.88, suggesting that if this experiment had been repeated over and over an infinite number of times, the true population mean would be within that range 95% of the time.</p>
+<pre><code>## [1] 104.5851</code></pre>
+<p>The confidence interval ranges from 98.41 to 104.88.</p>
 <p>Note that while calculating confidence intervals by hand is a useful instructional tool, some functions for statistical tests do give the confidence interval “for free”, such as <code>t.test()</code> and <code>binom.test()</code>. Make sure to be clear with students when it is acceptable to get confidence intervals from these functions to complete assignments.</p>
 </div>
 <div id="t.test" class="section level3">
@@ -870,8 +856,8 @@ CI_upper</code></pre>
 <p>The <code>t.test()</code> function can be used to execute one-sample, paired, or two-sample t-tests. Each case is demonstrated below, but first note three general arguments that can be used to augment the test:</p>
 <table>
 <colgroup>
-<col width="10%" />
-<col width="89%" />
+<col width="18%" />
+<col width="81%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -894,8 +880,8 @@ CI_upper</code></pre>
 </tr>
 </tbody>
 </table>
-<div id="one-sample-t-tests" class="section level4">
-<h4><span class="header-section-number">3.5.3.1</span> One-sample t-tests</h4>
+<div id="one-sample-t-tests" class="section level4 unnumbered">
+<h4>One-sample t-tests</h4>
 <p>To demonstrate a one-sample t-test, imagine that we are curious whether the average verbal SAT score in the <code>sat.act</code> data set is different from 0. We could test that question with the following call:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(sat.act<span class="op">$</span>SATV)</code></pre>
 <pre><code>## 
@@ -925,8 +911,8 @@ CI_upper</code></pre>
 ##  612.2343</code></pre>
 <p>The p-value is 0.004, so we can reject the null hypothesis that the average verbal SAT score is 600. Instead, it appears to be higher.</p>
 </div>
-<div id="paired-t-tests" class="section level4">
-<h4><span class="header-section-number">3.5.3.2</span> Paired t-tests</h4>
+<div id="paired-t-tests" class="section level4 unnumbered">
+<h4>Paired t-tests</h4>
 <p>To demonstrate a paired t-test, imagine that we are curious as to whether verbal SAT scores are different from quantitative SAT scores. We can conduct this in one of two ways.</p>
 <p>First, we could calculate the difference score for each pair, then run a one-sample t-test comparing the average difference score to 0:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Calculate difference scores</span>
@@ -961,8 +947,8 @@ sat.act<span class="op">$</span>SAT_diff &lt;-<span class="st"> </span>sat.act<s
 ##                2.117904</code></pre>
 <p>We get exactly the same result. However, note that though this method uses fewer lines of code it risks obscuring the role of difference scores for the student.</p>
 </div>
-<div id="two-sample-t-tests" class="section level4">
-<h4><span class="header-section-number">3.5.3.3</span> Two-sample t-tests</h4>
+<div id="two-sample-t-tests" class="section level4 unnumbered">
+<h4>Two-sample t-tests</h4>
 <p>To demonstrate a two-sample t-test, imagine that we are curious as to whether male and female students reported different quantitative SAT scores.</p>
 <p>The function call is very similar to the second method for conducting a paired t-test, but we set the <code>paired</code> argument to <code>FALSE</code> instead:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(sat.act<span class="op">$</span>SATQ[sat.act<span class="op">$</span>gender<span class="op">==</span><span class="dv">1</span>], sat.act<span class="op">$</span>SATQ[sat.act<span class="op">$</span>gender<span class="op">==</span><span class="dv">2</span>], <span class="dt">paired=</span><span class="ot">FALSE</span>)</code></pre>
@@ -1002,8 +988,8 @@ female_SATQ &lt;-<span class="st"> </span>sat.act<span class="op">$</span>SATQ[s
 <div id="aov" class="section level3">
 <h3><span class="header-section-number">3.5.4</span> <code>aov()</code></h3>
 <p>The <code>aov()</code> function can be used to execute an ANOVA. The basic call includes one argument, which is a formula object. Whether <code>aov()</code> is used to run a one-way, two-way, or multi-way ANOVA, with or without interaction terms, is based entirely on the formula.</p>
-<div id="one-way-anova" class="section level4">
-<h4><span class="header-section-number">3.5.4.1</span> One-way ANOVA</h4>
+<div id="one-way-anova" class="section level4 unnumbered">
+<h4>One-way ANOVA</h4>
 <p>To demonstrate a one-way ANOVA, imagine that we are curious as to whether verbal SAT scores vary across education level:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">aov</span>(sat.act<span class="op">$</span>SATV <span class="op">~</span><span class="st"> </span>sat.act<span class="op">$</span>education)</code></pre>
 <pre><code>## Call:
@@ -1030,8 +1016,8 @@ female_SATQ &lt;-<span class="st"> </span>sat.act<span class="op">$</span>SATQ[s
 ## education     1   19247   19247   1.511  0.219
 ## Residuals   698 8890899   12738</code></pre>
 </div>
-<div id="two-way-anova" class="section level4">
-<h4><span class="header-section-number">3.5.4.2</span> Two-way ANOVA</h4>
+<div id="two-way-anova" class="section level4 unnumbered">
+<h4>Two-way ANOVA</h4>
 <p>To demonstrate a two-way ANOVA, imagine that we are curious as to whether quantitative SAT scores vary across levels of education and gender:</p>
 <pre class="sourceCode r"><code class="sourceCode r">educ_gender_aov &lt;-<span class="st"> </span><span class="kw">aov</span>(SATQ <span class="op">~</span><span class="st"> </span>education <span class="op">+</span><span class="st"> </span>gender, <span class="dt">data=</span>sat.act)
 <span class="kw">summary</span>(educ_gender_aov)</code></pre>
@@ -1077,8 +1063,8 @@ female_SATQ &lt;-<span class="st"> </span>sat.act<span class="op">$</span>SATQ[s
 <p>This test was run with default parameter values for the alternative hypothesis and confidence level, which can be modified as follows:</p>
 <table>
 <colgroup>
-<col width="10%" />
-<col width="89%" />
+<col width="18%" />
+<col width="81%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1141,8 +1127,8 @@ n_males &lt;-<span class="st"> </span><span class="kw">length</span>(sat.act<spa
 <p>This test was run with default parameter values for the alternative hypothesis and confidence level, which can be modified as follows:</p>
 <table>
 <colgroup>
-<col width="10%" />
-<col width="89%" />
+<col width="18%" />
+<col width="81%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1165,8 +1151,8 @@ n_males &lt;-<span class="st"> </span><span class="kw">length</span>(sat.act<spa
 <div id="chisq.test" class="section level3">
 <h3><span class="header-section-number">3.5.7</span> <code>chisq.test()</code></h3>
 <p>The <code>chisq.test()</code> function can be used to execute either a Chi-Square test for goodness-of-fit or a Chi-Square test of independence, determined by whether a table with one or two groups is supplied, respectively.</p>
-<div id="chi-square-test-of-goodness-of-fit" class="section level4">
-<h4><span class="header-section-number">3.5.7.1</span> Chi-Square test of Goodness-of-Fit</h4>
+<div id="chi-square-test-of-goodness-of-fit" class="section level4 unnumbered">
+<h4>Chi-Square test of Goodness-of-Fit</h4>
 <p>To demonstrate the Chi-Square goodness-of-fit test, imagine that we are curious as to whether there are equal numbers of people in each education level measured in the <code>sat.act</code> data set.</p>
 <p>We first need to find the number of respondents in each education level, which we can do by creating a table of the <code>education</code> variable:</p>
 <pre class="sourceCode r"><code class="sourceCode r">educ_table &lt;-<span class="st"> </span><span class="kw">table</span>(sat.act<span class="op">$</span>education)</code></pre>
@@ -1187,8 +1173,8 @@ n_males &lt;-<span class="st"> </span><span class="kw">length</span>(sat.act<spa
 ## X-squared = 661.41, df = 5, p-value &lt; 2.2e-16</code></pre>
 <p>The p-value is approximately zero, so we can reject the null hypothesis that the proportions are the same as for the neighboring state.</p>
 </div>
-<div id="chi-square-test-of-independence" class="section level4">
-<h4><span class="header-section-number">3.5.7.2</span> Chi-Square test of Independence</h4>
+<div id="chi-square-test-of-independence" class="section level4 unnumbered">
+<h4>Chi-Square test of Independence</h4>
 <p>To demonstrate the Chi-Square test of independence, imagine that we are curious as to whether the proportions of males and females reporting their test scores are equal across levels of education.</p>
 <p>We first need to find the number of males and females in each level of education, which we can do by creating a table of the <code>gender</code> and <code>education</code> variables:</p>
 <pre class="sourceCode r"><code class="sourceCode r">educ_gender_table &lt;-<span class="st"> </span><span class="kw">table</span>(sat.act<span class="op">$</span>education, sat.act<span class="op">$</span>gender)</code></pre>
@@ -1200,37 +1186,6 @@ n_males &lt;-<span class="st"> </span><span class="kw">length</span>(sat.act<spa
 ## data:  educ_gender_table
 ## X-squared = 16.085, df = 5, p-value = 0.006605</code></pre>
 <p>The p-value is .007, so we can reject the null hypothesis that level of education is independent of gender. Instead, gender seems to be more balanced in the lower education levels, whereas there are more females than males in the higher education levels.</p>
-</div>
-<div id="reproducibility-3" class="section level4 unnumbered">
-<h4>Reproducibility</h4>
-<p>The R session information when compiling this book is shown below:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sessionInfo</span>()</code></pre>
-<pre><code>## R version 3.5.1 (2018-07-02)
-## Platform: x86_64-w64-mingw32/x64 (64-bit)
-## Running under: Windows 7 x64 (build 7601) Service Pack 1
-## 
-## Matrix products: default
-## 
-## locale:
-## [1] LC_COLLATE=English_United States.1252 
-## [2] LC_CTYPE=English_United States.1252   
-## [3] LC_MONETARY=English_United States.1252
-## [4] LC_NUMERIC=C                          
-## [5] LC_TIME=English_United States.1252    
-## 
-## attached base packages:
-## [1] stats     graphics  grDevices utils     datasets  methods   base     
-## 
-## other attached packages:
-## [1] psych_1.8.12
-## 
-## loaded via a namespace (and not attached):
-##  [1] Rcpp_1.0.1      bookdown_0.11   lattice_0.20-35 packrat_0.4.9-3
-##  [5] digest_0.6.19   grid_3.5.1      nlme_3.1-137    magrittr_1.5   
-##  [9] evaluate_0.14   highr_0.7       stringi_1.4.3   rmarkdown_1.13 
-## [13] tools_3.5.1     foreign_0.8-70  stringr_1.3.1   xfun_0.6       
-## [17] parallel_3.5.1  compiler_3.5.1  mnormt_1.5-5    htmltools_0.3.6
-## [21] knitr_1.22</code></pre>
 
 </div>
 </div>

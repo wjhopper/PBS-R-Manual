@@ -135,6 +135,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#formatting-conventions"><i class="fa fa-check"></i>Formatting Conventions</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#additional-materials"><i class="fa fa-check"></i>Additional Materials</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-the-authors"><i class="fa fa-check"></i>About the Authors</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#funding"><i class="fa fa-check"></i>Funding</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html"><i class="fa fa-check"></i><b>1</b> Introducing R and RStudio</a><ul>
 <li class="chapter" data-level="1.1" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#console"><i class="fa fa-check"></i><b>1.1</b> Pane #1: The R Console</a></li>
@@ -189,13 +191,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1" data-path="statistics.html"><a href="statistics.html#the-data"><i class="fa fa-check"></i><b>3.1</b> The Data</a></li>
 <li class="chapter" data-level="3.2" data-path="statistics.html"><a href="statistics.html#formula-objects"><i class="fa fa-check"></i><b>3.2</b> Formula Objects</a></li>
 <li class="chapter" data-level="3.3" data-path="statistics.html"><a href="statistics.html#descriptive-statistics"><i class="fa fa-check"></i><b>3.3</b> Descriptive Statistics</a><ul>
-<li class="chapter" data-level="3.3.1" data-path="statistics.html"><a href="statistics.html#mean"><i class="fa fa-check"></i><b>3.3.1</b> Mean</a></li>
-<li class="chapter" data-level="3.3.2" data-path="statistics.html"><a href="statistics.html#median"><i class="fa fa-check"></i><b>3.3.2</b> Median</a></li>
-<li class="chapter" data-level="3.3.3" data-path="statistics.html"><a href="statistics.html#variance"><i class="fa fa-check"></i><b>3.3.3</b> Variance</a></li>
-<li class="chapter" data-level="3.3.4" data-path="statistics.html"><a href="statistics.html#standard-deviation"><i class="fa fa-check"></i><b>3.3.4</b> Standard Deviation</a></li>
-<li class="chapter" data-level="3.3.5" data-path="statistics.html"><a href="statistics.html#standard-error-of-the-mean"><i class="fa fa-check"></i><b>3.3.5</b> Standard Error of the Mean</a></li>
-<li class="chapter" data-level="3.3.6" data-path="statistics.html"><a href="statistics.html#correlation-proportion-of-variance-explained"><i class="fa fa-check"></i><b>3.3.6</b> Correlation &amp; Proportion of Variance Explained</a></li>
-<li class="chapter" data-level="3.3.7" data-path="statistics.html"><a href="statistics.html#summary-functions"><i class="fa fa-check"></i><b>3.3.7</b> Summary Functions</a></li>
+<li class="chapter" data-level="3.3.1" data-path="statistics.html"><a href="statistics.html#handling-na-values"><i class="fa fa-check"></i><b>3.3.1</b> Handling <code>NA</code> Values</a></li>
+<li class="chapter" data-level="3.3.2" data-path="statistics.html"><a href="statistics.html#mean"><i class="fa fa-check"></i><b>3.3.2</b> Mean</a></li>
+<li class="chapter" data-level="3.3.3" data-path="statistics.html"><a href="statistics.html#median"><i class="fa fa-check"></i><b>3.3.3</b> Median</a></li>
+<li class="chapter" data-level="3.3.4" data-path="statistics.html"><a href="statistics.html#variance"><i class="fa fa-check"></i><b>3.3.4</b> Variance</a></li>
+<li class="chapter" data-level="3.3.5" data-path="statistics.html"><a href="statistics.html#standard-deviation"><i class="fa fa-check"></i><b>3.3.5</b> Standard Deviation</a></li>
+<li class="chapter" data-level="3.3.6" data-path="statistics.html"><a href="statistics.html#standard-error-of-the-mean"><i class="fa fa-check"></i><b>3.3.6</b> Standard Error of the Mean</a></li>
+<li class="chapter" data-level="3.3.7" data-path="statistics.html"><a href="statistics.html#correlation-proportion-of-variance-explained"><i class="fa fa-check"></i><b>3.3.7</b> Correlation &amp; Proportion of Variance Explained</a></li>
+<li class="chapter" data-level="3.3.8" data-path="statistics.html"><a href="statistics.html#summary-functions"><i class="fa fa-check"></i><b>3.3.8</b> Summary Functions</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="statistics.html"><a href="statistics.html#plotting"><i class="fa fa-check"></i><b>3.4</b> Plotting</a><ul>
 <li class="chapter" data-level="3.4.1" data-path="statistics.html"><a href="statistics.html#scatter-line-plots"><i class="fa fa-check"></i><b>3.4.1</b> Scatter &amp; Line Plots</a></li>
@@ -272,13 +275,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>/</code> for division</li>
 <li><code>^</code> for exponentiation</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span>
-<span class="co">## [1] 4</span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span></code></pre>
+<pre><code>## [1] 4</code></pre>
 <p>R respects the <a href="https://en.wikipedia.org/wiki/Order_of_operations">order of operations</a> (i.e. PEMDAS) by default, so if you want for a specific operation to be executed fist, you need to surround it with parentheses. To see how grouping with parentheses affects arithmetic operations, compare the following two examples:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span><span class="op">*</span><span class="dv">10</span> <span class="op">+</span><span class="st"> </span><span class="dv">3</span><span class="op">/</span><span class="dv">10</span>
-<span class="co">## [1] 20.3</span>
-<span class="dv">2</span><span class="op">*</span>(<span class="dv">10</span> <span class="op">+</span><span class="st"> </span><span class="dv">3</span>)<span class="op">/</span><span class="dv">10</span>
-<span class="co">## [1] 2.6</span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span><span class="op">*</span><span class="dv">10</span> <span class="op">+</span><span class="st"> </span><span class="dv">3</span><span class="op">/</span><span class="dv">10</span></code></pre>
+<pre><code>## [1] 20.3</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span><span class="op">*</span>(<span class="dv">10</span> <span class="op">+</span><span class="st"> </span><span class="dv">3</span>)<span class="op">/</span><span class="dv">10</span></code></pre>
+<pre><code>## [1] 2.6</code></pre>
 <p>The R console is the best place to start immersing yourself in the language by experimentation. It allows you to “code as you go”; run one command, see what you get, adjust it, and test it again. However, the interactive nature of using the R console makes it a poor choice for saving your work to use again later, and for complicated, multi-step operations.</p>
 <p>When you know that you will need to repeat the same step again in the future (i.e., re-use code), or you have a task that requires intermediate steps, you should organize all your code into an R script. RStudio allows you to easily write and interactively test out your R scripts in the <strong>Editor Pane</strong>, which is introduced below.</p>
 </div>
@@ -301,8 +304,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>So, when saving your code in an R script, try keeping the following rule of thumb: Your R script should have all the commands you need, and none of the ones you don’t. This can be challenging for new programmers - the ability to identify what is necessary and what isn’t develops with time and expertise. So, don’t expect to be perfect at this in the beginning, but do expect to edit and re-edit your R scripts, and don’t treat your “Chapter 2 HW.R” file as your diary of working on your Chapter 2 homework.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Hi I am a comment. </span>
 <span class="co"># The R interprer ignores me!</span>
-<span class="dv">2</span><span class="op">*</span><span class="dv">10</span> <span class="op">+</span><span class="st"> </span><span class="dv">3</span><span class="op">/</span><span class="dv">10</span> <span class="co"># comments can go here too!</span>
-<span class="co">## [1] 20.3</span></code></pre>
+<span class="dv">2</span><span class="op">*</span><span class="dv">10</span> <span class="op">+</span><span class="st"> </span><span class="dv">3</span><span class="op">/</span><span class="dv">10</span> <span class="co"># comments can go here too!</span></code></pre>
+<pre><code>## [1] 20.3</code></pre>
 </div>
 </div>
 <div id="pane-3-your-r-session" class="section level2">
@@ -312,8 +315,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>As your R scripts grow beyond adding and subtracting a few numbers, you will often want to save the results of your computations (like datasets, or the results of statistical models) to use multiple times, or to increase the clarity of your code. In R, you can save a value for later use by assigning it to a <em>variable</em> name.</p>
 <p>You can create a new variable using the assignment operator <code>&lt;-</code>, with the syntax <code>name &lt;- value</code> where <code>name</code> is a syntactically valid name and <code>value</code> is the value you wish to assign. To demonstrate creating a variable, consider the code below, where I create a variable named <code>x</code>, assign it a value of 1, and then print out its value by typing <code>x</code> into the console and pressing <kbd>Enter</kbd>.</p>
 <pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">1</span>
-x
-<span class="co">## [1] 1</span></code></pre>
+x</code></pre>
+<pre><code>## [1] 1</code></pre>
 <p>If you execute the first command <code>x &lt;- 1</code> in your own console, you should see it appear in the “Environment” pane of the RStudio window. The environment pane is helpful for keeping track of all the variables you’ve created. If you ever want to clear your Environment (i.e., delete all the variables you’ve created), you can press the <img src="images/clear.png" /> button.</p>
 <p>Variable names are mostly arbitrary (we could have used <code>elephant</code> or <code>jumpluff</code> instead of <code>x</code>), but there are some restrictions on variable names. The most important restrictions are:</p>
 <ol style="list-style-type: decimal">
@@ -364,33 +367,7 @@ x
 <div id="conclusion" class="section level2">
 <h2><span class="header-section-number">1.5</span> Conclusion</h2>
 <p>Here, we have given an introduction to some of the R language’s basic functionality (the interactive console, arithmetic, variables, plots and packages) by using the layout of the RStudio IDE as a guide. In the following sections, we demonstrate the basic tenets of the R language and basic R programming tasks, such as calling functions, creating and manipulating data structures, and importing data from files on your hard drive into R.</p>
-<div id="reproducibility-1" class="section level4 unnumbered">
-<h4>Reproducibility</h4>
-<p>The R session information when compiling this book is shown below:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sessionInfo</span>()
-<span class="co">## R version 3.5.1 (2018-07-02)</span>
-<span class="co">## Platform: x86_64-w64-mingw32/x64 (64-bit)</span>
-<span class="co">## Running under: Windows 7 x64 (build 7601) Service Pack 1</span>
-<span class="co">## </span>
-<span class="co">## Matrix products: default</span>
-<span class="co">## </span>
-<span class="co">## locale:</span>
-<span class="co">## [1] LC_COLLATE=English_United States.1252 </span>
-<span class="co">## [2] LC_CTYPE=English_United States.1252   </span>
-<span class="co">## [3] LC_MONETARY=English_United States.1252</span>
-<span class="co">## [4] LC_NUMERIC=C                          </span>
-<span class="co">## [5] LC_TIME=English_United States.1252    </span>
-<span class="co">## </span>
-<span class="co">## attached base packages:</span>
-<span class="co">## [1] stats     graphics  grDevices utils     datasets  methods   base     </span>
-<span class="co">## </span>
-<span class="co">## loaded via a namespace (and not attached):</span>
-<span class="co">##  [1] compiler_3.5.1   magrittr_1.5     bookdown_0.11    htmltools_0.3.6 </span>
-<span class="co">##  [5] tools_3.5.1      Rcpp_1.0.1       codetools_0.2-15 stringi_1.4.3   </span>
-<span class="co">##  [9] rmarkdown_1.13   knitr_1.22       stringr_1.3.1    xfun_0.6        </span>
-<span class="co">## [13] digest_0.6.19    packrat_0.4.9-3  evaluate_0.14</span></code></pre>
 
-</div>
 </div>
 </div>
             </section>

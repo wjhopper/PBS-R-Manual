@@ -135,6 +135,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#formatting-conventions"><i class="fa fa-check"></i>Formatting Conventions</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#additional-materials"><i class="fa fa-check"></i>Additional Materials</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-the-authors"><i class="fa fa-check"></i>About the Authors</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#funding"><i class="fa fa-check"></i>Funding</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html"><i class="fa fa-check"></i><b>1</b> Introducing R and RStudio</a><ul>
 <li class="chapter" data-level="1.1" data-path="introducing-r-and-rstudio.html"><a href="introducing-r-and-rstudio.html#console"><i class="fa fa-check"></i><b>1.1</b> Pane #1: The R Console</a></li>
@@ -189,13 +191,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1" data-path="statistics.html"><a href="statistics.html#the-data"><i class="fa fa-check"></i><b>3.1</b> The Data</a></li>
 <li class="chapter" data-level="3.2" data-path="statistics.html"><a href="statistics.html#formula-objects"><i class="fa fa-check"></i><b>3.2</b> Formula Objects</a></li>
 <li class="chapter" data-level="3.3" data-path="statistics.html"><a href="statistics.html#descriptive-statistics"><i class="fa fa-check"></i><b>3.3</b> Descriptive Statistics</a><ul>
-<li class="chapter" data-level="3.3.1" data-path="statistics.html"><a href="statistics.html#mean"><i class="fa fa-check"></i><b>3.3.1</b> Mean</a></li>
-<li class="chapter" data-level="3.3.2" data-path="statistics.html"><a href="statistics.html#median"><i class="fa fa-check"></i><b>3.3.2</b> Median</a></li>
-<li class="chapter" data-level="3.3.3" data-path="statistics.html"><a href="statistics.html#variance"><i class="fa fa-check"></i><b>3.3.3</b> Variance</a></li>
-<li class="chapter" data-level="3.3.4" data-path="statistics.html"><a href="statistics.html#standard-deviation"><i class="fa fa-check"></i><b>3.3.4</b> Standard Deviation</a></li>
-<li class="chapter" data-level="3.3.5" data-path="statistics.html"><a href="statistics.html#standard-error-of-the-mean"><i class="fa fa-check"></i><b>3.3.5</b> Standard Error of the Mean</a></li>
-<li class="chapter" data-level="3.3.6" data-path="statistics.html"><a href="statistics.html#correlation-proportion-of-variance-explained"><i class="fa fa-check"></i><b>3.3.6</b> Correlation &amp; Proportion of Variance Explained</a></li>
-<li class="chapter" data-level="3.3.7" data-path="statistics.html"><a href="statistics.html#summary-functions"><i class="fa fa-check"></i><b>3.3.7</b> Summary Functions</a></li>
+<li class="chapter" data-level="3.3.1" data-path="statistics.html"><a href="statistics.html#handling-na-values"><i class="fa fa-check"></i><b>3.3.1</b> Handling <code>NA</code> Values</a></li>
+<li class="chapter" data-level="3.3.2" data-path="statistics.html"><a href="statistics.html#mean"><i class="fa fa-check"></i><b>3.3.2</b> Mean</a></li>
+<li class="chapter" data-level="3.3.3" data-path="statistics.html"><a href="statistics.html#median"><i class="fa fa-check"></i><b>3.3.3</b> Median</a></li>
+<li class="chapter" data-level="3.3.4" data-path="statistics.html"><a href="statistics.html#variance"><i class="fa fa-check"></i><b>3.3.4</b> Variance</a></li>
+<li class="chapter" data-level="3.3.5" data-path="statistics.html"><a href="statistics.html#standard-deviation"><i class="fa fa-check"></i><b>3.3.5</b> Standard Deviation</a></li>
+<li class="chapter" data-level="3.3.6" data-path="statistics.html"><a href="statistics.html#standard-error-of-the-mean"><i class="fa fa-check"></i><b>3.3.6</b> Standard Error of the Mean</a></li>
+<li class="chapter" data-level="3.3.7" data-path="statistics.html"><a href="statistics.html#correlation-proportion-of-variance-explained"><i class="fa fa-check"></i><b>3.3.7</b> Correlation &amp; Proportion of Variance Explained</a></li>
+<li class="chapter" data-level="3.3.8" data-path="statistics.html"><a href="statistics.html#summary-functions"><i class="fa fa-check"></i><b>3.3.8</b> Summary Functions</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="statistics.html"><a href="statistics.html#plotting"><i class="fa fa-check"></i><b>3.4</b> Plotting</a><ul>
 <li class="chapter" data-level="3.4.1" data-path="statistics.html"><a href="statistics.html#scatter-line-plots"><i class="fa fa-check"></i><b>3.4.1</b> Scatter &amp; Line Plots</a></li>
@@ -446,13 +449,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Now we’ve asked R to show us all of the values in the <code>sat.act$SATQ</code> variable that are NOT coded as <code>NA</code>.</p>
 <p>To index the entire <code>sat.act</code> data frame so that <em>all</em> columns are returned, not just the quantitative SAT scores, use bracket notation without specifying any columns:</p>
 <pre class="sourceCode r"><code class="sourceCode r">sat.act[<span class="op">!</span><span class="kw">is.na</span>(sat.act<span class="op">$</span>SATQ), ]</code></pre>
-<pre><code>##       gender education age ACT SATV SATQ
-## 29442      2         3  19  24  500  500
-## 29457      2         3  23  35  600  500
-## 29498      2         3  20  21  480  470
-## 29503      1         4  27  26  550  520
-## 29504      1         2  33  31  600  550
-## 29518      1         5  26  28  640  640</code></pre>
+<pre><code>##       gender education age ACT SATV SATQ SAT_diff
+## 29442      2         3  19  24  500  500        0
+## 29457      2         3  23  35  600  500      100
+## 29498      2         3  20  21  480  470       10
+## 29503      1         4  27  26  550  520       30
+## 29504      1         2  33  31  600  550       50
+## 29518      1         5  26  28  640  640        0</code></pre>
 <p>Now we have the full <code>sat.act</code> data set, but only those rows where the quantitative SAT score is not <code>NA</code>. To be complete, we recommend saving this subset as a new object:</p>
 <pre class="sourceCode r"><code class="sourceCode r">sat.act_noNA &lt;-<span class="st"> </span>sat.act[<span class="op">!</span><span class="kw">is.na</span>(sat.act<span class="op">$</span>SATQ), ]</code></pre>
 <p>Note that you can also overwrite <code>NA</code> values, in cases where it is methodologically appropriate. For instance, perhaps you know that the students with missing quantitative SAT scores are treated as having a score of 0. You could replace the <code>NA</code> values with 0 as follows:</p>
@@ -467,48 +470,48 @@ sat.act_NA0[<span class="kw">is.na</span>(sat.act<span class="op">$</span>SATQ),
 <h3><span class="header-section-number">4.3.2</span> Built-In</h3>
 <p>There are several small data sets included in base R that are useful for quick demos. Since they are part of base R, it is not necessary to load these packages; just type and enter their name in the console to view them.</p>
 <p>Note that the descriptions and summary statistics shown for each dataset were computed using the <code>skim()</code> function from the <code>skimr</code> pacakge.</p>
-<div id="iris" class="section level4">
-<h4><span class="header-section-number">4.3.2.1</span> iris</h4>
+<div id="iris" class="section level4 unnumbered">
+<h4>iris</h4>
 <p>The <code>iris</code> data set gives the lengths and widths of the sepals and petals of 50 irises from each of three different species:</p>
 <pre><code>## Skim summary statistics
 ##  n obs: 150 
 ##  n variables: 5 
 ## 
-## -- Variable type:factor --------------
+## -- Variable type:factor -------------------------------------
 ##  variable missing   n n_unique                       top_counts
 ##   Species       0 150        3 set: 50, ver: 50, vir: 50, NA: 0
 ## 
-## -- Variable type:numeric -------------
+## -- Variable type:numeric ------------------------------------
 ##      variable missing   n mean   sd     hist
 ##  Petal.Length       0 150 3.76 1.77 ▇▁▁▂▅▅▃▁
 ##   Petal.Width       0 150 1.2  0.76 ▇▁▁▅▃▃▂▂
 ##  Sepal.Length       0 150 5.84 0.83 ▂▇▅▇▆▅▂▂
 ##   Sepal.Width       0 150 3.06 0.44 ▁▂▅▇▃▂▁▁</code></pre>
 </div>
-<div id="warpbreaks" class="section level4">
-<h4><span class="header-section-number">4.3.2.2</span> warpbreaks</h4>
+<div id="warpbreaks" class="section level4 unnumbered">
+<h4>warpbreaks</h4>
 <p>The <code>warpbreaks</code> data set gives the number of breaks in each of 54 looms of yarn, varied across two types of wool and three levels of tension:</p>
 <pre><code>## Skim summary statistics
 ##  n obs: 54 
 ##  n variables: 3 
 ## 
-## -- Variable type:factor --------------
+## -- Variable type:factor -------------------------------------
 ##  variable missing  n n_unique                 top_counts
 ##   tension       0 54        3 L: 18, M: 18, H: 18, NA: 0
 ##      wool       0 54        2        A: 27, B: 27, NA: 0
 ## 
-## -- Variable type:numeric -------------
+## -- Variable type:numeric ------------------------------------
 ##  variable missing  n  mean   sd     hist
 ##    breaks       0 54 28.15 13.2 ▆▇▇▂▂▂▁▁</code></pre>
 </div>
-<div id="mtcars" class="section level4">
-<h4><span class="header-section-number">4.3.2.3</span> mtcars</h4>
+<div id="mtcars" class="section level4 unnumbered">
+<h4>mtcars</h4>
 <p>The <code>mtcars</code> data set gives a range of numeric and categorical measurements of 32 cars, including MPG, number of cylinders, horsepower, weight, and transmission type:</p>
 <pre><code>## Skim summary statistics
 ##  n obs: 32 
 ##  n variables: 11 
 ## 
-## -- Variable type:numeric -------------
+## -- Variable type:numeric ------------------------------------
 ##  variable missing  n   mean     sd     hist
 ##        am       0 32   0.41   0.5  ▇▁▁▁▁▁▁▆
 ##      carb       0 32   2.81   1.62 ▆▇▂▇▁▁▁▁
@@ -522,18 +525,18 @@ sat.act_NA0[<span class="kw">is.na</span>(sat.act<span class="op">$</span>SATQ),
 ##        vs       0 32   0.44   0.5  ▇▁▁▁▁▁▁▆
 ##        wt       0 32   3.22   0.98 ▃▃▃▇▆▁▁▂</code></pre>
 </div>
-<div id="toothgrowth" class="section level4">
-<h4><span class="header-section-number">4.3.2.4</span> ToothGrowth</h4>
+<div id="toothgrowth" class="section level4 unnumbered">
+<h4>ToothGrowth</h4>
 <p>The <code>ToothGrowth</code> data set gives the tooth lengths of 60 guinea pigs, varied across three vitamin C dosage levels and two dosage delivery methods:</p>
 <pre><code>## Skim summary statistics
 ##  n obs: 60 
 ##  n variables: 3 
 ## 
-## -- Variable type:factor --------------
+## -- Variable type:factor -------------------------------------
 ##  variable missing  n n_unique            top_counts
 ##      supp       0 60        2 OJ: 30, VC: 30, NA: 0
 ## 
-## -- Variable type:numeric -------------
+## -- Variable type:numeric ------------------------------------
 ##  variable missing  n  mean   sd     hist
 ##      dose       0 60  1.17 0.63 ▇▁▇▁▁▁▁▇
 ##       len       0 60 18.81 7.65 ▃▅▃▅▃▇▂▂</code></pre>
@@ -545,14 +548,14 @@ sat.act_NA0[<span class="kw">is.na</span>(sat.act<span class="op">$</span>SATQ),
 <p>To make the data sets available, install and load the <code>fivethirtyeight</code> package:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&#39;fivethirtyeight&#39;</span>)
 <span class="kw">library</span>(fivethirtyeight)</code></pre>
-<div id="bechdel" class="section level4">
-<h4><span class="header-section-number">4.3.3.1</span> bechdel</h4>
+<div id="bechdel" class="section level4 unnumbered">
+<h4>bechdel</h4>
 <p>The <code>bechdel</code> data set is a great all-purpose data set with both within- and between-subject continuous and categorical variables. Based on the <a href="https://en.wikipedia.org/wiki/Bechdel_test">Bechdel Test</a> for female representation in film, this data set includes 1,794 movies from 1970-2013 along with their test outcome, budget, and gross profits:</p>
 <pre><code>## Skim summary statistics
 ##  n obs: 1794 
 ##  n variables: 15 
 ## 
-## -- Variable type:character -----------
+## -- Variable type:character ----------------------------------
 ##  variable missing    n min max empty n_unique
 ##    binary       0 1794   4   4     0        2
 ##      code       0 1794   8   8     0       85
@@ -560,11 +563,11 @@ sat.act_NA0[<span class="kw">is.na</span>(sat.act<span class="op">$</span>SATQ),
 ##      test       0 1794   2  16     0       10
 ##     title       0 1794   1  83     0     1768
 ## 
-## -- Variable type:factor --------------
+## -- Variable type:factor -------------------------------------
 ##    variable missing    n n_unique                            top_counts
 ##  clean_test       0 1794        5 ok: 803, not: 514, men: 194, dub: 142
 ## 
-## -- Variable type:integer -------------
+## -- Variable type:integer ------------------------------------
 ##     variable missing    n       mean      sd     hist
 ##       budget       0 1794    4.5e+07 4.8e+07 ▇▂▁▁▁▁▁▁
 ##  budget_2013       0 1794    5.5e+07 5.5e+07 ▇▃▁▁▁▁▁▁
@@ -572,25 +575,25 @@ sat.act_NA0[<span class="kw">is.na</span>(sat.act<span class="op">$</span>SATQ),
 ##  period_code     179 1794    2.42    1.19    ▇▇▁▆▁▅▁▂
 ##         year       0 1794 2002.55    8.98    ▁▁▁▁▂▅▅▇
 ## 
-## -- Variable type:numeric -------------
+## -- Variable type:numeric ------------------------------------
 ##       variable missing    n        mean          sd     hist
 ##       domgross      17 1794     6.9e+07 8e+07       ▇▂▁▁▁▁▁▁
 ##  domgross_2013      18 1794     9.5e+07     1.3e+08 ▇▁▁▁▁▁▁▁
 ##       intgross      11 1794     1.5e+08     2.1e+08 ▇▁▁▁▁▁▁▁
 ##  intgross_2013      11 1794 2e+08           2.8e+08 ▇▁▁▁▁▁▁▁</code></pre>
 </div>
-<div id="fandango" class="section level4">
-<h4><span class="header-section-number">4.3.3.2</span> fandango</h4>
+<div id="fandango" class="section level4 unnumbered">
+<h4>fandango</h4>
 <p>The <code>fandango</code> data set shows ratings from 146 movies across the Fandango, IMDB, Rotten Tomatoes, and Metacritic websites. It is particularly useful for demonstrating correlation:</p>
 <pre><code>## Skim summary statistics
 ##  n obs: 146 
 ##  n variables: 23 
 ## 
-## -- Variable type:character -----------
+## -- Variable type:character ----------------------------------
 ##  variable missing   n min max empty n_unique
 ##      film       0 146   3  63     0      146
 ## 
-## -- Variable type:integer -------------
+## -- Variable type:integer ------------------------------------
 ##                    variable missing   n     mean       sd     hist
 ##              fandango_votes       0 146  3848.79  6357.78 ▇▂▁▁▁▁▁▁
 ##        imdb_user_vote_count       0 146 42846.21 67406.51 ▇▂▁▁▁▁▁▁
@@ -599,7 +602,7 @@ sat.act_NA0[<span class="kw">is.na</span>(sat.act<span class="op">$</span>SATQ),
 ##              rottentomatoes       0 146    60.85    30.17 ▃▃▂▃▃▂▅▇
 ##         rottentomatoes_user       0 146    63.88    20.02 ▃▃▃▆▅▅▇▇
 ## 
-## -- Variable type:numeric -------------
+## -- Variable type:numeric ------------------------------------
 ##                    variable missing   n    mean   sd     hist
 ##         fandango_difference       0 146    0.24 0.15 ▃▇▁▆▇▁▇▃
 ##        fandango_ratingvalue       0 146    3.85 0.5  ▂▃▃▇▇▇▇▂
@@ -618,21 +621,21 @@ sat.act_NA0[<span class="kw">is.na</span>(sat.act<span class="op">$</span>SATQ),
 ##          rt_user_norm_round       0 146    3.23 1.01 ▁▃▂▆▅▅▇▇
 ##                        year       0 146 2014.88 0.32 ▁▁▁▁▁▁▁▇</code></pre>
 </div>
-<div id="comma_survey" class="section level4">
-<h4><span class="header-section-number">4.3.3.3</span> comma_survey</h4>
+<div id="comma_survey" class="section level4 unnumbered">
+<h4>comma_survey</h4>
 <p>The <code>comma_survey</code> data set has Likert ratings as well as demographic information collected from 1,129 respondents to a survey on the Oxford comma:</p>
 <pre><code>## Skim summary statistics
 ##  n obs: 1129 
 ##  n variables: 13 
 ## 
-## -- Variable type:character -----------
+## -- Variable type:character ----------------------------------
 ##              variable missing    n min max empty n_unique
 ##                gender      92 1129   4   6     0        2
 ##              location     102 1129   7  18     0        9
 ##  more_grammar_correct       0 1129  57  58     0        2
 ##       write_following      36 1129  76  77     0        2
 ## 
-## -- Variable type:factor --------------
+## -- Variable type:factor -------------------------------------
 ##             variable missing    n n_unique
 ##                  age      92 1129        4
 ##            care_data      38 1129        4
@@ -648,23 +651,23 @@ sat.act_NA0[<span class="kw">is.na</span>(sat.act<span class="op">$</span>SATQ),
 ##   Bac: 344, Som: 295, Gra: 276, NA: 103
 ##   NA: 293, $50: 290, $10: 164, $25: 158
 ## 
-## -- Variable type:logical -------------
+## -- Variable type:logical ------------------------------------
 ##              variable missing    n mean                      count
 ##  data_singular_plural      38 1129  0.5 FAL: 547, TRU: 544, NA: 38
 ##    heard_oxford_comma      30 1129  0.6 TRU: 655, FAL: 444, NA: 30
 ## 
-## -- Variable type:numeric -------------
+## -- Variable type:numeric ------------------------------------
 ##       variable missing    n    mean         sd     hist
 ##  respondent_id       0 1129 3.3e+09 1072966.47 ▇▃▇▇▆▂▁▂</code></pre>
 </div>
-<div id="avengers" class="section level4">
-<h4><span class="header-section-number">4.3.3.4</span> avengers</h4>
+<div id="avengers" class="section level4 unnumbered">
+<h4>avengers</h4>
 <p>The <code>avengers</code> data set includes the death and revival status for 173 Marvel comic book characters. It largely includes count and categorical data:</p>
 <pre><code>## Skim summary statistics
 ##  n obs: 173 
 ##  n variables: 21 
 ## 
-## -- Variable type:character -----------
+## -- Variable type:character ----------------------------------
 ##                     variable missing   n min max empty n_unique
 ##  full_reserve_avengers_intro      14 173   5   6     0       93
 ##                       gender       0 173   4   6     0        2
@@ -674,13 +677,13 @@ sat.act_NA0[<span class="kw">is.na</span>(sat.act<span class="op">$</span>SATQ),
 ##           probationary_intro     158 173   6   6     0       12
 ##                          url       0 173  36  67     0      173
 ## 
-## -- Variable type:integer -------------
+## -- Variable type:integer ------------------------------------
 ##             variable missing   n    mean     sd     hist
 ##          appearances       0 173  414.05 677.99 ▇▁▁▁▁▁▁▁
 ##                 year       0 173 1988.45  30.37 ▂▁▁▁▂▂▃▇
 ##  years_since_joining       0 173   26.55  30.37 ▇▃▂▂▁▁▁▂
 ## 
-## -- Variable type:logical -------------
+## -- Variable type:logical ------------------------------------
 ##  variable missing   n mean                     count
 ##   current       0 173 0.47   FAL: 91, TRU: 82, NA: 0
 ##    death1       0 173 0.4   FAL: 104, TRU: 69, NA: 0
@@ -694,19 +697,19 @@ sat.act_NA0[<span class="kw">is.na</span>(sat.act<span class="op">$</span>SATQ),
 ##   return4     172 173 1              NA: 172, TRU: 1
 ##   return5     172 173 1              NA: 172, TRU: 1</code></pre>
 </div>
-<div id="bob_ross" class="section level4">
-<h4><span class="header-section-number">4.3.3.5</span> bob_ross</h4>
+<div id="bob_ross" class="section level4 unnumbered">
+<h4>bob_ross</h4>
 <p>The <code>bob_ross</code> data set is a great tool for demonstrating count data and tables. For each of 403 episodes, the data set marks the presence or absence of a series of possible elements in Bob’s painting. Useful combinations include tables of trees, lakes, and snowy mountains:</p>
 <pre><code>## Skim summary statistics
 ##  n obs: 403 
 ##  n variables: 71 
 ## 
-## -- Variable type:character -----------
+## -- Variable type:character ----------------------------------
 ##  variable missing   n min max empty n_unique
 ##   episode       0 403   6   6     0      403
 ##     title       0 403   8  27     0      401
 ## 
-## -- Variable type:integer -------------
+## -- Variable type:integer ------------------------------------
 ##            variable missing   n   mean    sd     hist
 ##         apple_frame       0 403 0.0025 0.05  ▇▁▁▁▁▁▁▁
 ##     aurora_borealis       0 403 0.005  0.07  ▇▁▁▁▁▁▁▁
@@ -776,7 +779,7 @@ sat.act_NA0[<span class="kw">is.na</span>(sat.act<span class="op">$</span>SATQ),
 ##              winter       0 403 0.17   0.38  ▇▁▁▁▁▁▁▂
 ##         wood_framed       0 403 0.0025 0.05  ▇▁▁▁▁▁▁▁
 ## 
-## -- Variable type:numeric -------------
+## -- Variable type:numeric ------------------------------------
 ##     variable missing   n mean   sd     hist
 ##  episode_num       0 403    7 3.75 ▇▇▃▇▃▇▃▇
 ##       season       0 403   16 8.96 ▇▇▇▇▆▇▇▇</code></pre>
@@ -788,14 +791,14 @@ sat.act_NA0[<span class="kw">is.na</span>(sat.act<span class="op">$</span>SATQ),
 <p>To make the data sets available, install and load the <code>psych</code> package:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&#39;psych&#39;</span>)
 <span class="kw">library</span>(psych)</code></pre>
-<div id="tal.or" class="section level4">
-<h4><span class="header-section-number">4.3.4.1</span> Tal.Or</h4>
+<div id="tal.or" class="section level4 unnumbered">
+<h4>Tal.Or</h4>
 <p>The <code>Tal.Or</code> data set is from Study 2 of Tol-Or, Cohen, Tasfati, &amp; Gunther (2010), which used an experimental manipulation to test the effects of media on the attitudes of 123 respondents, measured with Likert scales:</p>
 <pre><code>## Skim summary statistics
 ##  n obs: 123 
 ##  n variables: 6 
 ## 
-## -- Variable type:numeric -------------
+## -- Variable type:numeric ------------------------------------
 ##  variable missing   n  mean   sd     hist
 ##       age       0 123 24.63 5.8  ▇▇▁▁▁▁▁▁
 ##      cond       0 123  0.47 0.5  ▇▁▁▁▁▁▁▇
@@ -804,23 +807,23 @@ sat.act_NA0[<span class="kw">is.na</span>(sat.act<span class="op">$</span>SATQ),
 ##       pmi       0 123  5.6  1.32 ▁▁▁▂▂▆▆▇
 ##  reaction       0 123  3.48 1.55 ▇▆▇▆▅▆▃▂</code></pre>
 </div>
-<div id="affect" class="section level4">
-<h4><span class="header-section-number">4.3.4.2</span> affect</h4>
+<div id="affect" class="section level4 unnumbered">
+<h4>affect</h4>
 <p>The <code>affect</code> data set consists of responses from 330 participants to state and trait mood scales given before and after viewing (1) a Frontline documentary about the liberation of a concentration camp, (2) the horror movie Halloween, (3) a National Geographic nature film about the Serengeti, or (4) the comedy movie Parenthood:</p>
 <pre><code>## Skim summary statistics
 ##  n obs: 330 
 ##  n variables: 20 
 ## 
-## -- Variable type:factor --------------
+## -- Variable type:factor -------------------------------------
 ##  variable missing   n n_unique                top_counts
 ##     Study       0 330        2 fla: 170, map: 160, NA: 0
 ## 
-## -- Variable type:integer -------------
+## -- Variable type:integer ------------------------------------
 ##  variable missing   n  mean    sd     hist
 ##      Film       0 330  2.52  1.13 ▇▁▇▁▁▇▁▇
 ##       MEQ     160 330 39.36 10.28 ▂▃▆▇▇▆▂▁
 ## 
-## -- Variable type:numeric -------------
+## -- Variable type:numeric ------------------------------------
 ##  variable missing   n  mean    sd     hist
 ##       BDI     170 330  0.31  0.28 ▇▆▅▁▁▁▁▁
 ##       EA1       0 330  9.19  7.11 ▇▆▃▅▃▂▂▁
@@ -840,14 +843,14 @@ sat.act_NA0[<span class="kw">is.na</span>(sat.act<span class="op">$</span>SATQ),
 ##       TA2       0 330 15.65  4.88 ▁▃▃▇▃▃▁▁
 ##  traitanx       0 330 39.52  9.77 ▃▅▇▅▂▂▁▁</code></pre>
 </div>
-<div id="epi" class="section level4">
-<h4><span class="header-section-number">4.3.4.3</span> epi</h4>
+<div id="epi" class="section level4 unnumbered">
+<h4>epi</h4>
 <p>The <code>epi</code> data set includes responses to the Eysenck Personality Inventory from 3570 subjects:</p>
 <pre><code>## Skim summary statistics
 ##  n obs: 3570 
 ##  n variables: 57 
 ## 
-## -- Variable type:integer -------------
+## -- Variable type:integer ------------------------------------
 ##  variable missing    n mean   sd     hist
 ##        V1     296 3570 1.28 0.45 ▇▁▁▁▁▁▁▃
 ##       V10      64 3570 1.86 0.35 ▁▁▁▁▁▁▁▇
@@ -907,19 +910,20 @@ sat.act_NA0[<span class="kw">is.na</span>(sat.act<span class="op">$</span>SATQ),
 ##        V8      70 3570 1.65 0.48 ▅▁▁▁▁▁▁▇
 ##        V9      71 3570 1.46 0.5  ▇▁▁▁▁▁▁▇</code></pre>
 </div>
-<div id="sat.act" class="section level4">
-<h4><span class="header-section-number">4.3.4.4</span> sat.act</h4>
+<div id="sat.act" class="section level4 unnumbered">
+<h4>sat.act</h4>
 <p>The <code>sat.act</code> data set includes self-reported SAT and ACT scores along with demographic information from 700 respondents, making it useful for within- or between-subject comparisons:</p>
 <pre><code>## Skim summary statistics
 ##  n obs: 700 
-##  n variables: 6 
+##  n variables: 7 
 ## 
-## -- Variable type:integer -------------
+## -- Variable type:integer ------------------------------------
 ##   variable missing   n   mean     sd     hist
 ##        ACT       0 700  28.55   4.82 ▁▁▁▁▃▅▇▇
 ##        age       0 700  25.59   9.5  ▇▇▂▂▁▁▁▁
 ##  education       0 700   3.16   1.43 ▂▁▁▁▇▁▅▅
 ##     gender       0 700   1.65   0.48 ▅▁▁▁▁▁▁▇
+##   SAT_diff      13 700   2.12  96.57 ▁▁▁▅▇▂▁▁
 ##       SATQ      13 700 610.22 115.64 ▁▁▁▅▃▇▇▅
 ##       SATV       0 700 612.23 112.9  ▁▁▁▃▃▇▅▃</code></pre>
 </div>
@@ -930,14 +934,14 @@ sat.act_NA0[<span class="kw">is.na</span>(sat.act<span class="op">$</span>SATQ),
 <p>To demonstrate how to simulate a numeric variable, the following code simulates income for 1,000 families from a population in which income is normally distributed around $50,000 with a standard deviation of $5,000:</p>
 <pre class="sourceCode r"><code class="sourceCode r">sim_income &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n=</span><span class="dv">1000</span>, <span class="dt">mean=</span><span class="dv">50000</span>, <span class="dt">sd=</span><span class="dv">5000</span>)
 <span class="kw">hist</span>(sim_income)</code></pre>
-<p><img src="advice_files/figure-html/numeric%20sample%20demo-1.png" width="672" /></p>
+<p><img src="PBS-R-Manual_files/figure-html/numeric%20sample%20demo-1.png" width="672" /></p>
 <p>To demonstrate how to simulate a categorical variable, the following code simulates grades for 50 students in a pass/fail course in which there is a 50% chance of passing in the population:</p>
 <pre class="sourceCode r"><code class="sourceCode r">sim_grades &lt;-<span class="st"> </span><span class="kw">rbinom</span>(<span class="dt">n=</span><span class="dv">50</span>, <span class="dt">size=</span><span class="dv">1</span>, <span class="dt">prob=</span>.<span class="dv">5</span>)
 sim_grades &lt;-<span class="st"> </span><span class="kw">factor</span>(sim_grades, <span class="dt">levels=</span><span class="dv">0</span><span class="op">:</span><span class="dv">1</span>, <span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&#39;FAIL&#39;</span>, <span class="st">&#39;PASS&#39;</span>))
 <span class="kw">barplot</span>(<span class="kw">table</span>(sim_grades))</code></pre>
-<p><img src="advice_files/figure-html/categorical%20sample%20demo-1.png" width="672" /></p>
+<p><img src="PBS-R-Manual_files/figure-html/categorical%20sample%20demo-1.png" width="672" /></p>
 <p>Other potentially useful “population” distributions include <code>rbeta()</code>, <code>rbinom()</code>, <code>rchisq()</code>, <code>rexp()</code>, <code>rf()</code>, <code>rgamma()</code>, <code>rlogis()</code>, <code>rlnorm()</code>, <code>rpois()</code>, <code>rt()</code>, and <code>runif()</code>. A full list can be found <a href="https://en.wikibooks.org/wiki/R_Programming/Probability_Distributions">here</a>. See the help documentation for each to see which parameter values can be specified.</p>
-<div id="reproducibility-4" class="section level4 unnumbered">
+<div id="reproducibility" class="section level4 unnumbered">
 <h4>Reproducibility</h4>
 <p>The R session information when compiling this book is shown below:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sessionInfo</span>()</code></pre>
@@ -958,18 +962,18 @@ sim_grades &lt;-<span class="st"> </span><span class="kw">factor</span>(sim_grad
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-## [1] skimr_1.0.6           psych_1.8.12          fivethirtyeight_0.4.0
+## [1] skimr_1.0.6           fivethirtyeight_0.4.0 psych_1.8.12         
 ## 
 ## loaded via a namespace (and not attached):
 ##  [1] Rcpp_1.0.1       knitr_1.22       magrittr_1.5     tidyselect_0.2.5
 ##  [5] mnormt_1.5-5     lattice_0.20-35  R6_2.4.0         rlang_0.3.4     
-##  [9] stringr_1.3.1    dplyr_0.8.1      tools_3.5.1      parallel_3.5.1  
-## [13] grid_3.5.1       packrat_0.4.9-3  nlme_3.1-137     xfun_0.6        
-## [17] cli_1.1.0        htmltools_0.3.6  digest_0.6.19    assertthat_0.2.1
-## [21] tibble_2.1.1     crayon_1.3.4     bookdown_0.11    tidyr_0.8.3     
-## [25] purrr_0.3.2      glue_1.3.1       evaluate_0.14    rmarkdown_1.13  
-## [29] stringi_1.4.3    pillar_1.4.1     compiler_3.5.1   foreign_0.8-70  
-## [33] pkgconfig_2.0.2</code></pre>
+##  [9] highr_0.7        stringr_1.3.1    dplyr_0.8.1      tools_3.5.1     
+## [13] parallel_3.5.1   grid_3.5.1       packrat_0.4.9-3  nlme_3.1-137    
+## [17] xfun_0.6         cli_1.1.0        htmltools_0.3.6  yaml_2.2.0      
+## [21] digest_0.6.19    assertthat_0.2.1 tibble_2.1.1     crayon_1.3.4    
+## [25] bookdown_0.11    tidyr_0.8.3      purrr_0.3.2      codetools_0.2-15
+## [29] glue_1.3.1       evaluate_0.14    rmarkdown_1.13   stringi_1.4.3   
+## [33] pillar_1.4.1     compiler_3.5.1   foreign_0.8-70   pkgconfig_2.0.2</code></pre>
 
 </div>
 </div>
