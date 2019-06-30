@@ -19,6 +19,7 @@ output:
         all: no
   bookdown::pdf_book:
     latex_engine: xelatex
+urlcolor: blue
 font-family: "DejaVu Sans"
 mainfont: "DejaVu Sans"
 documentclass: book
