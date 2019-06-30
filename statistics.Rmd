@@ -665,7 +665,7 @@ Note that while calculating confidence intervals by hand is a useful instruction
 The `t.test()` function can be used to execute one-sample, paired, or two-sample t-tests. Each case is demonstrated below, but first note three general arguments that can be used to augment the test:
 
 Argument | Values
-:-------|:--------------------------------------------------------------------
+:---------|:------------------------------------------
 `alternative` | Set to `two.sided` for a two-sided test, `less` for the lower tail, and `greater` for the upper tail; the default is `two.sided`.
 `var.equal` | Set to `TRUE` to assume equal variance and `FALSE` otherwise; the default is `FALSE`.
 `conf.level` | Provide a number between 0 and 1 to specify the range for the confidence interval; the default is .95.
@@ -807,7 +807,7 @@ The p-value is essentially zero, so we can reject the null hypothesis that the c
 This test was run with default parameter values for the alternative hypothesis and confidence level, which can be modified as follows:
 
 Argument | Values
-:-------|:--------------------------------------------------------------------
+:---------|:------------------------------------------
 `alternative` | Set to `two.sided` for a two-sided test, `less` for the lower tail, and `greater` for the upper tail; the default is `two.sided`.
 `conf.level` | Provide a number between 0 and 1 to specify the range for the confidence interval; the default is .95.
 
@@ -848,7 +848,7 @@ The first method is likely simpler if you are sticking to examples or assignment
 This test was run with default parameter values for the alternative hypothesis and confidence level, which can be modified as follows:
 
 Argument | Values
-:-------|:--------------------------------------------------------------------
+:---------|:------------------------------------------
 `alternative` | Set to `two.sided` for a two-sided test, `less` for the lower tail, and `greater` for the upper tail; the default is `two.sided`.
 `conf.level` | Provide a number between 0 and 1 to specify the range for the confidence interval; the default is .95.
 

@@ -22,7 +22,6 @@ output:
 urlcolor: blue
 font-family: "DejaVu Sans"
 mainfont: "DejaVu Sans"
-documentclass: book
 css: ["css/custom.css"]
 github-repo: wjhopper/PBS-R-Manual
 description: "A guide for instructors teaching statistics and research methods with R in the UMass Amherst Psychological & Brain Sciences Department."
