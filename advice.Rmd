@@ -95,7 +95,7 @@ R cannot interpret part of the command, likely because the user has forgotten a 
 
 This section includes an overview of some selected data sets that may be useful for in-class demonstrations or assignments. The first section includes data sets that are "built-in" as part of the base R `datasets` package, whereas the remaining sections review data sets from other selected packages that need to be installed. Of course, this list is non-exhaustive. The packages used here have more data sets than those we have chosen to highlight, and there are many more interesting data sets in other packages we have not highlighted. So, feel free to explore more options.
 
-To see all of the data sets available from all *loaded* packages, including those are built-in with base R o, enter the following command:
+To see all of the data sets available from all *loaded* packages, including those are built-in with base R, enter the following command:
 
 ```{r data list, eval=FALSE}
 data()
